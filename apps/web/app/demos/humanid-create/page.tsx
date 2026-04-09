@@ -11,6 +11,8 @@ import DemoOrDivider from "../../components/demos/DemoOrDivider";
 import DemoUploadImageButton from "../../components/demos/DemoUploadImageButton";
 import FaceGuidedCamera from "../../components/demos/FaceGuidedCameraLoader";
 import DemoSignInPrompt from "../DemoSignInPrompt";
+import HumanIdJsonKeyValueField, { type HumanIdJsonKeyValueFieldHandle } from "../../components/demos/HumanIdJsonKeyValueField";
+import HumanIdStructuredResult from "../../components/demos/HumanIdStructuredResult";
 
 type Step = "form" | "processing" | "result";
 
@@ -27,12 +29,19 @@ export default function HumanIdCreatePage() {
 	const [tolerance, setTolerance] = useState<"REGULAR" | "SOFT" | "HARDENED">("REGULAR");
 	const [facePreview, setFacePreview] = useState<string | null>(null);
 	const [faceB64, setFaceB64] = useState<string | null>(null);
-	const [publicDataRaw, setPublicDataRaw] = useState('{"name":"Jane Doe","documentNumber":"12345678"}');
-	const [metadataRaw, setMetadataRaw] = useState('{"createdBy":"demo"}');
+	const [publicData, setPublicData] = useState<Record<string, string>>({
+		name: "Jane Doe",
+		documentNumber: "12345678",
+	});
+	const [metadata, setMetadata] = useState<Record<string, string>>({
+		createdBy: "demo",
+	});
 	const [password, setPassword] = useState("");
 	const [result, setResult] = useState<Record<string, unknown> | null>(null);
 	const [error, setError] = useState<string | null>(null);
 	const fileRef = useRef<HTMLInputElement>(null);
+	const publicDataFieldRef = useRef<HumanIdJsonKeyValueFieldHandle>(null);
+	const metadataFieldRef = useRef<HumanIdJsonKeyValueFieldHandle>(null);
 
 	const canUseDemo = hasHydrated && isAuthenticated;
 
@@ -47,24 +56,37 @@ export default function HumanIdCreatePage() {
 		e.preventDefault();
 		const token = useAuthStore.getState().token;
 		if (!token || !faceB64) return;
-		let publicData: Record<string, string>;
-		let metadata: Record<string, string>;
-		try {
-			publicData = JSON.parse(publicDataRaw);
-			metadata = JSON.parse(metadataRaw);
-		} catch {
-			setError("Public data and metadata must be valid JSON objects with string values.");
+		setError(null);
+		const pub = publicDataFieldRef.current?.commitJsonIfNeeded();
+		if (pub == null) {
+			setError("Public data: fix the JSON (invalid or incomplete), then try again.");
+			return;
+		}
+		const meta = metadataFieldRef.current?.commitJsonIfNeeded();
+		if (meta == null) {
+			setError("Metadata: fix the JSON (invalid or incomplete), then try again.");
+			return;
+		}
+		if (Object.keys(pub).length === 0 || Object.keys(meta).length === 0) {
+			setError("Public data and metadata need at least one key with a non-empty key name.");
 			return;
 		}
 		setStep("processing");
-		setError(null);
-		const res = await createHumanId({ publicData, faceBase64: faceB64, livenessLevel, metadata, os: "DESKTOP", identifier, requireLiveness, tolerance, password: password || undefined }, token);
+		const res = await createHumanId({ publicData: pub, faceBase64: faceB64, livenessLevel, metadata: meta, os: "DESKTOP", identifier, requireLiveness, tolerance, password: password || undefined }, token);
 		if (res.error) { setError(res.error); setStep("form"); return; }
 		setResult(res.data as Record<string, unknown>);
 		setStep("result");
 	};
 
-	const reset = () => { setStep("form"); setFaceB64(null); setFacePreview(null); setResult(null); setError(null); };
+	const reset = () => {
+		setStep("form");
+		setFaceB64(null);
+		setFacePreview(null);
+		setResult(null);
+		setError(null);
+		setPublicData({ name: "Jane Doe", documentNumber: "12345678" });
+		setMetadata({ createdBy: "demo" });
+	};
 
 	return (
 		<div className="min-h-screen bg-surface flex flex-col">
@@ -72,14 +94,14 @@ export default function HumanIdCreatePage() {
 				<button onClick={() => router.back()} className="hover:bg-surface-container transition-colors p-1.5 rounded-lg text-primary mr-3" aria-label="Back"><span className="material-symbols-outlined">arrow_back</span></button>
 				<h1 className="font-bold tracking-tight text-lg text-primary">Create HumanID</h1>
 			</header>
-			<main className="flex-1 mt-20 mb-10 px-4 md:px-8 max-w-2xl mx-auto w-full">
+			<main className={`flex-1 mt-20 mb-10 px-4 md:px-8 mx-auto w-full ${step === "result" ? "max-w-3xl" : "max-w-2xl"}`}>
 				<details className="mb-8 mt-6 rounded-xl border border-outline-variant/20 bg-surface-container-low/50 text-left px-4 py-3 group">
 					<summary className="cursor-pointer list-none font-bold text-sm text-primary flex items-center justify-between gap-2">
 						<span className="flex items-center gap-2"><span className="material-symbols-outlined text-lg">menu_book</span>API reference: Create HumanID</span>
 						<span className="material-symbols-outlined text-outline-variant group-open:rotate-180 transition-transform">expand_more</span>
 					</summary>
 					<div className="mt-4 space-y-3 text-sm text-on-surface-variant border-t border-outline-variant/15 pt-4">
-						<p className="font-mono text-xs text-on-surface">POST /v2/zelf-proof/encrypt</p>
+						<p className="font-mono text-xs text-on-surface">POST /v2/human-id/encrypt</p>
 						<p className="text-xs">Bind public identity data and a face biometric into an encrypted ZelfProof stored on IPFS. Only the matching live face can decrypt it.</p>
 						<div className="overflow-x-auto">
 							<table className="w-full text-xs border-collapse">
@@ -127,14 +149,22 @@ export default function HumanIdCreatePage() {
 							<input id="hid-req-live" type="checkbox" checked={requireLiveness} onChange={(e) => setRequireLiveness(e.target.checked)} className="w-4 h-4 accent-primary" />
 							<label htmlFor="hid-req-live" className="text-sm text-on-surface">Require liveness on decrypt</label>
 						</div>
-						<div>
-							<label className="block text-sm font-semibold text-on-surface mb-1.5">Public data (JSON) <span className="text-error">*</span></label>
-							<textarea value={publicDataRaw} onChange={(e) => setPublicDataRaw(e.target.value)} rows={3} className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface text-xs font-mono focus:outline-none focus:border-primary/60 transition-colors resize-none" />
-						</div>
-						<div>
-							<label className="block text-sm font-semibold text-on-surface mb-1.5">Metadata (JSON) <span className="text-error">*</span></label>
-							<textarea value={metadataRaw} onChange={(e) => setMetadataRaw(e.target.value)} rows={2} className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface text-xs font-mono focus:outline-none focus:border-primary/60 transition-colors resize-none" />
-						</div>
+						<HumanIdJsonKeyValueField
+							ref={publicDataFieldRef}
+							label="Public data"
+							required
+							hint="Shown with the proof; all values are sent as strings."
+							value={publicData}
+							onChange={setPublicData}
+						/>
+						<HumanIdJsonKeyValueField
+							ref={metadataFieldRef}
+							label="Metadata"
+							required
+							hint="Internal metadata; same string-value rules as public data."
+							value={metadata}
+							onChange={setMetadata}
+						/>
 						<div>
 							<label className="block text-sm font-semibold text-on-surface mb-1.5">Face image <span className="text-error">*</span></label>
 							{!faceB64 ? (
@@ -199,16 +229,12 @@ export default function HumanIdCreatePage() {
 						<p className="text-on-surface font-semibold">Encrypting identity…</p>
 					</div>
 				) : (
-					<div className="space-y-4">
-						<div className="rounded-2xl bg-surface-container-low border border-primary/20 p-6">
-							<div className="flex items-center gap-3 mb-4"><span className="material-symbols-outlined text-primary text-2xl">check_circle</span><p className="font-bold text-on-surface">HumanID created</p></div>
-							<pre className="text-[0.65rem] font-mono bg-surface-container-high/80 rounded-lg p-3 overflow-x-auto text-on-surface whitespace-pre-wrap">{JSON.stringify(result, null, 2)}</pre>
-						</div>
-						<div className="flex gap-3">
-							<button onClick={reset} className="flex-1 py-3 bg-surface-container text-on-surface font-semibold rounded-lg ghost-border hover:bg-surface-container-high transition-all active:scale-95">Create Another</button>
-							<button onClick={() => router.push("/home")} className="flex-1 py-3 bg-primary-cta text-on-primary-container font-semibold rounded-lg shadow-primary hover:opacity-90 active:scale-95 transition-all">Back to Demos</button>
-						</div>
-					</div>
+					<HumanIdStructuredResult
+						result={result}
+						successTitle="HumanID created"
+						onCreateAnother={reset}
+						onBackToDemos={() => router.push("/home")}
+					/>
 				)}
 			</main>
 		</div>

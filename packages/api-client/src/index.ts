@@ -785,33 +785,47 @@ export interface PreviewHumanIdPayload {
 	verifierKey?: string;
 }
 
-/** POST /v2/zelf-proof/encrypt — create a HumanID ZelfProof stored on IPFS. */
+export interface PreviewZelfIdQrPayload {
+	/** Base64 image (optionally with data URL prefix) or HTTPS URL to a PNG/JPEG containing the HumanID QR */
+	zelfProofQRCode: string;
+	verifierKey?: string;
+}
+
+/** POST /v2/human-id/encrypt — create a HumanID proof stored on IPFS. */
 export async function createHumanId(payload: CreateHumanIdPayload, accessToken: string): Promise<ApiResponse> {
-	return bearerRequest(`${BIOMETRICS_BASE}/zelf-proof/encrypt`, accessToken, {
+	return bearerRequest(`${BIOMETRICS_BASE}/human-id/encrypt`, accessToken, {
 		method: "POST",
 		body: JSON.stringify(payload),
 	});
 }
 
-/** POST /v2/zelf-proof/encrypt-qr-code — create a HumanID as a QR-code PNG. */
+/** POST /v2/human-id/encrypt-qr-code — create a HumanID as a QR-code PNG. */
 export async function createHumanIdQr(payload: CreateHumanIdPayload, accessToken: string): Promise<ApiResponse> {
-	return bearerRequest(`${BIOMETRICS_BASE}/zelf-proof/encrypt-qr-code`, accessToken, {
+	return bearerRequest(`${BIOMETRICS_BASE}/human-id/encrypt-qr-code`, accessToken, {
 		method: "POST",
 		body: JSON.stringify(payload),
 	});
 }
 
-/** POST /v2/zelf-proof/decrypt — recover identity data from a ZelfProof with a live face. */
+/** POST /v2/human-id/decrypt — recover identity data from a HumanID proof with a live face. */
 export async function decryptHumanId(payload: DecryptHumanIdPayload, accessToken: string): Promise<ApiResponse> {
-	return bearerRequest(`${BIOMETRICS_BASE}/zelf-proof/decrypt`, accessToken, {
+	return bearerRequest(`${BIOMETRICS_BASE}/human-id/decrypt`, accessToken, {
 		method: "POST",
 		body: JSON.stringify(payload),
 	});
 }
 
-/** POST /v2/zelf-proof/preview — inspect public metadata inside a ZelfProof, no face required. */
+/** POST /v2/human-id/preview — inspect public metadata inside a proof, no face required. */
 export async function previewHumanId(payload: PreviewHumanIdPayload, accessToken: string): Promise<ApiResponse> {
-	return bearerRequest(`${BIOMETRICS_BASE}/zelf-proof/preview`, accessToken, {
+	return bearerRequest(`${BIOMETRICS_BASE}/human-id/preview`, accessToken, {
+		method: "POST",
+		body: JSON.stringify(payload),
+	});
+}
+
+/** POST /v2/human-id/preview-zelf-id-qr — decode HumanID from a QR image, then preview (response includes `zelfProof`). */
+export async function previewZelfIdQr(payload: PreviewZelfIdQrPayload, accessToken: string): Promise<ApiResponse> {
+	return bearerRequest(`${BIOMETRICS_BASE}/human-id/preview-zelf-id-qr`, accessToken, {
 		method: "POST",
 		body: JSON.stringify(payload),
 	});
