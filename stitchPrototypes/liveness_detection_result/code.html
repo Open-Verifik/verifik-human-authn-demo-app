@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111125;
+            color: #e2e0fb;
+        }
+        .auth-pulse {
+            position: relative;
+        }
+        .auth-pulse::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140%;
+            height: 140%;
+            background: radial-gradient(circle, rgba(195, 192, 255, 0.15) 0%, rgba(17, 17, 37, 0) 70%);
+            z-index: -1;
+        }
+        .glass-card {
+            background: rgba(25, 26, 45, 0.6);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#e1e1ee",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#0c0c1f",
+                        "on-secondary-container": "#b7b8c4",
+                        "inverse-primary": "#4c42e9",
+                        "on-primary-container": "#fefaff",
+                        "on-secondary": "#2e3039",
+                        "surface-bright": "#37374c",
+                        "inverse-on-surface": "#2e2f43",
+                        "surface-dim": "#111125",
+                        "surface-container-low": "#191a2d",
+                        "outline-variant": "#464555",
+                        "on-background": "#e2e0fb",
+                        "surface-variant": "#333348",
+                        "on-surface": "#e2e0fb",
+                        "on-error": "#690005",
+                        "primary-container": "#635bff",
+                        "tertiary-fixed": "#e4e1ea",
+                        "on-primary-fixed": "#0f0069",
+                        "primary": "#c3c0ff",
+                        "secondary-fixed-dim": "#c5c6d2",
+                        "secondary-container": "#474953",
+                        "on-primary-fixed-variant": "#321ed2",
+                        "tertiary-container": "#74737b",
+                        "surface-container-high": "#28283c",
+                        "outline": "#918fa1",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#1b1b21",
+                        "on-tertiary-container": "#fefaff",
+                        "background": "#111125",
+                        "on-primary": "#1d00a5",
+                        "primary-fixed": "#e2dfff",
+                        "on-secondary-fixed": "#191b24",
+                        "tertiary": "#c8c5ce",
+                        "on-secondary-fixed-variant": "#444650",
+                        "on-tertiary-fixed-variant": "#47464d",
+                        "on-surface-variant": "#c7c4d8",
+                        "on-tertiary": "#303036",
+                        "surface-container": "#1d1e32",
+                        "surface": "#111125",
+                        "inverse-surface": "#e2e0fb",
+                        "secondary": "#c5c6d2",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#c3c0ff",
+                        "surface-container-highest": "#333348",
+                        "tertiary-fixed-dim": "#c8c5ce",
+                        "primary-fixed-dim": "#c3c0ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-6 py-4 w-full bg-[#111125] sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#c3c0ff] cursor-pointer">arrow_back</span>
+<h1 class="font-['Inter'] tracking-tighter text-xl font-bold text-slate-50">Liveness Result</h1>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">more_vert</span>
+</div>
+</header>
+<main class="max-w-xl mx-auto px-6 pt-4 space-y-8">
+<!-- 1. Progress Indicator -->
+<nav class="flex items-center justify-between w-full px-2 py-4">
+<div class="flex flex-col items-center gap-2 group">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="text-[10px] tracking-widest uppercase font-semibold text-primary">Source</span>
+</div>
+<div class="h-[1px] flex-1 bg-primary-container mx-4 opacity-30"></div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="text-[10px] tracking-widest uppercase font-semibold text-primary">Liveness Test</span>
+</div>
+<div class="h-[1px] flex-1 bg-primary-container mx-4 opacity-30"></div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full border-2 border-primary-container flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+</div>
+<span class="text-[10px] tracking-widest uppercase font-semibold text-primary">Analyze</span>
+</div>
+</nav>
+<!-- 2. Visual Evidence & Result -->
+<section class="space-y-6">
+<div class="relative aspect-square w-full max-w-[320px] mx-auto rounded-xl overflow-hidden shadow-2xl border border-outline-variant/10">
+<img class="w-full h-full object-cover" data-alt="ultra-high definition biometric face scan of a person with glowing digital mesh overlay and technical data points in a dark setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHDmpLry7JsQ0JDgWBeACZJi3SeENpkgE-s7uF6JGnO4JSanxQvHZ55npEAt5KvSrm5PIceKExKuEkbSJVY54kUWIOgKracfIuaVYdL3RUOPUU15iS9Q1GmtsY53qVxCQAGsJmwUbIP3GWJPTfYD6DZXaXJXDldnKTJrKzjKmSPkZ2OWWGkD2Tw7v9fbdXLdx5VNAD-DoJxai4Lh3tbjR1Q-RGNJpWVhK89V_cptzR7oqTg1l2cjRyMM5xYa-clPVGfQE5Z5SSaHU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#111125] via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+<div class="space-y-1">
+<p class="text-[10px] text-primary/70 uppercase tracking-widest font-bold">Session Frame 402</p>
+<p class="text-xs font-mono text-white/90">AUTH_SEQ_829_B</p>
+</div>
+<div class="w-12 h-12 bg-[#635BFF]/80 backdrop-blur-md rounded flex items-center justify-center border border-white/20">
+<span class="material-symbols-outlined text-white">biotech</span>
+</div>
+</div>
+</div>
+<!-- 3 & 4. Score & Status Badge -->
+<div class="text-center space-y-4">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-container/20 border border-primary-container/30">
+<span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="text-[11px] font-bold tracking-widest uppercase text-primary">AUTHENTIC HUMAN VERIFIED</span>
+</div>
+<div class="space-y-1">
+<p class="text-xs text-on-surface-variant font-medium uppercase tracking-tighter">Liveness Confidence Score</p>
+<div class="flex items-baseline justify-center gap-1">
+<span class="text-6xl font-extrabold tracking-tighter text-white">0.99</span>
+<span class="text-xl font-bold text-primary/50">%</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Technical Metrics Grid -->
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/5 hover:border-primary/20 transition-colors">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Liveness Type</p>
+<p class="text-lg font-bold text-white tracking-tight">3D Passive</p>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/5 hover:border-primary/20 transition-colors">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Latency</p>
+<p class="text-lg font-bold text-white tracking-tight">124ms</p>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/5 hover:border-primary/20 transition-colors">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Spoof Prob.</p>
+<p class="text-lg font-bold text-white tracking-tight">0.001%</p>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/5 hover:border-primary/20 transition-colors">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Confidence</p>
+<p class="text-lg font-bold text-primary tracking-tight">High</p>
+</div>
+</div>
+<!-- 6. Action Buttons -->
+<div class="space-y-4 pt-4">
+<button class="w-full h-14 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold rounded-lg shadow-lg active:scale-[0.98] transition-all">
+          Authorize &amp; Continue
+        </button>
+<button class="w-full h-14 bg-secondary-container/30 text-on-secondary-container font-semibold rounded-lg hover:bg-secondary-container/50 transition-colors">
+          Retry Test
+        </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#111125]/80 backdrop-blur-xl shadow-[0_-4px_20px_rgba(12,12,31,0.5)] rounded-t-lg">
+<div class="flex flex-col items-center justify-center text-slate-500 opacity-60 hover:text-white transition-opacity active:scale-90 duration-300">
+<span class="material-symbols-outlined">shield</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-widest uppercase mt-1">Vault</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#635BFF] text-white rounded-md px-3 py-1.5 active:scale-90 duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">history</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-widest uppercase mt-1">History</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 opacity-60 hover:text-white transition-opacity active:scale-90 duration-300">
+<span class="material-symbols-outlined">lock</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-widest uppercase mt-1">Security</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 opacity-60 hover:text-white transition-opacity active:scale-90 duration-300">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-widest uppercase mt-1">Profile</span>
+</div>
+</nav>
+</body></html>

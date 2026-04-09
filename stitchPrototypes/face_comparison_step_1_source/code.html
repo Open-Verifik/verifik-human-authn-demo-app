@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#111125",
+                    "surface-container-highest": "#333348",
+                    "surface-bright": "#37374c",
+                    "outline": "#918fa1",
+                    "on-tertiary-fixed-variant": "#47464d",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "on-tertiary-fixed": "#1b1b21",
+                    "tertiary-container": "#74737b",
+                    "inverse-on-surface": "#2e2f43",
+                    "secondary-container": "#474953",
+                    "on-surface-variant": "#c7c4d8",
+                    "surface-variant": "#333348",
+                    "secondary": "#c5c6d2",
+                    "on-primary-fixed": "#0f0069",
+                    "secondary-fixed": "#e1e1ee",
+                    "primary-fixed": "#e2dfff",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-low": "#191a2d",
+                    "on-secondary-container": "#b7b8c4",
+                    "surface-container-high": "#28283c",
+                    "background": "#111125",
+                    "on-primary-fixed-variant": "#321ed2",
+                    "on-surface": "#e2e0fb",
+                    "error": "#ffb4ab",
+                    "on-error": "#690005",
+                    "on-primary": "#1d00a5",
+                    "surface-dim": "#111125",
+                    "tertiary": "#c8c5ce",
+                    "error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#444650",
+                    "secondary-fixed-dim": "#c5c6d2",
+                    "inverse-surface": "#e2e0fb",
+                    "primary": "#c3c0ff",
+                    "tertiary-fixed-dim": "#c8c5ce",
+                    "surface-tint": "#c3c0ff",
+                    "surface-container-lowest": "#0c0c1f",
+                    "primary-container": "#635bff",
+                    "outline-variant": "#464555",
+                    "on-tertiary-container": "#fefaff",
+                    "on-secondary-fixed": "#191b24",
+                    "on-primary-container": "#fefaff",
+                    "surface-container": "#1d1e32",
+                    "inverse-primary": "#4c42e9",
+                    "on-secondary": "#2e3039",
+                    "on-tertiary": "#303036",
+                    "tertiary-fixed": "#e4e1ea",
+                    "on-background": "#e2e0fb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .glass-panel {
+            background: rgba(29, 30, 50, 0.6);
+            backdrop-filter: blur(16px);
+        }
+        .auth-pulse {
+            background: radial-gradient(circle, rgba(195, 192, 255, 0.15) 0%, rgba(17, 17, 37, 0) 70%);
+        }
+        .scanner-corner {
+            width: 40px;
+            height: 40px;
+            border-color: #635bff;
+            border-width: 2px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface selection:bg-primary/30">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 left-0 w-full z-50 bg-[#111125] text-[#c3c0ff] flex justify-between items-center px-6 h-16 transition-colors duration-300">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined hover:bg-[#37374c] p-2 rounded-full cursor-pointer transition-all active:scale-95 duration-200" data-icon="arrow_back">arrow_back</span>
+<h1 class="text-lg font-bold tracking-tight font-['Inter']">Face Comparison</h1>
+</div>
+<div class="text-[#c3c0ff] font-bold text-sm tracking-widest uppercase opacity-80">
+            Step 1 of 2
+        </div>
+</header>
+<main class="min-h-screen pt-24 pb-32 px-6 flex flex-col items-center max-w-4xl mx-auto">
+<!-- Progress Stepper -->
+<div class="w-full flex items-center justify-center mb-12 space-x-4">
+<div class="flex flex-col items-center">
+<div class="flex items-center">
+<div class="h-10 w-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold ring-4 ring-primary-container/20">
+                        1
+                    </div>
+<div class="w-16 h-[2px] bg-outline-variant mx-2"></div>
+</div>
+<span class="text-[0.6875rem] font-bold uppercase tracking-wider mt-2 text-primary">Source</span>
+</div>
+<div class="flex flex-col items-center opacity-40">
+<div class="flex items-center">
+<div class="h-10 w-10 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center font-bold">
+                        2
+                    </div>
+<div class="w-16 h-[2px] bg-outline-variant mx-2"></div>
+</div>
+<span class="text-[0.6875rem] font-bold uppercase tracking-wider mt-2">Target</span>
+</div>
+<div class="flex flex-col items-center opacity-40">
+<div class="h-10 w-10 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center font-bold">
+                    3
+                </div>
+<span class="text-[0.6875rem] font-bold uppercase tracking-wider mt-2">Analyze</span>
+</div>
+</div>
+<!-- Hero Typography Section -->
+<div class="text-center mb-10">
+<h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-3 text-on-surface">Source Identification</h2>
+<p class="text-on-surface-variant max-w-md mx-auto text-sm leading-relaxed">The primary biometric signature used for verification.</p>
+</div>
+<!-- Main Viewfinder / Scanning Area -->
+<div class="relative w-full aspect-square md:aspect-[4/3] max-w-2xl bg-surface-container-low rounded-lg overflow-hidden group">
+<!-- Background Image for Viewfinder -->
+<div class="absolute inset-0 z-0 opacity-40">
+<img alt="" class="w-full h-full object-cover grayscale" data-alt="high-tech abstract digital mesh of a human face with circuit lines and cyan glowing points on a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-sS4__WEiuI1vfehX3m_QzHrwcK27q6xo7FM3-byes9rqVKXXW25ORW7xgxxNHb5J7hP4NbSwBoECGcMywooN3Jt5JmkwKRL7tL3mdDT8YLMeWLjYzqp_hkFv5QIthAyQRKsopMN-giOjuOk4ERwqRrW8Iu8xniPhySmF8ho84LYwpxfMkJklgHsDgAHSIGJPnRsRp4kAyQFn5jQ8DDZ3wKzig9KnAMRmRNPs9zYGQb168MThnQwCKMNB3i2qF4CPjZMlPoFpzUk"/>
+</div>
+<!-- Scanning Overlay -->
+<div class="absolute inset-0 z-10 flex flex-col items-center justify-center p-8 text-center">
+<div class="auth-pulse absolute inset-0 pointer-events-none"></div>
+<!-- Corner Guides -->
+<div class="absolute top-8 left-8 scanner-corner border-t border-l rounded-tl-lg"></div>
+<div class="absolute top-8 right-8 scanner-corner border-t border-r rounded-tr-lg"></div>
+<div class="absolute bottom-8 left-8 scanner-corner border-b border-l rounded-bl-lg"></div>
+<div class="absolute bottom-8 right-8 scanner-corner border-b border-r rounded-br-lg"></div>
+<!-- Central Prompt -->
+<div class="relative z-20 space-y-6">
+<div class="mx-auto w-20 h-20 glass-panel rounded-full flex items-center justify-center border border-primary/20 shadow-xl">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="face">face</span>
+</div>
+<div class="space-y-1">
+<h3 class="text-xl font-semibold tracking-tight">Upload or Scan Source Face</h3>
+<p class="text-outline text-xs uppercase tracking-[0.2em]">Krypton Protocol 2.4.0</p>
+</div>
+</div>
+</div>
+<!-- Subtle Scanning Line -->
+<div class="absolute inset-x-0 h-[2px] bg-primary/30 z-30 shadow-[0_0_15px_rgba(195,192,255,0.8)] top-1/2"></div>
+</div>
+<!-- Primary & Secondary Actions -->
+<div class="mt-12 w-full max-w-md space-y-4">
+<button class="w-full py-4 px-8 rounded-lg bg-gradient-to-r from-primary-container to-[#4c42e9] text-white font-bold tracking-tight text-center flex items-center justify-center gap-3 active:scale-[0.98] transition-transform shadow-lg shadow-primary-container/20">
+<span class="material-symbols-outlined" data-icon="photo_camera">photo_camera</span>
+                Capture Source Image
+            </button>
+<button class="w-full py-4 px-8 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface font-medium tracking-tight text-center flex items-center justify-center gap-3 hover:bg-surface-bright transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined" data-icon="upload_file">upload_file</span>
+                Upload from Gallery
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-[#111125]/80 backdrop-blur-xl flex justify-around items-center py-4 px-8 shadow-[0_-4px_20px_rgba(12,12,31,0.08)]">
+<div class="flex flex-col items-center gap-1 group cursor-pointer text-[#464555] p-3 hover:text-[#c3c0ff] transition-colors">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="text-[0.625rem] font-['Inter'] label-sm">Support</span>
+</div>
+<div class="flex flex-col items-center gap-1 group cursor-pointer bg-[#1d1e32] text-[#c3c0ff] rounded-full p-3 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</div>
+</nav>
+<!-- Decorative Elements (Asymmetric Labels) -->
+<div class="fixed top-1/2 right-12 hidden lg:block transform -translate-y-1/2 rotate-90 origin-right">
+<span class="text-[0.625rem] font-medium text-outline uppercase tracking-[0.5em] opacity-40">Encryption Layer Secured</span>
+</div>
+<div class="fixed bottom-24 left-8 hidden lg:block">
+<div class="space-y-4">
+<div class="h-12 w-[1px] bg-outline-variant/30 ml-2"></div>
+<p class="text-[0.625rem] font-mono text-primary/60 leading-tight">
+                UID: KR-992-FACE<br/>
+                AUTH: PENDING<br/>
+                SIG: SHA-256
+            </p>
+</div>
+</div>
+</body></html>

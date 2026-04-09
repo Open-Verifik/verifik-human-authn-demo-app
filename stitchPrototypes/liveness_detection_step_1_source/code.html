@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Krypton Protocol - Liveness Detection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#690005",
+                    "on-tertiary-fixed-variant": "#47464d",
+                    "inverse-primary": "#4c42e9",
+                    "on-secondary-container": "#b7b8c4",
+                    "surface-container-highest": "#333348",
+                    "on-tertiary-container": "#fefaff",
+                    "on-surface": "#e2e0fb",
+                    "secondary-fixed": "#e1e1ee",
+                    "on-secondary": "#2e3039",
+                    "primary-container": "#635bff",
+                    "tertiary-fixed-dim": "#c8c5ce",
+                    "surface-container-high": "#28283c",
+                    "surface-container-low": "#191a2d",
+                    "surface-bright": "#37374c",
+                    "on-tertiary": "#303036",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-fixed": "#e4e1ea",
+                    "tertiary-container": "#74737b",
+                    "tertiary": "#c8c5ce",
+                    "surface-container": "#1d1e32",
+                    "surface-tint": "#c3c0ff",
+                    "surface-variant": "#333348",
+                    "secondary": "#c5c6d2",
+                    "on-secondary-fixed": "#191b24",
+                    "surface-dim": "#111125",
+                    "on-surface-variant": "#c7c4d8",
+                    "error-container": "#93000a",
+                    "surface": "#111125",
+                    "on-primary-fixed-variant": "#321ed2",
+                    "surface-container-lowest": "#0c0c1f",
+                    "secondary-container": "#474953",
+                    "outline-variant": "#464555",
+                    "on-primary-container": "#fefaff",
+                    "inverse-on-surface": "#2e2f43",
+                    "secondary-fixed-dim": "#c5c6d2",
+                    "outline": "#918fa1",
+                    "on-secondary-fixed-variant": "#444650",
+                    "on-primary-fixed": "#0f0069",
+                    "on-primary": "#1d00a5",
+                    "background": "#111125",
+                    "error": "#ffb4ab",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "inverse-surface": "#e2e0fb",
+                    "on-tertiary-fixed": "#1b1b21",
+                    "on-background": "#e2e0fb",
+                    "primary-fixed": "#e2dfff",
+                    "primary": "#c3c0ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar from JSON -->
+<header class="bg-[#111125] flex items-center px-6 py-4 w-full justify-between fixed top-0 z-[60]">
+<div class="flex items-center gap-4">
+<button class="hover:bg-[#1d1e32] transition-colors active:scale-95 duration-150 p-1 rounded-lg">
+<span class="material-symbols-outlined text-[#c3c0ff]">arrow_back</span>
+</button>
+<h1 class="font-['Inter'] tracking-tight font-bold text-lg text-[#c3c0ff]">Krypton Protocol</h1>
+</div>
+<div class="hidden md:flex gap-6">
+<span class="font-['Inter'] tracking-tight font-bold text-lg text-[#c3c0ff] cursor-pointer">Identity</span>
+<span class="font-['Inter'] tracking-tight font-bold text-lg text-[#464555] cursor-pointer hover:text-[#c3c0ff]">Vault</span>
+<span class="font-['Inter'] tracking-tight font-bold text-lg text-[#464555] cursor-pointer hover:text-[#c3c0ff]">Security</span>
+</div>
+</header>
+<main class="flex-1 mt-20 mb-28 px-4 md:px-8 max-w-5xl mx-auto w-full">
+<!-- Step Indicator -->
+<div class="w-full mb-10">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="h-1.5 w-16 bg-primary-container rounded-full"></div>
+<span class="text-[10px] font-bold tracking-[0.2em] text-primary">SOURCE</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-[10px] font-bold tracking-[0.2em] text-outline">LIVENESS TEST</span>
+<div class="h-1.5 w-16 bg-surface-container-highest rounded-full"></div>
+</div>
+</div>
+<div class="h-[1px] w-full bg-outline-variant/15"></div>
+</div>
+<!-- Headline & Subheadline -->
+<div class="mb-12">
+<h2 class="text-4xl md:text-5xl font-black tracking-tighter text-on-surface mb-3">Liveness Detection</h2>
+<p class="text-on-surface-variant font-medium tracking-tight">Select a source to verify human presence.</p>
+</div>
+<!-- Main Content Area: Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left: Scanning Viewport (Bento Card) -->
+<div class="lg:col-span-7 bg-surface-container-low rounded-xl p-8 relative overflow-hidden group">
+<!-- Blueprint Decoration -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#c3c0ff 0.5px, transparent 0.5px); background-size: 20px 20px;"></div>
+<div class="relative z-10 aspect-square md:aspect-video w-full border border-primary/20 rounded-lg flex items-center justify-center bg-surface-container-lowest shadow-inner">
+<!-- Corner Markers -->
+<div class="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-primary"></div>
+<div class="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-primary"></div>
+<div class="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-primary"></div>
+<div class="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-primary"></div>
+<!-- Scanning HUD -->
+<div class="absolute inset-10 border border-primary/10 rounded-full animate-pulse flex items-center justify-center">
+<div class="w-1/2 h-1/2 border border-primary/30 rounded-full border-dashed"></div>
+</div>
+<div class="text-center">
+<span class="material-symbols-outlined text-6xl text-primary/40 mb-4 block" style="font-variation-settings: 'wght' 200;">face</span>
+<span class="text-xs font-mono tracking-widest text-primary/60 uppercase">System Ready // No Signal</span>
+</div>
+<!-- Auth Pulse Effect -->
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+<div class="w-64 h-64 bg-primary/10 rounded-full blur-[80px]"></div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-primary-container text-on-primary py-4 px-6 rounded-lg font-bold tracking-tight shadow-lg shadow-primary/20 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined">photo_camera</span>
+                        Capture Selfie
+                    </button>
+<button class="flex items-center justify-center gap-3 bg-secondary-container text-on-secondary-container py-4 px-6 rounded-lg font-bold tracking-tight hover:bg-surface-bright active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined">file_upload</span>
+                        Upload from Gallery
+                    </button>
+</div>
+</div>
+<!-- Right: Samples & Metrics -->
+<div class="lg:col-span-5 space-y-8">
+<!-- Test Samples Section -->
+<div class="bg-surface-container rounded-xl p-6">
+<h3 class="text-sm font-bold tracking-widest text-outline uppercase mb-6 flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                        Test Samples
+                    </h3>
+<div class="grid grid-cols-3 gap-3">
+<div class="aspect-square bg-surface-container-high rounded-lg overflow-hidden group cursor-pointer border border-transparent hover:border-primary/50 transition-all">
+<img alt="Sample 1" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Close-up studio portrait of a man with neutral expression, high contrast lighting on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVA8kJq2pjVlnhixCWW_LeZZzt6wzI-w2VGXNGOHs3y_zecZweRZBo9Yjq-5cX00JRYH0s9tlftP_1Kq1wGnNzBNBrWSAuAZpj28rqF1FZX6PqNiGB_rQq8NcMhjgIpX40oUiB9aGTmhdEvePxcewjWBZH9oAnKWZv1PjJUiU2X7J6VbxUuqa5rrbudGK01DPpw3_8XFcLwdRgyO8hKNBEUUzo_OOKv_FOwCudgb2wh4ZyPgTzjt_1ZpJC1r9Dq8dugpEN3fvRAHs"/>
+</div>
+<div class="aspect-square bg-surface-container-high rounded-lg overflow-hidden group cursor-pointer border border-transparent hover:border-primary/50 transition-all">
+<img alt="Sample 2" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Portrait of a woman smiling slightly, cinematic soft side lighting against a dark studio backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDymmmWZ61PWyU8aUizgjZKiGD-X6qCapwezDJYuRJ5Uvqyrz_2g5VmsitnNrS0gOUJ3NBQj2lPFBZSsTFHqEjvoDso1FqN5CUFbcipS2z4ApVHErJWqhz2LTdOMnh01_ysSPToxRMZ8W6g5aABzJnGqJi3JoZzqHHxgHbTAWHFy3ZxeRnH4ljMilLVg5MOaD5-AokQPjrEnl18EYjiYsQwKe7mD5EpiWvWfajCP_8FwMBTcJv3unbFYdEgBiVtN_wuUHQcmxAsMiU"/>
+</div>
+<div class="aspect-square bg-surface-container-high rounded-lg overflow-hidden group cursor-pointer border border-transparent hover:border-primary/50 transition-all">
+<img alt="Sample 3" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Headshot of a middle-aged man, professional lighting, sharp focus on facial features, dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzvz6rcfVPLuPcLs3O8UVFUblmkRGi2BiUD7-XcKEn7fE-OspdYRoCfG5l2kmEA1VrAZ7hSBEgI0ImwLtqEe1pkcQ6UyLkE-gbAxZY74ix4CZNmmLrYQ173kaekO3scleEcalG4PedpXZS06arQUEa2jUayL8MEk5KsKrivzbFVy3mkkVF12t2V3WetUuB2aGf00QfwYDm9izY9-Y7EJxopOyNEF_9VVsWZYTy0sxGKpE-C5gqHgWeugDYPpeu6sFMQs9GcRKl7EE"/>
+</div>
+<div class="aspect-square bg-surface-container-high rounded-lg overflow-hidden group cursor-pointer border border-transparent hover:border-primary/50 transition-all">
+<img alt="Sample 4" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Young man looking directly into camera, natural soft lighting, deep shadows, cryptographic aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9BRzr-7EJ49_WNX9Qifcj0i0cV7NnXokDCGnfYj_dBYRZMlMTl_G5dkDHN7CbB3e_6i4HHj4sdGGtr9wFcKYd9FJlHNA6JKRI6ctajqlPMf5WrtZkdBxUVnM6k5rjmPhtsU1F3p5A26S7bh6XWd3zuuesJ0sGd1ADQnuBIGt0mSd_C5NkUpJi7klIyOfN1PgSSficEdJfNaXfJivmFEzTXNq351r_cJM5ZiJ_9_3IDLBynlJZry4Lb5jg84fHxKzTPKLpfzOzyQE"/>
+</div>
+<div class="aspect-square bg-surface-container-high rounded-lg overflow-hidden group cursor-pointer border border-transparent hover:border-primary/50 transition-all">
+<img alt="Sample 5" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Fashion portrait of a woman, moody blue lighting, sharp silhouettes, high-end editorial feel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwihnYf5KfiiLBtOqmWJoXxMbepPHrDr1N0VtR_yIq17CWC-a00dTpzVHW54S68CV6FUi4y7QJRYj3wK5DQBdToYKe5JIX-vXvD11RoXsmNN_kx1sCyK_Dpx0dEt8iOSoLFoHAxQmJ-oiiGmLJLgFTOgY05MPLLvcen53vn6RY1JgyPfH6wX3YvTtNaJwDqy_WDbkIxqukK6CRyeLHzAoCb_aMeBEBmKLd-HN_do8fcWAMWEsibCw30WQ5zOJme_r8pxel17-y-1Y"/>
+</div>
+<div class="aspect-square bg-surface-container-high rounded-lg flex items-center justify-center border border-dashed border-outline-variant hover:bg-surface-container-highest transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-outline">add</span>
+</div>
+</div>
+</div>
+<!-- Metrics Section -->
+<div class="bg-surface-container-low rounded-xl p-6 border-l-2 border-primary/30">
+<h3 class="text-[10px] font-bold tracking-[0.25em] text-outline-variant uppercase mb-6">Engine Performance</h3>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-2xl font-black text-on-surface tracking-tighter">99.8%</p>
+<p class="text-[10px] font-bold text-outline uppercase tracking-widest mt-1">Accuracy Rate</p>
+</div>
+<span class="material-symbols-outlined text-primary text-3xl">verified</span>
+</div>
+<div class="h-[1px] w-full bg-outline-variant/10"></div>
+<div class="flex items-center justify-between">
+<div>
+<p class="text-2xl font-black text-on-surface tracking-tighter">140ms</p>
+<p class="text-[10px] font-bold text-outline uppercase tracking-widest mt-1">Response Time</p>
+</div>
+<span class="material-symbols-outlined text-primary text-3xl">speed</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar from JSON -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#111125]/80 backdrop-blur-xl shadow-[0_-8px_30px_rgb(12,12,31,0.5)] border-t border-[#464555]/15 md:hidden">
+<div class="flex flex-col items-center justify-center text-[#464555] px-3 py-1 hover:text-[#c3c0ff] transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">lock</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-medium mt-1">Vault</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#c3c0ff] font-bold bg-[#1d1e32] rounded-lg px-3 py-1 active:scale-90 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">fingerprint</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-medium mt-1">Identity</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#464555] px-3 py-1 hover:text-[#c3c0ff] transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-medium mt-1">Security</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#464555] px-3 py-1 hover:text-[#c3c0ff] transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined">terminal</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-medium mt-1">Logs</span>
+</div>
+</nav>
+</body></html>

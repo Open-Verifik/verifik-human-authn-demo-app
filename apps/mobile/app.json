@@ -1,0 +1,47 @@
+{
+    "expo": {
+        "name": "HumanAuthn",
+        "slug": "humanauthn",
+        "version": "1.0.0",
+        "extra": {
+            "eas": {
+                "projectId": "f1d5daa1-9825-46c9-bdc2-a05029dc512e"
+            }
+        },
+        "orientation": "portrait",
+        "icon": "./assets/icon.png",
+        "userInterfaceStyle": "dark",
+        "splash": {
+            "image": "./assets/splash.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#010333"
+        },
+        "backgroundColor": "#010333",
+        "assetBundlePatterns": ["**/*"],
+        "ios": {
+            "supportsTablet": false,
+            "bundleIdentifier": "co.verifik.humanauthn",
+            "infoPlist": {
+                "NSCameraUsageDescription": "HumanAuthn needs camera access for liveness detection and face verification.",
+                "NSPhotoLibraryUsageDescription": "HumanAuthn needs photo library access to upload face images for verification."
+            }
+        },
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/adaptive-icon.png",
+                "backgroundColor": "#010333"
+            },
+            "package": "co.verifik.humanauthn",
+            "permissions": ["CAMERA", "READ_EXTERNAL_STORAGE"]
+        },
+        "scheme": "humanauthn",
+        "plugins": [
+            "expo-router",
+            "expo-camera",
+            ["expo-image-picker", { "photosPermission": "HumanAuthn needs access to your photos for face verification." }]
+        ],
+        "experiments": {
+            "typedRoutes": true
+        }
+    }
+}

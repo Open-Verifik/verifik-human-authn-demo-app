@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base Reset ───────────────────────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #010333;
+    color: #F4F4F4;
+    font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100dvh;
+  }
+
+  ::selection {
+    background: rgba(38, 66, 255, 0.35);
+    color: #F4F4F4;
+  }
+
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #2a3a58; border-radius: 9999px; }
+  ::-webkit-scrollbar-thumb:hover { background: #5c6a8a; }
+}
+
+/* ── Component Layer ──────────────────────────────────────────────────────── */
+@layer components {
+
+  /* Material Symbols icon font */
+  .material-symbols-outlined {
+    font-family: 'Material Symbols Outlined', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    user-select: none;
+  }
+
+  /* ── Auth Pulse ─────────────────────────────────────────── */
+  .auth-pulse {
+    background: radial-gradient(circle, rgba(38, 66, 255, 0.16) 0%, rgba(0, 255, 224, 0.06) 40%, rgba(1, 3, 51, 0) 70%);
+    filter: blur(60px);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .auth-pulse-sm {
+    background: radial-gradient(circle, rgba(38, 66, 255, 0.10) 0%, rgba(1, 3, 51, 0) 60%);
+    filter: blur(40px);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  /* ── Scan Line ──────────────────────────────────────────── */
+  .scan-line {
+    position: absolute;
+    z-index: 28;
+    pointer-events: none;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00FFE0, transparent);
+    box-shadow: 0 0 15px rgba(0, 255, 224, 0.55);
+    animation: scanAnim 3s linear infinite;
+  }
+
+  @keyframes scanAnim {
+    0%   { top: 20%; opacity: 0; }
+    20%  { opacity: 1; }
+    80%  { opacity: 1; }
+    100% { top: 80%; opacity: 0; }
+  }
+
+  /* ── Mask Gradient ──────────────────────────────────────── */
+  .mask-gradient-bottom {
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  }
+
+  /* ── Glass Panel ────────────────────────────────────────── */
+  .glass-panel {
+    background: rgba(18, 31, 74, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .glass-panel-dark {
+    background: rgba(1, 3, 51, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* ── Scanner Corners ────────────────────────────────────── */
+  .scanner-corner-tl {
+    position: absolute;
+    z-index: 30;
+    pointer-events: none;
+    top: 1.5rem;
+    left: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+    border-top: 2px solid #00FFE0;
+    border-left: 2px solid #00FFE0;
+  }
+
+  .scanner-corner-tr {
+    position: absolute;
+    z-index: 30;
+    pointer-events: none;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+    border-top: 2px solid #00FFE0;
+    border-right: 2px solid #00FFE0;
+  }
+
+  .scanner-corner-bl {
+    position: absolute;
+    z-index: 30;
+    pointer-events: none;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+    border-bottom: 2px solid #00FFE0;
+    border-left: 2px solid #00FFE0;
+  }
+
+  .scanner-corner-br {
+    position: absolute;
+    z-index: 30;
+    pointer-events: none;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+    border-bottom: 2px solid #00FFE0;
+    border-right: 2px solid #00FFE0;
+  }
+
+  /* ── Ghost Border ───────────────────────────────────────── */
+  .ghost-border {
+    border: 1px solid rgba(42, 58, 88, 0.2);
+  }
+
+  /* ── Label meta ─────────────────────────────────────────── */
+  .label-meta {
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+  }
+
+  /* ── Blueprint grid texture ─────────────────────────────── */
+  .blueprint-grid {
+    background-image: radial-gradient(rgba(142, 176, 255, 0.45) 0.5px, transparent 0.5px);
+    background-size: 20px 20px;
+  }
+
+}
+
+/* ── Utility Layer ────────────────────────────────────────────────────────── */
+@layer utilities {
+  .tracking-editorial {
+    letter-spacing: -0.02em;
+  }
+
+  .text-gradient-primary {
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(to right, #8eb0ff, #2642FF);
+  }
+
+  .bg-primary-cta {
+    background: linear-gradient(135deg, #2642FF 0%, #1a2f99 100%);
+    color: #F4F4F4;
+  }
+
+  .bg-primary-cta-ttb {
+    background: linear-gradient(to bottom, #2642FF, #152266);
+    color: #F4F4F4;
+  }
+
+  .scanning-ring {
+    box-shadow: 0 0 20px 2px rgba(0, 255, 224, 0.25),
+                inset 0 0 20px 2px rgba(38, 66, 255, 0.15);
+  }
+}

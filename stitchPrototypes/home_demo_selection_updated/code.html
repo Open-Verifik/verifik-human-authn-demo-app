@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#e2dfff",
+                        "outline": "#918fa1",
+                        "on-surface-variant": "#c7c4d8",
+                        "tertiary": "#c8c5ce",
+                        "secondary-fixed-dim": "#c5c6d2",
+                        "error-container": "#93000a",
+                        "surface-container-low": "#191a2d",
+                        "surface-bright": "#37374c",
+                        "surface-tint": "#c3c0ff",
+                        "primary-container": "#635bff",
+                        "on-primary": "#1d00a5",
+                        "surface": "#111125",
+                        "surface-container": "#1d1e32",
+                        "inverse-on-surface": "#2e2f43",
+                        "on-tertiary-fixed-variant": "#47464d",
+                        "on-secondary": "#2e3039",
+                        "error": "#ffb4ab",
+                        "on-tertiary": "#303036",
+                        "inverse-primary": "#4c42e9",
+                        "on-secondary-fixed-variant": "#444650",
+                        "background": "#111125",
+                        "on-secondary-fixed": "#191b24",
+                        "on-error": "#690005",
+                        "surface-container-lowest": "#0c0c1f",
+                        "surface-dim": "#111125",
+                        "on-primary-fixed": "#0f0069",
+                        "secondary-fixed": "#e1e1ee",
+                        "on-tertiary-container": "#fefaff",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-container": "#fefaff",
+                        "surface-container-highest": "#333348",
+                        "surface-container-high": "#28283c",
+                        "outline-variant": "#464555",
+                        "on-background": "#e2e0fb",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "tertiary-fixed-dim": "#c8c5ce",
+                        "primary": "#c3c0ff",
+                        "on-tertiary-fixed": "#1b1b21",
+                        "inverse-surface": "#e2e0fb",
+                        "tertiary-container": "#74737b",
+                        "secondary": "#c5c6d2",
+                        "surface-variant": "#333348",
+                        "secondary-container": "#474953",
+                        "on-secondary-container": "#b7b8c4",
+                        "on-surface": "#e2e0fb",
+                        "on-primary-fixed-variant": "#321ed2",
+                        "tertiary-fixed": "#e4e1ea"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .auth-pulse {
+            position: relative;
+        }
+        .auth-pulse::after {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(circle, rgba(99, 91, 255, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 z-50 w-full bg-[#111125] dark:bg-[#111125] flex items-center justify-between px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#c3c0ff]" data-icon="fingerprint">fingerprint</span>
+<h1 class="font-['Inter'] tracking-tight text-xl font-bold tracking-tighter text-[#c3c0ff]">Human Authn</h1>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<nav class="flex gap-6">
+<a class="text-[#c3c0ff] hover:bg-[#37374c] transition-colors px-3 py-1 rounded-sm text-sm font-medium" href="#">Identity</a>
+<a class="text-[#464555] hover:bg-[#37374c] transition-colors px-3 py-1 rounded-sm text-sm font-medium" href="#">Security</a>
+<a class="text-[#464555] hover:bg-[#37374c] transition-colors px-3 py-1 rounded-sm text-sm font-medium" href="#">Settings</a>
+</nav>
+<button class="bg-gradient-to-b from-[#635bff] to-[#4c42e9] text-white px-4 py-2 rounded-lg text-sm font-semibold active:scale-95 duration-200">
+                Launch Console
+            </button>
+</div>
+<div class="md:hidden">
+<span class="material-symbols-outlined text-[#c3c0ff]" data-icon="menu">menu</span>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-24 pb-32 px-6 max-w-7xl mx-auto w-full">
+<!-- Hero Section -->
+<section class="mb-16">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="max-w-2xl">
+<label class="text-[0.6875rem] uppercase tracking-[0.2em] text-primary mb-4 block font-semibold">Biometric Sandbox</label>
+<h2 class="text-4xl md:text-6xl font-bold tracking-tighter text-on-surface mb-6 leading-[1.1]">
+                        Precision <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-container">Authentication</span> Demos
+                    </h2>
+<p class="text-on-surface-variant text-lg leading-relaxed font-normal">
+                        Experience the next generation of identity verification. Our cryptographic atelier provides high-fidelity biometric tools for secure, frictionless human authentication.
+                    </p>
+</div>
+<div class="flex gap-4">
+<div class="auth-pulse p-4 rounded-full bg-surface-container">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="shield_person" data-weight="fill" style="font-variation-settings: 'FILL' 1;">shield_person</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Demos -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Face Comparison -->
+<div class="group relative overflow-hidden rounded-xl bg-surface-container-low p-6 transition-all hover:bg-surface-container-high active:scale-95 duration-200">
+<div class="mb-8 flex justify-between items-start">
+<div class="p-3 rounded-lg bg-surface-container-highest text-primary">
+<span class="material-symbols-outlined text-2xl" data-icon="face">face</span>
+</div>
+<span class="text-[10px] font-mono text-outline uppercase tracking-widest">v2.4.0</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface mb-2 tracking-tight">Face Comparison</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+                    Compare two distinct facial signatures to verify a match with enterprise-grade accuracy metrics.
+                </p>
+<div class="flex items-center text-primary text-xs font-bold gap-2 group-hover:gap-3 transition-all">
+                    RUN DEMO <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+<!-- Liveness -->
+<div class="group relative overflow-hidden rounded-xl bg-surface-container-low p-6 transition-all hover:bg-surface-container-high active:scale-95 duration-200">
+<div class="mb-8 flex justify-between items-start">
+<div class="p-3 rounded-lg bg-surface-container-highest text-primary">
+<span class="material-symbols-outlined text-2xl" data-icon="verified_user">verified_user</span>
+</div>
+<span class="text-[10px] font-mono text-outline uppercase tracking-widest">Active</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface mb-2 tracking-tight">Liveness Detection</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+                    Advanced anti-spoofing algorithms to ensure the user is a real human, preventing presentation attacks.
+                </p>
+<div class="flex items-center text-primary text-xs font-bold gap-2 group-hover:gap-3 transition-all">
+                    RUN DEMO <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+<!-- Face Search -->
+<div class="group relative overflow-hidden rounded-xl bg-surface-container-low p-6 transition-all hover:bg-surface-container-high active:scale-95 duration-200">
+<div class="mb-8 flex justify-between items-start">
+<div class="p-3 rounded-lg bg-surface-container-highest text-primary">
+<span class="material-symbols-outlined text-2xl" data-icon="manage_search">manage_search</span>
+</div>
+<span class="text-[10px] font-mono text-outline uppercase tracking-widest">Search</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface mb-2 tracking-tight">Face Search</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+                    Rapidly identify subjects within massive biometric databases using optimized vector search indexing.
+                </p>
+<div class="flex items-center text-primary text-xs font-bold gap-2 group-hover:gap-3 transition-all">
+                    RUN DEMO <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+<!-- Face Detection -->
+<div class="group relative overflow-hidden rounded-xl bg-surface-container-low p-6 transition-all hover:bg-surface-container-high active:scale-95 duration-200">
+<div class="mb-8 flex justify-between items-start">
+<div class="p-3 rounded-lg bg-surface-container-highest text-primary">
+<span class="material-symbols-outlined text-2xl" data-icon="center_focus_weak">center_focus_weak</span>
+</div>
+<span class="text-[10px] font-mono text-outline uppercase tracking-widest">Live</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface mb-2 tracking-tight">Face Detection</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+                    Real-time detection of multiple faces within a video stream with landmark point tracking.
+                </p>
+<div class="flex items-center text-primary text-xs font-bold gap-2 group-hover:gap-3 transition-all">
+                    RUN DEMO <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Visual Element: The Vault Section -->
+<section class="mt-20 rounded-2xl bg-surface-container-lowest overflow-hidden relative min-h-[400px] flex items-center">
+<div class="absolute inset-0 opacity-40">
+<img alt="abstract visualization of digital security network with blue glowing nodes and hexagonal patterns" class="w-full h-full object-cover" data-alt="abstract visualization of digital security network with blue glowing nodes and hexagonal patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfqKnspWOra1VatifeKs4AOuW6Wi7vJj1Bjug7qCXc2_DldH4Tp1VRB0mz9e9v35o2X2AAzIX8kk1v4qn6IkBgUv48Tm34U8nlMbQn7raqkc3q7o8igtK6JBN1cva7RNvJoOth3UVAAdn1Ox0-BuCvCsu7ao4xF6aHZac_Be3ETYMo_6g183I1o5gQq1Ot1mRq2JKLbfp1aAxPDuS2F4Pu_t_x-juUSsWXyKx_CKdP1gKEkBz4lL9I89zvK3qFMt_kuXFSyc3FgsQ"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest via-surface-container-lowest/80 to-transparent"></div>
+<div class="relative z-10 p-12 max-w-xl">
+<h3 class="text-3xl font-bold tracking-tight text-white mb-4">Enterprise Grade Security</h3>
+<p class="text-on-surface-variant mb-8 leading-relaxed">
+                    Our platform is built on the Krypton Protocol, ensuring that biometric data never leaves the edge in unencrypted formats. Complete privacy, zero compromise.
+                </p>
+<div class="flex flex-wrap gap-4">
+<div class="bg-surface-container-highest px-4 py-2 rounded flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="verified">verified</span>
+<span class="text-xs font-semibold tracking-widest uppercase">GDPR Compliant</span>
+</div>
+<div class="bg-surface-container-highest px-4 py-2 rounded flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="lock">lock</span>
+<span class="text-xs font-semibold tracking-widest uppercase">AES-256</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-safe bg-[#111125] z-50 shadow-[0_-4px_20px_rgba(12,12,31,0.08)]">
+<a class="flex flex-col items-center justify-center text-[#c3c0ff] bg-gradient-to-b from-[#635bff]/10 to-transparent rounded-t-lg pt-4 pb-2 flex-1 active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="face">face</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-widest uppercase">Identity</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#464555] pt-4 pb-2 flex-1 active:scale-90 duration-150 transition-all hover:text-[#c3c0ff]" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="verified_user">verified_user</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-widest uppercase">Security</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#464555] pt-4 pb-2 flex-1 active:scale-90 duration-150 transition-all hover:text-[#c3c0ff]" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="settings">settings</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-widest uppercase">Settings</span>
+</a>
+</nav>
+</body></html>
