@@ -13,6 +13,7 @@ import {
 } from '@humanauthn/api-client';
 import { readUserCreditsFromSessionUser, useAuthStore } from '../../store/authStore';
 import { AuroraBackground } from '../../../components/ui/aurora-background';
+import ThemeToggle from '../../../components/ui/ThemeToggle';
 import { VerifikLogo } from '../../../components/ui/VerifikLogo';
 
 export default function OTPPage() {
@@ -141,32 +142,31 @@ export default function OTPPage() {
     <AuroraBackground className="px-4 overflow-hidden">
 
       {/* Main Modal Card */}
-      <main className="relative z-10 w-full max-w-[400px] bg-white rounded-3xl p-8 shadow-float animate-slide-up text-surface">
+      <main className="relative z-10 w-full max-w-[400px] bg-white rounded-3xl p-8 shadow-float animate-slide-up text-auth-modal-ink">
         
         {/* Header Strip */}
         <div className="flex items-center justify-between mb-8">
           <button
             onClick={() => router.back()}
-            className="flex items-center justify-center w-8 h-8 rounded-full border border-transparent hover:bg-black/5 hover:border-black/10 text-outline hover:text-surface transition-all"
+            className="flex items-center justify-center w-8 h-8 rounded-full border border-transparent hover:bg-black/5 hover:border-black/10 text-auth-modal-ink/55 hover:text-auth-modal-ink transition-all"
             aria-label="Go back"
           >
             <span className="material-symbols-outlined text-[20px]">arrow_back</span>
           </button>
 
-          <div className="flex flex-col items-center absolute left-1/2 -translate-x-1/2 text-surface">
+          <div className="flex flex-col items-center absolute left-1/2 -translate-x-1/2 text-auth-modal-ink">
             <VerifikLogo className="h-6 w-auto" />
           </div>
           
-          {/* Spacer to balance back button */}
-          <div className="w-8" aria-hidden="true" />
+          <ThemeToggle />
         </div>
 
         {/* Headline */}
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold tracking-tight text-surface mb-2">
+          <h1 className="text-2xl font-bold tracking-tight text-auth-modal-ink mb-2">
             Enter Code
           </h1>
-          <p className="text-sm text-outline leading-relaxed max-w-[280px] mx-auto">
+          <p className="text-sm text-auth-modal-ink/70 leading-relaxed max-w-[280px] mx-auto">
             We sent a 6-digit code to{' '}
             <span className="text-primary font-medium">{destination || 'your account'}</span>.
           </p>
@@ -193,7 +193,7 @@ export default function OTPPage() {
                 w-full aspect-square text-center text-2xl font-bold rounded-xl outline-none transition-all duration-200
                 ${digit 
                   ? 'bg-primary/5 text-primary border border-primary/50' 
-                  : 'bg-transparent text-surface border border-black/10 placeholder-outline/30'
+                  : 'bg-transparent text-auth-modal-ink border border-black/10 placeholder-auth-modal-ink/35'
                 }
                 focus:ring-1 focus:ring-primary/50 focus:border-primary
               `}
@@ -214,8 +214,8 @@ export default function OTPPage() {
           id="btn-verify-otp"
           onClick={handleVerify}
           disabled={!codeComplete || isLoading}
-          className="w-full py-3.5 bg-primary text-on-primary-container font-semibold rounded-xl
-                     hover:bg-primary/90 active:scale-[0.98] transition-all duration-200
+          className="w-full py-3.5 bg-primary-cta text-on-primary-container font-semibold rounded-xl shadow-primary
+                     hover:opacity-90 active:scale-[0.98] transition-all duration-200
                      disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
           {isLoading ? (
@@ -226,7 +226,7 @@ export default function OTPPage() {
         </button>
 
         {/* Resend */}
-        <p className="text-center mt-6 text-sm text-outline">
+        <p className="text-center mt-6 text-sm text-auth-modal-ink/70">
           Didn&apos;t receive the code?{' '}
           <button
             onClick={() => router.back()}
@@ -237,7 +237,7 @@ export default function OTPPage() {
         </p>
 
         {/* Minimal Security Footer */}
-        <div className="mt-8 flex items-center justify-center gap-4 opacity-60 text-[9px] font-mono text-outline uppercase tracking-widest">
+        <div className="mt-8 flex items-center justify-center gap-4 opacity-60 text-[9px] font-mono text-auth-modal-ink/55 uppercase tracking-widest">
           <span>AES-256</span>
           <span>•</span>
           <span>Verifik</span>

@@ -19,6 +19,8 @@ import DemoScannerShell from "../../components/demos/DemoScannerShell";
 import DemoUploadImageButton from "../../components/demos/DemoUploadImageButton";
 import FaceGuidedCamera from "../../components/demos/FaceGuidedCameraLoader";
 import DemoSignInPrompt from "../DemoSignInPrompt";
+import ElectronAwareAppHeader from "../../components/layout/ElectronAwareAppHeader";
+
 import { Checkbox } from "@/components/ui/checkbox";
 
 type Step = 1 | 2 | 3;
@@ -185,7 +187,7 @@ export default function FaceComparisonPage() {
 	return (
 		<div className="min-h-screen bg-surface flex flex-col">
 			{/* Top bar */}
-			<header className="fixed top-0 left-0 w-full z-50 glass-panel-dark flex items-center justify-between px-6 py-4">
+			<ElectronAwareAppHeader className="justify-between">
 				<div className="flex items-center gap-3">
 					<button
 						onClick={() => router.back()}
@@ -197,7 +199,7 @@ export default function FaceComparisonPage() {
 					<h1 className="font-bold tracking-tight text-lg text-primary">Compare with liveness</h1>
 				</div>
 				<span className="label-meta text-primary text-[0.6875rem]">Step {step} of 3</span>
-			</header>
+			</ElectronAwareAppHeader>
 
 			<main className="flex-1 pt-24 pb-32 px-6 max-w-4xl mx-auto w-full">
 				{/* Progress stepper */}
@@ -216,19 +218,19 @@ export default function FaceComparisonPage() {
 							? "bg-primary text-on-primary"
 							: isActive
 								? "bg-primary-container text-on-primary-container ring-4 ring-primary-container/20"
-								: "bg-surface-container-high border border-outline-variant text-outline-variant opacity-40"
+								: "bg-surface-container-high border border-outline-variant text-on-surface-variant/50"
 					}`}
 									>
 										{isDone ? <span className="material-symbols-outlined text-sm">check</span> : n}
 									</div>
 									<span
-										className={`text-[0.6875rem] font-bold uppercase tracking-wider mt-2 text-center leading-tight ${isActive ? "text-primary" : "text-outline-variant opacity-40"}`}
+										className={`text-[0.6875rem] font-bold uppercase tracking-wider mt-2 text-center leading-tight ${isActive ? "text-primary" : "text-on-surface-variant/50"}`}
 									>
 										{s.label}
 									</span>
 									{s.sub != null && (
 										<span
-											className={`text-[0.5625rem] font-semibold normal-case tracking-normal mt-0.5 text-center leading-snug ${isActive ? "text-primary/90" : "text-outline-variant/80 opacity-70"}`}
+											className={`text-[0.5625rem] font-semibold normal-case tracking-normal mt-0.5 text-center leading-snug ${isActive ? "text-primary/90" : "text-on-surface-variant/65"}`}
 										>
 											{s.sub}
 										</span>
@@ -314,7 +316,7 @@ export default function FaceComparisonPage() {
 													<img src={slot.preview} alt={label} className="h-full w-full object-cover" />
 												) : (
 													<div className="flex h-full w-full items-center justify-center">
-														<span className="material-symbols-outlined text-outline-variant/40">face</span>
+														<span className="material-symbols-outlined text-on-surface-variant/55">face</span>
 													</div>
 												)}
 												{isHighlighted ? (
@@ -325,7 +327,7 @@ export default function FaceComparisonPage() {
 													</div>
 												) : null}
 											</div>
-											<span className={`label-meta text-[10px] ${isHighlighted ? "text-emerald-300" : "text-outline"}`}>{label}</span>
+											<span className={`label-meta text-[10px] ${isHighlighted ? "text-emerald-300" : "text-on-surface-variant"}`}>{label}</span>
 										</div>
 									);
 								})}
@@ -410,7 +412,7 @@ export default function FaceComparisonPage() {
 								<div>
 									<label
 										htmlFor="compare-min-score"
-										className="block text-[0.6875rem] font-bold uppercase tracking-wider text-outline mb-2"
+										className="block text-[0.6875rem] font-bold uppercase tracking-wider text-on-surface-variant mb-2"
 									>
 										Compare minimum score
 									</label>
@@ -433,7 +435,7 @@ export default function FaceComparisonPage() {
 								<div>
 									<label
 										htmlFor="liveness-min-score"
-										className="block text-[0.6875rem] font-bold uppercase tracking-wider text-outline mb-2"
+										className="block text-[0.6875rem] font-bold uppercase tracking-wider text-on-surface-variant mb-2"
 									>
 										Liveness minimum score (Target image)
 									</label>
@@ -467,7 +469,7 @@ export default function FaceComparisonPage() {
 										<span className="block text-on-surface font-medium leading-snug">
 											Crop my Source photo to the detected face
 										</span>
-										<span className="block text-xs text-outline-variant leading-relaxed">
+										<span className="block text-xs text-on-surface-variant leading-relaxed">
 											When on, we detect the largest face in your first image (Source, step 1) and replace it with a cropped
 											region around that face before we send it as <code className="text-primary">gallery</code>. Your second
 											image (Target, step 2) is sent as you captured it, with no crop in this demo. Use this for group shots,
@@ -484,7 +486,7 @@ export default function FaceComparisonPage() {
 									<span className="material-symbols-outlined text-lg">menu_book</span>
 									API reference: Compare with liveness
 								</span>
-								<span className="material-symbols-outlined text-outline-variant group-open:rotate-180 transition-transform">
+								<span className="material-symbols-outlined text-on-surface-variant/70 group-open:rotate-180 transition-transform">
 									expand_more
 								</span>
 							</summary>
@@ -598,7 +600,7 @@ export default function FaceComparisonPage() {
 									<div className="w-24 h-24 rounded-full overflow-hidden bg-surface-container-high ghost-border">
 										{preview && <img src={preview} alt="" className="w-full h-full object-cover" />}
 									</div>
-									<span className="label-meta text-[10px] text-outline">{i === 0 ? "Source" : "Target"}</span>
+									<span className="label-meta text-[10px] text-on-surface-variant">{i === 0 ? "Source" : "Target"}</span>
 								</div>
 							))}
 							{!isLoading && result && (
@@ -664,7 +666,7 @@ export default function FaceComparisonPage() {
 								<div className="grid grid-cols-2 gap-4 mb-6">
 									<div className="bg-surface-container rounded-lg p-4">
 										<p className="text-2xl font-black text-primary">{(result.score * 100).toFixed(1)}%</p>
-										<p className="label-meta text-outline text-[10px] mt-1">
+										<p className="label-meta text-on-surface-variant text-[10px] mt-1">
 											Similarity (min {compareMinScore.toFixed(2)})
 										</p>
 										<p className="text-[10px] font-mono mt-1 text-on-surface-variant">
@@ -679,11 +681,11 @@ export default function FaceComparisonPage() {
 													? `${(result.livenessScore * 100).toFixed(1)}%`
 													: "N/A"}
 										</p>
-										<p className="label-meta text-outline text-[10px] mt-1">
+										<p className="label-meta text-on-surface-variant text-[10px] mt-1">
 											Liveness (min {result.livenessMinScore.toFixed(2)})
 										</p>
 										<p
-											className={`text-[10px] font-mono mt-1 ${result.livenessSkipped ? "text-outline-variant" : result.livenessPassed ? "text-primary" : "text-error"}`}
+											className={`text-[10px] font-mono mt-1 ${result.livenessSkipped ? "text-on-surface-variant/80" : result.livenessPassed ? "text-primary" : "text-error"}`}
 										>
 											{result.livenessSkipped ? "SKIPPED" : result.livenessScore != null ? (result.livenessPassed ? "PASS" : "FAIL") : "N/A"}
 										</p>
@@ -717,7 +719,7 @@ export default function FaceComparisonPage() {
 
 				{/* Desktop decorative meta */}
 				<div className="fixed top-1/2 right-10 hidden lg:block transform -translate-y-1/2 rotate-90 origin-right">
-					<span className="label-meta text-[0.625rem] text-outline opacity-30">Verifik · Secure Session Active</span>
+					<span className="label-meta text-[0.625rem] text-on-surface-variant/45">Verifik · Secure Session Active</span>
 				</div>
 				<div className="fixed bottom-24 left-8 hidden lg:block">
 					<div className="space-y-3">
@@ -735,7 +737,7 @@ export default function FaceComparisonPage() {
 
 			{/* Mobile bottom nav */}
 			<nav className="fixed bottom-0 left-0 w-full z-50 glass-panel-dark backdrop-blur-xl flex justify-around items-center py-3 px-8 border-t border-outline-variant/10 md:hidden">
-				<div className="flex flex-col items-center gap-1 cursor-pointer text-outline-variant hover:text-primary transition-colors p-2">
+				<div className="flex flex-col items-center gap-1 cursor-pointer text-on-surface-variant/80 hover:text-primary transition-colors p-2">
 					<span className="material-symbols-outlined">help_outline</span>
 					<span className="text-[0.625rem]">Support</span>
 				</div>

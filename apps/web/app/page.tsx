@@ -60,7 +60,7 @@ export default function SplashPage() {
             </span>
 
             {/* Headline */}
-            <h1 className="text-6xl md:text-8xl font-headline font-black tracking-editorial text-white leading-[0.95]">
+            <h1 className="text-6xl md:text-8xl font-headline font-black tracking-editorial text-on-surface leading-[0.95]">
               Human<br />Authn
             </h1>
 
@@ -82,18 +82,29 @@ export default function SplashPage() {
             <Link
               href="/home"
               id="btn-explore-demos"
-              className="block w-full py-4 text-[0.65rem] font-label text-outline-variant tracking-[0.25em] uppercase text-center hover:text-primary transition-colors"
+              className="block w-full py-4 text-[0.65rem] font-label text-on-surface-variant tracking-[0.25em] uppercase text-center hover:text-primary transition-colors"
             >
               Explore Demos →
             </Link>
           </div>
 
           {/* Trust indicators */}
-          <div className="pt-4 flex items-center justify-center gap-6 opacity-30" aria-label="Security certifications">
-            <span className="material-symbols-outlined text-2xl">security</span>
-            <span className="material-symbols-outlined text-2xl">fingerprint</span>
-            <span className="material-symbols-outlined text-2xl">face</span>
-            <span className="material-symbols-outlined text-2xl">verified_user</span>
+          <div
+            className="pt-4 flex items-center justify-center gap-6 text-on-surface-variant/55"
+            aria-label="Security certifications"
+          >
+            <span className="material-symbols-outlined text-2xl" aria-hidden>
+              security
+            </span>
+            <span className="material-symbols-outlined text-2xl" aria-hidden>
+              fingerprint
+            </span>
+            <span className="material-symbols-outlined text-2xl" aria-hidden>
+              face
+            </span>
+            <span className="material-symbols-outlined text-2xl" aria-hidden>
+              verified_user
+            </span>
           </div>
         </div>
       </div>

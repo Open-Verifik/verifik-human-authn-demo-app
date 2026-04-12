@@ -27,7 +27,7 @@ type TraditionalSection = {
 	demos: DemoCard[];
 };
 
-/** OpenCV demos grouped by sub-category; `badge` on each card matches the category pill. Step numbers 1–11 follow section order on the page. */
+/** OpenCV demos grouped by sub-category; `badge` on each card matches the category pill. Step numbers 1–13 follow section order on the page. */
 const traditionalSections: TraditionalSection[] = [
 	{
 		id: "enroll",
@@ -60,13 +60,35 @@ const traditionalSections: TraditionalSection[] = [
 		],
 	},
 	{
+		id: "manage",
+		label: "Manage",
+		demos: [
+			{
+				id: "update-person",
+				href: "/demos/update-person",
+				stepNumber: 4,
+				badge: "Manage",
+				title: "Update Person",
+				description: "Load a person by id and change profile fields or collection membership (no new face images in this API).",
+			},
+			{
+				id: "delete-person",
+				href: "/demos/delete-person",
+				stepNumber: 5,
+				badge: "Manage",
+				title: "Delete Person",
+				description: "Delete a person completely or remove them from a single collection when they belong to several.",
+			},
+		],
+	},
+	{
 		id: "search",
 		label: "Search",
 		demos: [
 			{
 				id: "search-person",
 				href: "/demos/search-person",
-				stepNumber: 4,
+				stepNumber: 6,
 				badge: "Search",
 				title: "Search Person",
 				description: "Upload one or more face images and search the collection for matching persons by similarity score.",
@@ -74,7 +96,7 @@ const traditionalSections: TraditionalSection[] = [
 			{
 				id: "search-live-person",
 				href: "/demos/search-live-person",
-				stepNumber: 5,
+				stepNumber: 7,
 				badge: "Search",
 				title: "Search Live Person",
 				description: "Capture a live face, run liveness detection, and search the collection for a match in one flow.",
@@ -82,7 +104,7 @@ const traditionalSections: TraditionalSection[] = [
 			{
 				id: "search-active-user",
 				href: "/demos/search-active-user",
-				stepNumber: 6,
+				stepNumber: 8,
 				badge: "Search",
 				title: "Search Active User",
 				description: "Authenticate an active user with a live face capture and return a liveness score alongside search results.",
@@ -96,7 +118,7 @@ const traditionalSections: TraditionalSection[] = [
 			{
 				id: "detect-face",
 				href: "/demos/detect-face",
-				stepNumber: 7,
+				stepNumber: 9,
 				badge: "Detection",
 				title: "Detect Face",
 				description: "Submit an image and detect all faces it contains, returning bounding boxes and crop data.",
@@ -104,7 +126,7 @@ const traditionalSections: TraditionalSection[] = [
 			{
 				id: "search-crops",
 				href: "/demos/search-crops",
-				stepNumber: 8,
+				stepNumber: 10,
 				badge: "Detection",
 				title: "Search Crops",
 				description: "Run a multi-image crop search to find matching persons across uploaded face crops with precision tuning.",
@@ -118,7 +140,7 @@ const traditionalSections: TraditionalSection[] = [
 			{
 				id: "face-comparison",
 				href: "/demos/face-comparison",
-				stepNumber: 9,
+				stepNumber: 11,
 				badge: "Comparison",
 				title: "Face Comparison",
 				description: "Upload two photos and see if they are the same person. Useful for onboarding and ID checks.",
@@ -126,7 +148,7 @@ const traditionalSections: TraditionalSection[] = [
 			{
 				id: "face-comparison-liveness",
 				href: "/demos/face-comparison-liveness",
-				stepNumber: 10,
+				stepNumber: 12,
 				badge: "Comparison",
 				title: "Compare with Liveness",
 				description: "Match a reference photo to a live selfie. Liveness runs only after the face match looks strong enough.",
@@ -134,7 +156,7 @@ const traditionalSections: TraditionalSection[] = [
 			{
 				id: "verify-face",
 				href: "/demos/verify-face",
-				stepNumber: 11,
+				stepNumber: 13,
 				badge: "Comparison",
 				title: "Verify Face",
 				description: "Verify a face image against a specific enrolled person by ID with a configurable similarity threshold.",
@@ -302,15 +324,15 @@ export default function HomePage() {
 				<Link
 					href="/home"
 					id="nav-security"
-					className="flex flex-col items-center justify-center text-outline-variant pt-4 pb-2 flex-1 active:scale-95 duration-150 hover:text-primary transition-all"
+					className="flex flex-col items-center justify-center text-on-surface-variant/80 pt-4 pb-2 flex-1 active:scale-95 duration-150 hover:text-primary transition-all"
 				>
 					<span className="material-symbols-outlined mb-1">verified_user</span>
 					<span className="text-[10px] font-medium tracking-wide">Security</span>
 				</Link>
 				<Link
-					href="/home"
+					href="/settings/profile"
 					id="nav-settings"
-					className="flex flex-col items-center justify-center text-outline-variant pt-4 pb-2 flex-1 active:scale-95 duration-150 hover:text-primary transition-all"
+					className="flex flex-col items-center justify-center text-on-surface-variant/80 pt-4 pb-2 flex-1 active:scale-95 duration-150 hover:text-primary transition-all"
 				>
 					<span className="material-symbols-outlined mb-1">settings</span>
 					<span className="text-[10px] font-medium tracking-wide">Settings</span>

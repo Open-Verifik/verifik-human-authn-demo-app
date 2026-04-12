@@ -1,0 +1,21 @@
+# Dependencies and build outputs
+node_modules
+**/.next
+**/.turbo
+**/dist
+**/tsconfig.tsbuildinfo
+pnpm-debug.log*
+
+# VCS and local env
+.git
+.gitignore
+.env
+.env.*
+!.env.example
+
+# Docs and plans (not needed to compile)
+*.md
+.cursor
+
+# Mobile local tooling caches (workspace package.json still copied via `COPY apps`)
+apps/mobile/.expo

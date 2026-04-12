@@ -37,6 +37,10 @@ export interface AuthState {
     profile?: { email?: string; name?: string; credits?: number | null } | null
   ) => void;
   setCredits:          (credits: number | null) => void;
+  /** Replace JWT after renew / revoke (keeps userId and profile fields as-is). */
+  setAccessToken:      (token: string) => void;
+  /** After profile PUT, sync header display fields. */
+  setUserDisplay:      (profile: Partial<Pick<AuthState, 'userName' | 'userEmail' | 'credits'>>) => void;
   clearPendingAuth:    () => void;
   logout:              () => void;
   setHasHydrated:      (value: boolean) => void;
@@ -76,6 +80,10 @@ export const useAuthStore = create<AuthState>()(
         }),
 
       setCredits: (credits) => set({ credits }),
+
+      setAccessToken: (token) => set({ token, isAuthenticated: true }),
+
+      setUserDisplay: (profile) => set(profile),
 
       clearPendingAuth: () =>
         set({ pendingMethod: null, pendingDestination: null }),

@@ -2,11 +2,56 @@ const { app, BrowserWindow, nativeTheme, session, shell, Menu, ipcMain } = requi
 const path = require('path');
 const isDev = require('electron-is-dev');
 
+/** Preload reads this synchronously (sandboxed preload has no `process`). */
+ipcMain.on('electron-platform-sync', (event) => {
+  event.returnValue = process.platform;
+});
+
+/**
+ * Development only: tolerate invalid / untrusted TLS (e.g. local proxy or fake CA).
+ * Never enable in packaged production builds (electron-is-dev is false there).
+ */
+if (isDev) {
+  app.commandLine.appendSwitch('ignore-certificate-errors');
+}
+
 // ── Force dark theme ──────────────────────────────────────────────────────────
 nativeTheme.themeSource = 'dark';
 
 // ── Security: Keep a reference so the window isn't GC'd ──────────────────────
 let mainWindow = null;
+
+const loadInMainWindow = (routePath) => {
+  const nextUrl = isDev ? `http://localhost:3000${routePath}` : getProductionUrl(routePath);
+  return mainWindow?.webContents.loadURL(nextUrl);
+};
+
+const DEMO_ROUTES = [
+  { label: 'All Demos', path: '/home', accelerator: 'CmdOrCtrl+1' },
+  { type: 'separator' },
+  { label: 'Liveness Detection', path: '/demos/liveness', accelerator: 'CmdOrCtrl+2' },
+  { label: 'Face Comparison', path: '/demos/face-comparison', accelerator: 'CmdOrCtrl+3' },
+  { label: 'Face Comparison + Liveness', path: '/demos/face-comparison-liveness' },
+  { label: 'Face Detection', path: '/demos/face-detection' },
+  { label: 'Detect Face', path: '/demos/detect-face' },
+  { label: 'Verify Face', path: '/demos/verify-face' },
+  { type: 'separator' },
+  { label: 'Create Collection', path: '/demos/create-collection' },
+  { label: 'Create Person', path: '/demos/create-person' },
+  { label: 'Create Person With Liveness', path: '/demos/create-person-with-liveness' },
+  { label: 'Update Person', path: '/demos/update-person' },
+  { label: 'Delete Person', path: '/demos/delete-person' },
+  { label: 'Search Person', path: '/demos/search-person' },
+  { label: 'Search Live Person', path: '/demos/search-live-person' },
+  { label: 'Search Active User', path: '/demos/search-active-user' },
+  { label: 'Search Crops', path: '/demos/search-crops' },
+  { type: 'separator' },
+  { label: 'HumanID Login', path: '/demos/humanid' },
+  { label: 'HumanID Create', path: '/demos/humanid-create' },
+  { label: 'HumanID Create QR', path: '/demos/humanid-create-qr' },
+  { label: 'HumanID Preview', path: '/demos/humanid-preview' },
+  { label: 'HumanID Decrypt', path: '/demos/humanid-decrypt' },
+];
 
 // ── Custom menu ───────────────────────────────────────────────────────────────
 function createMenu() {
@@ -23,8 +68,8 @@ function createMenu() {
     {
       label: 'View',
       submenu: [
-        { label: 'Home', click: () => mainWindow?.webContents.loadURL(isDev ? 'http://localhost:3000' : getProductionUrl('/')) },
-        { label: 'Sign In', click: () => mainWindow?.webContents.loadURL(isDev ? 'http://localhost:3000/auth' : getProductionUrl('/auth')) },
+        { label: 'Home', click: () => loadInMainWindow('/') },
+        { label: 'Sign In', click: () => loadInMainWindow('/auth') },
         { type: 'separator' },
         { label: 'Reload', role: 'reload' },
         { label: 'Force Reload', role: 'forceReload' },
@@ -39,23 +84,15 @@ function createMenu() {
     },
     {
       label: 'Demos',
-      submenu: [
-        {
-          label: 'Face Comparison',
-          accelerator: 'CmdOrCtrl+1',
-          click: () => mainWindow?.webContents.loadURL(isDev ? 'http://localhost:3000/demos/face-comparison' : getProductionUrl('/demos/face-comparison')),
-        },
-        {
-          label: 'Liveness Detection',
-          accelerator: 'CmdOrCtrl+2',
-          click: () => mainWindow?.webContents.loadURL(isDev ? 'http://localhost:3000/demos/liveness' : getProductionUrl('/demos/liveness')),
-        },
-        {
-          label: 'HumanID Login',
-          accelerator: 'CmdOrCtrl+3',
-          click: () => mainWindow?.webContents.loadURL(isDev ? 'http://localhost:3000/demos/humanid' : getProductionUrl('/demos/humanid')),
-        },
-      ],
+      submenu: DEMO_ROUTES.map((item) =>
+        item.type === 'separator'
+          ? { type: 'separator' }
+          : {
+              label: item.label,
+              ...(item.accelerator ? { accelerator: item.accelerator } : {}),
+              click: () => loadInMainWindow(item.path),
+            }
+      ),
     },
     {
       label: 'Window',
@@ -134,12 +171,12 @@ app.whenReady().then(() => {
       responseHeaders: {
         ...details.responseHeaders,
         'Content-Security-Policy': [
-          "default-src 'self' http://localhost:3000 https://*.verifik.co https://fonts.googleapis.com https://fonts.gstatic.com; " +
+          "default-src 'self' http://localhost:3000 https://verifik.app https://api.verifik.co https://*.verifik.co https://fonts.googleapis.com https://fonts.gstatic.com; " +
           "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://localhost:3000; " +
           "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
           "img-src 'self' data: blob: https: http:; " +
           "media-src 'self' blob:; " +
-          "connect-src 'self' http://localhost:3000 https://*.verifik.co https://access.verifik.co ws://localhost:*;",
+          "connect-src 'self' http://localhost:3000 https://verifik.app https://api.verifik.co https://*.verifik.co https://access.verifik.co ws://localhost:*;",
         ],
       },
     });

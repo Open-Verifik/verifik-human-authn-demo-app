@@ -8,6 +8,7 @@ import { z } from 'zod';
 import { sendEmailOTP, sendPhoneOTP, verifikConfig } from '@humanauthn/api-client';
 import { CountryCodeSelect } from '../../components/auth/CountryCodeSelect';
 import { AuroraBackground } from '../../components/ui/aurora-background';
+import ThemeToggle from '../../components/ui/ThemeToggle';
 import { VerifikLogo } from '../../components/ui/VerifikLogo';
 import { DEFAULT_PHONE_COUNTRY_ISO2, getPhoneCountryByIso2 } from '../../lib/phoneCountries';
 
@@ -31,8 +32,21 @@ export default function AuthPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const emailForm = useForm<EmailForm>({ resolver: zodResolver(emailSchema) });
-  const phoneForm = useForm<PhoneForm>({ resolver: zodResolver(phoneSchema) });
+  const emailForm = useForm<EmailForm>({
+    resolver: zodResolver(emailSchema),
+    mode: 'onChange',
+    defaultValues: { email: '' },
+  });
+  const phoneForm = useForm<PhoneForm>({
+    resolver: zodResolver(phoneSchema),
+    mode: 'onChange',
+    defaultValues: { phone: '' },
+  });
+
+  const emailValue = emailForm.watch('email');
+  const phoneValue = phoneForm.watch('phone');
+  const canSendEmail = emailSchema.safeParse({ email: emailValue }).success;
+  const canSendPhone = phoneSchema.safeParse({ phone: phoneValue }).success;
 
   // ── Handlers ───────────────────────────────────────────────────────────────
   const onEmailSubmit = async (data: EmailForm) => {
@@ -87,32 +101,31 @@ export default function AuthPage() {
     <AuroraBackground className="px-4 overflow-hidden">
 
       {/* Main Modal Card */}
-      <main className="relative z-10 w-full max-w-[400px] bg-white rounded-3xl p-8 shadow-float animate-slide-up text-surface">
+      <main className="relative z-10 w-full max-w-[400px] bg-white rounded-3xl p-8 shadow-float animate-slide-up text-auth-modal-ink">
         
         {/* Header Strip */}
         <div className="flex items-center justify-between mb-8">
           <button
             onClick={() => router.back()}
-            className="flex items-center justify-center w-8 h-8 rounded-full border border-transparent hover:bg-black/5 hover:border-black/10 text-outline hover:text-surface transition-all"
+            className="flex items-center justify-center w-8 h-8 rounded-full border border-transparent hover:bg-black/5 hover:border-black/10 text-auth-modal-ink/55 hover:text-auth-modal-ink transition-all"
             aria-label="Go back"
           >
             <span className="material-symbols-outlined text-[20px]">arrow_back</span>
           </button>
 
-          <div className="flex flex-col items-center absolute left-1/2 -translate-x-1/2 text-surface">
+          <div className="flex flex-col items-center absolute left-1/2 -translate-x-1/2 text-auth-modal-ink">
             <VerifikLogo className="h-6 w-auto" />
           </div>
           
-          {/* Spacer to balance back button */}
-          <div className="w-8" aria-hidden="true" />
+          <ThemeToggle />
         </div>
 
         {/* Headlines */}
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold tracking-tight text-surface mb-2">
+          <h1 className="text-2xl font-bold tracking-tight text-auth-modal-ink mb-2">
             Sign in
           </h1>
-          <p className="text-sm text-outline">
+          <p className="text-sm text-auth-modal-ink/70">
             Enter your email or phone to receive a code.
           </p>
         </div>
@@ -125,7 +138,7 @@ export default function AuthPage() {
             className={`flex-1 py-2 rounded-lg text-sm font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 ${
               method === 'email'
                 ? 'bg-white text-primary shadow-sm border border-black/5'
-                : 'text-outline hover:text-surface border border-transparent'
+                : 'text-auth-modal-ink/60 hover:text-auth-modal-ink border border-transparent'
             }`}
           >
             <span className="material-symbols-outlined text-[18px]">email</span>
@@ -137,7 +150,7 @@ export default function AuthPage() {
             className={`flex-1 py-2 rounded-lg text-sm font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 ${
               method === 'phone'
                 ? 'bg-white text-primary shadow-sm border border-black/5'
-                : 'text-outline hover:text-surface border border-transparent'
+                : 'text-auth-modal-ink/60 hover:text-auth-modal-ink border border-transparent'
             }`}
           >
             <span className="material-symbols-outlined text-[18px]">phone</span>
@@ -163,8 +176,8 @@ export default function AuthPage() {
                 type="email"
                 autoComplete="email"
                 placeholder="you@company.com"
-                className="w-full bg-transparent text-surface px-4 py-3.5 rounded-xl
-                           placeholder-outline/50 border border-black/10 outline-none
+                className="w-full bg-transparent text-auth-modal-ink px-4 py-3.5 rounded-xl
+                           placeholder-auth-modal-ink/45 border border-black/10 outline-none
                            focus:ring-1 focus:ring-primary/50 focus:border-primary transition-all text-sm"
                 {...emailForm.register('email')}
               />
@@ -175,9 +188,9 @@ export default function AuthPage() {
             <button
               id="btn-send-email-code"
               type="submit"
-              disabled={isLoading}
-              className="w-full py-3.5 bg-primary text-on-primary-container font-semibold rounded-xl
-                         hover:bg-primary/90 active:scale-[0.98] transition-all duration-200
+              disabled={isLoading || !canSendEmail}
+              className="w-full py-3.5 bg-primary-cta text-on-primary-container font-semibold rounded-xl shadow-primary
+                         enabled:hover:opacity-90 active:scale-[0.98] transition-all duration-200
                          disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               {isLoading ? (
@@ -207,8 +220,8 @@ export default function AuthPage() {
                     type="tel"
                     autoComplete="tel-national"
                     placeholder="Phone number"
-                    className="w-full min-w-0 bg-transparent text-surface px-4 py-3.5 rounded-xl
-                               placeholder-outline/50 border border-black/10 outline-none
+                    className="w-full min-w-0 bg-transparent text-auth-modal-ink px-4 py-3.5 rounded-xl
+                               placeholder-auth-modal-ink/45 border border-black/10 outline-none
                                focus:ring-1 focus:ring-primary/50 focus:border-primary transition-all text-sm"
                     {...phoneForm.register('phone')}
                   />
@@ -221,9 +234,9 @@ export default function AuthPage() {
             <button
               id="btn-send-phone-code"
               type="submit"
-              disabled={isLoading}
-              className="w-full py-3.5 bg-primary text-on-primary-container font-semibold rounded-xl
-                         hover:bg-primary/90 active:scale-[0.98] transition-all duration-200
+              disabled={isLoading || !canSendPhone}
+              className="w-full py-3.5 bg-primary-cta text-on-primary-container font-semibold rounded-xl shadow-primary
+                         enabled:hover:opacity-90 active:scale-[0.98] transition-all duration-200
                          disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               {isLoading ? (
@@ -240,7 +253,7 @@ export default function AuthPage() {
           <div className="absolute inset-0 flex items-center">
             <div className="w-full border-t border-black/10" />
           </div>
-          <div className="relative bg-white px-3 rounded-full text-[10px] font-bold text-outline uppercase tracking-wider">
+          <div className="relative bg-white px-3 rounded-full text-[10px] font-bold text-auth-modal-ink/55 uppercase tracking-wider">
             Or
           </div>
         </div>
@@ -249,7 +262,7 @@ export default function AuthPage() {
         <button
           id="btn-biometric-login"
           onClick={() => router.push('/demos/humanid')}
-          className="w-full py-3.5 border border-black/10 bg-transparent hover:bg-black/5 text-surface font-semibold text-sm
+          className="w-full py-3.5 border border-black/10 bg-transparent hover:bg-black/5 text-auth-modal-ink font-semibold text-sm
                      rounded-xl transition-all active:scale-[0.98] flex items-center justify-center gap-2"
         >
           <span className="material-symbols-outlined text-[20px]">face</span>
@@ -257,7 +270,7 @@ export default function AuthPage() {
         </button>
 
         {/* Minimal Security Footer */}
-        <div className="mt-8 flex items-center justify-center gap-4 opacity-60 text-[9px] font-mono text-outline uppercase tracking-widest">
+        <div className="mt-8 flex items-center justify-center gap-4 opacity-60 text-[9px] font-mono text-auth-modal-ink/55 uppercase tracking-widest">
           <span>AES-256</span>
           <span>•</span>
           <span>Verifik</span>

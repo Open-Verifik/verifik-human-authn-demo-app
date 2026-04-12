@@ -278,14 +278,14 @@ const HumanIdJsonKeyValueField = forwardRef<HumanIdJsonKeyValueFieldHandle, Huma
 								value={r.key}
 								onChange={(e) => handleRowChange(r.id, "key", e.target.value)}
 								placeholder="fieldName"
-								className="rounded-lg border border-outline-variant/30 bg-surface-container-low px-3 py-2 text-sm text-on-surface placeholder:text-outline-variant focus:border-primary/60 focus:outline-none"
+								className="rounded-lg border border-outline-variant/30 bg-surface-container-low px-3 py-2 text-sm text-on-surface placeholder:text-on-surface-variant/50 focus:border-primary/60 focus:outline-none"
 							/>
 							<input
 								type="text"
 								value={r.value}
 								onChange={(e) => handleRowChange(r.id, "value", e.target.value)}
 								placeholder="value"
-								className="rounded-lg border border-outline-variant/30 bg-surface-container-low px-3 py-2 text-sm text-on-surface placeholder:text-outline-variant focus:border-primary/60 focus:outline-none"
+								className="rounded-lg border border-outline-variant/30 bg-surface-container-low px-3 py-2 text-sm text-on-surface placeholder:text-on-surface-variant/50 focus:border-primary/60 focus:outline-none"
 							/>
 							<button
 								type="button"

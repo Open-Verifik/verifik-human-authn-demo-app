@@ -13,6 +13,8 @@ import DemoUploadImageButton from "../../components/demos/DemoUploadImageButton"
 import FaceGuidedCamera from "../../components/demos/FaceGuidedCameraLoader";
 import DemoRelatedDocsSection, { type DemoRelatedDocItem } from "../../components/demos/DemoRelatedDocsSection";
 import DemoSignInPrompt from "../DemoSignInPrompt";
+import ElectronAwareAppHeader from "../../components/layout/ElectronAwareAppHeader";
+
 
 const DOCS_BASE = "https://docs.verifik.co";
 
@@ -123,7 +125,7 @@ export default function DetectFacePage() {
 
 	return (
 		<div className="min-h-screen bg-surface flex flex-col">
-			<header className="fixed top-0 left-0 w-full z-50 glass-panel-dark flex items-center px-6 py-4">
+			<ElectronAwareAppHeader>
 				<button
 					onClick={() => router.back()}
 					className="hover:bg-surface-container transition-colors p-1.5 rounded-lg text-primary mr-3"
@@ -132,7 +134,7 @@ export default function DetectFacePage() {
 					<span className="material-symbols-outlined">arrow_back</span>
 				</button>
 				<h1 className="font-bold tracking-tight text-lg text-primary">Detect Face</h1>
-			</header>
+			</ElectronAwareAppHeader>
 			<main className="flex-1 mt-20 mb-10 px-4 md:px-8 max-w-4xl mx-auto w-full">
 				<div className="mb-8">
 					<h2 className="text-3xl font-black tracking-tight text-on-surface mb-2">
@@ -272,7 +274,7 @@ export default function DetectFacePage() {
 								<span className="material-symbols-outlined text-lg">menu_book</span>
 								API reference: Face Detection
 							</span>
-							<span className="material-symbols-outlined text-outline-variant group-open:rotate-180 transition-transform">
+							<span className="material-symbols-outlined text-on-surface-variant/70 group-open:rotate-180 transition-transform">
 								expand_more
 							</span>
 						</summary>

@@ -12,7 +12,10 @@ import DemoScannerShell from "../../components/demos/DemoScannerShell";
 import DemoUploadImageButton from "../../components/demos/DemoUploadImageButton";
 import FaceGuidedCamera from "../../components/demos/FaceGuidedCameraLoader";
 import DemoRelatedDocsSection, { type DemoRelatedDocItem } from "../../components/demos/DemoRelatedDocsSection";
+import CreatePersonAlreadyExistsResult from "../../components/demos/CreatePersonAlreadyExistsResult";
 import DemoSignInPrompt from "../DemoSignInPrompt";
+import ElectronAwareAppHeader from "../../components/layout/ElectronAwareAppHeader";
+
 
 const DOCS_BASE = "https://docs.verifik.co";
 const DOCS_ES_BASE = "https://docs.verifik.co/verifik-es";
@@ -54,9 +57,25 @@ const RELATED_DOCS: DemoRelatedDocItem[] = [
 		description: "Liveness, duplicate search, and enroll in one request.",
 		badge: "POST",
 	},
+	{
+		href: "/demos/update-person",
+		title: "Update Person (demo)",
+		description: "Change profile or collections for an existing person id.",
+		badge: "Demo",
+	},
+	{
+		href: "/demos/delete-person",
+		title: "Delete Person (demo)",
+		description: "Full delete or remove from a collection only.",
+		badge: "Demo",
+	},
 ];
 
-type Step = "form" | "processing" | "result";
+type Step = "form" | "processing" | "result" | "conflict";
+
+function isPersonAlreadySetError(res: { error?: string; code?: string }): boolean {
+	return res.error === "person_already_set" || (res.code === "PreconditionFailed" && res.error === "person_already_set");
+}
 
 export default function CreatePersonWithLivenessPage() {
 	useAuthHydration();
@@ -80,7 +99,7 @@ export default function CreatePersonWithLivenessPage() {
 	const fileRef = useRef<HTMLInputElement>(null);
 
 	const canUseDemo = hasHydrated && isAuthenticated;
-	const showApiReference = step !== "result";
+	const showApiReference = step !== "result" && step !== "conflict";
 
 	const appendCapturedImage = (preview: string, b64: string) => {
 		setImages((p) => [...p, b64]);
@@ -119,6 +138,10 @@ export default function CreatePersonWithLivenessPage() {
 		);
 
 		if (res.error) {
+			if (isPersonAlreadySetError(res)) {
+				setStep("conflict");
+				return;
+			}
 			setError(res.error);
 			setStep("form");
 			return;
@@ -143,9 +166,14 @@ export default function CreatePersonWithLivenessPage() {
 		setError(null);
 	};
 
+	const backToFormFromConflict = () => {
+		setStep("form");
+		setError(null);
+	};
+
 	return (
 		<div className="min-h-screen bg-surface flex flex-col">
-			<header className="fixed top-0 left-0 w-full z-50 glass-panel-dark flex items-center px-6 py-4">
+			<ElectronAwareAppHeader>
 				<button
 					onClick={() => router.back()}
 					className="hover:bg-surface-container transition-colors p-1.5 rounded-lg text-primary mr-3"
@@ -154,17 +182,23 @@ export default function CreatePersonWithLivenessPage() {
 					<span className="material-symbols-outlined">arrow_back</span>
 				</button>
 				<h1 className="font-bold tracking-tight text-lg text-primary">Create Person with Liveness</h1>
-			</header>
+			</ElectronAwareAppHeader>
 
 			<main className="flex-1 mt-20 mb-10 px-4 md:px-8 max-w-4xl mx-auto w-full">
 				<div className="mb-8">
 					<h2 className="text-3xl font-black tracking-tight text-on-surface mb-2">
-						{step === "result" ? "Person Enrolled" : "Create Person with Liveness"}
+						{step === "result"
+							? "Person Enrolled"
+							: step === "conflict"
+								? "Already enrolled"
+								: "Create Person with Liveness"}
 					</h2>
 					<p className="text-on-surface-variant">
 						{step === "result"
 							? "Person has been enrolled with liveness and search checks."
-							: "Enroll + liveness check + deduplication search in one call."}
+							: step === "conflict"
+								? "This face matches an existing person. Review the images you used and choose a next step."
+								: "Enroll + liveness check + deduplication search in one call."}
 					</p>
 				</div>
 
@@ -186,7 +220,7 @@ export default function CreatePersonWithLivenessPage() {
 									value={name}
 									onChange={(e) => setName(e.target.value)}
 									placeholder="Jane Doe"
-									className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-outline text-sm focus:outline-none focus:border-primary/60 transition-colors"
+									className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-on-surface-variant/50 text-sm focus:outline-none focus:border-primary/60 transition-colors"
 								/>
 							</div>
 							<div>
@@ -228,7 +262,7 @@ export default function CreatePersonWithLivenessPage() {
 									value={nationality}
 									onChange={(e) => setNationality(e.target.value)}
 									placeholder="CO"
-									className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-outline text-sm focus:outline-none focus:border-primary/60 transition-colors"
+									className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-on-surface-variant/50 text-sm focus:outline-none focus:border-primary/60 transition-colors"
 								/>
 							</div>
 						</div>
@@ -243,7 +277,7 @@ export default function CreatePersonWithLivenessPage() {
 								value={collectionId}
 								onChange={(e) => setCollectionId(e.target.value)}
 								placeholder="Collection unique _id"
-								className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-outline text-sm focus:outline-none focus:border-primary/60 transition-colors"
+								className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-on-surface-variant/50 text-sm focus:outline-none focus:border-primary/60 transition-colors"
 							/>
 						</div>
 						<div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
@@ -357,6 +391,12 @@ export default function CreatePersonWithLivenessPage() {
 						<div className="w-12 h-12 border-2 border-primary border-t-transparent rounded-full animate-spin" />
 						<p className="text-on-surface font-semibold">Enrolling and checking liveness…</p>
 					</div>
+				) : step === "conflict" ? (
+					<CreatePersonAlreadyExistsResult
+						previews={previews}
+						onEditForm={backToFormFromConflict}
+						onBackToDemos={() => router.push("/home")}
+					/>
 				) : (
 					<div className="space-y-4">
 						<div className="rounded-2xl bg-surface-container-low border border-primary/20 p-6">
@@ -392,7 +432,7 @@ export default function CreatePersonWithLivenessPage() {
 								<span className="material-symbols-outlined text-lg">menu_book</span>
 								API reference: Create Person with Liveness
 							</span>
-							<span className="material-symbols-outlined text-outline-variant group-open:rotate-180 transition-transform">
+							<span className="material-symbols-outlined text-on-surface-variant/70 group-open:rotate-180 transition-transform">
 								expand_more
 							</span>
 						</summary>

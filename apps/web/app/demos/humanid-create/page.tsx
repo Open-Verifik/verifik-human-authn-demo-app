@@ -11,6 +11,7 @@ import DemoOrDivider from "../../components/demos/DemoOrDivider";
 import DemoUploadImageButton from "../../components/demos/DemoUploadImageButton";
 import FaceGuidedCamera from "../../components/demos/FaceGuidedCameraLoader";
 import DemoSignInPrompt from "../DemoSignInPrompt";
+import ElectronAwareAppHeader from "../../components/layout/ElectronAwareAppHeader";
 import HumanIdJsonKeyValueField, { type HumanIdJsonKeyValueFieldHandle } from "../../components/demos/HumanIdJsonKeyValueField";
 import HumanIdStructuredResult from "../../components/demos/HumanIdStructuredResult";
 
@@ -90,15 +91,15 @@ export default function HumanIdCreatePage() {
 
 	return (
 		<div className="min-h-screen bg-surface flex flex-col">
-			<header className="fixed top-0 left-0 w-full z-50 glass-panel-dark flex items-center px-6 py-4">
+			<ElectronAwareAppHeader>
 				<button onClick={() => router.back()} className="hover:bg-surface-container transition-colors p-1.5 rounded-lg text-primary mr-3" aria-label="Back"><span className="material-symbols-outlined">arrow_back</span></button>
 				<h1 className="font-bold tracking-tight text-lg text-primary">Create HumanID</h1>
-			</header>
+			</ElectronAwareAppHeader>
 			<main className={`flex-1 mt-20 mb-10 px-4 md:px-8 mx-auto w-full ${step === "result" ? "max-w-3xl" : "max-w-2xl"}`}>
 				<details className="mb-8 mt-6 rounded-xl border border-outline-variant/20 bg-surface-container-low/50 text-left px-4 py-3 group">
 					<summary className="cursor-pointer list-none font-bold text-sm text-primary flex items-center justify-between gap-2">
 						<span className="flex items-center gap-2"><span className="material-symbols-outlined text-lg">menu_book</span>API reference: Create HumanID</span>
-						<span className="material-symbols-outlined text-outline-variant group-open:rotate-180 transition-transform">expand_more</span>
+						<span className="material-symbols-outlined text-on-surface-variant/70 group-open:rotate-180 transition-transform">expand_more</span>
 					</summary>
 					<div className="mt-4 space-y-3 text-sm text-on-surface-variant border-t border-outline-variant/15 pt-4">
 						<p className="font-mono text-xs text-on-surface">POST /v2/human-id/encrypt</p>
@@ -124,7 +125,7 @@ export default function HumanIdCreatePage() {
 						<div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
 							<div>
 								<label className="block text-sm font-semibold text-on-surface mb-1.5" htmlFor="hid-identifier">Identifier <span className="text-error">*</span></label>
-								<input id="hid-identifier" type="text" required value={identifier} onChange={(e) => setIdentifier(e.target.value)} placeholder="janedoe123" className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-outline text-sm focus:outline-none focus:border-primary/60 transition-colors" />
+								<input id="hid-identifier" type="text" required value={identifier} onChange={(e) => setIdentifier(e.target.value)} placeholder="janedoe123" className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-on-surface-variant/50 text-sm focus:outline-none focus:border-primary/60 transition-colors" />
 							</div>
 							<div>
 								<label className="block text-sm font-semibold text-on-surface mb-1.5">Tolerance</label>
@@ -138,11 +139,11 @@ export default function HumanIdCreatePage() {
 						<div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
 							<div>
 								<label className="block text-sm font-semibold text-on-surface mb-1.5" htmlFor="hid-liveness">Liveness level</label>
-								<input id="hid-liveness" type="text" value={livenessLevel} onChange={(e) => setLivenessLevel(e.target.value)} placeholder="1" className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-outline text-sm focus:outline-none focus:border-primary/60" />
+								<input id="hid-liveness" type="text" value={livenessLevel} onChange={(e) => setLivenessLevel(e.target.value)} placeholder="1" className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-on-surface-variant/50 text-sm focus:outline-none focus:border-primary/60" />
 							</div>
 							<div>
 								<label className="block text-sm font-semibold text-on-surface mb-1.5" htmlFor="hid-pw">Password (optional)</label>
-								<input id="hid-pw" type="text" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Optional encryption password" className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-outline text-sm focus:outline-none focus:border-primary/60" />
+								<input id="hid-pw" type="text" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Optional encryption password" className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-on-surface-variant/50 text-sm focus:outline-none focus:border-primary/60" />
 							</div>
 						</div>
 						<div className="flex items-center gap-3">

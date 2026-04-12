@@ -6,6 +6,7 @@ import {
 	DEFAULT_LIVENESS_STANDALONE_MIN_SCORE,
 	detectLiveness,
 	fileToBase64,
+	imageUrlToRawBase64,
 	parseLivenessResult,
 } from "@humanauthn/api-client";
 import { useAuthHydration } from "../../hooks/useAuthHydration";
@@ -17,11 +18,21 @@ import DemoScannerShell from "../../components/demos/DemoScannerShell";
 import DemoUploadImageButton from "../../components/demos/DemoUploadImageButton";
 import FaceGuidedCamera from "../../components/demos/FaceGuidedCameraLoader";
 import DemoSignInPrompt from "../DemoSignInPrompt";
+import ElectronAwareAppHeader from "../../components/layout/ElectronAwareAppHeader";
 
 type Step = "capture" | "processing" | "result";
 type NumericStep = 1 | 2;
 
 const LIVENESS_STEPPER = [{ label: "Capture" }, { label: "Result" }] as const;
+
+const LIVENESS_SAMPLE_IMAGES = [
+	"/assets/ppic1.jpg",
+	"/assets/ppic2.jpg",
+	"/assets/ppic3.jpg",
+	"/assets/ppic4.jpg",
+	"/assets/ppic5.jpg",
+	"/assets/ppic6.jpg",
+] as const;
 
 /** confidence: 0–1 liveness score for display; message optional from API */
 type LivenessResult = { isLive: boolean; confidence: number; message: string } | null;
@@ -54,6 +65,17 @@ export default function LivenessPage() {
 		const b64 = await fileToBase64(file);
 		setPreviewUrl(URL.createObjectURL(file));
 		runLiveness(b64);
+	};
+
+	const runSampleImage = async (src: string) => {
+		if (!canUseDemo) return;
+		try {
+			const b64 = await imageUrlToRawBase64(src);
+			setPreviewUrl(src);
+			runLiveness(b64);
+		} catch {
+			setError("Could not load sample image.");
+		}
 	};
 
 	// ── API Call ──────────────────────────────────────────────
@@ -104,7 +126,7 @@ export default function LivenessPage() {
 	return (
 		<div className="min-h-screen bg-surface flex flex-col">
 			{/* Top bar */}
-			<header className="fixed top-0 left-0 w-full z-50 glass-panel-dark flex items-center px-6 py-4">
+			<ElectronAwareAppHeader>
 				<div className="flex items-center gap-3">
 					<button
 						onClick={() => router.back()}
@@ -115,7 +137,7 @@ export default function LivenessPage() {
 					</button>
 					<h1 className="font-bold tracking-tight text-lg text-primary">Liveness Detection</h1>
 				</div>
-			</header>
+			</ElectronAwareAppHeader>
 
 			<main className="flex-1 mt-20 mb-10 px-4 md:px-8 max-w-5xl mx-auto w-full">
 				{/* Progress stepper (matches face-comparison demos) */}
@@ -134,13 +156,13 @@ export default function LivenessPage() {
 							? "bg-primary text-on-primary"
 							: isActive
 								? "bg-primary-container text-on-primary-container ring-4 ring-primary-container/20"
-								: "bg-surface-container-high border border-outline-variant text-outline-variant opacity-40"
+								: "bg-surface-container-high border border-outline-variant text-on-surface-variant/50"
 					}`}
 									>
 										{isDone ? <span className="material-symbols-outlined text-sm">check</span> : n}
 									</div>
 									<span
-										className={`text-[0.6875rem] font-bold uppercase tracking-wider mt-2 ${isActive ? "text-primary" : "text-outline-variant opacity-40"}`}
+										className={`text-[0.6875rem] font-bold uppercase tracking-wider mt-2 ${isActive ? "text-primary" : "text-on-surface-variant/50"}`}
 									>
 										{s.label}
 									</span>
@@ -159,7 +181,7 @@ export default function LivenessPage() {
 							<span className="material-symbols-outlined text-lg">menu_book</span>
 							API reference: Liveness
 						</span>
-						<span className="material-symbols-outlined text-outline-variant group-open:rotate-180 transition-transform">
+						<span className="material-symbols-outlined text-on-surface-variant/70 group-open:rotate-180 transition-transform">
 							expand_more
 						</span>
 					</summary>
@@ -371,32 +393,30 @@ export default function LivenessPage() {
 						{/* Right: samples */}
 						<div className="lg:col-span-5 space-y-6">
 							<div className="bg-surface-container rounded-xl p-5">
-								<h3 className="text-sm font-bold tracking-widest text-outline uppercase mb-5 flex items-center gap-2">
+								<h3 className="text-sm font-bold tracking-widest text-on-surface-variant uppercase mb-2 flex items-center gap-2">
 									<span className="w-1.5 h-1.5 bg-primary rounded-full" /> Test Samples
 								</h3>
+								<p className="text-xs text-on-surface-variant mb-4">
+									Tap a portrait to run liveness on a stock photo (same as uploading).
+								</p>
 								<div className="grid grid-cols-3 gap-2">
-									{[1, 2, 3, 4, 5].map((i) => (
-										<div
-											key={i}
-											className="aspect-square bg-surface-container-high rounded-lg overflow-hidden cursor-pointer
-                                            border border-transparent hover:border-primary/40 transition-all group"
+									{LIVENESS_SAMPLE_IMAGES.map((src, i) => (
+										<button
+											key={src}
+											type="button"
+											disabled={!canUseDemo}
+											onClick={() => void runSampleImage(src)}
+											aria-label={`Run liveness on sample portrait ${i + 1}`}
+											className={`aspect-square rounded-lg overflow-hidden border transition-all text-left p-0
+												${
+													canUseDemo
+														? "cursor-pointer border-transparent hover:border-primary/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+														: "cursor-not-allowed opacity-50 border-outline-variant/20"
+												}`}
 										>
-											<div className="w-full h-full bg-surface-container-highest flex items-center justify-center">
-												<span
-													className="material-symbols-outlined text-outline-variant/40 text-3xl"
-													style={{ fontVariationSettings: "'wght' 200" }}
-												>
-													face
-												</span>
-											</div>
-										</div>
+											<img src={src} alt="" className="w-full h-full object-cover" />
+										</button>
 									))}
-									<div
-										className="aspect-square bg-surface-container-high rounded-lg flex items-center justify-center
-                                  border border-dashed border-outline-variant hover:bg-surface-container-highest transition-colors cursor-pointer"
-									>
-										<span className="material-symbols-outlined text-outline">add</span>
-									</div>
 								</div>
 							</div>
 						</div>
@@ -416,7 +436,7 @@ export default function LivenessPage() {
 							<div className="absolute -inset-3 border-2 border-primary/40 rounded-full animate-pulse-slow scanning-ring" />
 						</div>
 						<p className="text-lg font-semibold text-on-surface mb-2">Analyzing liveness…</p>
-						<p className="text-outline text-sm font-mono">Verifik HumanAuthn Engine · Active</p>
+						<p className="text-on-surface-variant text-sm font-mono">Verifik HumanAuthn Engine · Active</p>
 					</div>
 				)}
 
@@ -442,11 +462,11 @@ export default function LivenessPage() {
 							<div className="grid grid-cols-2 gap-4 mb-8">
 								<div className="bg-surface-container rounded-lg p-4">
 									<p className="text-2xl font-black text-primary">{(result.confidence * 100).toFixed(1)}%</p>
-									<p className="label-meta text-outline text-[10px] mt-1">Confidence</p>
+									<p className="label-meta text-on-surface-variant text-[10px] mt-1">Confidence</p>
 								</div>
 								<div className="bg-surface-container rounded-lg p-4">
 									<p className="text-2xl font-black text-on-surface">{result.isLive ? "PASS" : "FAIL"}</p>
-									<p className="label-meta text-outline text-[10px] mt-1">Verdict</p>
+									<p className="label-meta text-on-surface-variant text-[10px] mt-1">Verdict</p>
 								</div>
 							</div>
 
@@ -489,7 +509,7 @@ export default function LivenessPage() {
 				].map(({ icon, label, active }) => (
 					<div
 						key={label}
-						className={`flex flex-col items-center justify-center px-3 py-1 rounded-lg transition-all ${active ? "text-primary bg-surface-container" : "text-outline-variant hover:text-primary"}`}
+						className={`flex flex-col items-center justify-center px-3 py-1 rounded-lg transition-all ${active ? "text-primary bg-surface-container" : "text-on-surface-variant/80 hover:text-primary"}`}
 					>
 						<span className="material-symbols-outlined" style={active ? { fontVariationSettings: "'FILL' 1" } : {}}>
 							{icon}

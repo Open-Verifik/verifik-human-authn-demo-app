@@ -7,6 +7,8 @@ import { useAuthHydration } from "../../hooks/useAuthHydration";
 import { useAuthStore } from "../../store/authStore";
 import DemoUploadImageButton from "../../components/demos/DemoUploadImageButton";
 import DemoSignInPrompt from "../DemoSignInPrompt";
+import ElectronAwareAppHeader from "../../components/layout/ElectronAwareAppHeader";
+
 import HumanIdPreviewResult from "../../components/demos/HumanIdPreviewResult";
 import DemoRelatedDocsSection, { type DemoRelatedDocItem } from "../../components/demos/DemoRelatedDocsSection";
 
@@ -152,7 +154,7 @@ export default function HumanIdPreviewPage() {
 
 	return (
 		<div className="min-h-screen bg-surface flex flex-col">
-			<header className="fixed top-0 left-0 w-full z-50 glass-panel-dark flex items-center px-6 py-4">
+			<ElectronAwareAppHeader>
 				<button
 					type="button"
 					onClick={() => router.back()}
@@ -162,7 +164,7 @@ export default function HumanIdPreviewPage() {
 					<span className="material-symbols-outlined">arrow_back</span>
 				</button>
 				<h1 className="font-bold tracking-tight text-lg text-primary">Preview HumanID</h1>
-			</header>
+			</ElectronAwareAppHeader>
 			<main
 				className={`flex-1 mt-20 mb-10 px-4 md:px-8 mx-auto w-full ${step === "result" ? "max-w-3xl" : "max-w-4xl"}`}
 			>
@@ -217,7 +219,7 @@ export default function HumanIdPreviewPage() {
 										setQrExtractMessage(null);
 									}}
 									placeholder="Paste the ZelfProof string here…"
-									className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-outline text-xs font-mono focus:outline-none focus:border-primary/60 transition-colors resize-none"
+									className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-on-surface-variant/50 text-xs font-mono focus:outline-none focus:border-primary/60 transition-colors resize-none"
 								/>
 							</div>
 						) : (
@@ -273,7 +275,7 @@ export default function HumanIdPreviewPage() {
 								value={verifierKey}
 								onChange={(e) => setVerifierKey(e.target.value)}
 								placeholder="Unlocks additional fields if set during creation"
-								className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-outline text-sm focus:outline-none focus:border-primary/60"
+								className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-on-surface-variant/50 text-sm focus:outline-none focus:border-primary/60"
 							/>
 						</div>
 						{error && (
@@ -303,7 +305,7 @@ export default function HumanIdPreviewPage() {
 								<span className="material-symbols-outlined text-lg">menu_book</span>
 								API reference: Preview HumanID
 							</span>
-							<span className="material-symbols-outlined text-outline-variant group-open:rotate-180 transition-transform">
+							<span className="material-symbols-outlined text-on-surface-variant/70 group-open:rotate-180 transition-transform">
 								expand_more
 							</span>
 						</summary>

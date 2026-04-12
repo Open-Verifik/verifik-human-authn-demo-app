@@ -2,8 +2,8 @@ export type DemoRelatedDocItem = {
 	href: string;
 	title: string;
 	description: string;
-	/** Shown like Projects endpoint verbs; use "Object" for schema/reference pages */
-	badge: "GET" | "POST" | "PUT" | "DELETE" | "Object";
+	/** Shown like Projects endpoint verbs; use "Object" for schema/reference pages; "Demo" for in-app demo links */
+	badge: "GET" | "POST" | "PUT" | "DELETE" | "Object" | "Demo";
 };
 
 type DemoRelatedDocsSectionProps = {
@@ -46,14 +46,14 @@ export default function DemoRelatedDocsSection({ items }: DemoRelatedDocsSection
 							<span
 								className={`inline-flex shrink-0 items-center rounded-md border px-2 py-0.5 font-mono text-[0.625rem] font-bold uppercase tracking-wide tabular-nums ${
 									doc.badge === "Object"
-										? "border-outline-variant/35 bg-surface-container-high/40 text-outline"
+										? "border-outline-variant/35 bg-surface-container-high/40 text-on-surface-variant"
 										: "border-primary/25 bg-primary/8 text-primary"
 								}`}
 							>
 								{doc.badge}
 							</span>
 							<span
-								className="material-symbols-outlined shrink-0 text-lg text-outline-variant transition-colors group-hover:text-primary"
+								className="material-symbols-outlined shrink-0 text-lg text-on-surface-variant/70 transition-colors group-hover:text-primary"
 								aria-hidden
 							>
 								open_in_new

@@ -11,6 +11,8 @@ import DemoOrDivider from "../../components/demos/DemoOrDivider";
 import DemoUploadImageButton from "../../components/demos/DemoUploadImageButton";
 import FaceGuidedCamera from "../../components/demos/FaceGuidedCameraLoader";
 import DemoSignInPrompt from "../DemoSignInPrompt";
+import ElectronAwareAppHeader from "../../components/layout/ElectronAwareAppHeader";
+
 import HumanIdJsonKeyValueField, { type HumanIdJsonKeyValueFieldHandle } from "../../components/demos/HumanIdJsonKeyValueField";
 import HumanIdStructuredResult from "../../components/demos/HumanIdStructuredResult";
 
@@ -112,7 +114,7 @@ export default function HumanIdCreateQrPage() {
 
 	return (
 		<div className="min-h-screen bg-surface flex flex-col">
-			<header className="fixed top-0 left-0 w-full z-50 glass-panel-dark flex items-center px-6 py-4">
+			<ElectronAwareAppHeader>
 				<button
 					type="button"
 					onClick={() => router.back()}
@@ -122,7 +124,7 @@ export default function HumanIdCreateQrPage() {
 					<span className="material-symbols-outlined">arrow_back</span>
 				</button>
 				<h1 className="font-bold tracking-tight text-lg text-primary">Create HumanID QR</h1>
-			</header>
+			</ElectronAwareAppHeader>
 			<main
 				className={`flex-1 mt-20 mb-10 px-4 md:px-8 mx-auto w-full ${step === "result" ? "max-w-3xl" : "max-w-2xl"}`}
 			>
@@ -132,7 +134,7 @@ export default function HumanIdCreateQrPage() {
 							<span className="material-symbols-outlined text-lg">menu_book</span>
 							API reference: Create HumanID QR
 						</span>
-						<span className="material-symbols-outlined text-outline-variant group-open:rotate-180 transition-transform">
+						<span className="material-symbols-outlined text-on-surface-variant/70 group-open:rotate-180 transition-transform">
 							expand_more
 						</span>
 					</summary>
@@ -198,7 +200,7 @@ export default function HumanIdCreateQrPage() {
 									value={identifier}
 									onChange={(e) => setIdentifier(e.target.value)}
 									placeholder="janedoe123"
-									className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-outline text-sm focus:outline-none focus:border-primary/60 transition-colors"
+									className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-on-surface-variant/50 text-sm focus:outline-none focus:border-primary/60 transition-colors"
 								/>
 							</div>
 							<div>
@@ -225,7 +227,7 @@ export default function HumanIdCreateQrPage() {
 									value={livenessLevel}
 									onChange={(e) => setLivenessLevel(e.target.value)}
 									placeholder="1"
-									className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-outline text-sm focus:outline-none focus:border-primary/60"
+									className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-on-surface-variant/50 text-sm focus:outline-none focus:border-primary/60"
 								/>
 							</div>
 							<div>
@@ -238,7 +240,7 @@ export default function HumanIdCreateQrPage() {
 									value={password}
 									onChange={(e) => setPassword(e.target.value)}
 									placeholder="Optional encryption password"
-									className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-outline text-sm focus:outline-none focus:border-primary/60"
+									className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-on-surface-variant/50 text-sm focus:outline-none focus:border-primary/60"
 								/>
 							</div>
 						</div>

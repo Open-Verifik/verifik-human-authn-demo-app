@@ -5,7 +5,9 @@ import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
 import { authSession } from '@humanauthn/api-client';
 import { VerifikLogo } from '../../components/ui/VerifikLogo';
+import ThemeToggle from '../../components/ui/ThemeToggle';
 import { useAuthHydration } from '../hooks/useAuthHydration';
+import { ELECTRON_TITLEBAR_DRAG_REGION_CLASS, useElectronTitleBarChrome } from '../hooks/useElectronTitleBarChrome';
 import { readUserCreditsFromSessionUser, useAuthStore } from '../store/authStore';
 
 const ACCOUNT_MENU_ROOT = '[data-account-menu-root]';
@@ -23,6 +25,7 @@ export default function HomeHeader() {
   useAuthHydration();
   const router = useRouter();
   const [accountOpen, setAccountOpen] = useState(false);
+  const { isElectron, isElectronMac, titleBarPaddingLeftPx } = useElectronTitleBarChrome();
 
   const hasHydrated = useAuthStore((s) => s.hasHydrated);
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
@@ -120,7 +123,7 @@ export default function HomeHeader() {
           )}
           <div className="my-3 h-px bg-outline-variant/20" />
           <Link
-            href="/home"
+            href="/settings/profile"
             role="menuitem"
             onClick={() => setAccountOpen(false)}
             className="flex items-center gap-2 w-full rounded-lg px-3 py-2 text-left text-sm font-medium text-on-surface hover:bg-surface-container-high transition-colors"
@@ -150,16 +153,24 @@ export default function HomeHeader() {
   };
 
   return (
-    <header className="fixed top-0 z-50 w-full bg-surface/90 backdrop-blur-xl border-b border-frost flex items-center justify-between px-6 py-4">
+    <header
+      className={`fixed top-0 z-50 w-full bg-surface/90 backdrop-blur-xl border-b border-frost flex items-center justify-between py-4 pr-6 ${
+        isElectronMac ? '' : 'pl-6'
+      } ${isElectron ? ELECTRON_TITLEBAR_DRAG_REGION_CLASS : ''}`.trim()}
+      style={titleBarPaddingLeftPx != null ? { paddingLeft: titleBarPaddingLeftPx } : undefined}
+    >
       <Link
         href="/home"
-        className="flex items-center text-white hover:opacity-90 transition-opacity"
+        className="flex items-center text-on-surface hover:opacity-90 transition-opacity"
         aria-label="Verifik: Home"
       >
         <VerifikLogo className="h-7 w-auto sm:h-8" />
       </Link>
 
-      <div className="flex items-center">{authSlot()}</div>
+      <div className="flex items-center gap-2">
+        <ThemeToggle />
+        {authSlot()}
+      </div>
     </header>
   );
 }

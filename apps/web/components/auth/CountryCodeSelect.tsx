@@ -76,7 +76,7 @@ export function CountryCodeSelect({ valueIso2, onChange, disabled }: CountryCode
         aria-controls={open ? listId : undefined}
         onClick={() => !disabled && setOpen((o) => !o)}
         className={clsx(
-          'flex h-[50px] min-w-[108px] max-w-[132px] items-center gap-1.5 rounded-xl border border-black/10 bg-transparent px-2.5 text-left text-sm text-surface outline-none transition-all',
+          'flex h-[50px] min-w-[108px] max-w-[132px] items-center gap-1.5 rounded-xl border border-black/10 bg-transparent px-2.5 text-left text-sm text-auth-modal-ink outline-none transition-all',
           'hover:bg-black/[0.02] focus:border-primary focus:ring-1 focus:ring-primary/50',
           disabled && 'cursor-not-allowed opacity-50',
         )}
@@ -85,7 +85,7 @@ export function CountryCodeSelect({ valueIso2, onChange, disabled }: CountryCode
           {selected.flag}
         </span>
         <span className="truncate font-medium tabular-nums">{selected.dialCode}</span>
-        <span className="material-symbols-outlined ml-auto text-[18px] text-outline">
+        <span className="material-symbols-outlined ml-auto text-[18px] text-on-surface-variant">
           {open ? 'expand_less' : 'expand_more'}
         </span>
       </button>
@@ -101,7 +101,7 @@ export function CountryCodeSelect({ valueIso2, onChange, disabled }: CountryCode
             </label>
             <div className="relative">
               <span
-                className="material-symbols-outlined pointer-events-none absolute left-2.5 top-1/2 -translate-y-1/2 text-[18px] text-outline"
+                className="material-symbols-outlined pointer-events-none absolute left-2.5 top-1/2 -translate-y-1/2 text-[18px] text-on-surface-variant"
                 aria-hidden
               >
                 search
@@ -114,7 +114,7 @@ export function CountryCodeSelect({ valueIso2, onChange, disabled }: CountryCode
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Country or +code"
-                className="w-full rounded-lg border border-black/10 bg-black/[0.02] py-2 pl-9 pr-3 text-sm text-surface outline-none placeholder:text-outline/50 focus:border-primary focus:ring-1 focus:ring-primary/50"
+                className="w-full rounded-lg border border-black/10 bg-black/[0.02] py-2 pl-9 pr-3 text-sm text-auth-modal-ink outline-none placeholder:text-on-surface-variant/50 focus:border-primary focus:ring-1 focus:ring-primary/50"
               />
             </div>
           </div>
@@ -125,7 +125,7 @@ export function CountryCodeSelect({ valueIso2, onChange, disabled }: CountryCode
             className="min-h-0 flex-1 overflow-y-auto overscroll-contain py-1"
           >
             {filtered.length === 0 ? (
-              <li className="px-3 py-6 text-center text-xs text-outline">No matches</li>
+              <li className="px-3 py-6 text-center text-xs text-on-surface-variant">No matches</li>
             ) : (
               filtered.map((c) => (
                 <li key={c.iso2} role="presentation">
@@ -137,15 +137,15 @@ export function CountryCodeSelect({ valueIso2, onChange, disabled }: CountryCode
                     className={clsx(
                       'flex w-full items-center gap-2 px-3 py-2 text-left text-sm transition-colors',
                       c.iso2 === selected.iso2
-                        ? 'bg-primary/10 text-surface'
-                        : 'text-surface hover:bg-black/5',
+                        ? 'bg-primary/10 text-auth-modal-ink'
+                        : 'text-auth-modal-ink hover:bg-black/5',
                     )}
                   >
                     <span className="text-base" aria-hidden>
                       {c.flag}
                     </span>
                     <span className="min-w-0 flex-1 truncate">{c.name}</span>
-                    <span className="shrink-0 tabular-nums text-outline">{c.dialCode}</span>
+                    <span className="shrink-0 tabular-nums text-on-surface-variant">{c.dialCode}</span>
                   </button>
                 </li>
               ))

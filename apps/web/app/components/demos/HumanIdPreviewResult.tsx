@@ -126,7 +126,7 @@ export default function HumanIdPreviewResult({ result, onPreviewAnother, onBackT
 			<details className="rounded-xl border border-outline-variant/20 bg-surface-container-low/50 px-4 py-3 group">
 				<summary className="cursor-pointer list-none font-bold text-sm text-on-surface-variant flex items-center justify-between gap-2">
 					<span>Raw response (debug)</span>
-					<span className="material-symbols-outlined text-outline-variant group-open:rotate-180 transition-transform text-lg">
+					<span className="material-symbols-outlined text-on-surface-variant/70 group-open:rotate-180 transition-transform text-lg">
 						expand_more
 					</span>
 				</summary>

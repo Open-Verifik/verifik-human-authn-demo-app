@@ -49,7 +49,12 @@ pnpm --filter mobile run ios --clear
 > **Troubleshooting Note:** If the Android emulator throws a "Cannot connect to Metro" error, port `8081` might be locked. Run `killall node` to forcefully clear it, step out of any root terminal, and restart the Expo command.
 
 ### 🖥️ Desktop Environment
-To spin up the Electron native shell pointing to the local Web build:
+For local development (recommended), run Electron + Next.js together:
+```bash
+pnpm --filter desktop run dev
+```
+
+If the web server is already running separately, you can launch only the Electron shell:
 ```bash
 pnpm --filter desktop run start
 ```

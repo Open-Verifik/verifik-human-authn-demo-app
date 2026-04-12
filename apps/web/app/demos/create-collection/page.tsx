@@ -7,6 +7,8 @@ import { useAuthHydration } from "../../hooks/useAuthHydration";
 import { useAuthStore } from "../../store/authStore";
 import DemoRelatedDocsSection, { type DemoRelatedDocItem } from "../../components/demos/DemoRelatedDocsSection";
 import DemoSignInPrompt from "../DemoSignInPrompt";
+import ElectronAwareAppHeader from "../../components/layout/ElectronAwareAppHeader";
+
 
 const DOCS_BASE = "https://docs.verifik.co";
 
@@ -89,7 +91,7 @@ export default function CreateCollectionPage() {
 
 	return (
 		<div className="min-h-screen bg-surface flex flex-col">
-			<header className="fixed top-0 left-0 w-full z-50 glass-panel-dark flex items-center px-6 py-4">
+			<ElectronAwareAppHeader>
 				<button
 					onClick={() => router.back()}
 					className="hover:bg-surface-container transition-colors p-1.5 rounded-lg text-primary mr-3"
@@ -98,7 +100,7 @@ export default function CreateCollectionPage() {
 					<span className="material-symbols-outlined">arrow_back</span>
 				</button>
 				<h1 className="font-bold tracking-tight text-lg text-primary">Create Collection</h1>
-			</header>
+			</ElectronAwareAppHeader>
 
 			<main className="flex-1 mt-20 mb-10 px-4 md:px-8 max-w-4xl mx-auto w-full">
 				<div className="mb-8">
@@ -129,7 +131,7 @@ export default function CreateCollectionPage() {
 								value={name}
 								onChange={(e) => setName(e.target.value)}
 								placeholder="e.g. Employees 2025"
-								className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-outline text-sm focus:outline-none focus:border-primary/60 transition-colors"
+								className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-on-surface-variant/50 text-sm focus:outline-none focus:border-primary/60 transition-colors"
 							/>
 						</div>
 						<div>
@@ -142,7 +144,7 @@ export default function CreateCollectionPage() {
 								onChange={(e) => setDescription(e.target.value)}
 								rows={3}
 								placeholder="Optional description for this collection"
-								className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-outline text-sm focus:outline-none focus:border-primary/60 transition-colors resize-none"
+								className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-on-surface-variant/50 text-sm focus:outline-none focus:border-primary/60 transition-colors resize-none"
 							/>
 						</div>
 						{error && (
@@ -198,7 +200,7 @@ export default function CreateCollectionPage() {
 								<span className="material-symbols-outlined text-lg">menu_book</span>
 								API reference: Create Collection
 							</span>
-							<span className="material-symbols-outlined text-outline-variant group-open:rotate-180 transition-transform">
+							<span className="material-symbols-outlined text-on-surface-variant/70 group-open:rotate-180 transition-transform">
 								expand_more
 							</span>
 						</summary>

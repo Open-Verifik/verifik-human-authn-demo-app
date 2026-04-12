@@ -11,6 +11,8 @@ import {
 import { useAuthHydration } from "../../hooks/useAuthHydration";
 import { useAuthStore } from "../../store/authStore";
 import DemoSignInPrompt from "../DemoSignInPrompt";
+import ElectronAwareAppHeader from "../../components/layout/ElectronAwareAppHeader";
+
 import DemoCaptureOptionHeading from "../../components/demos/DemoCaptureOptionHeading";
 import DemoChooseOneCallout from "../../components/demos/DemoChooseOneCallout";
 import DemoOrDivider from "../../components/demos/DemoOrDivider";
@@ -151,7 +153,7 @@ export default function FaceComparisonPage() {
 	return (
 		<div className="min-h-screen bg-surface flex flex-col">
 			{/* Top bar */}
-			<header className="fixed top-0 left-0 w-full z-50 glass-panel-dark flex items-center justify-between px-6 py-4">
+			<ElectronAwareAppHeader className="justify-between">
 				<div className="flex items-center gap-3">
 					<button
 						onClick={() => router.back()}
@@ -163,7 +165,7 @@ export default function FaceComparisonPage() {
 					<h1 className="font-bold tracking-tight text-lg text-primary">Face Comparison</h1>
 				</div>
 				<span className="label-meta text-primary text-[0.6875rem]">Step {step} of 3</span>
-			</header>
+			</ElectronAwareAppHeader>
 
 			<main className="flex-1 pt-24 pb-32 px-6 max-w-4xl mx-auto w-full">
 				{/* Progress stepper */}
@@ -182,13 +184,13 @@ export default function FaceComparisonPage() {
 							? "bg-primary text-on-primary"
 							: isActive
 								? "bg-primary-container text-on-primary-container ring-4 ring-primary-container/20"
-								: "bg-surface-container-high border border-outline-variant text-outline-variant opacity-40"
+								: "bg-surface-container-high border border-outline-variant text-on-surface-variant/50"
 					}`}
 									>
 										{isDone ? <span className="material-symbols-outlined text-sm">check</span> : n}
 									</div>
 									<span
-										className={`text-[0.6875rem] font-bold uppercase tracking-wider mt-2 ${isActive ? "text-primary" : "text-outline-variant opacity-40"}`}
+										className={`text-[0.6875rem] font-bold uppercase tracking-wider mt-2 ${isActive ? "text-primary" : "text-on-surface-variant/50"}`}
 									>
 										{s.label}
 									</span>
@@ -244,7 +246,7 @@ export default function FaceComparisonPage() {
 												<img src={slot.preview} alt={label} className="w-full h-full object-cover" />
 											) : (
 												<div className="w-full h-full flex items-center justify-center">
-													<span className="material-symbols-outlined text-outline-variant/40">face</span>
+													<span className="material-symbols-outlined text-on-surface-variant/55">face</span>
 												</div>
 											)}
 											{isHighlighted ? (
@@ -255,7 +257,7 @@ export default function FaceComparisonPage() {
 												</div>
 											) : null}
 										</div>
-										<span className={`label-meta text-[10px] ${isHighlighted ? "text-emerald-300" : "text-outline"}`}>{label}</span>
+										<span className={`label-meta text-[10px] ${isHighlighted ? "text-emerald-300" : "text-on-surface-variant"}`}>{label}</span>
 									</div>
 								)})}
 							</div>
@@ -342,7 +344,7 @@ export default function FaceComparisonPage() {
 								<div>
 									<label
 										htmlFor="compare-min-score"
-										className="block text-[0.6875rem] font-bold uppercase tracking-wider text-outline mb-2"
+										className="block text-[0.6875rem] font-bold uppercase tracking-wider text-on-surface-variant mb-2"
 									>
 										Compare minimum score
 									</label>
@@ -371,7 +373,7 @@ export default function FaceComparisonPage() {
 									<span className="material-symbols-outlined text-lg">menu_book</span>
 									API reference: Face Comparison
 								</span>
-								<span className="material-symbols-outlined text-outline-variant group-open:rotate-180 transition-transform">
+								<span className="material-symbols-outlined text-on-surface-variant/70 group-open:rotate-180 transition-transform">
 									expand_more
 								</span>
 							</summary>
@@ -511,7 +513,7 @@ export default function FaceComparisonPage() {
 									<div className="w-24 h-24 rounded-full overflow-hidden bg-surface-container-high ghost-border">
 										{preview && <img src={preview} alt="" className="w-full h-full object-cover" />}
 									</div>
-									<span className="label-meta text-[10px] text-outline">{i === 0 ? "Source" : "Target"}</span>
+									<span className="label-meta text-[10px] text-on-surface-variant">{i === 0 ? "Source" : "Target"}</span>
 								</div>
 							))}
 							{!isLoading && result && (
@@ -555,13 +557,13 @@ export default function FaceComparisonPage() {
 								<div className="grid grid-cols-2 gap-4 mb-8">
 									<div className="bg-surface-container rounded-lg p-4">
 										<p className="text-2xl font-black text-primary">{(result.score * 100).toFixed(1)}%</p>
-										<p className="label-meta text-outline text-[10px] mt-1">
+										<p className="label-meta text-on-surface-variant text-[10px] mt-1">
 											Similarity (min {compareMinScore.toFixed(2)})
 										</p>
 									</div>
 									<div className="bg-surface-container rounded-lg p-4">
 										<p className="text-2xl font-black text-on-surface">{result.match ? "MATCH" : "DIFF"}</p>
-										<p className="label-meta text-outline text-[10px] mt-1">Verdict</p>
+										<p className="label-meta text-on-surface-variant text-[10px] mt-1">Verdict</p>
 									</div>
 								</div>
 								<div className="flex gap-3">
@@ -592,7 +594,7 @@ export default function FaceComparisonPage() {
 
 				{/* Desktop decorative meta */}
 				<div className="fixed top-1/2 right-10 hidden lg:block transform -translate-y-1/2 rotate-90 origin-right">
-					<span className="label-meta text-[0.625rem] text-outline opacity-30">Verifik · Secure Session Active</span>
+					<span className="label-meta text-[0.625rem] text-on-surface-variant/45">Verifik · Secure Session Active</span>
 				</div>
 				<div className="fixed bottom-24 left-8 hidden lg:block">
 					<div className="space-y-3">
@@ -610,7 +612,7 @@ export default function FaceComparisonPage() {
 
 			{/* Mobile bottom nav */}
 			<nav className="fixed bottom-0 left-0 w-full z-50 glass-panel-dark backdrop-blur-xl flex justify-around items-center py-3 px-8 border-t border-outline-variant/10 md:hidden">
-				<div className="flex flex-col items-center gap-1 cursor-pointer text-outline-variant hover:text-primary transition-colors p-2">
+				<div className="flex flex-col items-center gap-1 cursor-pointer text-on-surface-variant/80 hover:text-primary transition-colors p-2">
 					<span className="material-symbols-outlined">help_outline</span>
 					<span className="text-[0.625rem]">Support</span>
 				</div>

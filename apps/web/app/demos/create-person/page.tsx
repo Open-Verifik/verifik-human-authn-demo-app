@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { createPerson, fileToBase64 } from "@humanauthn/api-client";
+import { createPerson, fileToBase64, listCollections, type FaceCollectionListItem } from "@humanauthn/api-client";
 import { useAuthHydration } from "../../hooks/useAuthHydration";
 import { useAuthStore } from "../../store/authStore";
 import DemoCaptureOptionHeading from "../../components/demos/DemoCaptureOptionHeading";
@@ -13,6 +14,11 @@ import DemoUploadImageButton from "../../components/demos/DemoUploadImageButton"
 import FaceGuidedCamera from "../../components/demos/FaceGuidedCameraLoader";
 import DemoRelatedDocsSection, { type DemoRelatedDocItem } from "../../components/demos/DemoRelatedDocsSection";
 import DemoSignInPrompt from "../DemoSignInPrompt";
+import ElectronAwareAppHeader from "../../components/layout/ElectronAwareAppHeader";
+
+import CreatePersonResult from "../../components/demos/CreatePersonResult";
+import CreatePersonAlreadyExistsResult from "../../components/demos/CreatePersonAlreadyExistsResult";
+import { CollectionMultiSelect } from "../../components/demos/CollectionMultiSelect";
 
 const DOCS_BASE = "https://docs.verifik.co";
 
@@ -47,9 +53,25 @@ const RELATED_DOCS: DemoRelatedDocItem[] = [
 		description: "Remove a person record by id.",
 		badge: "DELETE",
 	},
+	{
+		href: "/demos/update-person",
+		title: "Update Person (demo)",
+		description: "Change profile or collections for an existing person id.",
+		badge: "Demo",
+	},
+	{
+		href: "/demos/delete-person",
+		title: "Delete Person (demo)",
+		description: "Full delete or remove from a collection only.",
+		badge: "Demo",
+	},
 ];
 
-type Step = "form" | "processing" | "result";
+type Step = "form" | "processing" | "result" | "conflict";
+
+function isPersonAlreadySetError(res: { error?: string; code?: string }): boolean {
+	return res.error === "person_already_set" || (res.code === "PreconditionFailed" && res.error === "person_already_set");
+}
 
 export default function CreatePersonPage() {
 	useAuthHydration();
@@ -61,7 +83,10 @@ export default function CreatePersonPage() {
 	const [name, setName] = useState("");
 	const [gender, setGender] = useState<"M" | "F">("M");
 	const [dob, setDob] = useState("");
-	const [collections, setCollections] = useState("");
+	const [collectionItems, setCollectionItems] = useState<FaceCollectionListItem[]>([]);
+	const [collectionsLoading, setCollectionsLoading] = useState(false);
+	const [collectionsError, setCollectionsError] = useState<string | null>(null);
+	const [selectedCollectionIds, setSelectedCollectionIds] = useState<string[]>([]);
 	const [nationality, setNationality] = useState("");
 	const [images, setImages] = useState<string[]>([]);
 	const [previews, setPreviews] = useState<string[]>([]);
@@ -71,7 +96,31 @@ export default function CreatePersonPage() {
 
 	const canUseDemo = hasHydrated && isAuthenticated;
 
-	const showApiReference = step !== "result";
+	const showApiReference = step !== "result" && step !== "conflict";
+
+	useEffect(() => {
+		if (!canUseDemo) return;
+		const token = useAuthStore.getState().token;
+		if (!token) return;
+		let cancelled = false;
+		(async () => {
+			setCollectionsLoading(true);
+			setCollectionsError(null);
+			const res = await listCollections(token);
+			if (cancelled) return;
+			setCollectionsLoading(false);
+			if (res.error) {
+				setCollectionsError(res.error);
+				setCollectionItems([]);
+				return;
+			}
+			const body = res.data as { data?: FaceCollectionListItem[] } | undefined;
+			setCollectionItems(Array.isArray(body?.data) ? body.data : []);
+		})();
+		return () => {
+			cancelled = true;
+		};
+	}, [canUseDemo]);
 
 	const appendCapturedImage = (preview: string, b64: string) => {
 		setImages((p) => [...p, b64]);
@@ -89,15 +138,10 @@ export default function CreatePersonPage() {
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 		const token = useAuthStore.getState().token;
-		if (!token || !images.length) return;
+		if (!token || !images.length || !selectedCollectionIds.length) return;
 
 		setStep("processing");
 		setError(null);
-
-		const colArray = collections
-			.split(",")
-			.map((s) => s.trim())
-			.filter(Boolean);
 
 		const res = await createPerson(
 			{
@@ -105,13 +149,17 @@ export default function CreatePersonPage() {
 				images,
 				gender,
 				date_of_birth: dob,
-				collections: colArray,
+				collections: selectedCollectionIds,
 				nationality: nationality || undefined,
 			},
 			token,
 		);
 
 		if (res.error) {
+			if (isPersonAlreadySetError(res)) {
+				setStep("conflict");
+				return;
+			}
 			setError(res.error);
 			setStep("form");
 			return;
@@ -125,7 +173,7 @@ export default function CreatePersonPage() {
 		setName("");
 		setGender("M");
 		setDob("");
-		setCollections("");
+		setSelectedCollectionIds([]);
 		setNationality("");
 		setImages([]);
 		setPreviews([]);
@@ -133,9 +181,14 @@ export default function CreatePersonPage() {
 		setError(null);
 	};
 
+	const backToFormFromConflict = () => {
+		setStep("form");
+		setError(null);
+	};
+
 	return (
 		<div className="min-h-screen bg-surface flex flex-col">
-			<header className="fixed top-0 left-0 w-full z-50 glass-panel-dark flex items-center px-6 py-4">
+			<ElectronAwareAppHeader>
 				<button
 					onClick={() => router.back()}
 					className="hover:bg-surface-container transition-colors p-1.5 rounded-lg text-primary mr-3"
@@ -144,15 +197,19 @@ export default function CreatePersonPage() {
 					<span className="material-symbols-outlined">arrow_back</span>
 				</button>
 				<h1 className="font-bold tracking-tight text-lg text-primary">Create Person</h1>
-			</header>
+			</ElectronAwareAppHeader>
 
 			<main className="flex-1 mt-20 mb-10 px-4 md:px-8 max-w-4xl mx-auto w-full">
 				<div className="mb-8">
 					<h2 className="text-3xl font-black tracking-tight text-on-surface mb-2">
-						{step === "result" ? "Person Enrolled" : "Create Person"}
+						{step === "result" ? "Person Enrolled" : step === "conflict" ? "Already enrolled" : "Create Person"}
 					</h2>
 					<p className="text-on-surface-variant">
-						{step === "result" ? "Person has been enrolled in OpenCV." : "Enroll a new person with face images and metadata."}
+						{step === "result"
+							? "Person has been enrolled in OpenCV."
+							: step === "conflict"
+								? "This face matches an existing person. Review the images you used and choose a next step."
+								: "Enroll a new person with face images and metadata."}
 					</p>
 				</div>
 
@@ -174,7 +231,7 @@ export default function CreatePersonPage() {
 									value={name}
 									onChange={(e) => setName(e.target.value)}
 									placeholder="Jane Doe"
-									className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-outline text-sm focus:outline-none focus:border-primary/60 transition-colors"
+									className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-on-surface-variant/50 text-sm focus:outline-none focus:border-primary/60 transition-colors"
 								/>
 							</div>
 							<div>
@@ -216,22 +273,35 @@ export default function CreatePersonPage() {
 									value={nationality}
 									onChange={(e) => setNationality(e.target.value)}
 									placeholder="CO"
-									className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-outline text-sm focus:outline-none focus:border-primary/60 transition-colors"
+									className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-on-surface-variant/50 text-sm focus:outline-none focus:border-primary/60 transition-colors"
 								/>
 							</div>
 						</div>
 						<div>
 							<label className="block text-sm font-semibold text-on-surface mb-1.5" htmlFor="p-col">
-								Collection IDs <span className="text-error">*</span>
+								Collections <span className="text-error">*</span>
 							</label>
-							<input
-								id="p-col"
-								type="text"
-								required
-								value={collections}
-								onChange={(e) => setCollections(e.target.value)}
-								placeholder="id1, id2 (comma separated)"
-								className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-outline text-sm focus:outline-none focus:border-primary/60 transition-colors"
+							{collectionsError && (
+								<div className="mb-2 text-sm text-error flex items-center gap-1.5">
+									<span className="material-symbols-outlined text-sm">error_outline</span>
+									{collectionsError}
+								</div>
+							)}
+							<CollectionMultiSelect
+								labelId="p-col"
+								items={collectionItems}
+								selectedIds={selectedCollectionIds}
+								onChange={setSelectedCollectionIds}
+								loading={collectionsLoading}
+								emptySlot={
+									<span>
+										No collections yet.{" "}
+										<Link href="/demos/create-collection" className="text-primary font-semibold underline underline-offset-2">
+											Create a collection
+										</Link>{" "}
+										first.
+									</span>
+								}
 							/>
 						</div>
 						<div>
@@ -293,7 +363,7 @@ export default function CreatePersonPage() {
 						)}
 						<button
 							type="submit"
-							disabled={!images.length}
+							disabled={!images.length || !selectedCollectionIds.length || collectionsLoading}
 							className="w-full py-3 bg-primary-cta text-on-primary-container font-bold rounded-lg shadow-primary hover:opacity-90 active:scale-95 transition-all disabled:opacity-50"
 						>
 							Enroll Person
@@ -304,32 +374,14 @@ export default function CreatePersonPage() {
 						<div className="w-12 h-12 border-2 border-primary border-t-transparent rounded-full animate-spin" />
 						<p className="text-on-surface font-semibold">Enrolling person…</p>
 					</div>
+				) : step === "conflict" ? (
+					<CreatePersonAlreadyExistsResult
+						previews={previews}
+						onEditForm={backToFormFromConflict}
+						onBackToDemos={() => router.push("/home")}
+					/>
 				) : (
-					<div className="space-y-4">
-						<div className="rounded-2xl bg-surface-container-low border border-primary/20 p-6">
-							<div className="flex items-center gap-3 mb-4">
-								<span className="material-symbols-outlined text-primary text-2xl">check_circle</span>
-								<p className="font-bold text-on-surface">Person enrolled successfully</p>
-							</div>
-							<pre className="text-[0.65rem] font-mono bg-surface-container-high/80 rounded-lg p-3 overflow-x-auto text-on-surface whitespace-pre-wrap">
-								{JSON.stringify(result, null, 2)}
-							</pre>
-						</div>
-						<div className="flex gap-3">
-							<button
-								onClick={reset}
-								className="flex-1 py-3 bg-surface-container text-on-surface font-semibold rounded-lg hover:bg-surface-container-high transition-all active:scale-95 ghost-border"
-							>
-								Enroll Another
-							</button>
-							<button
-								onClick={() => router.push("/home")}
-								className="flex-1 py-3 bg-primary-cta text-on-primary-container font-semibold rounded-lg shadow-primary hover:opacity-90 active:scale-95 transition-all"
-							>
-								Back to Demos
-							</button>
-						</div>
-					</div>
+					<CreatePersonResult result={result} onEnrollAnother={reset} onBackToDemos={() => router.push("/home")} />
 				)}
 
 				{showApiReference ? (
@@ -339,7 +391,7 @@ export default function CreatePersonPage() {
 								<span className="material-symbols-outlined text-lg">menu_book</span>
 								API reference: Create Person
 							</span>
-							<span className="material-symbols-outlined text-outline-variant group-open:rotate-180 transition-transform">
+							<span className="material-symbols-outlined text-on-surface-variant/70 group-open:rotate-180 transition-transform">
 								expand_more
 							</span>
 						</summary>
@@ -421,7 +473,10 @@ export default function CreatePersonPage() {
 										<tr className="border-b border-outline-variant/10 align-top">
 											<td className="py-2 font-mono text-primary">collections</td>
 											<td>Yes</td>
-											<td>Array of collection ids (this form uses comma-separated ids)</td>
+											<td>
+												Array of collection <code className="text-primary">_id</code> strings; this demo loads them from{" "}
+												<code className="text-primary">GET /v2/face-recognition/collections</code> and lets you pick one or more.
+											</td>
 										</tr>
 										<tr className="align-top">
 											<td className="py-2 font-mono text-primary">nationality</td>

@@ -11,6 +11,7 @@ import DemoOrDivider from "../../components/demos/DemoOrDivider";
 import DemoUploadImageButton from "../../components/demos/DemoUploadImageButton";
 import FaceGuidedCamera from "../../components/demos/FaceGuidedCameraLoader";
 import DemoSignInPrompt from "../DemoSignInPrompt";
+import ElectronAwareAppHeader from "../../components/layout/ElectronAwareAppHeader";
 
 type ScanStep = "idle" | "success" | "failed";
 
@@ -41,10 +42,10 @@ export default function HumanIDPage() {
 
 	return (
 		<div className="min-h-screen bg-surface flex flex-col overflow-hidden">
-			<header className="fixed top-0 w-full z-50 glass-panel-dark flex justify-between items-center px-6 py-4">
+			<ElectronAwareAppHeader className="justify-between">
 				<button
 					onClick={() => router.back()}
-					className="flex items-center gap-2 text-outline-variant hover:bg-surface-container transition-colors p-2 rounded-lg"
+					className="flex items-center gap-2 text-on-surface-variant/80 hover:bg-surface-container transition-colors p-2 rounded-lg"
 				>
 					<span className="material-symbols-outlined">close</span>
 					<span className="label-meta text-[10px]">Cancel</span>
@@ -56,7 +57,7 @@ export default function HumanIDPage() {
 					<span className="font-black tracking-wider text-primary text-lg">HumanID</span>
 				</div>
 				<div className="w-20" aria-hidden="true" />
-			</header>
+			</ElectronAwareAppHeader>
 
 			<div className="auth-pulse fixed w-[600px] h-[600px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" aria-hidden="true" />
 
@@ -84,7 +85,7 @@ export default function HumanIDPage() {
 						{scanStep === "idle" && (
 							<>
 								<p className="text-on-surface text-lg font-medium tracking-tight">Center your face</p>
-								<p className="text-outline text-sm font-light">Face detection will capture automatically when you are aligned.</p>
+								<p className="text-on-surface-variant text-sm font-light">Face detection will capture automatically when you are aligned.</p>
 							</>
 						)}
 						{scanStep === "success" && (
@@ -169,9 +170,9 @@ export default function HumanIDPage() {
 
 				<aside className="absolute bottom-12 right-12 hidden lg:block">
 					<div className="text-right space-y-1.5 border-r border-outline-variant/20 pr-4">
-						<div className="text-[10px] text-outline/40 font-mono">ENGINE: HumanAuthn · Verifik</div>
-						<div className="text-[10px] text-outline/40 font-mono">CAPTURE: Guided (@vladmandic/face-api)</div>
-						<div className="text-[10px] text-outline/40 font-mono">PROTOCOL: HUMAN_ID_v1</div>
+						<div className="text-[10px] text-on-surface-variant/55 font-mono">ENGINE: HumanAuthn · Verifik</div>
+						<div className="text-[10px] text-on-surface-variant/55 font-mono">CAPTURE: Guided (@vladmandic/face-api)</div>
+						<div className="text-[10px] text-on-surface-variant/55 font-mono">PROTOCOL: HUMAN_ID_v1</div>
 					</div>
 				</aside>
 			</main>
