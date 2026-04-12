@@ -30,6 +30,9 @@ ENV NEXT_PUBLIC_VERIFIK_API_URL=$NEXT_PUBLIC_VERIFIK_API_URL
 ENV NEXT_PUBLIC_VERIFIK_PROJECT_ID=$NEXT_PUBLIC_VERIFIK_PROJECT_ID
 ENV NEXT_PUBLIC_VERIFIK_PROJECT_FLOW_ID=$NEXT_PUBLIC_VERIFIK_PROJECT_FLOW_ID
 
+# COPY apps ./apps overwrote workspace node_modules from deps; relink before next build
+RUN pnpm install --frozen-lockfile
+
 RUN pnpm run build --filter=web
 
 FROM base AS runner
