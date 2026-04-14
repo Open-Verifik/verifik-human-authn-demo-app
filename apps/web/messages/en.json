@@ -186,6 +186,11 @@
         "title": "Liveness Detection",
         "description": "Show that a real person is in front of the camera, not a photo, mask, or replay."
       },
+      "humanid": {
+        "badge": "HumanID",
+        "title": "HumanID",
+        "description": "Capture a live face and authenticate with a decentralized HumanID proof. No central face database required."
+      },
       "humanid-create": {
         "badge": "Encrypt",
         "title": "Create HumanID",

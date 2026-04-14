@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import { mergeMessagesWithFallback } from '@/i18n/merge-messages-with-fallback';
 import { routing } from '@/i18n/routing';
 import { isRtlLocale } from '@/i18n/rtl-locales';
+import { SITE_URL } from '@/lib/site-url';
 import { Providers } from '../providers';
 
 const THEME_INIT_SCRIPT = `(function(){try{var k='humanauthn-theme';var t=localStorage.getItem(k);var pref=(t==='light'||t==='dark'||t==='system')?t:'dark';var resolved=pref==='system'?(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):pref;var r=document.documentElement;r.setAttribute('data-theme',resolved);if(resolved==='dark')r.classList.add('dark');else r.classList.remove('dark');}catch(e){}})();`;
@@ -40,6 +41,7 @@ export async function generateMetadata({
   const messages = mergedBase as { RootLayout: { keywords: string[] } };
 
   return {
+    metadataBase: new URL(SITE_URL),
     title: {
       default: t('titleDefault'),
       template: t('titleTemplate'),
@@ -52,6 +54,13 @@ export async function generateMetadata({
       title: t('ogTitle'),
       description: t('ogDescription'),
       siteName: t('ogSiteName'),
+      images: [`/og?variant=site&locale=${locale}`],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('ogTitle'),
+      description: t('ogDescription'),
+      images: [`/og?variant=site&locale=${locale}`],
     },
   };
 }
@@ -71,6 +80,33 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
     <html lang={locale} dir={dir} suppressHydrationWarning data-theme="dark">
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@graph': [
+                {
+                  '@type': 'WebSite',
+                  name: 'HumanAuthn',
+                  url: SITE_URL,
+                  description:
+                    'Enterprise-grade biometric authentication demos by Verifik. Liveness detection, face comparison, and HumanID in the browser.',
+                  publisher: { '@type': 'Organization', name: 'Verifik', url: 'https://verifik.co' },
+                },
+                {
+                  '@type': 'Organization',
+                  name: 'Verifik',
+                  url: 'https://verifik.co',
+                  sameAs: [
+                    'https://github.com/Open-Verifik',
+                    'https://www.linkedin.com/company/verifik',
+                  ],
+                },
+              ],
+            }),
+          }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
