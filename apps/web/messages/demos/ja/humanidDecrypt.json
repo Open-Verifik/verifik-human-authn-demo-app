@@ -1,0 +1,78 @@
+{
+  "headerTitle": "HumanID を復号化する",
+  "heroTitle": "HumanID を復号化する",
+  "heroTitleResult": "復号化された",
+  "heroSubtitle": "一致する生きた顔を提示して ID データを復元します。",
+  "humanIdModeLabel": "HumanID",
+  "pasteString": "文字列を貼り付けます",
+  "uploadQrImage": "QR画像をアップロードする",
+  "proofLabel": "HumanID",
+  "proofPlaceholder": "ここに HumanID を貼り付けてください…",
+  "qrUploadHelp": "HumanID QR (バイナリ ペイロード) の PNG または JPEG をアップロードします。 HumanID を抽出するために、preview-zelf-id-qr を呼び出します。",
+  "chooseQrImage": "QR画像を選択してください",
+  "readingQr": "QRを読み込んでいます…",
+  "secondaryPngJpeg": "PNG または JPEG",
+  "qrPreviewAlt": "QRプレビュー",
+  "extractedHeading": "抽出された HumanID (読み取り専用)",
+  "errorReadProof": "プレビュー応答から HumanID を読み取ることができませんでした。",
+  "qrExtractSuccess": "QRから抽出​​されたHumanID。以下で復号化できます。",
+  "passwordOptional": "パスワード (オプション)",
+  "passwordPlaceholder": "証明がパスワードを使用して作成された場合のみ",
+  "faceImageLabel": "顔画像",
+  "chooseOneDescription": "カメラでスキャンするか、写真をアップロードします。このステップではどちらのオプションも機能します。",
+  "cameraTitle": "ライブカメラ",
+  "cameraSubtitle": "カメラを開いて顔をフレームに合わせます",
+  "uploadTitle": "ギャラリーからの写真",
+  "uploadSubtitle": "代わりにデバイスから画像ファイルを選択してください",
+  "uploadPrimary": "画像をアップロードする",
+  "changeFaceImage": "顔画像変更",
+  "facePreviewAlt": "顔",
+  "decryptCta": "復号化",
+  "processing": "ID を解読中…",
+  "apiRefSummary": "API リファレンス: HumanID の復号化",
+  "apiOfficialGuide": "公式ガイド:",
+  "apiOfficialParen": "(リクエストフィールドとレスポンスフィールド、オプションのパスワードと検証キー、および呼び出し例)。",
+  "apiRelated": "関連している：",
+  "apiDecryptLinkText": "docs.verifik.co/functions/decrypt-zelfproof",
+  "apiBaseUrlNote": "Base URL https://api.verifik.co. Send JSON with Content-Type: application/json and Authorization: Bearer <access token> (same JWT as this demo after sign in).",
+  "apiDecryptEndpointDesc": "顔画像と証拠を比較し、一致が成功すると、復号化されたパブリック フィールドと関連ペイロード (顔のトリミングや難易度など) を通常の署名付きデータ エンベロープ内に返します。",
+  "apiPreviewQrEndpointDesc": "ユーザーが HumanID QR の PNG または JPEG を提供する場合にこれを使用します。 API は QR ペイロードを読み取り、文字列プレビューと同じ種類のプレビューを実行し、復号化に渡すことができる zelfProof を返します。オプションの verifierKey は、プルーフがそれを使用して作成された場合に適用されます。復号化と同じ JSON ヘッダー。",
+  "apiBullet1": "復号化では、@humanauthn/api-client からの decryptHumanId が使用されます。 QR アップロードでは、まずプレビューZelfIdQr を使用し、次に返された証明文字列を使用して復号化します。",
+  "apiBullet2": "成功の応答は Verifik パターンに従います: データ オブジェクト (プロジェクトで署名が有効になっている場合は、多くの場合署名)。",
+  "apiBullet3": "顔画像のないプルーフを検査するには、Preview HumanID デモ (previewHumanId) または上にリンクされている Preview ZelfProof ガイドを開きます。",
+  "paramFaceBase64Desc": "生の Base64 としての顔画像 (このデモは他の生体認証デモと同じ形式を使用します)",
+  "paramOsDesc": "DESKTOP、IOS、または ANDROID (デモでは DESKTOP を使用)",
+  "paramZelfProofDesc": "ペーストからの HumanID 文字列、またはこのフォームでの QR 画像抽出からの HumanID 文字列",
+  "paramPasswordDesc": "証明がパスワードを使用して作成された場合のみ",
+  "paramLivenessLevelDesc": "設定すると、復号化に対するサーバーの稼働状態の期待に合わせて調整されます (公式ガイドを参照)",
+  "paramVerifierKeyDesc": "プルーフが検証キーを使用して作成された場合",
+  "paramQrCodeDesc": "データ URL (data:image/png;base64,...) または API で受け入れられる別の形式としての画像 (このデモではファイルからデータ URL を構築します)",
+  "paramVerifierKeyQrDesc": "証明で検証キーが使用される場合の復号化と同じセマンティクス",
+  "relatedDocs": {
+    "0": {
+      "title": "ZelfProof を復号化する",
+      "description": "証明内の ID ペイロードを生きている顔と照合することで、そのペイロードのロックを解除します。プルーフが作成された場合のオプションのパスワードをカバーします。",
+      "badge": "POST"
+    },
+    "1": {
+      "title": "ZelfProof を作成する",
+      "description": "公開フィールドを暗号化し、保存または共有できる新しい HumanID 文字列に顔をキャプチャします。",
+      "badge": "POST"
+    },
+    "2": {
+      "title": "ZelfProof をプレビューする",
+      "description": "顔画像を送信せずに、公開メタデータと復号化する前に必要なものを検査します。 Preview HumanID デモは、現在の API と同じ考え方に従っています。",
+      "badge": "POST"
+    },
+    "3": {
+      "title": "QR ZelfProof の作成",
+      "description": "HumanID を埋め込んだ QR を生成し、ユーザーが画面やウォレットからスキャンできるようにします。",
+      "badge": "POST"
+    },
+    "4": {
+      "title": "生存検知",
+      "description": "顔画像がなりすましではなく実際に見えるかどうか専用のチェックを実行します。これは、HumanID の暗号化と復号化とは別のものです。",
+      "badge": "POST"
+    }
+  }
+}

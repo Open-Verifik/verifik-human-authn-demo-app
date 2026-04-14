@@ -1,0 +1,193 @@
+{
+  "RootLayout": {
+    "titleDefault": "HumanAuthn: Biyometrik API Demosu",
+    "titleTemplate": "%s | HumanAuthn",
+    "description": "Verifik’in HumanAuthn’i. Kurumsal düzeyde canlılık algılama, yüz karşılaştırma ve biyometrik kimlik doğrulama.",
+    "keywords": [
+      "biyometrik kimlik doğrulama",
+      "canlılık algılama",
+      "yüz karşılaştırma",
+      "kimlik doğrulama",
+      "Verifik",
+      "HumanAuthn",
+      "HumanID"
+    ],
+    "ogTitle": "HumanAuthn: Biyometrik API Demosu",
+    "ogDescription": "Verifik’in kurumsal biyometrik kimlik doğrulama API’leri",
+    "ogSiteName": "HumanAuthn"
+  },
+  "SplashPage": {
+    "metaTitle": "HumanAuthn: Verifik Biyometrik API Demosu",
+    "metaDescription": "Canlılık algılama ile güvenli kimlik doğrulama. Dijital kimlik doğrulamasında altın standart. Verifik tarafından desteklenmektedir.",
+    "heroImageAlt": "Biyometrik yüz tanıma taraması",
+    "readinessBadge": "Biyometrik hazırlık: Etkin",
+    "brandPill": "Verifik · HumanAuthn",
+    "headlineLine1": "Human",
+    "headlineLine2": "Authn",
+    "tagline": "Canlılık algılama ile güvenli kimlik doğrulama. Dijital erişimde altın standart.",
+    "ctaPrimary": "Başlayın",
+    "ctaSecondary": "Demoları keşfedin →",
+    "trustAria": "Güvenlik sertifikaları"
+  },
+  "HomeHeader": {
+    "accountFallback": "Hesap",
+    "signIn": "Oturum aç",
+    "accountMenuAria": "Hesap menüsü",
+    "credits": "Krediler",
+    "settings": "Ayarlar",
+    "signOut": "Çıkış yap",
+    "homeAria": "Verifik: Ana sayfa"
+  },
+  "LanguageSwitcher": {
+    "ariaLabel": "Dil",
+    "en": "English",
+    "es": "Español",
+    "pt": "Português",
+    "fr": "Français",
+    "hi": "हिन्दी",
+    "zh": "简体中文",
+    "ko": "한국어",
+    "ja": "日本語",
+    "de": "Deutsch",
+    "id": "Bahasa Indonesia",
+    "vi": "Tiếng Việt",
+    "tr": "Türkçe",
+    "ar": "العربية"
+  },
+  "home": {
+    "metaTitle": "Demo panosu",
+    "metaDescription": "Kimlik doğrulama insan varlığına dayanır. Tarayıcıda Verifik’in canlı biyometrik demolarını çalıştırın: yüz eşleme, canlılık ve HumanID.",
+    "heroEyebrow": "Biyometrik · Canlı demolar",
+    "heroTitle": "HumanAuthn · Kurumsal biyometri",
+    "heroBody": "Tarayıcıda yüz eşleme, canlılık, HumanID ve canlı algılama çalıştırın. Geleneksel biyometri, sunucu tarafı OpenCV galeri yönetimini ve aramayı kapsar. Merkeziyetsiz HumanAuthn demoları, HumanID’nin merkezi bir yüz veritabanı olmadan kimlik verilerini canlı bir yüze nasıl bağladığını gösterir.",
+    "traditionalEyebrow": "OpenCV · Sunucu tarafı galeri",
+    "traditionalTitle": "Geleneksel biyometri",
+    "decentralizedEyebrow": "HumanAuthn · HumanID",
+    "decentralizedTitle": "Merkeziyetsiz biyometri · HumanAuthn",
+    "enterpriseEyebrow": "Verifik platformu",
+    "enterpriseTitle": "Kurumsal düzeyde güvenlik",
+    "enterpriseBody": "Platformumuz biyometrik verileri uçtan uca şifreleme ile işler. Tasarıma göre gizlilik; ciddi kurulumlara hazır.",
+    "pillGdpr": "GDPR uyumlu",
+    "pillAes": "AES-256",
+    "pillSoc2": "SOC 2 hazır",
+    "navIdentity": "Kimlik",
+    "navSecurity": "Güvenlik",
+    "navSettings": "Ayarlar",
+    "demoCta": "Demoyu çalıştır",
+    "sections": {
+      "enroll": "Kayıt",
+      "manage": "Yönet",
+      "search": "Ara",
+      "detection": "Algılama",
+      "comparison": "Karşılaştırma"
+    },
+    "demos": {
+      "create-collection": {
+        "badge": "Kayıt",
+        "title": "Koleksiyon oluştur",
+        "description": "Arama ve doğrulama için kayıtlı kişileri gruplamak üzere adlandırılmış bir yüz koleksiyonu oluşturun."
+      },
+      "create-person": {
+        "badge": "Kayıt",
+        "title": "Kişi oluştur",
+        "description": "Yüz görüntüleri ve meta veriler yükleyerek yeni bir kişi kaydedin. OpenCV koleksiyonunda saklanır."
+      },
+      "create-person-with-liveness": {
+        "badge": "Kayıt",
+        "title": "Canlılık ile kişi oluştur",
+        "description": "Aynı anda canlılık kontrolü yapın ve koleksiyonda mükerrer araması ile kişi kaydedin."
+      },
+      "update-person": {
+        "badge": "Yönet",
+        "title": "Kişiyi güncelle",
+        "description": "Kimliğe göre kişiyi yükleyin ve profil alanlarını veya koleksiyon üyeliğini değiştirin (bu API’de yeni yüz görüntüsü yok)."
+      },
+      "delete-person": {
+        "badge": "Yönet",
+        "title": "Kişiyi sil",
+        "description": "Kişiyi tamamen silin veya birden fazla koleksiyona aitse yalnızca bir koleksiyondan çıkarın."
+      },
+      "search-person": {
+        "badge": "Ara",
+        "title": "Kişi ara",
+        "description": "Bir veya daha fazla yüz görüntüsü yükleyin ve benzerlik puanına göre koleksiyonda eşleşen kişileri arayın."
+      },
+      "search-live-person": {
+        "badge": "Ara",
+        "title": "Canlı kişi ara",
+        "description": "Canlı yüz yakalayın, canlılık algılama çalıştırın ve tek akışta koleksiyonda eşleşme arayın."
+      },
+      "search-active-user": {
+        "badge": "Ara",
+        "title": "Aktif kullanıcı ara",
+        "description": "Canlı yüz yakalama ile aktif kullanıcıyı doğrulayın ve arama sonuçlarıyla birlikte canlılık puanı döndürün."
+      },
+      "detect-face": {
+        "badge": "Algılama",
+        "title": "Yüz algıla",
+        "description": "Bir görüntü gönderin ve içindeki tüm yüzleri algılayın; sınırlayıcı kutular ve kırpma verisi alın."
+      },
+      "search-crops": {
+        "badge": "Algılama",
+        "title": "Kırpma ara",
+        "description": "Yüklenen yüz kırpmalarında hassas ayarlarla eşleşen kişileri bulmak için çoklu görüntü kırpma araması çalıştırın."
+      },
+      "face-comparison": {
+        "badge": "Karşılaştırma",
+        "title": "Yüz karşılaştırma",
+        "description": "İki fotoğraf yükleyin ve aynı kişi olup olmadıklarını görün. Kayıt ve kimlik kontrolleri için kullanışlıdır."
+      },
+      "face-comparison-liveness": {
+        "badge": "Karşılaştırma",
+        "title": "Canlılık ile karşılaştır",
+        "description": "Referans fotoğrafı canlı bir selfi ile eşleştirin. Yüz eşleşmesi yeterince güçlü olduktan sonra canlılık çalışır."
+      },
+      "verify-face": {
+        "badge": "Karşılaştırma",
+        "title": "Yüzü doğrula",
+        "description": "Yapılandırılabilir benzerlik eşiği ile belirli bir kayıtlı kişi kimliğine karşı yüz görüntüsünü doğrulayın."
+      },
+      "liveness": {
+        "badge": "Anti-spoof",
+        "title": "Canlılık algılama",
+        "description": "Kamera önünde gerçek bir kişi olduğunu gösterin; fotoğraf, maske veya tekrar oynatma değil."
+      },
+      "humanid-create": {
+        "badge": "Şifrele",
+        "title": "HumanID oluştur",
+        "description": "Genel kimlik verilerini ve bir yüzü IPFS’te şifreli bir HumanID kanıtına bağlayın. Yalnızca eşleşen canlı yüz ile kurtarılabilir."
+      },
+      "humanid-create-qr": {
+        "badge": "QR",
+        "title": "HumanID QR oluştur",
+        "description": "Taşınabilir çevrimdışı doğrulama için yüz yakalama ve kimlik meta verilerinden QR kodlu HumanID üretin."
+      },
+      "humanid-decrypt": {
+        "badge": "Şifre çöz",
+        "title": "HumanID şifresini çöz",
+        "description": "Eşleşen canlı yüzü ve kanıt dizesini sunarak bir HumanID içindeki kimlik verilerini kurtarın."
+      },
+      "humanid-preview": {
+        "badge": "Önizleme",
+        "title": "HumanID önizleme",
+        "description": "Yüz görüntüsü veya ek kimlik bilgisi olmadan bir HumanID dizesindeki genel meta verileri inceleyin."
+      }
+    }
+  },
+  "NotFound": {
+    "title": "Sayfa bulunamadı",
+    "body": "Bu sayfa yok veya bağlantı geçersiz.",
+    "homeLink": "Ana sayfaya dön"
+  },
+  "settingsNav": {
+    "title": "Ayarlar",
+    "ariaLabel": "Ayarlar bölümleri",
+    "myAccount": "Hesabım",
+    "developers": "Geliştiriciler",
+    "profile": "Profil",
+    "apiKey": "API anahtarı",
+    "mobileMenu": "Ayarlar menüsünü aç",
+    "mobileTitle": "Ayarlar",
+    "closeMenu": "Menüyü kapat"
+  }
+}

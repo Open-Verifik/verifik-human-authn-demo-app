@@ -1,0 +1,48 @@
+{
+  "headerTitle": "개인 업데이트",
+  "heroTitleForm": "개인 업데이트",
+  "heroTitleResult": "사람이 업데이트되었습니다.",
+  "heroSubtitleForm": "프로젝트에 등록된 사람을 선택하고 프로필이나 컬렉션을 편집한 다음 저장하세요. 이 경로는 얼굴 이미지를 대체하지 않습니다(현재 API 기준).",
+  "heroSubtitleResult": "변경사항이 PUT /v2/face-recognition/persons/:id.로 전송되었습니다.",
+  "personLabel": "사람",
+  "personHint": "GET /v2/face-recognition/persons의 목록 — 귀하의 계정에 연결된 사람만 나열됩니다.",
+  "noPeopleEmpty": "사람을 찾을 수 없습니다. Create Person에 먼저 누군가를 등록하세요.",
+  "loadingProfile": "프로필 로드 중…",
+  "unexpectedResponseShape": "예상치 못한 응답 형태.",
+  "fullNameLabel": "이름",
+  "genderLabel": "성별",
+  "dobLabel": "생일",
+  "nationalityLabel": "국적",
+  "nationalityPlaceholder": "선택 과목",
+  "notesLabel": "메모",
+  "collectionsLabel": "컬렉션",
+  "noCollectionsLoaded": "로드된 컬렉션이 없습니다.",
+  "saveChanges": "변경사항 저장",
+  "processing": "인물 업데이트 중…",
+  "apiRefSummary": "API 참조: 개인 업데이트",
+  "apiRefOfficialDocs": "공식 문서:",
+  "apiRefLinkLabel": "docs.verifik.co/resources/persons/update-a-person",
+  "apiRefBody": "PUT /v2/face-recognition/persons/:id with optional JSON fields: name, gender, date_of_birth, nationality, collections (array of collection _id strings), notes. The enrolled face thumbnails are not replaced through this demo; adding new face images may require product-specific flows not exposed in the current Joi schema.",
+  "relatedDocs": {
+    "0": {
+      "title": "사람 검색",
+      "description": "아이디로 한 사람을 GET하세요.",
+      "badge": "GET"
+    },
+    "1": {
+      "title": "개인 업데이트",
+      "description": "PUT에 대한 공식 API 참조입니다.",
+      "badge": "PUT"
+    },
+    "2": {
+      "title": "사람 만들기",
+      "description": "얼굴 인식 시스템에서 새로운 사람을 만듭니다.",
+      "badge": "POST"
+    },
+    "3": {
+      "title": "Delete a Person",
+      "description": "Delete a person record from the facial recognition system.",
+      "badge": "DELETE"
+    }
+  }
+}

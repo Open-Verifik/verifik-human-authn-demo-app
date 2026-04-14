@@ -1,0 +1,78 @@
+{
+  "headerTitle": "Déchiffrer un HumanID",
+  "heroTitle": "Déchiffrer un HumanID",
+  "heroTitleResult": "Déchiffré",
+  "heroSubtitle": "Récupérez les données d'identité en présentant le visage vivant correspondant.",
+  "humanIdModeLabel": "HumanID",
+  "pasteString": "Coller la chaîne",
+  "uploadQrImage": "Téléverser l'image QR",
+  "proofLabel": "HumanID",
+  "proofPlaceholder": "Collez votre HumanID ici…",
+  "qrUploadHelp": "Téléversez un PNG ou JPEG du QR HumanID (charge binaire). Nous appelons preview-zelf-id-qr pour extraire votre HumanID.",
+  "chooseQrImage": "Choisir l'image QR",
+  "readingQr": "Lecture du QR…",
+  "secondaryPngJpeg": "PNG ou JPEG",
+  "qrPreviewAlt": "Aperçu QR",
+  "extractedHeading": "HumanID extrait (lecture seule)",
+  "errorReadProof": "Impossible de lire le HumanID depuis la réponse d'aperçu.",
+  "qrExtractSuccess": "HumanID extrait du QR. Vous pouvez déchiffrer ci-dessous.",
+  "passwordOptional": "Mot de passe (facultatif)",
+  "passwordPlaceholder": "Uniquement si la preuve a été créée avec un mot de passe",
+  "faceImageLabel": "Image faciale",
+  "chooseOneDescription": "Utilisez la caméra ou téléversez une photo. L'une ou l'autre option convient pour cette étape.",
+  "cameraTitle": "Caméra en direct",
+  "cameraSubtitle": "Ouvrez la caméra et cadrez votre visage",
+  "uploadTitle": "Photo depuis la galerie",
+  "uploadSubtitle": "Ou sélectionnez un fichier image sur l'appareil",
+  "uploadPrimary": "Téléverser une image",
+  "changeFaceImage": "Changer l'image faciale",
+  "facePreviewAlt": "Visage",
+  "decryptCta": "Déchiffrer",
+  "processing": "Déchiffrement de l'identité…",
+  "apiRefSummary": "Référence API : Decrypt HumanID",
+  "apiOfficialGuide": "Guide officiel :",
+  "apiOfficialParen": "(champs requête et réponse, mot de passe et clé de vérificateur facultatifs, exemples d'appels).",
+  "apiRelated": "Associé :",
+  "apiDecryptLinkText": "docs.verifik.co/functions/decrypt-zelfproof",
+  "apiBaseUrlNote": "URL de base https://api.verifik.co. Envoyez du JSON avec Content-Type: application/json et Authorization: Bearer <access token> (même JWT que cette démo après connexion).",
+  "apiDecryptEndpointDesc": "Compare votre image faciale à la preuve et renvoie les champs publics déchiffrés et la charge associée (par ex. recadrage facial et difficulté) dans l'enveloppe de données signée habituelle lorsque la correspondance réussit.",
+  "apiPreviewQrEndpointDesc": "Utilisez lorsque l'utilisateur fournit un PNG ou JPEG du QR HumanID. L'API lit la charge du QR, exécute le même type d'aperçu que pour une chaîne et renvoie un zelfProof à passer au decrypt. verifierKey facultatif lorsque la preuve a été créée avec une. Mêmes en-têtes JSON que decrypt.",
+  "apiBullet1": "Decrypt utilise decryptHumanId de @humanauthn/api-client. Le téléversement QR utilise previewZelfIdQr d'abord ; puis vous déchiffrez avec la chaîne de preuve renvoyée.",
+  "apiBullet2": "Les réponses de succès suivent le modèle Verifik : objet data (et souvent signature lorsque la signature est activée sur le projet).",
+  "apiBullet3": "Pour inspecter une preuve sans image faciale, ouvrez la démo Preview HumanID (previewHumanId) ou le guide Preview ZelfProof lié ci-dessus.",
+  "paramFaceBase64Desc": "Image faciale en base64 brut (cette démo utilise le même format que les autres démos biométriques)",
+  "paramOsDesc": "DESKTOP, IOS ou ANDROID (démo utilise DESKTOP)",
+  "paramZelfProofDesc": "Chaîne HumanID collée ou extraite de l'image QR dans ce formulaire",
+  "paramPasswordDesc": "Uniquement si la preuve a été créée avec un mot de passe",
+  "paramLivenessLevelDesc": "Si défini, s'aligne sur les attentes de vivacité serveur pour decrypt (voir le guide officiel)",
+  "paramVerifierKeyDesc": "Si la preuve a été créée avec une clé de vérificateur",
+  "paramQrCodeDesc": "Image en data URL (data:image/png;base64,...) ou autre forme acceptée par l'API (cette démo construit une data URL à partir du fichier)",
+  "paramVerifierKeyQrDesc": "Même sémantique qu'au decrypt lorsque la preuve utilise une clé de vérificateur",
+  "relatedDocs": {
+    "0": {
+      "title": "Déchiffrer un ZelfProof",
+      "description": "Déverrouillez la charge d'identité dans la preuve en la faisant correspondre à un visage vivant. Couvre le mot de passe facultatif lorsque la preuve a été créée avec un.",
+      "badge": "POST"
+    },
+    "1": {
+      "title": "Créer un ZelfProof",
+      "description": "Chiffrez vos champs publics et la capture faciale dans une nouvelle chaîne HumanID à stocker ou partager.",
+      "badge": "POST"
+    },
+    "2": {
+      "title": "Preview ZelfProof",
+      "description": "Inspectez les métadonnées publiques et ce qui sera exigé avant de déchiffrer, sans envoyer d'image faciale. La démo Preview HumanID suit la même idée sur l'API actuelle.",
+      "badge": "POST"
+    },
+    "3": {
+      "title": "Créer un QR ZelfProof",
+      "description": "Générez un QR intégrant un HumanID à scanner depuis un écran ou un portefeuille.",
+      "badge": "POST"
+    },
+    "4": {
+      "title": "Détection de vivacité",
+      "description": "Exécutez un contrôle dédié pour vérifier qu'une image faciale semble vivante et non spoof. Séparé du chiffrement et déchiffrement HumanID.",
+      "badge": "POST"
+    }
+  }
+}

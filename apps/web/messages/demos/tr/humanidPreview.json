@@ -1,0 +1,63 @@
+{
+  "headerTitle": "HumanID'yi önizle",
+  "heroTitle": "HumanID'yi önizle",
+  "heroTitleResult": "Önizleme Hazır",
+  "heroSubtitle": "ZelfProof'tan genel meta verileri inceleyin. Yüze veya kimlik bilgilerine gerek yok.",
+  "humanIdModeLabel": "İnsan Kimliği",
+  "pasteString": "Dize yapıştır",
+  "uploadQrImage": "QR resmini yükle",
+  "proofLabel": "ZelfProof dizisi",
+  "proofPlaceholder": "ZelfProof dizesini buraya yapıştırın…",
+  "qrUploadHelp": "HumanID QR'nin PNG veya JPEG dosyasını yükleyin. QR'nin kodunu çözüyoruz ve önizleme için prova dizesini dolduruyoruz.",
+  "chooseQrImage": "QR resmini seçin",
+  "readingQr": "QR okunuyor…",
+  "secondaryPngJpeg": "PNG veya JPEG",
+  "qrPreviewAlt": "QR önizlemesi",
+  "extractedHeading": "Çıkarılan HumanID (salt okunur)",
+  "errorReadProof": "HumanID, QR önizleme yanıtından okunamadı.",
+  "qrExtractSuccess": "İnsan Kimliği QR'den çıkarıldı. Gerekirse bir doğrulama anahtarı ekleyin ve ardından önizleyin.",
+  "verifierKeyOptional": "Doğrulayıcı anahtarı (isteğe bağlı)",
+  "verifierKeyPlaceholder": "Oluşturma sırasında ayarlanırsa ek alanların kilidini açar",
+  "previewCta": "Önizleme",
+  "processing": "Önizleme getiriliyor…",
+  "apiRefSummary": "API referansı: HumanID'yi önizleyin",
+  "apiOfficialLead": "Resmi belgeler:",
+  "apiOfficialLinkLabel": "docs.verifik.co/api/tags/preview-zelfproof",
+  "apiOfficialAfter": "(parametreler, yanıtlar ve örnekler). Bu demo, mevcut API'deki iş akışıyla eşleşen ön izlemeHumanId aracılığıyla POST /v2/human-id/preview öğesini çağırır. İlgili:",
+  "apiBaseUrlNote": "Temel URL https://api.verifik.co. JSON'u Content-Type: application/json ve Authorization: Bearer <access token> ile gönderin (oturum açtıktan sonra bu demoyla aynı JWT).",
+  "apiPreviewEndpointDesc": "Her zamanki imzalı veri zarfının içinde bir kanıt için (örneğin bir parolanın gerekli olup olmadığı) hassas olmayan önizleme alanlarını döndürür.",
+  "apiPreviewQrEndpointDesc": "Kullanıcı HumanID QR'nin PNG veya JPEG dosyasını sağladığında kullanın. API, yükün kodunu çözer ve yukarıdaki önizleme çağrısına gönderebileceğiniz bir zelfProof döndürür. Önizlemeyle aynı JSON başlıkları. Kanıt bir tane kullandığında isteğe bağlı verifierKey.",
+  "apiBullet1": "Bu demo, önizlemeHumanId'yi ve QR görüntüleri için oturum belirteciniz ile birlikte @humanauthn/api-client'tan önizlemeZelfIdQr'yi kullanır.",
+  "apiBullet2": "Başarı yanıtları Verifik modelini takip eder: bir veri nesnesi (ve genellikle projeniz için imzalama etkinleştirildiğinde bir imza).",
+  "paramZelfProofDesc": "Yapıştırma işleminden veya bu formdaki QR çıkarma işleminden elde edilen HumanID dizesi",
+  "paramVerifierKeyDesc": "Kanıt bir doğrulama anahtarıyla oluşturulduysa",
+  "paramQrCodeDesc": "Veri URL'si (data:image/png;base64,...) veya API tarafından kabul edilen başka bir form olarak resim (bu demo, dosyadan bir veri URL'si oluşturur)",
+  "paramVerifierKeyQrDesc": "Prova bir doğrulama anahtarı kullandığında önizlemedekiyle aynı anlambilim",
+  "relatedDocs": {
+    "0": {
+      "title": "ZelfProof'u önizle",
+      "description": "Şifresini çözmeden veya başka bir yerde kullanmadan önce bir kanıttan genel meta verileri incelemeye yönelik referans.",
+      "badge": "POSTALAMAK"
+    },
+    "1": {
+      "title": "ZelfProof oluşturun",
+      "description": "Herkese açık alanlarınızı ve yüz yakalamanızı, saklayabileceğiniz veya paylaşabileceğiniz yeni bir HumanID dizesinde şifreleyin.",
+      "badge": "POSTALAMAK"
+    },
+    "2": {
+      "title": "ZelfProof'un şifresini çözme",
+      "description": "Bir kanıtın içindeki kimlik yükünün kilidini, onu canlı bir yüzle eşleştirerek açın.",
+      "badge": "POSTALAMAK"
+    },
+    "3": {
+      "title": "QR ZelfProof oluşturun",
+      "description": "İnsanların bir ekrandan veya cüzdandan tarayabilmesi için HumanID'yi içeren bir QR oluşturun.",
+      "badge": "POSTALAMAK"
+    },
+    "4": {
+      "title": "Canlılık tespiti",
+      "description": "Bir yüz görüntüsünün sahte değil canlı göründüğüne dair özel bir kontrol yapın. HumanID önizlemesinden ayrı.",
+      "badge": "POSTALAMAK"
+    }
+  }
+}

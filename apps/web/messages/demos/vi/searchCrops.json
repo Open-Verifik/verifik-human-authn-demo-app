@@ -1,0 +1,67 @@
+{
+  "headerTitle": "Tìm kiếm cây trồng",
+  "heroTitleComplete": "Tìm kiếm hoàn tất",
+  "heroTitleInitial": "Tìm kiếm cây trồng",
+  "heroSubtitleComplete": "Các trận đấu được hiển thị dưới đây.Đặt lại để chạy tìm kiếm khác.",
+  "heroSubtitleInitial": "Tìm kiếm 1:N sử dụng khuôn mặt (vùng nhỏ).min_score phải nằm trong khoảng từ 0,5 đến 1.",
+  "minScoreLabel": "Điểm tối thiểu {score}",
+  "searchModeLabel": "Chế độ tìm kiếm",
+  "collectionIdLabel": "ID bộ sưu tập",
+  "maxResultsLabel": "Kết quả tối đa",
+  "optionalPlaceholder": "Không bắt buộc",
+  "chooseOneDescription": "Quét bằng máy ảnh của bạn hoặc tải ảnh lên.Mỗi ảnh chụp được thêm dưới dạng cắt khuôn mặt cho tìm kiếm 1:N.",
+  "cameraTitle": "Máy ảnh trực tiếp",
+  "cameraSubtitle": "Mở camera và chụp ảnh một khuôn mặt",
+  "uploadTitle": "Ảnh từ thư viện",
+  "uploadSubtitle": "Chọn một hoặc nhiều hình ảnh cắt từ thiết bị của bạn",
+  "cropsAddMore": "{count} cắt, thêm nhiều hơn nữa",
+  "uploadFaceCrops": "Tải lên cây trồng khuôn mặt",
+  "searching": "Đang tìm kiếm…",
+  "search": "Tìm kiếm",
+  "resultTitle": "Kết quả tìm kiếm",
+  "reset": "Cài lại",
+  "apiRefSummary": "Tham chiếu API: Tìm kiếm khuôn mặt 1:N (Cắt)",
+  "apiRefLead": "(1:N tìm kiếm cắt khuôn mặt; min_score là 0,5–1, không giống như Tìm kiếm khuôn mặt tiêu chuẩn).",
+  "apiRefBody": "URL cơ sở https://api.verifik.co. Gửi một hoặc nhiều mục trong hình ảnh dưới dạng URL base64 hoặc HTTPS thô tới hình ảnh (API có thể truy xuất URL ở phía máy chủ). Tùy chọn đặt bộ sưu tập_id và max_results.",
+  "apiRefEndpoint": "POST /v2/face-recognition/search/crops",
+  "apiRefEndpointDesc": "Trả về những ứng viên được xếp hạng trong dữ liệu, có hình dạng chung giống như /face-recognition/search.",
+  "paramImagesDesc": "Cắt khuôn mặt (URL base64 và/hoặc URL HTTPS), cùng chủ đề",
+  "paramMinScoreDesc": "0,5–1",
+  "paramSearchModeDesc": "FAST hoặc ACCURATE",
+  "paramCollectionIdDesc": "Giới hạn tìm kiếm trong một bộ sưu tập",
+  "paramMaxResultsDesc": "Giới hạn số trận đấu được trả lại",
+  "bulletApiClient": "Bản demo này sử dụng searchCrops từ @humanauthn/api-client bằng mã thông báo phiên của bạn.",
+  "bulletSignature": "Phản hồi thường bao gồm các trận đấu được xếp hạng và có thể bao gồm khối chữ ký tùy thuộc vào môi trường.",
+  "relatedDocs": {
+    "0": {
+      "title": "Tìm kiếm khuôn mặt (1:N)",
+      "description": "Tìm kiếm thư viện tiêu chuẩn với hình ảnh toàn bộ khuôn mặt;mức sàn min_score thấp hơn (0,2–1).",
+      "badge": "POST"
+    },
+    "1": {
+      "title": "Tìm kiếm khuôn mặt 1:N (Trực tiếp)",
+      "description": "Sự sống động trên hình ảnh thăm dò, sau đó tìm kiếm 1:N.",
+      "badge": "POST"
+    },
+    "2": {
+      "title": "Tìm kiếm khuôn mặt 1:N (Người dùng đang hoạt động)",
+      "description": "1:N tìm kiếm các luồng phiên hoạt động không có hoạt động trên đầu dò.",
+      "badge": "POST"
+    },
+    "3": {
+      "title": "Xác minh khuôn mặt (1:1)",
+      "description": "Ghép các hình ảnh thăm dò với id người đã đăng ký đã biết.",
+      "badge": "POST"
+    },
+    "4": {
+      "title": "Nhận diện khuôn mặt",
+      "description": "Phát hiện khuôn mặt trong ảnh để thu được ảnh cắt trước khi tìm kiếm.",
+      "badge": "POST"
+    },
+    "5": {
+      "title": "Liệt kê tất cả những người",
+      "description": "Kiểm tra những người đã đăng ký cho khách hàng của bạn.",
+      "badge": "GET"
+    }
+  }
+}

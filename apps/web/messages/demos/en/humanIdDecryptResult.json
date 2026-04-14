@@ -1,0 +1,19 @@
+{
+  "successTitle": "HumanID decrypted",
+  "successSubtitle": "Identity data recovered from your ZelfProof.",
+  "identifierHeading": "Identifier",
+  "publicDataHeading": "Public data",
+  "metadataHeading": "Metadata",
+  "difficultyHeading": "Difficulty",
+  "faceCropHeading": "Face crop",
+  "faceCropAlt": "Decoded face crop from proof",
+  "sessionHeading": "Session",
+  "chargedLabel": "Charged",
+  "livenessRequiredLabel": "Liveness required",
+  "creditsHeading": "Credits / usage",
+  "chargedCredits": "Charged: {amount} credits",
+  "creditChange": "Credit change: {amount}",
+  "rawDebug": "Raw response (debug)",
+  "tryAgain": "Try Again",
+  "backToDemos": "Back to Demos"
+}

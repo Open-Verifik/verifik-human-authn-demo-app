@@ -1,0 +1,19 @@
+{
+  "successTitle": "تم فك تشفير HumanID",
+  "successSubtitle": "استُرجعت بيانات الهوية من ZelfProof.",
+  "identifierHeading": "المعرّف",
+  "publicDataHeading": "البيانات العامة",
+  "metadataHeading": "البيانات الوصفية",
+  "difficultyHeading": "الصعوبة",
+  "faceCropHeading": "قص الوجه",
+  "faceCropAlt": "قص وجه مفكوك من الدليل",
+  "sessionHeading": "الجلسة",
+  "chargedLabel": "مُخصوم",
+  "livenessRequiredLabel": "الحضور الحي مطلوب",
+  "creditsHeading": "الرصيد / الاستخدام",
+  "chargedCredits": "المُخصوم من الرصيد: {amount}",
+  "creditChange": "تغيّر الرصيد: {amount}",
+  "rawDebug": "الاستجابة الخام (تصحيح)",
+  "tryAgain": "إعادة المحاولة",
+  "backToDemos": "العودة إلى العروض التجريبية"
+}

@@ -1,0 +1,65 @@
+{
+  "headerTitle": "얼굴 감지",
+  "heroTitleComplete": "감지 완료",
+  "heroTitleInitial": "얼굴 감지",
+  "heroSubtitleComplete": "결과는 아래와 같습니다. 다른 감지를 실행하려면 재설정하세요.",
+  "heroSubtitleInitial": "경계 상자와 점수를 사용하여 이미지에서 얼굴을 찾습니다(OpenCV 감지 파이프라인).",
+  "minScoreLabel": "최소 점수 {score}",
+  "searchModeLabel": "검색 모드",
+  "chooseOneDescription": "카메라로 스캔하거나 사진을 업로드하세요. 두 옵션 모두 이 데모에 적합합니다.",
+  "cameraTitle": "라이브 카메라",
+  "cameraSubtitle": "카메라를 열고 프레임에 얼굴을 맞춥니다.",
+  "uploadTitle": "갤러리의 사진",
+  "uploadSubtitle": "대신 기기에서 이미지 파일을 선택하세요.",
+  "uploadPrimary": "이미지 업로드",
+  "uploadSecondary": "갤러리의 JPEG 또는 PNG",
+  "previewAlt": "시사",
+  "detecting": "감지 중…",
+  "detectFaces": "얼굴 감지",
+  "resultTitle": "탐지 결과",
+  "reset": "다시 놓기",
+  "apiRefSummary": "API 참조: 얼굴 감지",
+  "apiRefLinkSuffix": "(얼굴 감지 개요, 샘플 페이로드 및 응답 형태)",
+  "apiRefBody": "이 데모는 현재 API 검증에서 요구하는 min_score 및 search_mode를 사용하여 동일한 POST /v2/face-recognition/detect 경로를 호출합니다. 선택적 collection_id 및 max_results는 클라이언트에서 지원되지만 아래 형식으로 노출되지 않습니다.",
+  "apiRefEndpoint": "POST /v2/face-recognition/detect",
+  "apiRefEndpointDesc": "감지된 얼굴을 형상 및 점수와 함께 반환합니다. 게시된 얼굴 감지 가이드에는 지원되는 경우 return_landmarks와 같은 선택적 플래그도 문서화되어 있습니다.",
+  "paramImageDesc": "Base64 프로브 이미지(API당 원시 base64 또는 데이터 URI)",
+  "paramMinScoreDesc": "임계값, 일반적으로 0.5-1",
+  "paramSearchModeDesc": "빠르고 정확함",
+  "paramCollectionIdDesc": "선택적 범위(이 데모 UI에서는 사용되지 않음)",
+  "paramMaxResultsDesc": "선택적 한도(이 데모 UI에서는 사용되지 않음)",
+  "bulletApiClient": "이 데모에서는 세션 토큰과 함께 @humanauthn/api-client의 discoverFace를 사용합니다.",
+  "bulletSearch": "캡쳐 후 1:N 식별을 위해서는 관련 문서에서 얼굴 검색 또는 실시간 얼굴 검색을 이용하세요.",
+  "relatedDocs": {
+    "0": {
+      "title": "얼굴 검색(1:N)",
+      "description": "등록된 사람을 대상으로 얼굴 이미지로 검색합니다.",
+      "badge": "POST"
+    },
+    "1": {
+      "title": "얼굴 검색 1:N (라이브)",
+      "description": "프로브 이미지의 활성 상태를 확인한 후 1:N 검색합니다.",
+      "badge": "POST"
+    },
+    "2": {
+      "title": "얼굴 검색 1:N (활성 사용자)",
+      "description": "활성 세션 흐름에 대한 활성 없이 1:N 검색입니다.",
+      "badge": "POST"
+    },
+    "3": {
+      "title": "활동성 감지",
+      "description": "얼굴이 실제인지 스푸핑인지 확인합니다. 생존 점수.",
+      "badge": "POST"
+    },
+    "4": {
+      "title": "얼굴 비교",
+      "description": "참조 이미지와 1:1 얼굴 비교를 통해 신원을 확인합니다.",
+      "badge": "POST"
+    },
+    "5": {
+      "title": "라이브니스와 비교",
+      "description": "1:1 비교와 구성 가능한 임계값을 통한 활성 감지.",
+      "badge": "POST"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "headerTitle": "얼굴 인증",
+  "heroTitleComplete": "인증 완료",
+  "heroTitleInitial": "얼굴 인증",
+  "heroSubtitleComplete": "결과는 아래와 같습니다. 다시 확인하려면 재설정하세요.",
+  "heroSubtitleInitial": "ID를 통해 가입한 본인을 1:1로 인증합니다.",
+  "personIdLabel": "개인 ID",
+  "personPlaceholder": "가입인 아이디",
+  "minScoreLabel": "최소 점수 {score}",
+  "searchModeLabel": "검색 모드",
+  "collectionIdLabel": "컬렉션 ID",
+  "optionalPlaceholder": "선택 과목",
+  "chooseOneDescription": "카메라로 스캔하거나 사진을 업로드하세요. 확인을 위해 각 캡처가 이미지에 추가됩니다.",
+  "cameraTitle": "라이브 카메라",
+  "cameraSubtitle": "카메라를 열고 얼굴 이미지 한 장을 캡처하세요.",
+  "uploadTitle": "갤러리의 사진",
+  "uploadSubtitle": "장치에서 하나 이상의 이미지 파일을 선택하십시오.",
+  "verifying": "확인 중…",
+  "verify": "확인하다",
+  "resultTitle": "검증결과",
+  "reset": "다시 놓기",
+  "apiRefSummary": "API 참조: 얼굴 확인(1:1)",
+  "apiRefOfficialEn": "공식 문서(EN):",
+  "apiRefSpanishLabel": "스페인 사람:",
+  "apiRefBody": "Base URL https://api.verifik.co. Send the enrolled person's MongoDB id in id and one or more raw base64 face images in images (no data URL prefix). Optional collection_id scopes the check.",
+  "apiRefEndpoint": "POST /v2/face-recognition/verify",
+  "apiRefEndpointDesc": "알려진 등록자에 대한 1:1: 임계값이 충족되면 점수와 data.match를 반환합니다.",
+  "paramIdDesc": "등록된 사람 MongoDB ID",
+  "paramImagesDesc": "Base64 얼굴 이미지 배열(동일한 피사체)",
+  "paramMinScoreDesc": "일치 임계값(0.5–1)",
+  "paramSearchModeDesc": "빠르고 정확함",
+  "paramCollectionIdDesc": "선택적 수집 범위",
+  "bulletApiClient": "이 데모에서는 세션 토큰과 함께 @humanauthn/api-client의 verifyFace를 사용합니다.",
+  "bulletResponse": "활성화된 경우 응답에는 data.match 및 서명 블록이 포함됩니다.",
+  "relatedDocs": {
+    "0": {
+      "title": "얼굴 비교",
+      "description": "등록된 인물 ID 없이 두 이미지 세트 간의 1:1 얼굴 비교입니다.",
+      "badge": "POST"
+    },
+    "1": {
+      "title": "얼굴 비교 (라이브)",
+      "description": "프로브 이미지의 활성도와 1:1 비교.",
+      "badge": "POST"
+    },
+    "2": {
+      "title": "라이브니스와 비교",
+      "description": "1:1 비교와 구성 가능한 활성 임계값.",
+      "badge": "POST"
+    },
+    "3": {
+      "title": "얼굴 검색(1:N)",
+      "description": "컬렉션에 등록된 사람을 얼굴 이미지로 검색하세요.",
+      "badge": "POST"
+    },
+    "4": {
+      "title": "활동성 감지",
+      "description": "얼굴이 실제인지 스푸핑인지 확인합니다. 생존 점수.",
+      "badge": "POST"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "headerTitle": "Actualizar persona",
+  "heroTitleForm": "Actualizar persona",
+  "heroTitleResult": "Persona actualizada",
+  "heroSubtitleForm": "Elige alguien registrado en tu proyecto, edita perfil o colecciones y guarda. Esta ruta no reemplaza imágenes faciales (según la API actual).",
+  "heroSubtitleResult": "Los cambios se enviaron con PUT /v2/face-recognition/persons/:id.",
+  "personLabel": "Persona",
+  "personHint": "Lista de GET /v2/face-recognition/persons — solo personas vinculadas a tu cuenta.",
+  "noPeopleEmpty": "No hay personas. Registra alguien primero en Crear persona.",
+  "loadingProfile": "Cargando perfil…",
+  "unexpectedResponseShape": "Formato de respuesta inesperado.",
+  "fullNameLabel": "Nombre completo",
+  "genderLabel": "Género",
+  "dobLabel": "Fecha de nacimiento",
+  "nationalityLabel": "Nacionalidad",
+  "nationalityPlaceholder": "Opcional",
+  "notesLabel": "Notas",
+  "collectionsLabel": "Colecciones",
+  "noCollectionsLoaded": "No se cargaron colecciones.",
+  "saveChanges": "Guardar cambios",
+  "processing": "Actualizando persona…",
+  "apiRefSummary": "Referencia de API: actualizar persona",
+  "apiRefOfficialDocs": "Documentación oficial:",
+  "apiRefLinkLabel": "docs.verifik.co/resources/persons/update-a-person",
+  "apiRefBody": "PUT /v2/face-recognition/persons/:id con campos JSON opcionales: name, gender, date_of_birth, nationality, collections (arreglo de strings _id de colección), notes. Las miniaturas registradas no se reemplazan en esta demo; añadir nuevas imágenes faciales puede requerir flujos específicos del producto no expuestos en el esquema Joi actual.",
+  "relatedDocs": {
+    "0": { "title": "Obtener una persona", "description": "GET de una sola persona por id.", "badge": "GET" },
+    "1": { "title": "Actualizar una persona", "description": "Referencia oficial de API para PUT.", "badge": "PUT" },
+    "2": { "title": "Crear una persona", "description": "Crea una nueva persona en el sistema de reconocimiento facial.", "badge": "POST" },
+    "3": { "title": "Eliminar una persona", "description": "Elimina un registro de persona del sistema de reconocimiento facial.", "badge": "DELETE" }
+  }
+}

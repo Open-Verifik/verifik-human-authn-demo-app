@@ -1,0 +1,48 @@
+{
+  "headerTitle": "Cập nhật người",
+  "heroTitleForm": "Cập nhật người",
+  "heroTitleResult": "Đã cập nhật người",
+  "heroSubtitleForm": "Chọn ai đó đã đăng ký vào dự án của bạn, chỉnh sửa hồ sơ hoặc bộ sưu tập, sau đó lưu.Tuyến đường này không thay thế hình ảnh khuôn mặt (theo API hiện tại).",
+  "heroSubtitleResult": "Các thay đổi được gửi bằng PUT /v2/face-recognition/persons/:id.",
+  "personLabel": "Người",
+  "personHint": "Danh sách từ GET /v2/face-recognition/persons — chỉ những người được kết nối với tài khoản của bạn.",
+  "noPeopleEmpty": "Không tìm thấy người nào.Trước tiên hãy đăng ký ai đó vào Tạo người.",
+  "loadingProfile": "Đang tải hồ sơ…",
+  "unexpectedResponseShape": "Hình dạng phản ứng bất ngờ.",
+  "fullNameLabel": "Tên đầy đủ",
+  "genderLabel": "Giới tính",
+  "dobLabel": "Ngày sinh",
+  "nationalityLabel": "Quốc tịch",
+  "nationalityPlaceholder": "Không bắt buộc",
+  "notesLabel": "Ghi chú",
+  "collectionsLabel": "Bộ sưu tập",
+  "noCollectionsLoaded": "Không có bộ sưu tập nào được tải.",
+  "saveChanges": "Lưu thay đổi",
+  "processing": "Đang cập nhật người…",
+  "apiRefSummary": "Tham chiếu API: Cập nhật người",
+  "apiRefOfficialDocs": "Tài liệu chính thức:",
+  "apiRefLinkLabel": "docs.verifik.co/resources/persons/update-a-person",
+  "apiRefBody": "PUT /v2/face-recognition/persons/:id với các trường JSON tùy chọn: tên, giới tính, date_of_birth, quốc tịch, bộ sưu tập (mảng chuỗi _id), ghi chú. Hình thu nhỏ của khuôn mặt đã đăng ký không được thay thế thông qua bản demo này; việc thêm hình ảnh khuôn mặt mới có thể yêu cầu các luồng sản phẩm cụ thể chưa được hiển thị trong lược đồ Joi hiện tại.",
+  "relatedDocs": {
+    "0": {
+      "title": "Truy xuất một người",
+      "description": "NHẬN một người theo id.",
+      "badge": "GET"
+    },
+    "1": {
+      "title": "Cập nhật một người",
+      "description": "Tài liệu tham khảo API chính thức cho PUT.",
+      "badge": "PUT"
+    },
+    "2": {
+      "title": "Tạo một người",
+      "description": "Tạo một người mới trong hệ thống nhận dạng khuôn mặt.",
+      "badge": "POST"
+    },
+    "3": {
+      "title": "Xóa một người",
+      "description": "Xóa hồ sơ người khỏi hệ thống nhận dạng khuôn mặt.",
+      "badge": "DELETE"
+    }
+  }
+}

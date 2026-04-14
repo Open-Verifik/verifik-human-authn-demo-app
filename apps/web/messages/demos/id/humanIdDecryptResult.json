@@ -1,0 +1,19 @@
+{
+  "successTitle": "HumanID terdekripsi",
+  "successSubtitle": "Data identitas dipulihkan dari ZelfProof Anda.",
+  "identifierHeading": "Pengenal",
+  "publicDataHeading": "Data publik",
+  "metadataHeading": "Metadata",
+  "difficultyHeading": "Difficulty",
+  "faceCropHeading": "Crop wajah",
+  "faceCropAlt": "Crop wajah terdekode dari bukti",
+  "sessionHeading": "Sesi",
+  "chargedLabel": "Dikenakan biaya",
+  "livenessRequiredLabel": "Keaktifan wajib",
+  "creditsHeading": "Kredit / penggunaan",
+  "chargedCredits": "Dikenakan: {amount} kredit",
+  "creditChange": "Perubahan kredit: {amount}",
+  "rawDebug": "Respons mentah (debug)",
+  "tryAgain": "Coba lagi",
+  "backToDemos": "Kembali ke Demo"
+}

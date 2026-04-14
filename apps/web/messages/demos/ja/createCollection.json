@@ -1,0 +1,57 @@
+{
+  "metaTitle": "コレクションの作成",
+  "metaDescription": "OpenCV ベースのギャラリーに名前付きの顔コレクションを作成します。",
+  "headerTitle": "コレクションの作成",
+  "heroTitleForm": "コレクションの作成",
+  "heroTitleResult": "コレクションが作成されました",
+  "heroSubtitleForm": "登録者をグループ化するための名前付きコレクションを作成します。",
+  "heroSubtitleResult": "新しい顔コレクションが OpenCV データベースに作成されました。",
+  "nameLabel": "コレクション名",
+  "namePlaceholder": "例えば2025年の従業員数",
+  "descLabel": "説明",
+  "descPlaceholder": "このコレクションの説明 (オプション)",
+  "submit": "コレクションの作成",
+  "processing": "コレクションを作成中…",
+  "successTitle": "コレクションが正常に作成されました",
+  "createAnother": "別のものを作成する",
+  "backToDemos": "デモに戻る",
+  "apiRefSummary": "API リファレンス: コレクションの作成",
+  "apiRefOfficialDocs": "公式ドキュメント:",
+  "apiRefLinkLabel": "docs.verifik.co/resources/create-a-collection",
+  "apiRefBody": "Base URL https://api.verifik.co. Send a JSON body with a display name and an optional description.",
+  "apiRefEndpoint": "POST /v2/face-recognition/collections",
+  "apiRefEndpointDesc": "OpenCV ベースのデータベースでの検索と検証のために登録者をグループ化するための名前付きコレクションを作成します。",
+  "paramName": "名前",
+  "paramNameDesc": "コレクションの表示名",
+  "paramDescription": "説明",
+  "paramDescriptionDesc": "オプションの説明",
+  "bullet1": "このデモでは、セッション トークンを使用して @humanauthn/api-client からの createCollection を使用します。",
+  "bullet2": "一部の環境では、応答に ID または署名ブロックが添付される場合があります。上の図形はコア データ ペイロードを示しています。",
+  "relatedDocs": {
+    "0": {
+      "title": "コレクションオブジェクト",
+      "description": "顔認識コレクションのフィールドと構造。",
+      "badge": "Object"
+    },
+    "1": {
+      "title": "すべてのコレクションをリストする",
+      "description": "認証されたクライアントのすべてのコレクション。",
+      "badge": "GET"
+    },
+    "2": {
+      "title": "コレクションを取得する",
+      "description": "ID による単一のコレクション。",
+      "badge": "GET"
+    },
+    "3": {
+      "title": "コレクションを更新する",
+      "description": "名前、説明、オプションのプロジェクトまたは人物のリスト。",
+      "badge": "PUT"
+    },
+    "4": {
+      "title": "Delete a Collection",
+      "description": "ID によってコレクションを削除し、リンクされたデータをクリーンアップします。",
+      "badge": "DELETE"
+    }
+  }
+}

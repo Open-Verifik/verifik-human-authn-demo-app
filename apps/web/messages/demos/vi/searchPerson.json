@@ -1,0 +1,63 @@
+{
+  "headerTitle": "Tìm kiếm người",
+  "heroTitleComplete": "Tìm kiếm hoàn tất",
+  "heroTitleInitial": "Tìm kiếm người",
+  "heroSubtitleComplete": "Các trận đấu được hiển thị dưới đây.Đặt lại để chạy tìm kiếm khác.",
+  "heroSubtitleInitial": "Tải hình ảnh khuôn mặt lên để tìm kiếm những người đã đăng ký theo độ tương tự (1:N).",
+  "minScoreLabel": "Điểm tối thiểu {score}",
+  "searchModeLabel": "Chế độ tìm kiếm",
+  "collectionIdLabel": "ID bộ sưu tập",
+  "optionalPlaceholder": "Không bắt buộc",
+  "chooseOneDescription": "Quét bằng máy ảnh của bạn hoặc tải ảnh lên.Mỗi lần chụp sẽ được thêm vào hình ảnh để tìm kiếm.",
+  "cameraTitle": "Máy ảnh trực tiếp",
+  "cameraSubtitle": "Mở camera và chụp ảnh một khuôn mặt",
+  "uploadTitle": "Ảnh từ thư viện",
+  "uploadSubtitle": "Chọn một hoặc nhiều tệp hình ảnh từ thiết bị của bạn",
+  "searching": "Đang tìm kiếm…",
+  "search": "Tìm kiếm",
+  "apiRefSummary": "Tham chiếu API: Tìm kiếm khuôn mặt (1:N)",
+  "apiRefOfficialLead": "Tài liệu chính thức:",
+  "apiRefLinkSuffix": "(Tìm kiếm khuôn mặt - tìm kiếm bằng hình ảnh khuôn mặt đối với những người đã đăng ký).",
+  "apiRefBody": "URL cơ sở https://api.verifik.co. Gửi một hoặc nhiều hình ảnh base64 thô của cùng một chủ đề trong hình ảnh (không có tiền tố dữ liệu URL). Tùy chọn giới hạn theo Collection_id. Tài liệu công khai gợi ý 1–3 hình ảnh để nhớ lại tốt hơn.",
+  "apiRefEndpoint": "POST /v2/face-recognition/search",
+  "apiRefEndpointDesc": "Nhận dạng 1:N: trả về những ứng viên được xếp hạng theo điểm tương đồng.",
+  "paramImagesDesc": "Mảng hình ảnh khuôn mặt base64 (cùng một người; đề xuất tối đa ~3)",
+  "paramMinScoreDesc": "Ngưỡng phù hợp (ví dụ: 0,2–1,0)",
+  "paramSearchModeDesc": "FAST hoặc ACCURATE",
+  "paramCollectionIdDesc": "Giới hạn tìm kiếm trong một bộ sưu tập",
+  "paramMaxResultsDesc": "Giới hạn số kết quả khớp được trả về (áp dụng mặc định API nếu bị bỏ qua)",
+  "bulletApiClient": "Bản demo này sử dụng searchPerson từ @humanauthn/api-client với mã thông báo phiên của bạn.",
+  "bulletSignature": "Phản hồi thường bao gồm các trận đấu được xếp hạng và có thể bao gồm khối chữ ký tùy thuộc vào môi trường.",
+  "relatedDocs": {
+    "0": {
+      "title": "Đối tượng Người",
+      "description": "Các trường và cấu trúc của hồ sơ người nhận dạng khuôn mặt.",
+      "badge": "Object"
+    },
+    "1": {
+      "title": "Liệt kê tất cả những người",
+      "description": "Người dành cho khách hàng của bạn, với các bộ lọc tùy chọn.",
+      "badge": "GET"
+    },
+    "2": {
+      "title": "Truy xuất một người",
+      "description": "Một người duy nhất theo id.",
+      "badge": "GET"
+    },
+    "3": {
+      "title": "Cập nhật một người",
+      "description": "Hồ sơ, hình ảnh, bộ sưu tập, v.v.",
+      "badge": "PUT"
+    },
+    "4": {
+      "title": "Xóa một người",
+      "description": "Xóa bản ghi người theo id.",
+      "badge": "DELETE"
+    },
+    "5": {
+      "title": "Tìm kiếm khuôn mặt (1:N)",
+      "description": "Tìm kiếm theo hình ảnh khuôn mặt dựa trên bộ sưu tập của bạn;xếp hạng theo sự tương đồng.",
+      "badge": "POST"
+    }
+  }
+}

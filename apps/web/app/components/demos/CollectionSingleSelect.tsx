@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import clsx from "clsx";
 import type { FaceCollectionListItem } from "@humanauthn/api-client";
 
@@ -38,6 +39,7 @@ export function CollectionSingleSelect({
 	emptySlot,
 	labelId,
 }: CollectionSingleSelectProps) {
+	const t = useTranslations("demos.common");
 	const listId = useId();
 	const [open, setOpen] = useState(false);
 	const [search, setSearch] = useState("");
@@ -85,7 +87,7 @@ export function CollectionSingleSelect({
 	}, [open, close]);
 
 	const selected = selectedCode ? byCode.get(selectedCode) : undefined;
-	const summary = selected ? selected.name || truncateCode(selected.code) : "Select a collection…";
+	const summary = selected ? selected.name || truncateCode(selected.code) : t("selectCollection");
 
 	const pick = (code: string) => {
 		onChange(code);
@@ -108,7 +110,7 @@ export function CollectionSingleSelect({
 						(disabled || loading) && "opacity-50 cursor-not-allowed",
 					)}
 				>
-					<span className={clsx(!selected && "text-on-surface-variant")}>{loading ? "Loading collections…" : summary}</span>
+					<span className={clsx(!selected && "text-on-surface-variant")}>{loading ? t("loadingCollections") : summary}</span>
 					<span className="material-symbols-outlined text-on-surface-variant/70 shrink-0">
 						{open ? "expand_less" : "expand_more"}
 					</span>
@@ -121,13 +123,13 @@ export function CollectionSingleSelect({
 					>
 						{items.length === 0 ? (
 							<div className="px-4 py-6 text-sm text-on-surface-variant text-center">
-								{emptySlot ?? "No collections available."}
+								{emptySlot ?? t("noCollectionsAvailable")}
 							</div>
 						) : (
 							<>
 								<div className="shrink-0 border-b border-outline-variant/20 p-2">
 									<label htmlFor={`${listId}-search`} className="sr-only">
-										Search collections
+										{t("searchCollectionsSr")}
 									</label>
 									<div className="relative">
 										<span
@@ -143,7 +145,7 @@ export function CollectionSingleSelect({
 											autoComplete="off"
 											value={search}
 											onChange={(e) => setSearch(e.target.value)}
-											placeholder="Search by name or code"
+											placeholder={t("searchCollectionsPlaceholder")}
 											className="w-full rounded-lg border border-outline-variant/30 bg-surface-container-high/50 py-2 pl-9 pr-3 text-sm text-on-surface outline-none placeholder:text-on-surface-variant/50 focus:border-primary/60"
 										/>
 									</div>
@@ -151,11 +153,11 @@ export function CollectionSingleSelect({
 								<ul
 									id={listId}
 									role="listbox"
-									aria-label="Face collections"
+									aria-label={t("collectionsListAria")}
 									className="min-h-0 flex-1 overflow-y-auto overscroll-contain py-1"
 								>
 									{filtered.length === 0 ? (
-										<li className="px-3 py-6 text-center text-xs text-on-surface-variant">No matches</li>
+										<li className="px-3 py-6 text-center text-xs text-on-surface-variant">{t("noMatches")}</li>
 									) : (
 										filtered.map((it) => {
 											const checked = selectedCode === it.code;

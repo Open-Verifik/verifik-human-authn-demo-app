@@ -1,0 +1,78 @@
+{
+  "headerTitle": "Giải mã HumanID",
+  "heroTitle": "Giải mã HumanID",
+  "heroTitleResult": "Đã giải mã",
+  "heroSubtitle": "Khôi phục dữ liệu nhận dạng bằng cách hiển thị khuôn mặt trực tiếp phù hợp.",
+  "humanIdModeLabel": "ID người",
+  "pasteString": "Dán chuỗi",
+  "uploadQrImage": "Tải lên hình ảnh QR",
+  "proofLabel": "ID người",
+  "proofPlaceholder": "Dán HumanID của bạn vào đây…",
+  "qrUploadHelp": "Tải lên PNG hoặc JPEG của HumanID QR (tải trọng nhị phân).Chúng tôi gọi Preview-zelf-id-qr để trích xuất HumanID của bạn.",
+  "chooseQrImage": "Chọn hình ảnh QR",
+  "readingQr": "Đang đọc QR…",
+  "secondaryPngJpeg": "PNG hoặc JPEG",
+  "qrPreviewAlt": "xem trước QR",
+  "extractedHeading": "HumanID đã được trích xuất (chỉ đọc)",
+  "errorReadProof": "Không thể đọc HumanID từ phản hồi xem trước.",
+  "qrExtractSuccess": "HumanID được trích xuất từ ​​QR.Bạn có thể giải mã bên dưới.",
+  "passwordOptional": "Mật khẩu (tùy chọn)",
+  "passwordPlaceholder": "Chỉ khi bằng chứng được tạo bằng mật khẩu",
+  "faceImageLabel": "Hình ảnh khuôn mặt",
+  "chooseOneDescription": "Quét bằng máy ảnh của bạn hoặc tải ảnh lên.Tùy chọn nào cũng phù hợp với bước này.",
+  "cameraTitle": "Máy ảnh trực tiếp",
+  "cameraSubtitle": "Mở máy ảnh và căn chỉnh khuôn mặt của bạn trong khung",
+  "uploadTitle": "Ảnh từ thư viện",
+  "uploadSubtitle": "Thay vào đó, hãy chọn tệp hình ảnh từ thiết bị của bạn",
+  "uploadPrimary": "Tải hình ảnh lên",
+  "changeFaceImage": "Thay đổi hình ảnh khuôn mặt",
+  "facePreviewAlt": "Khuôn mặt",
+  "decryptCta": "Giải mã",
+  "processing": "Đang giải mã danh tính…",
+  "apiRefSummary": "Tham khảo API: Giải mã HumanID",
+  "apiOfficialGuide": "Hướng dẫn chính thức:",
+  "apiOfficialParen": "(các trường yêu cầu và phản hồi, mật khẩu tùy chọn và khóa xác minh cũng như các lệnh gọi ví dụ).",
+  "apiRelated": "Có liên quan:",
+  "apiDecryptLinkText": "docs.verifik.co/functions/decrypt-zelfproof",
+  "apiBaseUrlNote": "URL cơ sở https://api.verifik.co. Gửi JSON với Content-Type: application/json và Authorization: Bearer <access token> (Giống JWT như trong bản demo này sau khi đăng nhập).",
+  "apiDecryptEndpointDesc": "So sánh hình ảnh khuôn mặt của bạn với bằng chứng, sau đó trả về các trường công khai đã được giải mã và tải trọng liên quan (ví dụ: cắt khuôn mặt và độ khó) bên trong phong bì dữ liệu đã ký thông thường khi khớp thành công.",
+  "apiPreviewQrEndpointDesc": "Sử dụng tùy chọn này khi người dùng cung cấp PNG hoặc JPEG của QR HumanID.API đọc tải trọng QR, chạy cùng loại bản xem trước như bản xem trước chuỗi và trả về zelfProof mà bạn có thể chuyển sang giải mã.verifierKey tùy chọn áp dụng khi bằng chứng được tạo bằng một.Tiêu đề JSON giống như giải mã.",
+  "apiBullet1": "Giải mã sử dụng decryptHumanId từ @humanauthn/api-client.Tải lên QR trước tiên sử dụng PreviewZelfIdQr, sau đó bạn giải mã bằng chuỗi bằng chứng được trả về.",
+  "apiBullet2": "Phản hồi thành công tuân theo mẫu Verifik: một đối tượng dữ liệu (và thường là chữ ký khi ký được bật cho dự án của bạn).",
+  "apiBullet3": "Để kiểm tra bằng chứng không có hình ảnh khuôn mặt, hãy mở bản demo Xem trước HumanID (previewHumanId) hoặc hướng dẫn Xem trước ZelfProof được liên kết ở trên.",
+  "paramFaceBase64Desc": "Hình ảnh khuôn mặt dưới dạng base64 thô (bản demo này sử dụng định dạng tương tự như các bản demo sinh trắc học khác)",
+  "paramOsDesc": "DESKTOP, iOS hoặc ANDROID (bản demo sử dụng DESKTOP)",
+  "paramZelfProofDesc": "Chuỗi HumanID từ dán hoặc từ trích xuất hình ảnh QR ở dạng này",
+  "paramPasswordDesc": "Chỉ khi bằng chứng được tạo bằng mật khẩu",
+  "paramLivenessLevelDesc": "Khi được đặt, hãy căn chỉnh theo mong đợi về độ hoạt động của máy chủ để giải mã (xem hướng dẫn chính thức)",
+  "paramVerifierKeyDesc": "Nếu bằng chứng được tạo bằng khóa xác minh",
+  "paramQrCodeDesc": "Hình ảnh dưới dạng URL dữ liệu (data:image/png;base64,...) hoặc một dạng khác được API chấp nhận (bản demo này tạo URL dữ liệu từ tệp)",
+  "paramVerifierKeyQrDesc": "Ngữ nghĩa tương tự như khi giải mã khi bằng chứng sử dụng khóa xác minh",
+  "relatedDocs": {
+    "0": {
+      "title": "Giải mã ZelfProof",
+      "description": "Mở khóa tải trọng nhận dạng bên trong bằng chứng bằng cách khớp nó với khuôn mặt trực tiếp.Che mật khẩu tùy chọn khi bằng chứng được tạo bằng một mật khẩu.",
+      "badge": "POST"
+    },
+    "1": {
+      "title": "Tạo ZelfProof",
+      "description": "Mã hóa các trường công khai và tính năng chụp khuôn mặt của bạn thành chuỗi HumanID mới mà bạn có thể lưu trữ hoặc chia sẻ.",
+      "badge": "POST"
+    },
+    "2": {
+      "title": "Xem trước ZelfProof",
+      "description": "Kiểm tra siêu dữ liệu công khai và những gì sẽ được yêu cầu trước khi bạn giải mã mà không cần gửi hình ảnh khuôn mặt.Bản demo Preview HumanID tuân theo ý tưởng tương tự trên API hiện tại.",
+      "badge": "POST"
+    },
+    "3": {
+      "title": "Tạo QR ZelfProof",
+      "description": "Tạo mã QR nhúng HumanID để mọi người có thể quét mã đó từ màn hình hoặc ví.",
+      "badge": "POST"
+    },
+    "4": {
+      "title": "Phát hiện sự sống",
+      "description": "Chạy kiểm tra chuyên dụng để đảm bảo hình ảnh khuôn mặt trông sống động chứ không phải giả mạo.Điều này tách biệt với mã hóa và giải mã HumanID.",
+      "badge": "POST"
+    }
+  }
+}

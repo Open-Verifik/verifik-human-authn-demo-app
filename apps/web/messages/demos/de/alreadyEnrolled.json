@@ -1,0 +1,12 @@
+{
+  "title": "Dieses Gesicht ist bereits registriert",
+  "body": "Die API hat <code>person_already_set</code> zurückgegeben. Eine passende Person existiert bereits in Ihrem Projekt. Versuchen Sie es mit einer anderen Person oder einem anderen Foto, oder öffnen Sie die unten stehenden Demos, um Metadaten zu ändern oder die bestehende Registrierung zu entfernen.",
+  "imagesHeading": "Bild(er), die Sie registrieren wollten",
+  "nextSteps": "Nächste Schritte",
+  "updateDemo": "Demo „Person aktualisieren“",
+  "updateHint": "— Name, Sammlungen oder Notizen zu einer bestehenden Person-ID ändern.",
+  "deleteDemo": "Demo „Person löschen“",
+  "deleteHint": "— vollständiges Löschen oder nur aus einer Sammlung entfernen.",
+  "editFormAgain": "Formular bearbeiten und erneut versuchen",
+  "backToDemos": "Zurück zu den Demos"
+}

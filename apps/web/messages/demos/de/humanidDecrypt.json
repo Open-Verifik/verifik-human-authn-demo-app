@@ -1,0 +1,78 @@
+{
+  "headerTitle": "HumanID entschlüsseln",
+  "heroTitle": "HumanID entschlüsseln",
+  "heroTitleResult": "Entschlüsselt",
+  "heroSubtitle": "Identitätsdaten wiederherstellen, indem Sie das passende Live-Gesicht vorlegen.",
+  "humanIdModeLabel": "HumanID",
+  "pasteString": "Zeichenkette einfügen",
+  "uploadQrImage": "QR-Bild hochladen",
+  "proofLabel": "HumanID",
+  "proofPlaceholder": "HumanID hier einfügen…",
+  "qrUploadHelp": "PNG oder JPEG des HumanID-QR hochladen (Binärnutzdaten). Wir rufen preview-zelf-id-qr auf, um Ihren HumanID zu extrahieren.",
+  "chooseQrImage": "QR-Bild wählen",
+  "readingQr": "QR wird gelesen…",
+  "secondaryPngJpeg": "PNG oder JPEG",
+  "qrPreviewAlt": "QR-Vorschau",
+  "extractedHeading": "Extrahierter HumanID (schreibgeschützt)",
+  "errorReadProof": "HumanID konnte aus der Vorschau-Antwort nicht gelesen werden.",
+  "qrExtractSuccess": "HumanID aus QR extrahiert. Sie können unten entschlüsseln.",
+  "passwordOptional": "Passwort (optional)",
+  "passwordPlaceholder": "Nur wenn der Nachweis mit Passwort erstellt wurde",
+  "faceImageLabel": "Gesichtsbild",
+  "chooseOneDescription": "Mit der Kamera scannen oder ein Foto hochladen. Beides funktioniert in diesem Schritt.",
+  "cameraTitle": "Live-Kamera",
+  "cameraSubtitle": "Kamera öffnen und das Gesicht im Rahmen ausrichten",
+  "uploadTitle": "Foto aus der Galerie",
+  "uploadSubtitle": "Stattdessen eine Bilddatei vom Gerät wählen",
+  "uploadPrimary": "Bild hochladen",
+  "changeFaceImage": "Gesichtsbild ändern",
+  "facePreviewAlt": "Gesicht",
+  "decryptCta": "Entschlüsseln",
+  "processing": "Identität wird entschlüsselt…",
+  "apiRefSummary": "API-Referenz: HumanID entschlüsseln",
+  "apiOfficialGuide": "Offizieller Leitfaden:",
+  "apiOfficialParen": "(Anfrage- und Antwortfelder, optionales Passwort und Verifier-Key sowie Beispielaufrufe).",
+  "apiRelated": "Verwandt:",
+  "apiDecryptLinkText": "docs.verifik.co/functions/decrypt-zelfproof",
+  "apiBaseUrlNote": "Basis-URL https://api.verifik.co. JSON mit Content-Type: application/json und Authorization: Bearer <Zugriffstoken> (derselbe JWT wie in dieser Demo nach Anmeldung).",
+  "apiDecryptEndpointDesc": "Vergleicht Ihr Gesichtsbild mit dem Nachweis und liefert bei erfolgreichem Abgleich entschlüsselte öffentliche Felder und zugehörige Nutzdaten (z. B. Gesichtsausschnitt und Schwierigkeit) in der üblichen signierten data-Hülle.",
+  "apiPreviewQrEndpointDesc": "Nutzen Sie dies, wenn der Nutzer ein PNG oder JPEG des HumanID-QR liefert. Die API liest die QR-Nutzdaten, führt dieselbe Art Vorschau wie bei einer Zeichenketten-Vorschau aus und liefert einen zelfProof für decrypt. Optional verifierKey, wenn der Nachweis mit einem erstellt wurde. Gleiche JSON-Header wie decrypt.",
+  "apiBullet1": "Decrypt nutzt decryptHumanId aus @humanauthn/api-client. QR-Upload verwendet zuerst previewZelfIdQr, danach entschlüsseln Sie mit der zurückgegebenen Proof-Zeichenkette.",
+  "apiBullet2": "Erfolgsantworten folgen dem Verifik-Muster: ein data-Objekt (und oft eine Signatur, wenn Signierung für Ihr Projekt aktiv ist).",
+  "apiBullet3": "Zum Inspizieren eines Nachweises ohne Gesichtsbild öffnen Sie die Demo „HumanID-Vorschau“ (previewHumanId) oder den verlinkten Leitfaden „Preview ZelfProof“.",
+  "paramFaceBase64Desc": "Gesichtsbild als rohes Base64 (dieses Demoformat wie in anderen Biometrie-Demos)",
+  "paramOsDesc": "DESKTOP, IOS oder ANDROID (Demo nutzt DESKTOP)",
+  "paramZelfProofDesc": "HumanID-Zeichenkette aus Einfügen oder aus QR-Bild-Extraktion in diesem Formular",
+  "paramPasswordDesc": "Nur wenn der Nachweis mit Passwort erstellt wurde",
+  "paramLivenessLevelDesc": "Wenn gesetzt, Abstimmung mit Server-Erwartungen für Entschlüsselung (siehe offizieller Leitfaden)",
+  "paramVerifierKeyDesc": "Wenn der Nachweis mit Verifier-Key erstellt wurde",
+  "paramQrCodeDesc": "Bild als Data-URL (data:image/png;base64,...) oder anderes von der API akzeptiertes Format (diese Demo erzeugt eine Data-URL aus der Datei)",
+  "paramVerifierKeyQrDesc": "Gleiche Semantik wie bei decrypt, wenn der Nachweis einen Verifier-Key nutzt",
+  "relatedDocs": {
+    "0": {
+      "title": "Decrypt a ZelfProof",
+      "description": "Identitätsnutzdaten im Nachweis durch Abgleich mit einem Live-Gesicht freischalten. Optionales Passwort, wenn der Nachweis damit erstellt wurde.",
+      "badge": "POST"
+    },
+    "1": {
+      "title": "Create a ZelfProof",
+      "description": "Öffentliche Felder und Gesichtserfassung in eine neue HumanID-Zeichenkette verschlüsseln, die Sie speichern oder teilen können.",
+      "badge": "POST"
+    },
+    "2": {
+      "title": "Preview ZelfProof",
+      "description": "Öffentliche Metadaten und Anforderungen vor dem Entschlüsseln prüfen, ohne Gesichtsbild zu senden. Die Demo „HumanID-Vorschau“ folgt derselben Idee auf der aktuellen API.",
+      "badge": "POST"
+    },
+    "3": {
+      "title": "Create QR ZelfProof",
+      "description": "QR erzeugen, der einen HumanID einbettet, damit Nutzer ihn vom Bildschirm oder Wallet scannen können.",
+      "badge": "POST"
+    },
+    "4": {
+      "title": "Liveness detection",
+      "description": "Dedizierte Prüfung, ob ein Gesicht lebendig wirkt statt spoof. Getrennt von HumanID-Verschlüsselung und -Entschlüsselung.",
+      "badge": "POST"
+    }
+  }
+}

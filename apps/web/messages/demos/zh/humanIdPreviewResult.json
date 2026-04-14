@@ -1,0 +1,13 @@
+{
+  "successTitle": "HumanID 预览",
+  "successSubtitle": "来自 ZelfProof 的公开元数据与要求。",
+  "summaryHeading": "摘要",
+  "passwordLayerLabel": "密码层",
+  "passwordNoPassword": "无密码",
+  "passwordRequired": "需要密码",
+  "livenessRequiredLabel": "需要活体",
+  "publicDataHeading": "公开数据",
+  "rawDebug": "原始响应（调试）",
+  "previewAnother": "再次预览",
+  "backToDemos": "返回演示列表"
+}

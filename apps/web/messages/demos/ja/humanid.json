@@ -1,0 +1,22 @@
+{
+  "cancel": "キャンセル",
+  "brandTitle": "HumanID",
+  "kicker": "HumanID・Verifik認証",
+  "idleTitle": "顔を中心に置く",
+  "idleSubtitle": "位置を合わせると顔検出が自動的にキャプチャします。",
+  "successTitle": "キャプチャ完了",
+  "successSubtitle": "運用環境では、このフィードは HumanID / ZelfProof API を呼び出します。",
+  "failedTitle": "何か問題が発生しました",
+  "failedSubtitle": "もう一度試すか、より良い照明を使用してください。",
+  "chooseOneDescription": "カメラでスキャンするか、写真をアップロードします。このデモではどちらのオプションも機能します。",
+  "cameraTitle": "ライブカメラ",
+  "cameraSubtitle": "カメラを開いて顔をフレームに合わせます",
+  "uploadTitle": "ギャラリーからの写真",
+  "uploadSubtitle": "代わりにデバイスから画像ファイルを選択してください",
+  "uploadPrimary": "画像をアップロードする",
+  "tryAgain": "もう一度やり直してください",
+  "continueDashboard": "ダッシュボードに進む",
+  "engineLine": "ENGINE: HumanAuthn · Verifik",
+  "captureLine": "CAPTURE: Guided (@vladmandic/face-api)",
+  "protocolLine": "プロトコル: HUMAN_ID_v1"
+}

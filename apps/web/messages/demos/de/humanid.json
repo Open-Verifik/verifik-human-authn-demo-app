@@ -1,0 +1,22 @@
+{
+  "cancel": "Abbrechen",
+  "brandTitle": "HumanID",
+  "kicker": "HumanID · Verifik-Authentifizierung",
+  "idleTitle": "Gesicht zentrieren",
+  "idleSubtitle": "Die Gesichtserkennung löst automatisch aus, wenn Sie richtig positioniert sind.",
+  "successTitle": "Erfassung abgeschlossen",
+  "successSubtitle": "In Produktion würde dieser Stream die HumanID-/ZelfProof-APIs aufrufen.",
+  "failedTitle": "Etwas ist schiefgelaufen",
+  "failedSubtitle": "Erneut versuchen oder für bessere Beleuchtung sorgen.",
+  "chooseOneDescription": "Mit der Kamera scannen oder ein Foto hochladen. Beides funktioniert in dieser Demo.",
+  "cameraTitle": "Live-Kamera",
+  "cameraSubtitle": "Kamera öffnen und das Gesicht im Rahmen ausrichten",
+  "uploadTitle": "Foto aus der Galerie",
+  "uploadSubtitle": "Stattdessen eine Bilddatei vom Gerät wählen",
+  "uploadPrimary": "Bild hochladen",
+  "tryAgain": "Erneut versuchen",
+  "continueDashboard": "Weiter zum Dashboard",
+  "engineLine": "ENGINE: HumanAuthn · Verifik",
+  "captureLine": "CAPTURE: Geführt (@vladmandic/face-api)",
+  "protocolLine": "PROTOCOL: HUMAN_ID_v1"
+}

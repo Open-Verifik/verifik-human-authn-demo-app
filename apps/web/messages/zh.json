@@ -1,0 +1,193 @@
+{
+  "RootLayout": {
+    "titleDefault": "HumanAuthn：生物识别 API 演示",
+    "titleTemplate": "%s | HumanAuthn",
+    "description": "Verifik 出品的 HumanAuthn。企业级活体检测、人脸比对与生物识别身份认证。",
+    "keywords": [
+      "生物识别认证",
+      "活体检测",
+      "人脸比对",
+      "身份核验",
+      "Verifik",
+      "HumanAuthn",
+      "HumanID"
+    ],
+    "ogTitle": "HumanAuthn：生物识别 API 演示",
+    "ogDescription": "Verifik 提供的企业级生物识别认证 API",
+    "ogSiteName": "HumanAuthn"
+  },
+  "SplashPage": {
+    "metaTitle": "HumanAuthn：Verifik 生物识别 API 演示",
+    "metaDescription": "借助活体检测安全完成身份认证。数字身份核验的黄金标准。由 Verifik 驱动。",
+    "heroImageAlt": "生物识别人脸扫描",
+    "readinessBadge": "生物识别就绪：已启用",
+    "brandPill": "Verifik · HumanAuthn",
+    "headlineLine1": "Human",
+    "headlineLine2": "Authn",
+    "tagline": "借助活体检测安全完成身份认证。数字访问的黄金标准。",
+    "ctaPrimary": "开始使用",
+    "ctaSecondary": "浏览演示 →",
+    "trustAria": "安全认证"
+  },
+  "HomeHeader": {
+    "accountFallback": "账户",
+    "signIn": "登录",
+    "accountMenuAria": "账户菜单",
+    "credits": "额度",
+    "settings": "设置",
+    "signOut": "退出登录",
+    "homeAria": "Verifik：首页"
+  },
+  "LanguageSwitcher": {
+    "ariaLabel": "语言",
+    "en": "English",
+    "es": "Español",
+    "pt": "Português",
+    "fr": "Français",
+    "hi": "हिन्दी",
+    "zh": "简体中文",
+    "ko": "한국어",
+    "ja": "日本語",
+    "de": "Deutsch",
+    "id": "Bahasa Indonesia",
+    "vi": "Tiếng Việt",
+    "tr": "Türkçe",
+    "ar": "العربية"
+  },
+  "home": {
+    "metaTitle": "演示控制台",
+    "metaDescription": "以真人在场为锚的身份认证。在浏览器中运行 Verifik 的实时生物识别演示：人脸匹配、活体与 HumanID。",
+    "heroEyebrow": "生物识别 · 实时演示",
+    "heroTitle": "HumanAuthn · 企业级生物识别",
+    "heroBody": "在浏览器中运行人脸匹配、活体、HumanID 与实时检测。传统生物识别涵盖服务端 OpenCV 图库管理与检索。去中心化 HumanAuthn 演示展示 HumanID 如何将身份数据与实时人脸绑定，而无需中心化人脸库。",
+    "traditionalEyebrow": "OpenCV · 服务端图库",
+    "traditionalTitle": "传统生物识别",
+    "decentralizedEyebrow": "HumanAuthn · HumanID",
+    "decentralizedTitle": "去中心化生物识别 · HumanAuthn",
+    "enterpriseEyebrow": "Verifik 平台",
+    "enterpriseTitle": "企业级安全",
+    "enterpriseBody": "我们的平台以端到端加密处理生物识别数据。隐私内置，适用于严肃的生产部署。",
+    "pillGdpr": "符合 GDPR",
+    "pillAes": "AES-256",
+    "pillSoc2": "SOC 2 就绪",
+    "navIdentity": "身份",
+    "navSecurity": "安全",
+    "navSettings": "设置",
+    "demoCta": "运行演示",
+    "sections": {
+      "enroll": "注册",
+      "manage": "管理",
+      "search": "检索",
+      "detection": "检测",
+      "comparison": "比对"
+    },
+    "demos": {
+      "create-collection": {
+        "badge": "注册",
+        "title": "创建人脸库",
+        "description": "创建命名的人脸集合，将已注册人员分组以便检索与核验。"
+      },
+      "create-person": {
+        "badge": "注册",
+        "title": "创建人员",
+        "description": "通过上传人脸图像与元数据注册新人员。存储在 OpenCV 人脸库中。"
+      },
+      "create-person-with-liveness": {
+        "badge": "注册",
+        "title": "活体创建人员",
+        "description": "在单次调用中完成注册、活体校验并在人脸库中检索重复。"
+      },
+      "update-person": {
+        "badge": "管理",
+        "title": "更新人员",
+        "description": "按 ID 加载人员并修改档案字段或所属人脸库（此 API 不上传新的人脸图）。"
+      },
+      "delete-person": {
+        "badge": "管理",
+        "title": "删除人员",
+        "description": "彻底删除人员，或当其属于多个人脸库时仅从其中一个人脸库移除。"
+      },
+      "search-person": {
+        "badge": "检索",
+        "title": "检索人员",
+        "description": "上传一张或多张人脸图，按相似度分数在人脸库中查找匹配人员。"
+      },
+      "search-live-person": {
+        "badge": "检索",
+        "title": "活体检索人员",
+        "description": "采集实时人脸、运行活体检测，并在同一流程中在人脸库中匹配。"
+      },
+      "search-active-user": {
+        "badge": "检索",
+        "title": "检索活跃用户",
+        "description": "以实时人脸采集认证活跃用户，并返回活体分数与检索结果。"
+      },
+      "detect-face": {
+        "badge": "检测",
+        "title": "人脸检测",
+        "description": "提交图像并检测其中所有人脸，返回边界框与裁剪数据。"
+      },
+      "search-crops": {
+        "badge": "检测",
+        "title": "裁剪图检索",
+        "description": "对多张人脸裁剪图进行多图检索，在已上传裁剪区域中查找匹配人员并可调参。"
+      },
+      "face-comparison": {
+        "badge": "比对",
+        "title": "人脸比对",
+        "description": "上传两张照片判断是否同一人。适用于开户与证件核验。"
+      },
+      "face-comparison-liveness": {
+        "badge": "比对",
+        "title": "带活体的比对",
+        "description": "将参考照片与实时自拍匹配。仅当人脸匹配足够强时才运行活体。"
+      },
+      "verify-face": {
+        "badge": "比对",
+        "title": "人脸核验",
+        "description": "按可配置相似度阈值，将人脸图像与指定已注册人员 ID 进行核验。"
+      },
+      "liveness": {
+        "badge": "防伪",
+        "title": "活体检测",
+        "description": "证明摄像头前是真人，而非照片、面具或重放。"
+      },
+      "humanid-create": {
+        "badge": "加密",
+        "title": "创建 HumanID",
+        "description": "将公开身份数据与人脸绑定为加密 HumanID 证明并存于 IPFS。仅匹配实时人脸可解密。"
+      },
+      "humanid-create-qr": {
+        "badge": "二维码",
+        "title": "创建 HumanID 二维码",
+        "description": "根据人脸采集与身份元数据生成可扫码的 HumanID，便于离线携带核验。"
+      },
+      "humanid-decrypt": {
+        "badge": "解密",
+        "title": "解密 HumanID",
+        "description": "通过呈现匹配的实时人脸与证明字符串，恢复 HumanID 中的身份数据。"
+      },
+      "humanid-preview": {
+        "badge": "预览",
+        "title": "预览 HumanID",
+        "description": "无需人脸图像或额外凭证，检查 HumanID 字符串内的公开元数据。"
+      }
+    }
+  },
+  "NotFound": {
+    "title": "页面未找到",
+    "body": "该页面不存在或链接无效。",
+    "homeLink": "返回首页"
+  },
+  "settingsNav": {
+    "title": "设置",
+    "ariaLabel": "设置分区",
+    "myAccount": "我的账户",
+    "developers": "开发者",
+    "profile": "个人资料",
+    "apiKey": "API 密钥",
+    "mobileMenu": "打开设置菜单",
+    "mobileTitle": "设置",
+    "closeMenu": "关闭菜单"
+  }
+}

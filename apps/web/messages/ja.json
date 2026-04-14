@@ -1,0 +1,193 @@
+{
+  "RootLayout": {
+    "titleDefault": "HumanAuthn: 生体認証APIデモ",
+    "titleTemplate": "%s | HumanAuthn",
+    "description": "VerifikによるHumanAuthn。エンタープライズ向けライブネス検出、顔照合、生体認診。",
+    "keywords": [
+      "生体認証",
+      "ライブネス検出",
+      "顔照合",
+      "本人確認",
+      "Verifik",
+      "HumanAuthn",
+      "HumanID"
+    ],
+    "ogTitle": "HumanAuthn: 生体認証APIデモ",
+    "ogDescription": "Verifikによるエンタープライズ向け生体認証API",
+    "ogSiteName": "HumanAuthn"
+  },
+  "SplashPage": {
+    "metaTitle": "HumanAuthn: Verifikによる生体認証APIデモ",
+    "metaDescription": "ライブネス検出で安全に認証。デジタル本人確認のゴールドスタンダード。 Verifik 提供。",
+    "heroImageAlt": "生体認識による顔スキャン",
+    "readinessBadge": "生体準備: 有効",
+    "brandPill": "Verifik · HumanAuthn",
+    "headlineLine1": "Human",
+    "headlineLine2": "Authn",
+    "tagline": "ライブネス検出で安全に認証。デジタルアクセスのゴールドスタンダード。",
+    "ctaPrimary": "はじめる",
+    "ctaSecondary": "デモを見る →",
+    "trustAria": "セキュリティ認証"
+  },
+  "HomeHeader": {
+    "accountFallback": "アカウント",
+    "signIn": "サインイン",
+    "accountMenuAria": "アカウントメニュー",
+    "credits": "クレジット",
+    "settings": "設定",
+    "signOut": "サインアウト",
+    "homeAria": "Verifik: ホーム"
+  },
+  "LanguageSwitcher": {
+    "ariaLabel": "言語",
+    "en": "English",
+    "es": "Español",
+    "pt": "Português",
+    "fr": "Français",
+    "hi": "हिन्दी",
+    "zh": "中文",
+    "ko": "한국어",
+    "ja": "日本語",
+    "de": "Deutsch",
+    "id": "Bahasa Indonesia",
+    "vi": "Tiếng Việt",
+    "tr": "Türkçe",
+    "ar": "العربية"
+  },
+  "home": {
+    "metaTitle": "デモダッシュボード",
+    "metaDescription": "人の存在に根ざした認証。ブラウザでVerifikのライブ生体デモ—顔マッチ、ライブネス、HumanIDを実行。",
+    "heroEyebrow": "生体認識 · ライブデモ",
+    "heroTitle": "HumanAuthn · エンタープライズ級生体認識",
+    "heroBody": "ブラウザで顔マッチ、ライブネス、HumanID、ライブ検出を実行。従来生体はサーバ側OpenCVコレクション管理と検索を扱います。分散型HumanAuthnデモは、中央の顔DBなしでHumanIDが本人データをライブ顔にどう結び付けるかを示します。",
+    "traditionalEyebrow": "OpenCV · サーバ側ギャラリー",
+    "traditionalTitle": "従来生体認識",
+    "decentralizedEyebrow": "HumanAuthn · HumanID",
+    "decentralizedTitle": "分散型生体認識 · HumanAuthn",
+    "enterpriseEyebrow": "Verifikプラットフォーム",
+    "enterpriseTitle": "エンタープライズ級セキュリティ",
+    "enterpriseBody": "プラットフォームは生体データをエンドツーエンド暗号化で処理。プライバシー・バイ・デザインで本番運用に備えます。",
+    "pillGdpr": "GDPR準拠",
+    "pillAes": "AES-256",
+    "pillSoc2": "SOC 2対応",
+    "navIdentity": "本人確認",
+    "navSecurity": "セキュリティ",
+    "navSettings": "設定",
+    "demoCta": "デモを実行",
+    "sections": {
+      "enroll": "登録",
+      "manage": "管理",
+      "search": "検索",
+      "detection": "検出",
+      "comparison": "照合"
+    },
+    "demos": {
+      "create-collection": {
+        "badge": "登録",
+        "title": "コレクション作成",
+        "description": "検索・検証のために登録者をまとめる名前付き顔コレクションを作成します。"
+      },
+      "create-person": {
+        "badge": "登録",
+        "title": "人物登録",
+        "description": "顔画像とメタデータをアップロードして新しい人物を登録。OpenCVコレクションに保存されます。"
+      },
+      "create-person-with-liveness": {
+        "badge": "登録",
+        "title": "ライブネス付き人物登録",
+        "description": "ライブネス確認とコレクション内の重複検索を同時に行いながら人物を登録します。"
+      },
+      "update-person": {
+        "badge": "管理",
+        "title": "人物更新",
+        "description": "IDで人物を読み込み、プロフィール項目やコレクション所属を変更（このAPIでは新しい顔画像は追加しません）。"
+      },
+      "delete-person": {
+        "badge": "管理",
+        "title": "人物削除",
+        "description": "人物を完全に削除するか、複数コレクションに属する場合は1つのコレクションからのみ外します。"
+      },
+      "search-person": {
+        "badge": "検索",
+        "title": "人物検索",
+        "description": "1枚以上の顔画像をアップロードし、類似度スコアでコレクションから一致する人物を検索します。"
+      },
+      "search-live-person": {
+        "badge": "検索",
+        "title": "ライブ人物検索",
+        "description": "ライブ顔を取得しライブネスを実行し、1つのフローでコレクションの一致を検索します。"
+      },
+      "search-active-user": {
+        "badge": "検索",
+        "title": "アクティブユーザー検索",
+        "description": "ライブ顔キャプチャでアクティブユーザーを認証し、検索結果とライブネススコアを返します。"
+      },
+      "detect-face": {
+        "badge": "検出",
+        "title": "顔検出",
+        "description": "画像を送信し含まれるすべての顔を検出し、バウンディングボックスとクロップデータを返します。"
+      },
+      "search-crops": {
+        "badge": "検出",
+        "title": "クロップ検索",
+        "description": "複数画像のクロップ検索で、アップロードした顔クロップ間の精密チューニング付きで一致する人物を探します。"
+      },
+      "face-comparison": {
+        "badge": "照合",
+        "title": "顔照合",
+        "description": "2枚の写真をアップロードし同一人物か確認。オンボーディングやID確認に便利です。"
+      },
+      "face-comparison-liveness": {
+        "badge": "照合",
+        "title": "ライブネス付き照合",
+        "description": "参照写真をライブ自撮りと照合。顔マッチが十分な場合にのみライブネスを実行します。"
+      },
+      "verify-face": {
+        "badge": "照合",
+        "title": "顔検証",
+        "description": "設定可能な類似しきい値で、特定の登録IDの人物に対して顔画像を検証します。"
+      },
+      "liveness": {
+        "badge": "アンチスプーフィング",
+        "title": "ライブネス検出",
+        "description": "カメラの前に実在する人物がいることを示します。写真、マスク、リプレイではありません。"
+      },
+      "humanid-create": {
+        "badge": "暗号化",
+        "title": "HumanID作成",
+        "description": "公開本人データと顔をIPFS上の暗号化HumanIDプルーフに結び付けます。一致するライブ顔でのみ復号できます。"
+      },
+      "humanid-create-qr": {
+        "badge": "QR",
+        "title": "HumanID QR作成",
+        "description": "顔キャプチャと本人メタデータからQRコード化HumanIDを生成し、オフライン携帯検証に使います。"
+      },
+      "humanid-decrypt": {
+        "badge": "復号",
+        "title": "HumanID復号",
+        "description": "一致するライブ顔とプルーフ文字列を提示してHumanID内の本人データを復元します。"
+      },
+      "humanid-preview": {
+        "badge": "プレビュー",
+        "title": "HumanIDプレビュー",
+        "description": "顔画像や追加クレデンシャルなしでHumanID文字列内の公開メタデータを確認します。"
+      }
+    }
+  },
+  "NotFound": {
+    "title": "ページが見つかりません",
+    "body": "このページは存在しないか、リンクが無効です。",
+    "homeLink": "ホームに戻る"
+  },
+  "settingsNav": {
+    "title": "設定",
+    "ariaLabel": "設定セクション",
+    "myAccount": "マイアカウント",
+    "developers": "開発者",
+    "profile": "プロフィール",
+    "apiKey": "APIキー",
+    "mobileMenu": "設定メニューを開く",
+    "mobileTitle": "設定",
+    "closeMenu": "メニューを閉じる"
+  }
+}

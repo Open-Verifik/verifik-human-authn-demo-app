@@ -1,0 +1,63 @@
+{
+  "headerTitle": "検索者",
+  "heroTitleComplete": "検索完了",
+  "heroTitleInitial": "検索者",
+  "heroSubtitleComplete": "一致したものを以下に示します。別の検索を実行するにはリセットします。",
+  "heroSubtitleInitial": "顔画像をアップロードし、類似度(1:N)で登録者を検索します。",
+  "minScoreLabel": "最小スコア {スコア}",
+  "searchModeLabel": "検索モード",
+  "collectionIdLabel": "コレクションID",
+  "optionalPlaceholder": "オプション",
+  "chooseOneDescription": "カメラでスキャンするか、写真をアップロードします。各キャプチャは検索用の画像に追加されます。",
+  "cameraTitle": "ライブカメラ",
+  "cameraSubtitle": "カメラを開いて顔画像を 1 枚キャプチャします",
+  "uploadTitle": "ギャラリーからの写真",
+  "uploadSubtitle": "デバイスから 1 つ以上の画像ファイルを選択します",
+  "searching": "検索中…",
+  "search": "検索",
+  "apiRefSummary": "API リファレンス: 顔検索 (1:N)",
+  "apiRefOfficialLead": "公式ドキュメント:",
+  "apiRefLinkSuffix": "(顔検索 — 登録者に対して顔画像による検索)。",
+  "apiRefBody": "Base URL https://api.verifik.co. Send one or more raw base64 images of the same subject in images (no data URL prefix). Optionally scope with collection_id. The public docs recommend 1–3 images for better recall.",
+  "apiRefEndpoint": "POST /v2/face-recognition/search",
+  "apiRefEndpointDesc": "1:N 識別: 類似性スコアによってランク付けされた候補者を返します。",
+  "paramImagesDesc": "Base64 顔画像の配列 (同一人物、最大 3 つまで提案)",
+  "paramMinScoreDesc": "一致しきい値 (例: 0.2 ～ 1.0)",
+  "paramSearchModeDesc": "速いか正確か",
+  "paramCollectionIdDesc": "検索を 1 つのコレクションに限定する",
+  "paramMaxResultsDesc": "返される一致の上限 (省略した場合は API のデフォルトが適用されます)",
+  "bulletApiClient": "このデモでは、セッション トークンで @humanauthn/api-client の searchperson を使用します。",
+  "bulletSignature": "通常、応答にはランク付けされた一致が含まれ、環境によっては署名ブロックが含まれる場合があります。",
+  "relatedDocs": {
+    "0": {
+      "title": "人物オブジェクト",
+      "description": "顔認識人物レコードのフィールドと構造。",
+      "badge": "Object"
+    },
+    "1": {
+      "title": "すべての人物をリストする",
+      "description": "オプションのフィルターを使用したクライアントの担当者。",
+      "badge": "GET"
+    },
+    "2": {
+      "title": "人物を取得する",
+      "description": "ID による 1 人の人物。",
+      "badge": "GET"
+    },
+    "3": {
+      "title": "個人を更新する",
+      "description": "プロフィール、画像、コレクションなど。",
+      "badge": "PUT"
+    },
+    "4": {
+      "title": "Delete a Person",
+      "description": "ID によって個人レコードを削除します。",
+      "badge": "DELETE"
+    },
+    "5": {
+      "title": "顔検索 (1:N)",
+      "description": "あなたのコレクションに対して顔画像で検索します。類似性によってランク付けされます。",
+      "badge": "POST"
+    }
+  }
+}

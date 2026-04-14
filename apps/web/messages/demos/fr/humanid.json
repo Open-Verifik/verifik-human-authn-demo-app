@@ -1,0 +1,22 @@
+{
+  "cancel": "Annuler",
+  "brandTitle": "HumanID",
+  "kicker": "HumanID · Authentification Verifik",
+  "idleTitle": "Centrez votre visage",
+  "idleSubtitle": "La détection faciale capture automatiquement lorsque vous êtes bien cadré.",
+  "successTitle": "Capture terminée",
+  "successSubtitle": "En production ce flux appellerait les API HumanID / ZelfProof.",
+  "failedTitle": "Un problème est survenu",
+  "failedSubtitle": "Réessayez ou améliorez l'éclairage.",
+  "chooseOneDescription": "Utilisez la caméra ou téléversez une photo. L'une ou l'autre option convient pour cette démo.",
+  "cameraTitle": "Caméra en direct",
+  "cameraSubtitle": "Ouvrez la caméra et cadrez votre visage",
+  "uploadTitle": "Photo depuis la galerie",
+  "uploadSubtitle": "Ou sélectionnez un fichier image sur l'appareil",
+  "uploadPrimary": "Téléverser une image",
+  "tryAgain": "Réessayer",
+  "continueDashboard": "Aller au tableau de bord",
+  "engineLine": "ENGINE: HumanAuthn · Verifik",
+  "captureLine": "CAPTURE: Guidé (@vladmandic/face-api)",
+  "protocolLine": "PROTOCOL: HUMAN_ID_v1"
+}

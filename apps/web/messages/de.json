@@ -1,0 +1,193 @@
+{
+  "RootLayout": {
+    "titleDefault": "HumanAuthn: Biometrie-API-Demo",
+    "titleTemplate": "%s | HumanAuthn",
+    "description": "HumanAuthn von Verifik. Lebenderkennung, Gesichtsvergleich und biometrische Authentifizierung auf Unternehmensniveau.",
+    "keywords": [
+      "biometrische Authentifizierung",
+      "Lebenderkennung",
+      "Gesichtsvergleich",
+      "Identitätsprüfung",
+      "Verifik",
+      "HumanAuthn",
+      "HumanID"
+    ],
+    "ogTitle": "HumanAuthn: Biometrie-API-Demo",
+    "ogDescription": "Biometrische Authentifizierungs-APIs auf Unternehmensniveau von Verifik",
+    "ogSiteName": "HumanAuthn"
+  },
+  "SplashPage": {
+    "metaTitle": "HumanAuthn: Biometrie-API-Demo von Verifik",
+    "metaDescription": "Authentifizieren Sie sich sicher mit Lebenderkennung. Der Goldstandard für digitale Identitätsprüfung. Bereitgestellt von Verifik.",
+    "heroImageAlt": "Biometrischer Gesichtsscan",
+    "readinessBadge": "Biometrie-Bereitschaft: Aktiv",
+    "brandPill": "Verifik · HumanAuthn",
+    "headlineLine1": "Human",
+    "headlineLine2": "Authn",
+    "tagline": "Authentifizieren Sie sich sicher mit Lebenderkennung. Der Goldstandard für digitalen Zugang.",
+    "ctaPrimary": "Loslegen",
+    "ctaSecondary": "Demos entdecken →",
+    "trustAria": "Sicherheitszertifizierungen"
+  },
+  "HomeHeader": {
+    "accountFallback": "Konto",
+    "signIn": "Anmelden",
+    "accountMenuAria": "Kontomenü",
+    "credits": "Guthaben",
+    "settings": "Einstellungen",
+    "signOut": "Abmelden",
+    "homeAria": "Verifik: Startseite"
+  },
+  "LanguageSwitcher": {
+    "ariaLabel": "Sprache",
+    "en": "English",
+    "es": "Español",
+    "pt": "Português",
+    "fr": "Français",
+    "hi": "हिन्दी",
+    "zh": "简体中文",
+    "ko": "한국어",
+    "ja": "日本語",
+    "de": "Deutsch",
+    "id": "Bahasa Indonesia",
+    "vi": "Tiếng Việt",
+    "tr": "Türkçe",
+    "ar": "العربية"
+  },
+  "home": {
+    "metaTitle": "Demo-Dashboard",
+    "metaDescription": "Authentifizierung, verankert an menschlicher Anwesenheit. Führen Sie die Live-Biometrie-Demos von Verifik für Gesichtsabgleich, Lebenderkennung und HumanID im Browser aus.",
+    "heroEyebrow": "Biometrie · Live-Demos",
+    "heroTitle": "HumanAuthn · Biometrie auf Unternehmensniveau",
+    "heroBody": "Führen Sie Gesichtsabgleich, Lebenderkennung, HumanID und Live-Erkennung im Browser aus. Klassische Biometrie umfasst die serverseitige OpenCV-Galerieverwaltung und Suche. Die dezentralen HumanAuthn-Demos zeigen, wie ein HumanID Identitätsdaten an ein lebendes Gesicht bindet – ohne zentrale Gesichtsdatenbank.",
+    "traditionalEyebrow": "OpenCV · Serverseitige Galerie",
+    "traditionalTitle": "Klassische Biometrie",
+    "decentralizedEyebrow": "HumanAuthn · HumanID",
+    "decentralizedTitle": "Dezentrale Biometrie · HumanAuthn",
+    "enterpriseEyebrow": "Verifik-Plattform",
+    "enterpriseTitle": "Sicherheit auf Unternehmensniveau",
+    "enterpriseBody": "Unsere Plattform verarbeitet biometrische Daten Ende-zu-Ende verschlüsselt. Privacy by Design – bereit für anspruchsvolle Einsätze.",
+    "pillGdpr": "DSGVO-konform",
+    "pillAes": "AES-256",
+    "pillSoc2": "SOC-2-ready",
+    "navIdentity": "Identität",
+    "navSecurity": "Sicherheit",
+    "navSettings": "Einstellungen",
+    "demoCta": "Demo starten",
+    "sections": {
+      "enroll": "Registrierung",
+      "manage": "Verwaltung",
+      "search": "Suche",
+      "detection": "Erkennung",
+      "comparison": "Vergleich"
+    },
+    "demos": {
+      "create-collection": {
+        "badge": "Registrierung",
+        "title": "Sammlung erstellen",
+        "description": "Erstellen Sie eine benannte Gesichtssammlung, um registrierte Personen für Suche und Verifikation zu gruppieren."
+      },
+      "create-person": {
+        "badge": "Registrierung",
+        "title": "Person anlegen",
+        "description": "Registrieren Sie eine neue Person mit hochgeladenen Gesichtsbildern und Metadaten. Gespeichert in einer OpenCV-Sammlung."
+      },
+      "create-person-with-liveness": {
+        "badge": "Registrierung",
+        "title": "Person mit Lebenderkennung anlegen",
+        "description": "Registrieren Sie eine Person mit gleichzeitiger Lebenderkennung und Dublettensuche in der Sammlung."
+      },
+      "update-person": {
+        "badge": "Verwaltung",
+        "title": "Person aktualisieren",
+        "description": "Laden Sie eine Person per ID und ändern Sie Profilfelder oder die Sammlungszugehörigkeit (keine neuen Gesichtsbilder in dieser API)."
+      },
+      "delete-person": {
+        "badge": "Verwaltung",
+        "title": "Person löschen",
+        "description": "Löschen Sie eine Person vollständig oder entfernen Sie sie aus einer einzelnen Sammlung, wenn sie mehreren angehört."
+      },
+      "search-person": {
+        "badge": "Suche",
+        "title": "Person suchen",
+        "description": "Laden Sie ein oder mehrere Gesichtsbilder hoch und durchsuchen Sie die Sammlung nach passenden Personen anhand des Ähnlichkeitswerts."
+      },
+      "search-live-person": {
+        "badge": "Suche",
+        "title": "Live-Person suchen",
+        "description": "Erfassen Sie ein lebendes Gesicht, führen Sie Lebenderkennung aus und suchen Sie in einem Durchlauf nach einer Übereinstimmung in der Sammlung."
+      },
+      "search-active-user": {
+        "badge": "Suche",
+        "title": "Aktiven Nutzer suchen",
+        "description": "Authentifizieren Sie einen aktiven Nutzer mit Live-Erfassung und erhalten Sie einen Lebendewert zusammen mit den Suchergebnissen."
+      },
+      "detect-face": {
+        "badge": "Erkennung",
+        "title": "Gesicht erkennen",
+        "description": "Übermitteln Sie ein Bild und erkennen Sie alle darin enthaltenen Gesichter – mit Begrenzungsrahmen und Zuschneidedaten."
+      },
+      "search-crops": {
+        "badge": "Erkennung",
+        "title": "Ausschnitte durchsuchen",
+        "description": "Mehrbild-Ausschnittsuche, um passende Personen über hochgeladene Gesichtsausschnitte mit fein einstellbarer Präzision zu finden."
+      },
+      "face-comparison": {
+        "badge": "Vergleich",
+        "title": "Gesichtsvergleich",
+        "description": "Laden Sie zwei Fotos hoch und prüfen Sie, ob dieselbe Person abgebildet ist. Nützlich für Onboarding und Ausweiskontrollen."
+      },
+      "face-comparison-liveness": {
+        "badge": "Vergleich",
+        "title": "Mit Lebenderkennung vergleichen",
+        "description": "Abgleich eines Referenzfotos mit einem Live-Selfie. Lebenderkennung startet erst, wenn der Gesichtsabgleich stark genug ist."
+      },
+      "verify-face": {
+        "badge": "Vergleich",
+        "title": "Gesicht verifizieren",
+        "description": "Verifizieren Sie ein Gesichtsbild gegen eine bestimmte registrierte Person per ID mit konfigurierbarem Ähnlichkeitsschwellenwert."
+      },
+      "liveness": {
+        "badge": "Anti-Spoof",
+        "title": "Lebenderkennung",
+        "description": "Nachweis, dass eine echte Person vor der Kamera ist – kein Foto, keine Maske, keine Wiedergabe."
+      },
+      "humanid-create": {
+        "badge": "Verschlüsseln",
+        "title": "HumanID erstellen",
+        "description": "Binden Sie öffentliche Identitätsdaten und ein Gesicht an einen verschlüsselten HumanID-Nachweis auf IPFS. Nur mit dem passenden Live-Gesicht wiederherstellbar."
+      },
+      "humanid-create-qr": {
+        "badge": "QR",
+        "title": "HumanID-QR erstellen",
+        "description": "Erzeugen Sie einen QR-codierten HumanID aus Gesichtserfassung und Identitätsmetadaten für portable Offline-Verifikation."
+      },
+      "humanid-decrypt": {
+        "badge": "Entschlüsseln",
+        "title": "HumanID entschlüsseln",
+        "description": "Stellen Sie die Identitätsdaten eines HumanID wieder her, indem Sie das passende Live-Gesicht und die Nachweiszeichenkette vorlegen."
+      },
+      "humanid-preview": {
+        "badge": "Vorschau",
+        "title": "HumanID-Vorschau",
+        "description": "Prüfen Sie die öffentlichen Metadaten in einer HumanID-Zeichenkette ohne Gesichtsbild oder zusätzliche Anmeldedaten."
+      }
+    }
+  },
+  "NotFound": {
+    "title": "Seite nicht gefunden",
+    "body": "Diese Seite existiert nicht oder der Link ist ungültig.",
+    "homeLink": "Zur Startseite"
+  },
+  "settingsNav": {
+    "title": "Einstellungen",
+    "ariaLabel": "Einstellungsbereiche",
+    "myAccount": "Mein Konto",
+    "developers": "Entwickler",
+    "profile": "Profil",
+    "apiKey": "API-Schlüssel",
+    "mobileMenu": "Einstellungsmenü öffnen",
+    "mobileTitle": "Einstellungen",
+    "closeMenu": "Menü schließen"
+  }
+}

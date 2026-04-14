@@ -1,0 +1,22 @@
+{
+  "cancel": "Batal",
+  "brandTitle": "HumanID",
+  "kicker": "HumanID · Autentikasi Verifik",
+  "idleTitle": "Pusatkan wajah Anda",
+  "idleSubtitle": "Deteksi wajah akan menangkap otomatis saat Anda sejajar.",
+  "successTitle": "Tangkapan selesai",
+  "successSubtitle": "Di produksi feed ini akan memanggil API HumanID / ZelfProof.",
+  "failedTitle": "Terjadi kesalahan",
+  "failedSubtitle": "Coba lagi atau gunakan pencahayaan lebih baik.",
+  "chooseOneDescription": "Pindai dengan kamera atau unggah foto. Keduanya didukung di demo ini.",
+  "cameraTitle": "Kamera langsung",
+  "cameraSubtitle": "Buka kamera dan sejajarkan wajah Anda di bingkai",
+  "uploadTitle": "Foto dari galeri",
+  "uploadSubtitle": "Pilih file gambar dari perangkat Anda sebagai gantinya",
+  "uploadPrimary": "Unggah gambar",
+  "tryAgain": "Coba lagi",
+  "continueDashboard": "Lanjut ke dasbor",
+  "engineLine": "ENGINE: HumanAuthn · Verifik",
+  "captureLine": "CAPTURE: Guided (@vladmandic/face-api)",
+  "protocolLine": "PROTOCOL: HUMAN_ID_v1"
+}

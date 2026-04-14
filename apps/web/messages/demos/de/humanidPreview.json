@@ -1,0 +1,63 @@
+{
+  "headerTitle": "HumanID-Vorschau",
+  "heroTitle": "HumanID-Vorschau",
+  "heroTitleResult": "Vorschau bereit",
+  "heroSubtitle": "Öffentliche Metadaten aus einem ZelfProof prüfen. Kein Gesicht oder zusätzliche Anmeldedaten nötig.",
+  "humanIdModeLabel": "HumanID",
+  "pasteString": "Zeichenkette einfügen",
+  "uploadQrImage": "QR-Bild hochladen",
+  "proofLabel": "ZelfProof-Zeichenkette",
+  "proofPlaceholder": "ZelfProof-Zeichenkette hier einfügen…",
+  "qrUploadHelp": "PNG oder JPEG des HumanID-QR hochladen. Wir decodieren den QR und füllen die Proof-Zeichenkette für die Vorschau.",
+  "chooseQrImage": "QR-Bild wählen",
+  "readingQr": "QR wird gelesen…",
+  "secondaryPngJpeg": "PNG oder JPEG",
+  "qrPreviewAlt": "QR-Vorschau",
+  "extractedHeading": "Extrahierter HumanID (schreibgeschützt)",
+  "errorReadProof": "HumanID konnte aus der QR-Vorschau-Antwort nicht gelesen werden.",
+  "qrExtractSuccess": "HumanID aus QR extrahiert. Bei Bedarf Verifier-Key ergänzen, dann Vorschau.",
+  "verifierKeyOptional": "Verifier-Key (optional)",
+  "verifierKeyPlaceholder": "Schaltet zusätzliche Felder frei, falls bei der Erstellung gesetzt",
+  "previewCta": "Vorschau",
+  "processing": "Vorschau wird geladen…",
+  "apiRefSummary": "API-Referenz: HumanID-Vorschau",
+  "apiOfficialLead": "Offizielle Dokumentation:",
+  "apiOfficialLinkLabel": "docs.verifik.co/api/tags/preview-zelfproof",
+  "apiOfficialAfter": "(Parameter, Antworten und Beispiele). Diese Demo ruft POST /v2/human-id/preview über previewHumanId auf — entspricht diesem Ablauf auf der aktuellen API. Verwandt:",
+  "apiBaseUrlNote": "Basis-URL https://api.verifik.co. JSON mit Content-Type: application/json und Authorization: Bearer <Zugriffstoken> (derselbe JWT wie in dieser Demo nach Anmeldung).",
+  "apiPreviewEndpointDesc": "Liefert nicht sensible Vorschau-Felder für einen Nachweis (z. B. ob ein Passwort erforderlich ist) in der üblichen signierten data-Hülle.",
+  "apiPreviewQrEndpointDesc": "Nutzen Sie dies, wenn der Nutzer ein PNG oder JPEG des HumanID-QR liefert. Die API decodiert die Nutzdaten und liefert einen zelfProof für den obigen Vorschau-Aufruf. Gleiche JSON-Header wie Vorschau. Optional verifierKey, wenn der Nachweis einen nutzt.",
+  "apiBullet1": "Diese Demo nutzt previewHumanId und für QR-Bilder previewZelfIdQr aus @humanauthn/api-client mit Ihrem Sitzungstoken.",
+  "apiBullet2": "Erfolgsantworten folgen dem Verifik-Muster: ein data-Objekt (und oft eine Signatur, wenn Signierung für Ihr Projekt aktiv ist).",
+  "paramZelfProofDesc": "HumanID-Zeichenkette aus Einfügen oder aus QR-Extraktion in diesem Formular",
+  "paramVerifierKeyDesc": "Wenn der Nachweis mit Verifier-Key erstellt wurde",
+  "paramQrCodeDesc": "Bild als Data-URL (data:image/png;base64,...) oder anderes von der API akzeptiertes Format (diese Demo erzeugt eine Data-URL aus der Datei)",
+  "paramVerifierKeyQrDesc": "Gleiche Semantik wie bei der Vorschau, wenn der Nachweis einen Verifier-Key nutzt",
+  "relatedDocs": {
+    "0": {
+      "title": "Preview ZelfProof",
+      "description": "Referenz zum Prüfen öffentlicher Metadaten eines Nachweises vor Entschlüsselung oder anderer Nutzung.",
+      "badge": "POST"
+    },
+    "1": {
+      "title": "Create a ZelfProof",
+      "description": "Öffentliche Felder und Gesichtserfassung in eine neue HumanID-Zeichenkette verschlüsseln, die Sie speichern oder teilen können.",
+      "badge": "POST"
+    },
+    "2": {
+      "title": "Decrypt a ZelfProof",
+      "description": "Identitätsnutzdaten im Nachweis durch Abgleich mit einem Live-Gesicht freischalten.",
+      "badge": "POST"
+    },
+    "3": {
+      "title": "Create QR ZelfProof",
+      "description": "QR erzeugen, der einen HumanID einbettet, damit Nutzer ihn vom Bildschirm oder Wallet scannen können.",
+      "badge": "POST"
+    },
+    "4": {
+      "title": "Liveness detection",
+      "description": "Dedizierte Prüfung, ob ein Gesicht lebendig wirkt statt spoof. Getrennt von HumanID-Vorschau.",
+      "badge": "POST"
+    }
+  }
+}

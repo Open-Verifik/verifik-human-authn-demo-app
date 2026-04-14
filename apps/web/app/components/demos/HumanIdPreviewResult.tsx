@@ -1,29 +1,31 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useCallback } from "react";
+import { useTranslations } from "next-intl";
 
 function isPlainObject(v: unknown): v is Record<string, unknown> {
 	return v !== null && typeof v === "object" && !Array.isArray(v);
 }
 
-function formatDisplayValue(v: unknown): string {
+function formatDisplayValue(v: unknown, yes: string, no: string): string {
 	if (v === null || v === undefined) return "";
-	if (typeof v === "boolean") return v ? "Yes" : "No";
+	if (typeof v === "boolean") return v ? yes : no;
 	if (typeof v === "number") return Number.isFinite(v) ? String(v) : "";
 	if (typeof v === "string") return v;
 	return JSON.stringify(v);
 }
 
-function formatPasswordLayer(value: string): string {
-	const normalized = value.trim();
-	const map: Record<string, string> = {
-		NoPassword: "No password",
-		HasPassword: "Password required",
-	};
-	return map[normalized] ?? normalized;
-}
-
-function KeyValueBlock({ title, obj, idSuffix }: { title: string; obj: Record<string, unknown>; idSuffix: string }) {
+function KeyValueBlock({
+	title,
+	obj,
+	idSuffix,
+	formatValue,
+}: {
+	title: string;
+	obj: Record<string, unknown>;
+	idSuffix: string;
+	formatValue: (v: unknown) => string;
+}) {
 	const entries = Object.entries(obj).filter(([, v]) => v !== undefined && v !== null);
 	if (entries.length === 0) return null;
 	const headingId = `preview-kv-${idSuffix}`;
@@ -39,7 +41,7 @@ function KeyValueBlock({ title, obj, idSuffix }: { title: string; obj: Record<st
 						className="grid grid-cols-1 sm:grid-cols-[minmax(0,11rem)_1fr] gap-x-3 gap-y-1 border-b border-outline-variant/10 pb-2 last:border-0 last:pb-0"
 					>
 						<dt className="text-on-surface-variant font-medium">{k}</dt>
-						<dd className="font-mono text-xs text-on-surface break-all">{formatDisplayValue(v)}</dd>
+						<dd className="font-mono text-xs text-on-surface break-all">{formatValue(v)}</dd>
 					</div>
 				))}
 			</dl>
@@ -56,6 +58,24 @@ export type HumanIdPreviewResultProps = {
 };
 
 export default function HumanIdPreviewResult({ result, onPreviewAnother, onBackToDemos }: HumanIdPreviewResultProps) {
+	const t = useTranslations("demos.humanIdPreviewResult");
+	const tCommon = useTranslations("demos.common");
+
+	const formatValue = useCallback(
+		(v: unknown) => formatDisplayValue(v, tCommon("yes"), tCommon("no")),
+		[tCommon],
+	);
+
+	const formatPasswordLayer = useCallback(
+		(value: string) => {
+			const normalized = value.trim();
+			if (normalized === "NoPassword") return t("passwordNoPassword");
+			if (normalized === "HasPassword") return t("passwordRequired");
+			return normalized;
+		},
+		[t],
+	);
+
 	const parsed = useMemo(() => {
 		if (!result) return null;
 		const data = isPlainObject(result.data) ? result.data : null;
@@ -73,7 +93,9 @@ export default function HumanIdPreviewResult({ result, onPreviewAnother, onBackT
 	}, [result]);
 
 	const hasSummaryRow =
-		parsed?.passwordLayer !== undefined || parsed?.requireLiveness !== undefined || Object.keys(parsed?.extraData ?? {}).length > 0;
+		parsed?.passwordLayer !== undefined ||
+		parsed?.requireLiveness !== undefined ||
+		Object.keys(parsed?.extraData ?? {}).length > 0;
 
 	return (
 		<div className="space-y-5">
@@ -81,25 +103,25 @@ export default function HumanIdPreviewResult({ result, onPreviewAnother, onBackT
 				<div className="flex items-center gap-3 mb-6">
 					<span className="material-symbols-outlined text-primary text-2xl">preview</span>
 					<div>
-						<p className="font-bold text-on-surface text-lg">HumanID preview</p>
-						<p className="text-sm text-on-surface-variant">Public metadata and requirements from your ZelfProof.</p>
+						<p className="font-bold text-on-surface text-lg">{t("successTitle")}</p>
+						<p className="text-sm text-on-surface-variant">{t("successSubtitle")}</p>
 					</div>
 				</div>
 
 				{hasSummaryRow ? (
 					<section className="mb-6 rounded-xl border border-outline-variant/20 bg-surface-container-high/40 p-4">
-						<h3 className="text-sm font-bold text-primary mb-3">Summary</h3>
+						<h3 className="text-sm font-bold text-primary mb-3">{t("summaryHeading")}</h3>
 						<dl className="space-y-2 text-sm">
 							{parsed?.passwordLayer !== undefined ? (
 								<div className="grid grid-cols-1 sm:grid-cols-[minmax(0,11rem)_1fr] gap-x-3 gap-y-1">
-									<dt className="text-on-surface-variant font-medium">Password layer</dt>
+									<dt className="text-on-surface-variant font-medium">{t("passwordLayerLabel")}</dt>
 									<dd className="text-on-surface">{formatPasswordLayer(parsed.passwordLayer)}</dd>
 								</div>
 							) : null}
 							{parsed?.requireLiveness !== undefined ? (
 								<div className="grid grid-cols-1 sm:grid-cols-[minmax(0,11rem)_1fr] gap-x-3 gap-y-1">
-									<dt className="text-on-surface-variant font-medium">Liveness required</dt>
-									<dd className="text-on-surface">{parsed.requireLiveness ? "Yes" : "No"}</dd>
+									<dt className="text-on-surface-variant font-medium">{t("livenessRequiredLabel")}</dt>
+									<dd className="text-on-surface">{parsed.requireLiveness ? tCommon("yes") : tCommon("no")}</dd>
 								</div>
 							) : null}
 							{Object.entries(parsed?.extraData ?? {}).map(([k, v]) => (
@@ -111,7 +133,7 @@ export default function HumanIdPreviewResult({ result, onPreviewAnother, onBackT
 												{JSON.stringify(v, null, 2)}
 											</pre>
 										) : (
-											formatDisplayValue(v)
+											formatValue(v)
 										)}
 									</dd>
 								</div>
@@ -120,12 +142,14 @@ export default function HumanIdPreviewResult({ result, onPreviewAnother, onBackT
 					</section>
 				) : null}
 
-				{parsed?.publicData ? <KeyValueBlock title="Public data" idSuffix="public" obj={parsed.publicData} /> : null}
+				{parsed?.publicData ? (
+					<KeyValueBlock title={t("publicDataHeading")} idSuffix="public" obj={parsed.publicData} formatValue={formatValue} />
+				) : null}
 			</div>
 
 			<details className="rounded-xl border border-outline-variant/20 bg-surface-container-low/50 px-4 py-3 group">
 				<summary className="cursor-pointer list-none font-bold text-sm text-on-surface-variant flex items-center justify-between gap-2">
-					<span>Raw response (debug)</span>
+					<span>{t("rawDebug")}</span>
 					<span className="material-symbols-outlined text-on-surface-variant/70 group-open:rotate-180 transition-transform text-lg">
 						expand_more
 					</span>
@@ -141,14 +165,14 @@ export default function HumanIdPreviewResult({ result, onPreviewAnother, onBackT
 					onClick={onPreviewAnother}
 					className="flex-1 py-3 bg-surface-container text-on-surface font-semibold rounded-lg ghost-border hover:bg-surface-container-high transition-all active:scale-95"
 				>
-					Preview Another
+					{t("previewAnother")}
 				</button>
 				<button
 					type="button"
 					onClick={onBackToDemos}
 					className="flex-1 py-3 bg-primary-cta text-on-primary-container font-semibold rounded-lg shadow-primary hover:opacity-90 active:scale-95 transition-all"
 				>
-					Back to Demos
+					{t("backToDemos")}
 				</button>
 			</div>
 		</div>

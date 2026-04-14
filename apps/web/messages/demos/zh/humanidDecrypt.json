@@ -1,0 +1,78 @@
+{
+  "headerTitle": "解密 HumanID",
+  "heroTitle": "解密 HumanID",
+  "heroTitleResult": "已解密",
+  "heroSubtitle": "通过呈现匹配的实时人脸恢复身份数据。",
+  "humanIdModeLabel": "HumanID",
+  "pasteString": "粘贴字符串",
+  "uploadQrImage": "上传二维码图像",
+  "proofLabel": "HumanID",
+  "proofPlaceholder": "在此粘贴您的 HumanID…",
+  "qrUploadHelp": "上传 HumanID 二维码的 PNG 或 JPEG（二进制载荷）。我们调用 preview-zelf-id-qr 提取您的 HumanID。",
+  "chooseQrImage": "选择二维码图像",
+  "readingQr": "正在读取二维码…",
+  "secondaryPngJpeg": "PNG 或 JPEG",
+  "qrPreviewAlt": "二维码预览",
+  "extractedHeading": "已提取的 HumanID（只读）",
+  "errorReadProof": "无法从预览响应读取 HumanID。",
+  "qrExtractSuccess": "已从二维码提取 HumanID。您可在下方解密。",
+  "passwordOptional": "密码（可选）",
+  "passwordPlaceholder": "仅当创建证明时设置了密码",
+  "faceImageLabel": "人脸图像",
+  "chooseOneDescription": "使用摄像头扫描或上传照片。本步骤两种方式均可。",
+  "cameraTitle": "实时摄像头",
+  "cameraSubtitle": "打开摄像头并将人脸对准画框",
+  "uploadTitle": "从相册选择照片",
+  "uploadSubtitle": "或从设备选择一张图像文件",
+  "uploadPrimary": "上传图像",
+  "changeFaceImage": "更换人脸图",
+  "facePreviewAlt": "人脸",
+  "decryptCta": "解密",
+  "processing": "正在解密身份…",
+  "apiRefSummary": "API 参考：解密 HumanID",
+  "apiOfficialGuide": "官方指南：",
+  "apiOfficialParen": "（请求与响应字段、可选密码与验证密钥及示例调用）。",
+  "apiRelated": "相关：",
+  "apiDecryptLinkText": "docs.verifik.co/functions/decrypt-zelfproof",
+  "apiBaseUrlNote": "基础 URL 为 https://api.verifik.co。使用 Content-Type: application/json 与 Authorization: Bearer <access token> 发送 JSON（与本演示登录后的 JWT 相同）。",
+  "apiDecryptEndpointDesc": "将人脸图与证明比对，匹配成功时在常见的签名 data 信封内返回解密的公开字段及相关载荷（例如人脸裁剪与难度）。",
+  "apiPreviewQrEndpointDesc": "当用户提供 HumanID 二维码的 PNG 或 JPEG 时使用。API 读取二维码载荷，运行与字符串预览同类的预览，并返回可传入 decrypt 的 zelfProof。创建时若使用 verifierKey 则可选传入。解密使用相同的 JSON 头。",
+  "apiBullet1": "解密使用 @humanauthn/api-client 的 decryptHumanId。二维码上传先调用 previewZelfIdQr，再用返回的证明字符串解密。",
+  "apiBullet2": "成功响应遵循 Verifik 模式：data 对象（若项目启用签名则常有 signature）。",
+  "apiBullet3": "若要在无人脸图的情况下检查证明，请打开「预览 HumanID」演示（previewHumanId）或上方链接的 Preview ZelfProof 指南。",
+  "paramFaceBase64Desc": "人脸图像为原始 base64（本演示格式与其他生物识别演示相同）",
+  "paramOsDesc": "DESKTOP、IOS 或 ANDROID（演示使用 DESKTOP）",
+  "paramZelfProofDesc": "来自粘贴的 HumanID 字符串，或本表单中从二维码图像提取",
+  "paramPasswordDesc": "仅当创建证明时设置了密码",
+  "paramLivenessLevelDesc": "设置时与服务器对解密的活体期望一致（见官方指南）",
+  "paramVerifierKeyDesc": "若创建证明时使用了验证密钥",
+  "paramQrCodeDesc": "图像为 data URL（data:image/png;base64,...）或 API 接受的其他形式（本演示由文件构建 data URL）",
+  "paramVerifierKeyQrDesc": "与证明使用验证密钥时 decrypt 上的语义相同",
+  "relatedDocs": {
+    "0": {
+      "title": "解密 ZelfProof",
+      "description": "通过匹配实时人脸解锁证明内的身份载荷。涵盖创建时设置密码的可选密码。",
+      "badge": "POST"
+    },
+    "1": {
+      "title": "创建 ZelfProof",
+      "description": "将公开字段与人脸采集加密为可存储或分享的新 HumanID 字符串。",
+      "badge": "POST"
+    },
+    "2": {
+      "title": "预览 ZelfProof",
+      "description": "在解密前检查公开元数据及所需条件，无需发送人脸图。预览 HumanID 演示在当前 API 上遵循相同思路。",
+      "badge": "POST"
+    },
+    "3": {
+      "title": "创建二维码 ZelfProof",
+      "description": "生成嵌入 HumanID 的二维码，便于从屏幕或钱包扫描。",
+      "badge": "POST"
+    },
+    "4": {
+      "title": "活体检测",
+      "description": "独立检查人脸图像是否活体而非伪造。与 HumanID 加密/解密不同。",
+      "badge": "POST"
+    }
+  }
+}

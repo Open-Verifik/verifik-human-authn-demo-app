@@ -1,0 +1,19 @@
+{
+  "successTitle": "HumanID 已解密",
+  "successSubtitle": "已从您的 ZelfProof 恢复身份数据。",
+  "identifierHeading": "标识符",
+  "publicDataHeading": "公开数据",
+  "metadataHeading": "元数据",
+  "difficultyHeading": "难度",
+  "faceCropHeading": "人脸裁剪",
+  "faceCropAlt": "从证明解码的人脸裁剪",
+  "sessionHeading": "会话",
+  "chargedLabel": "已计费",
+  "livenessRequiredLabel": "需要活体",
+  "creditsHeading": "额度 / 用量",
+  "chargedCredits": "已扣费：{amount} 点额度",
+  "creditChange": "额度变动：{amount}",
+  "rawDebug": "原始响应（调试）",
+  "tryAgain": "重试",
+  "backToDemos": "返回演示列表"
+}

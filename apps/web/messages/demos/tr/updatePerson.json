@@ -1,0 +1,32 @@
+{
+  "headerTitle": "Kişiyi güncelle",
+  "heroTitleForm": "Kişiyi güncelle",
+  "heroTitleResult": "Kişi güncellendi",
+  "heroSubtitleForm": "Projenizde kayıtlı birini seçin, profili veya koleksiyonları düzenleyin, sonra kaydedin. Bu rota yüz görüntülerini değiştirmez (mevcut API’ye göre).",
+  "heroSubtitleResult": "Değişiklikler PUT /v2/face-recognition/persons/:id ile gönderildi.",
+  "personLabel": "Kişi",
+  "personHint": "GET /v2/face-recognition/persons listesi — yalnızca hesabınıza bağlı kişiler.",
+  "noPeopleEmpty": "Kişi bulunamadı. Önce Kişi oluştur ile kaydedin.",
+  "loadingProfile": "Profil yükleniyor…",
+  "unexpectedResponseShape": "Beklenmeyen yanıt şekli.",
+  "fullNameLabel": "Tam ad",
+  "genderLabel": "Cinsiyet",
+  "dobLabel": "Doğum tarihi",
+  "nationalityLabel": "Uyruk",
+  "nationalityPlaceholder": "İsteğe bağlı",
+  "notesLabel": "Notlar",
+  "collectionsLabel": "Koleksiyonlar",
+  "noCollectionsLoaded": "Koleksiyon yüklenmedi.",
+  "saveChanges": "Değişiklikleri kaydet",
+  "processing": "Kişi güncelleniyor…",
+  "apiRefSummary": "API referansı: Kişiyi güncelle",
+  "apiRefOfficialDocs": "Resmi belgeler:",
+  "apiRefLinkLabel": "docs.verifik.co/resources/persons/update-a-person",
+  "apiRefBody": "PUT /v2/face-recognition/persons/:id ile isteğe bağlı JSON alanları: name, gender, date_of_birth, nationality, collections (koleksiyon _id dizeleri dizisi), notes. Kayıtlı yüz küçük resimleri bu demoyla değiştirilmez; yeni yüz görüntüleri eklemek, mevcut Joi şemasında açığa çıkmayan ürüne özel akışlar gerektirebilir.",
+  "relatedDocs": {
+    "0": { "title": "Kişi getir", "description": "Kimliğe göre tek kişiyi GET edin.", "badge": "GET" },
+    "1": { "title": "Kişi güncelle", "description": "PUT için resmi API referansı.", "badge": "PUT" },
+    "2": { "title": "Kişi oluştur", "description": "Yüz tanıma sisteminde yeni kişi oluşturun.", "badge": "POST" },
+    "3": { "title": "Kişi sil", "description": "Yüz tanıma sisteminden kişi kaydını silin.", "badge": "DELETE" }
+  }
+}

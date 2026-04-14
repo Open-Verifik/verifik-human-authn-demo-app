@@ -1,0 +1,32 @@
+{
+  "headerTitle": "更新人员",
+  "heroTitleForm": "更新人员",
+  "heroTitleResult": "人员已更新",
+  "heroSubtitleForm": "选择项目中已注册的人员，编辑档案或人脸库后保存。此路由不会替换人脸图像（按当前 API）。",
+  "heroSubtitleResult": "已通过 PUT /v2/face-recognition/persons/:id 提交更改。",
+  "personLabel": "人员",
+  "personHint": "来自 GET /v2/face-recognition/persons 的列表 — 仅包含与您账户关联的人员。",
+  "noPeopleEmpty": "未找到人员。请先在「创建人员」中注册。",
+  "loadingProfile": "正在加载档案…",
+  "unexpectedResponseShape": "响应结构异常。",
+  "fullNameLabel": "全名",
+  "genderLabel": "性别",
+  "dobLabel": "出生日期",
+  "nationalityLabel": "国籍",
+  "nationalityPlaceholder": "可选",
+  "notesLabel": "备注",
+  "collectionsLabel": "人脸库",
+  "noCollectionsLoaded": "未加载任何人脸库。",
+  "saveChanges": "保存更改",
+  "processing": "正在更新人员…",
+  "apiRefSummary": "API 参考：更新人员",
+  "apiRefOfficialDocs": "官方文档：",
+  "apiRefLinkLabel": "docs.verifik.co/resources/persons/update-a-person",
+  "apiRefBody": "PUT /v2/face-recognition/persons/:id，可选 JSON 字段：name、gender、date_of_birth、nationality、collections（collection _id 字符串数组）、notes。本演示无法通过此方式替换已注册人脸缩略图；新增人脸图像可能需要当前 Joi 架构未暴露的产品流程。",
+  "relatedDocs": {
+    "0": { "title": "获取单个人员", "description": "按 id GET 单个人员。", "badge": "GET" },
+    "1": { "title": "更新人员", "description": "PUT 官方 API 参考。", "badge": "PUT" },
+    "2": { "title": "创建人员", "description": "在人脸识别系统中创建新人员。", "badge": "POST" },
+    "3": { "title": "删除人员", "description": "从人脸识别系统中删除人员记录。", "badge": "DELETE" }
+  }
+}

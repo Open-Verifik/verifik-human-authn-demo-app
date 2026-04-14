@@ -1,0 +1,100 @@
+{
+  "headerTitle": "生き生きとした人物を創る",
+  "heroTitleForm": "生き生きとした人物を創る",
+  "heroTitleResult": "在籍者",
+  "heroTitleConflict": "すでに登録されています",
+  "heroSubtitleForm": "1 回の呼び出しで登録 + 活性チェック + 重複排除検索を実行します。",
+  "heroSubtitleResult": "この人は生存確認と検索チェックを使用して登録されています。",
+  "heroSubtitleConflict": "この顔は既存の人物と一致します。使用した画像を確認し、次のステップを選択します。",
+  "fullNameLabel": "フルネーム",
+  "namePlaceholder": "ジェーン・ドウ",
+  "genderLabel": "性別",
+  "dobLabel": "生年月日",
+  "nationalityLabel": "国籍",
+  "nationalityPlaceholder": "CO",
+  "collectionIdLabel": "コレクションID",
+  "collectionIdPlaceholder": "コレクションの一意の _id",
+  "livenessMinLabel": "生存性の最小値 {値}",
+  "matchMinLabel": "最小スコア {値}",
+  "searchModeLabel": "検索モード",
+  "faceImagesLabel": "顔画像",
+  "chooseOneDescription": "カメラでスキャンするか、写真をアップロードします。各キャプチャは登録された顔画像に追加されます。",
+  "cameraTitle": "ライブカメラ",
+  "cameraSubtitle": "カメラを開いて顔画像を 1 枚キャプチャします",
+  "uploadTitle": "ギャラリーからの写真",
+  "uploadSubtitle": "デバイスから 1 つ以上の画像ファイルを選択します",
+  "submit": "Liveness に登録する",
+  "processing": "登録と生存確認中…",
+  "successTitle": "活力を持って在籍している人",
+  "tryAgain": "もう一度やり直してください",
+  "apiRefSummary": "API リファレンス: Liveness を持つ人物の作成",
+  "apiRefDocsEnLead": "公式ドキュメント (英語):",
+  "apiRefDocsEnLink": "docs.verifik.co/resources/create-a-person-with-liveness",
+  "apiRefDocsEsLead": "ドキュメント (スペイン語):",
+  "apiRefDocsEsLink": "docs.verifik.co/verifik-es/resources/personas/crear-una-persona-con-deteccion-de-vida",
+  "apiRefBody": "Base URL https://api.verifik.co. Send JSON with profile fields, a single collection_id (collection _id), liveness and search thresholds, and at least one base64 face image per entry in images (no data URL prefix).",
+  "apiRefEndpoint": "POST /v2/face-recognition/persons/search-live-face",
+  "apiRefEndpointDesc": "送信された顔に対して liveness を実行し、同様の登録を検索して、ターゲット コレクション内の人物を作成または更新します。",
+  "paramName": "名前",
+  "paramNameDesc": "表示名",
+  "paramImages": "画像",
+  "paramImagesDesc": "Base64 顔画像の配列 (データ URL ではなく生の Base64)",
+  "paramGender": "性別",
+  "paramGenderDesc": "MまたはF",
+  "paramDob": "生年月日",
+  "paramDobDesc": "YYYY-MM-DD",
+  "paramCollectionId": "コレクションID",
+  "paramCollectionIdDesc": "単一のコレクションの一意の ID",
+  "paramLivenessMin": "liveness_min_score",
+  "paramLivenessMinDesc": "0.5～1",
+  "paramMinScore": "min_score",
+  "paramMinScoreDesc": "内部検索しきい値、0.5 ～ 1",
+  "paramSearchMode": "検索モード",
+  "paramSearchModeDesc": "速いか正確か",
+  "paramNationality": "国籍",
+  "paramNationalityDesc": "オプション",
+  "bullet1": "このデモでは、セッション トークンを使用して @humanauthn/api-client から createpersonWithLiveness を使用します。",
+  "bullet2": "環境に応じて、応答にはデータと一緒に署名ブロックが含まれる場合があります。",
+  "relatedDocs": {
+    "0": {
+      "title": "人物オブジェクト",
+      "description": "顔認識人物レコードのフィールドと構造。",
+      "badge": "Object"
+    },
+    "1": {
+      "title": "すべての人物をリストする",
+      "description": "オプションのフィルターを使用したクライアントの担当者。",
+      "badge": "GET"
+    },
+    "2": {
+      "title": "人物を取得する",
+      "description": "ID による 1 人の人物。",
+      "badge": "GET"
+    },
+    "3": {
+      "title": "個人を更新する",
+      "description": "プロフィール、画像、コレクションなど。",
+      "badge": "PUT"
+    },
+    "4": {
+      "title": "Delete a Person",
+      "description": "ID によって個人レコードを削除します。",
+      "badge": "DELETE"
+    },
+    "5": {
+      "title": "生き生きとした人物を創る",
+      "description": "ライブネス、重複検索、および 1 つのリクエストでの登録。",
+      "badge": "POST"
+    },
+    "6": {
+      "title": "人物の更新 (デモ)",
+      "description": "既存の個人 ID のプロフィールまたはコレクションを変更します。",
+      "badge": "Demo"
+    },
+    "7": {
+      "title": "人物削除（デモ）",
+      "description": "完全に削除するか、コレクションのみから削除します。",
+      "badge": "Demo"
+    }
+  }
+}

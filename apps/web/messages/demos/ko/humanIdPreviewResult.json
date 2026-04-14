@@ -1,0 +1,13 @@
+{
+  "successTitle": "HumanID 미리보기",
+  "successSubtitle": "ZelfProof의 공개 메타데이터 및 요구 사항.",
+  "summaryHeading": "요약",
+  "passwordLayerLabel": "비밀번호 레이어",
+  "passwordNoPassword": "비밀번호 없음",
+  "passwordRequired": "비밀번호가 필요합니다",
+  "livenessRequiredLabel": "활동성 필요",
+  "publicDataHeading": "공공 데이터",
+  "rawDebug": "원시 응답(디버그)",
+  "previewAnother": "다른 미리보기",
+  "backToDemos": "데모로 돌아가기"
+}

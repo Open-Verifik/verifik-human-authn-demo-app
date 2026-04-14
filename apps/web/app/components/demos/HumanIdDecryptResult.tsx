@@ -1,14 +1,15 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useCallback } from "react";
+import { useTranslations } from "next-intl";
 
 function isPlainObject(v: unknown): v is Record<string, unknown> {
 	return v !== null && typeof v === "object" && !Array.isArray(v);
 }
 
-function formatDisplayValue(v: unknown): string {
+function formatDisplayValue(v: unknown, yes: string, no: string): string {
 	if (v === null || v === undefined) return "";
-	if (typeof v === "boolean") return v ? "Yes" : "No";
+	if (typeof v === "boolean") return v ? yes : no;
 	if (typeof v === "number") return Number.isFinite(v) ? String(v) : "";
 	if (typeof v === "string") return v;
 	return JSON.stringify(v);
@@ -24,7 +25,17 @@ function faceCropToDataUrl(base64: string): string {
 	return `data:image/jpeg;base64,${t}`;
 }
 
-function KeyValueBlock({ title, obj, idSuffix }: { title: string; obj: Record<string, unknown>; idSuffix: string }) {
+function KeyValueBlock({
+	title,
+	obj,
+	idSuffix,
+	formatValue,
+}: {
+	title: string;
+	obj: Record<string, unknown>;
+	idSuffix: string;
+	formatValue: (v: unknown) => string;
+}) {
 	const entries = Object.entries(obj).filter(([, v]) => v !== undefined && v !== null);
 	if (entries.length === 0) return null;
 	const headingId = `decrypt-kv-${idSuffix}`;
@@ -40,7 +51,7 @@ function KeyValueBlock({ title, obj, idSuffix }: { title: string; obj: Record<st
 						className="grid grid-cols-1 sm:grid-cols-[minmax(0,11rem)_1fr] gap-x-3 gap-y-1 border-b border-outline-variant/10 pb-2 last:border-0 last:pb-0"
 					>
 						<dt className="text-on-surface-variant font-medium">{k}</dt>
-						<dd className="font-mono text-xs text-on-surface break-all">{formatDisplayValue(v)}</dd>
+						<dd className="font-mono text-xs text-on-surface break-all">{formatValue(v)}</dd>
 					</div>
 				))}
 			</dl>
@@ -48,7 +59,15 @@ function KeyValueBlock({ title, obj, idSuffix }: { title: string; obj: Record<st
 	);
 }
 
-function CreditsBlock({ credits }: { credits: Record<string, unknown> }) {
+function CreditsBlock({
+	credits,
+	formatValue,
+	t,
+}: {
+	credits: Record<string, unknown>;
+	formatValue: (v: unknown) => string;
+	t: ReturnType<typeof useTranslations>;
+}) {
 	const amt = typeof credits.amount === "number" ? credits.amount : null;
 	const extra = [
 		["status", credits.status],
@@ -63,13 +82,9 @@ function CreditsBlock({ credits }: { credits: Record<string, unknown> }) {
 	return (
 		<>
 			{amt === null ? null : amt < 0 ? (
-				<p className="text-on-surface">
-					Charged: <span className="font-bold tabular-nums">{Math.abs(amt)}</span> credits
-				</p>
+				<p className="text-on-surface">{t("chargedCredits", { amount: Math.abs(amt) })}</p>
 			) : (
-				<p className="text-on-surface">
-					Credit change: <span className="font-bold tabular-nums">{amt}</span>
-				</p>
+				<p className="text-on-surface">{t("creditChange", { amount: amt })}</p>
 			)}
 			<dl className="mt-3 space-y-1.5 text-sm">
 				{extra.map(([k, v]) => {
@@ -77,7 +92,7 @@ function CreditsBlock({ credits }: { credits: Record<string, unknown> }) {
 					return (
 						<div key={k} className="flex flex-wrap gap-x-2 gap-y-0.5">
 							<dt className="text-on-surface-variant shrink-0">{k}</dt>
-							<dd className="font-mono text-xs text-on-surface break-all">{formatDisplayValue(v)}</dd>
+							<dd className="font-mono text-xs text-on-surface break-all">{formatValue(v)}</dd>
 						</div>
 					);
 				})}
@@ -93,6 +108,14 @@ export type HumanIdDecryptResultProps = {
 };
 
 export default function HumanIdDecryptResult({ result, onTryAgain, onBackToDemos }: HumanIdDecryptResultProps) {
+	const t = useTranslations("demos.humanIdDecryptResult");
+	const tCommon = useTranslations("demos.common");
+
+	const formatValue = useCallback(
+		(v: unknown) => formatDisplayValue(v, tCommon("yes"), tCommon("no")),
+		[tCommon],
+	);
+
 	const parsed = useMemo(() => {
 		if (!result) return null;
 		const data = isPlainObject(result.data) ? result.data : null;
@@ -113,38 +136,40 @@ export default function HumanIdDecryptResult({ result, onTryAgain, onBackToDemos
 				<div className="flex items-center gap-3 mb-6">
 					<span className="material-symbols-outlined text-primary text-2xl">lock_open</span>
 					<div>
-						<p className="font-bold text-on-surface text-lg">HumanID decrypted</p>
-						<p className="text-sm text-on-surface-variant">Identity data recovered from your ZelfProof.</p>
+						<p className="font-bold text-on-surface text-lg">{t("successTitle")}</p>
+						<p className="text-sm text-on-surface-variant">{t("successSubtitle")}</p>
 					</div>
 				</div>
 
 				{parsed?.identifier ? (
 					<section className="mb-6 rounded-xl border border-outline-variant/20 bg-surface-container-high/40 p-4">
-						<h3 className="text-sm font-bold text-primary mb-2">Identifier</h3>
+						<h3 className="text-sm font-bold text-primary mb-2">{t("identifierHeading")}</h3>
 						<p className="font-mono text-sm text-on-surface break-all">{parsed.identifier}</p>
 					</section>
 				) : null}
 
-				{parsed?.publicData ? <KeyValueBlock title="Public data" idSuffix="public" obj={parsed.publicData} /> : null}
+				{parsed?.publicData ? (
+					<KeyValueBlock title={t("publicDataHeading")} idSuffix="public" obj={parsed.publicData} formatValue={formatValue} />
+				) : null}
 
 				{parsed?.metadata && Object.keys(parsed.metadata).length > 0 ? (
-					<KeyValueBlock title="Metadata" idSuffix="metadata" obj={parsed.metadata} />
+					<KeyValueBlock title={t("metadataHeading")} idSuffix="metadata" obj={parsed.metadata} formatValue={formatValue} />
 				) : null}
 
 				{parsed?.difficulty ? (
 					<section className="mb-6 rounded-xl border border-outline-variant/20 bg-surface-container-high/40 p-4">
-						<h3 className="text-sm font-bold text-primary mb-1">Difficulty</h3>
+						<h3 className="text-sm font-bold text-primary mb-1">{t("difficultyHeading")}</h3>
 						<p className="text-sm text-on-surface font-medium">{parsed.difficulty}</p>
 					</section>
 				) : null}
 
 				{parsed?.faceCropBase64 ? (
 					<section className="mb-6 rounded-xl border border-outline-variant/20 bg-surface-container-high/40 p-4">
-						<h3 className="text-sm font-bold text-primary mb-3">Face crop</h3>
+						<h3 className="text-sm font-bold text-primary mb-3">{t("faceCropHeading")}</h3>
 						<div className="rounded-xl border border-outline-variant/20 bg-surface-container-high overflow-hidden inline-block max-w-full">
 							<img
 								src={faceCropToDataUrl(parsed.faceCropBase64)}
-								alt="Decoded face crop from proof"
+								alt={t("faceCropAlt")}
 								className="max-h-64 w-auto max-w-full object-contain"
 							/>
 						</div>
@@ -153,18 +178,18 @@ export default function HumanIdDecryptResult({ result, onTryAgain, onBackToDemos
 
 				{(parsed?.charged !== undefined || parsed?.requiredLiveness !== undefined) && (
 					<section className="mb-6 rounded-xl border border-outline-variant/20 bg-surface-container-high/40 p-4">
-						<h3 className="text-sm font-bold text-primary mb-3">Session</h3>
+						<h3 className="text-sm font-bold text-primary mb-3">{t("sessionHeading")}</h3>
 						<dl className="space-y-2 text-sm">
 							{parsed.charged !== undefined ? (
 								<div className="flex flex-wrap gap-x-2">
-									<dt className="text-on-surface-variant">Charged</dt>
-									<dd className="text-on-surface">{parsed.charged ? "Yes" : "No"}</dd>
+									<dt className="text-on-surface-variant">{t("chargedLabel")}</dt>
+									<dd className="text-on-surface">{parsed.charged ? tCommon("yes") : tCommon("no")}</dd>
 								</div>
 							) : null}
 							{parsed.requiredLiveness !== undefined ? (
 								<div className="flex flex-wrap gap-x-2">
-									<dt className="text-on-surface-variant">Liveness required</dt>
-									<dd className="text-on-surface">{parsed.requiredLiveness ? "Yes" : "No"}</dd>
+									<dt className="text-on-surface-variant">{t("livenessRequiredLabel")}</dt>
+									<dd className="text-on-surface">{parsed.requiredLiveness ? tCommon("yes") : tCommon("no")}</dd>
 								</div>
 							) : null}
 						</dl>
@@ -173,15 +198,15 @@ export default function HumanIdDecryptResult({ result, onTryAgain, onBackToDemos
 
 				{parsed?.credits && Object.keys(parsed.credits).length > 0 ? (
 					<section className="rounded-xl border border-outline-variant/20 bg-surface-container-high/40 p-4">
-						<h3 className="text-sm font-bold text-primary mb-3">Credits / usage</h3>
-						<CreditsBlock credits={parsed.credits} />
+						<h3 className="text-sm font-bold text-primary mb-3">{t("creditsHeading")}</h3>
+						<CreditsBlock credits={parsed.credits} formatValue={formatValue} t={t} />
 					</section>
 				) : null}
 			</div>
 
 			<details className="rounded-xl border border-outline-variant/20 bg-surface-container-low/50 px-4 py-3 group">
 				<summary className="cursor-pointer list-none font-bold text-sm text-on-surface-variant flex items-center justify-between gap-2">
-					<span>Raw response (debug)</span>
+					<span>{t("rawDebug")}</span>
 					<span className="material-symbols-outlined text-on-surface-variant/70 group-open:rotate-180 transition-transform text-lg">
 						expand_more
 					</span>
@@ -197,14 +222,14 @@ export default function HumanIdDecryptResult({ result, onTryAgain, onBackToDemos
 					onClick={onTryAgain}
 					className="flex-1 py-3 bg-surface-container text-on-surface font-semibold rounded-lg ghost-border hover:bg-surface-container-high transition-all active:scale-95"
 				>
-					Try Again
+					{t("tryAgain")}
 				</button>
 				<button
 					type="button"
 					onClick={onBackToDemos}
 					className="flex-1 py-3 bg-primary-cta text-on-primary-container font-semibold rounded-lg shadow-primary hover:opacity-90 active:scale-95 transition-all"
 				>
-					Back to Demos
+					{t("backToDemos")}
 				</button>
 			</div>
 		</div>

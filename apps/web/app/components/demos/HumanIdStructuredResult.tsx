@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { useTranslations } from "next-intl";
 
 function truncateMiddle(s: string, head = 28, tail = 16): string {
 	if (s.length <= head + tail + 3) return s;
@@ -11,9 +12,9 @@ function isPlainObject(v: unknown): v is Record<string, unknown> {
 	return v !== null && typeof v === "object" && !Array.isArray(v);
 }
 
-function formatDisplayValue(v: unknown): string {
+function formatDisplayValue(v: unknown, yes: string, no: string): string {
 	if (v === null || v === undefined) return "";
-	if (typeof v === "boolean") return v ? "Yes" : "No";
+	if (typeof v === "boolean") return v ? yes : no;
 	if (typeof v === "number") return Number.isFinite(v) ? String(v) : "";
 	if (typeof v === "string") return v;
 	return JSON.stringify(v);
@@ -34,16 +35,25 @@ const IPFS_DETAIL_KEYS = [
 	"web3",
 ] as const;
 
-function IpfsDetailRows({ ipfs }: { ipfs: Record<string, unknown> }) {
+function IpfsDetailRows({
+	ipfs,
+	formatValue,
+}: {
+	ipfs: Record<string, unknown>;
+	formatValue: (v: unknown) => string;
+}) {
 	return (
 		<dl className="space-y-2 text-sm">
 			{IPFS_DETAIL_KEYS.map((key) => {
 				const val = ipfs[key];
 				if (val === undefined) return null;
 				return (
-					<div key={key} className="grid grid-cols-1 sm:grid-cols-[minmax(0,11rem)_1fr] gap-x-3 gap-y-1 border-b border-outline-variant/10 pb-2 last:border-0 last:pb-0">
+					<div
+						key={key}
+						className="grid grid-cols-1 sm:grid-cols-[minmax(0,11rem)_1fr] gap-x-3 gap-y-1 border-b border-outline-variant/10 pb-2 last:border-0 last:pb-0"
+					>
 						<dt className="text-on-surface-variant font-medium">{key}</dt>
-						<dd className="font-mono text-xs text-on-surface break-all">{formatDisplayValue(val)}</dd>
+						<dd className="font-mono text-xs text-on-surface break-all">{formatValue(val)}</dd>
 					</div>
 				);
 			})}
@@ -51,7 +61,15 @@ function IpfsDetailRows({ ipfs }: { ipfs: Record<string, unknown> }) {
 	);
 }
 
-function HumanIdCreditsSection({ credits }: { credits: Record<string, unknown> }) {
+function HumanIdCreditsSection({
+	credits,
+	formatValue,
+	t,
+}: {
+	credits: Record<string, unknown>;
+	formatValue: (v: unknown) => string;
+	t: ReturnType<typeof useTranslations>;
+}) {
 	const amt = typeof credits.amount === "number" ? credits.amount : null;
 	const extra = [
 		["status", credits.status],
@@ -67,11 +85,11 @@ function HumanIdCreditsSection({ credits }: { credits: Record<string, unknown> }
 		<>
 			{amt === null ? null : amt < 0 ? (
 				<p className="text-on-surface">
-					Charged: <span className="font-bold tabular-nums">{Math.abs(amt)}</span> credits
+					{t("chargedCredits", { amount: Math.abs(amt) })}
 				</p>
 			) : (
 				<p className="text-on-surface">
-					Credit change: <span className="font-bold tabular-nums">{amt}</span>
+					{t("creditChange", { amount: amt })}
 				</p>
 			)}
 			<dl className="mt-3 space-y-1.5 text-sm">
@@ -80,7 +98,7 @@ function HumanIdCreditsSection({ credits }: { credits: Record<string, unknown> }
 					return (
 						<div key={k} className="flex flex-wrap gap-x-2 gap-y-0.5">
 							<dt className="text-on-surface-variant shrink-0">{k}</dt>
-							<dd className="font-mono text-xs text-on-surface break-all">{formatDisplayValue(v)}</dd>
+							<dd className="font-mono text-xs text-on-surface break-all">{formatValue(v)}</dd>
 						</div>
 					);
 				})}
@@ -103,15 +121,25 @@ export type HumanIdStructuredResultProps = {
 export default function HumanIdStructuredResult({
 	result,
 	successTitle,
-	successDescription = "Your ZelfProof is ready. Details below.",
+	successDescription,
 	zelfQrPngDataUrl = null,
 	onCreateAnother,
 	onBackToDemos,
-	createAnotherLabel = "Create Another",
+	createAnotherLabel,
 }: HumanIdStructuredResultProps) {
+	const t = useTranslations("demos.humanIdStructuredResult");
+	const tCommon = useTranslations("demos.common");
 	const [copiedField, setCopiedField] = useState<string | null>(null);
 	const [showFullZelfProof, setShowFullZelfProof] = useState(false);
 	const [qrLoadFailed, setQrLoadFailed] = useState(false);
+
+	const formatValue = useCallback(
+		(v: unknown) => formatDisplayValue(v, tCommon("yes"), tCommon("no")),
+		[tCommon],
+	);
+
+	const resolvedDescription = successDescription ?? t("defaultSuccessDescription");
+	const resolvedCreateAnother = createAnotherLabel ?? t("defaultCreateAnother");
 
 	const parsedResult = useMemo(() => {
 		if (!result) return null;
@@ -150,21 +178,23 @@ export default function HumanIdStructuredResult({
 					<span className="material-symbols-outlined text-primary text-2xl">check_circle</span>
 					<div>
 						<p className="font-bold text-on-surface text-lg">{successTitle}</p>
-						<p className="text-sm text-on-surface-variant">{successDescription}</p>
+						<p className="text-sm text-on-surface-variant">{resolvedDescription}</p>
 					</div>
 				</div>
 
 				{zelfQrPngDataUrl ? (
 					<section className="mb-6 rounded-xl border border-outline-variant/20 bg-surface-container-high/40 p-4" aria-labelledby="humanid-png-qr-heading">
 						<h3 id="humanid-png-qr-heading" className="text-sm font-bold text-primary mb-2">
-							Human ID QR (PNG)
+							{t("pngQrHeading")}
 						</h3>
 						<p className="text-xs text-on-surface-variant mb-3">
-							Portable QR image returned by <code className="text-primary">encrypt-qr-code</code>. Scan with a verifier app or save the image.
+							{t("pngQrBodyBefore")}{" "}
+							<code className="text-primary">encrypt-qr-code</code>{" "}
+							{t("pngQrBodyAfter")}
 						</p>
 						<div className="flex flex-col sm:flex-row gap-4 items-center sm:items-start">
 							<div className="flex justify-center rounded-xl border border-outline-variant/20 bg-white p-4 shrink-0">
-								<img src={zelfQrPngDataUrl} alt="HumanID QR code" className="w-56 h-56 object-contain" />
+								<img src={zelfQrPngDataUrl} alt={t("qrCodeAlt")} className="w-56 h-56 object-contain" />
 							</div>
 							<div className="flex flex-col gap-2 min-w-0">
 								<a
@@ -172,14 +202,16 @@ export default function HumanIdStructuredResult({
 									download="humanid-qr.png"
 									className="inline-flex items-center justify-center text-sm font-semibold py-2 px-4 rounded-lg bg-primary/15 text-primary border border-primary/30 hover:bg-primary/25 transition-colors w-fit"
 								>
-									Download PNG
+									{t("downloadPng")}
 								</a>
-								<p className="text-xs text-on-surface-variant">Data URL — right-click the image to save works too.</p>
+								<p className="text-xs text-on-surface-variant">{t("dataUrlHint")}</p>
 							</div>
 						</div>
 						{ipfsGatewayUrl ? (
 							<p className="text-xs text-on-surface-variant mt-3 pt-3 border-t border-outline-variant/15">
-								IPFS gateway URL and pin details are in <span className="font-medium text-on-surface">Decentralized storage</span> below.
+								{t("ipfsNotePrefix")}{" "}
+								<span className="font-medium text-on-surface">{t("decentralizedLabel")}</span>{" "}
+								{t("ipfsNoteSuffix")}
 							</p>
 						) : null}
 					</section>
@@ -189,14 +221,14 @@ export default function HumanIdStructuredResult({
 					<section className="mb-6 rounded-xl border border-outline-variant/20 bg-surface-container-high/40 p-4" aria-labelledby="humanid-zelfproof-heading">
 						<div className="flex flex-wrap items-start justify-between gap-2 mb-2">
 							<h3 id="humanid-zelfproof-heading" className="text-sm font-bold text-primary">
-								Human ID (ZelfProof)
+								{t("zelfProofHeading")}
 							</h3>
 							<button
 								type="button"
 								onClick={() => copyText(parsedResult.zelfProof, "zelfProof")}
 								className="text-xs font-semibold text-primary underline underline-offset-2"
 							>
-								{copiedField === "zelfProof" ? "Copied" : "Copy full"}
+								{copiedField === "zelfProof" ? t("copied") : t("copyFull")}
 							</button>
 						</div>
 						{!showFullZelfProof ? (
@@ -214,7 +246,7 @@ export default function HumanIdStructuredResult({
 								onClick={() => setShowFullZelfProof((v) => !v)}
 								className="mt-2 text-xs font-semibold text-on-surface-variant hover:text-primary"
 							>
-								{showFullZelfProof ? "Show less" : "Show full"}
+								{showFullZelfProof ? t("showLess") : t("showFull")}
 							</button>
 						) : null}
 					</section>
@@ -223,11 +255,9 @@ export default function HumanIdStructuredResult({
 				{ipfsGatewayUrl && !zelfQrPngDataUrl ? (
 					<section className="mb-6 rounded-xl border border-outline-variant/20 bg-surface-container-high/40 p-4" aria-labelledby="humanid-gateway-qr-heading">
 						<h3 id="humanid-gateway-qr-heading" className="text-sm font-bold text-primary mb-1">
-							Gateway URL QR (IPFS)
+							{t("gatewayQrHeading")}
 						</h3>
-						<p className="text-xs text-on-surface-variant mb-3">
-							Scan to open the pinned JSON on the IPFS gateway (same as the link below).
-						</p>
+						<p className="text-xs text-on-surface-variant mb-3">{t("gatewayQrBody")}</p>
 						<div className="flex flex-col sm:flex-row gap-4 items-start">
 							{qrSrc ? (
 								<div className="shrink-0 rounded-lg border border-outline-variant/20 bg-white p-2">
@@ -250,7 +280,7 @@ export default function HumanIdStructuredResult({
 								>
 									{ipfsGatewayUrl}
 								</a>
-								<p className="text-xs text-on-surface-variant">Opens in a new tab.</p>
+								<p className="text-xs text-on-surface-variant">{t("opensNewTab")}</p>
 							</div>
 						</div>
 					</section>
@@ -259,12 +289,12 @@ export default function HumanIdStructuredResult({
 				{parsedResult?.ipfs ? (
 					<section className="mb-6 rounded-xl border border-outline-variant/20 bg-surface-container-high/40 p-4" aria-labelledby="humanid-ipfs-heading">
 						<h3 id="humanid-ipfs-heading" className="text-sm font-bold text-primary mb-3">
-							Decentralized storage (IPFS)
+							{t("ipfsSectionTitle")}
 						</h3>
-						<IpfsDetailRows ipfs={parsedResult.ipfs} />
+						<IpfsDetailRows ipfs={parsedResult.ipfs} formatValue={formatValue} />
 						{isPlainObject(parsedResult.ipfs.metadata) ? (
 							<div className="mt-4">
-								<p className="text-xs font-semibold text-on-surface-variant mb-1">metadata</p>
+								<p className="text-xs font-semibold text-on-surface-variant mb-1">{t("metadataLabel")}</p>
 								<pre className="text-[0.65rem] font-mono bg-surface-container-high rounded-lg p-3 overflow-x-auto text-on-surface border border-outline-variant/15">
 									{JSON.stringify(parsedResult.ipfs.metadata, null, 2)}
 								</pre>
@@ -276,16 +306,16 @@ export default function HumanIdStructuredResult({
 				{parsedResult?.credits ? (
 					<section className="rounded-xl border border-outline-variant/20 bg-surface-container-high/40 p-4" aria-labelledby="humanid-credits-heading">
 						<h3 id="humanid-credits-heading" className="text-sm font-bold text-primary mb-3">
-							Credits / usage
+							{t("creditsSectionTitle")}
 						</h3>
-						<HumanIdCreditsSection credits={parsedResult.credits} />
+						<HumanIdCreditsSection credits={parsedResult.credits} formatValue={formatValue} t={t} />
 					</section>
 				) : null}
 			</div>
 
 			<details className="rounded-xl border border-outline-variant/20 bg-surface-container-low/50 px-4 py-3 group">
 				<summary className="cursor-pointer list-none font-bold text-sm text-on-surface-variant flex items-center justify-between gap-2">
-					<span>Raw response (debug)</span>
+					<span>{t("rawDebug")}</span>
 					<span className="material-symbols-outlined text-on-surface-variant/70 group-open:rotate-180 transition-transform text-lg">
 						expand_more
 					</span>
@@ -301,14 +331,14 @@ export default function HumanIdStructuredResult({
 					onClick={onCreateAnother}
 					className="flex-1 py-3 bg-surface-container text-on-surface font-semibold rounded-lg ghost-border hover:bg-surface-container-high transition-all active:scale-95"
 				>
-					{createAnotherLabel}
+					{resolvedCreateAnother}
 				</button>
 				<button
 					type="button"
 					onClick={onBackToDemos}
 					className="flex-1 py-3 bg-primary-cta text-on-primary-container font-semibold rounded-lg shadow-primary hover:opacity-90 active:scale-95 transition-all"
 				>
-					Back to Demos
+					{t("backToDemos")}
 				</button>
 			</div>
 		</div>

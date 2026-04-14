@@ -1,0 +1,82 @@
+{
+  "headerTitle": "Xóa người",
+  "heroTitleForm": "Xóa người",
+  "heroTitleResult": "Yêu cầu đã hoàn thành",
+  "heroSubtitleForm": "Xóa toàn bộ một người hoặc chỉ xóa họ khỏi một bộ sưu tập (cập nhật một phần).",
+  "heroSubtitleResult": "API đã phản hồi. Xem bản tóm tắt dưới đây.",
+  "fullDeleteRich": "<strong>Xóa toàn bộ:</strong> bỏ tham số <code>collection</code> — người dùng được gỡ hoàn toàn khỏi nhận dạng khuôn mặt và hồ sơ dự án của bạn.",
+  "partialDeleteRich": "<strong>Gỡ khỏi một bộ sưu tập:</strong> truyền <code>collection</code> dưới dạng tham số query bằng <highlight>mã</highlight> bộ sưu tập (UUID), khớp giá trị trong mảng <code>collections</code> của người đó. Danh sách chỉ hiển thị các bộ sưu tập mà người này thuộc (từ GET person).",
+  "personLabel": "Người",
+  "personHint": "Danh sách từ GET /v2/face-recognition/persons — giống Cập nhật người.",
+  "noPeopleEmpty": "Không tìm thấy người nào. Trước tiên hãy đăng ký ai đó trong Tạo người.",
+  "loadingPersonCollections": "Đang tải bộ sưu tập cho người này…",
+  "modeLegend": "Cách thức",
+  "modeFullTitle": "Xóa hoàn toàn",
+  "modeFullHint": "DELETE /persons/:id with no query params.",
+  "modeCollectionTitle": "Chỉ xóa khỏi bộ sưu tập",
+  "modeCollectionHint": "DELETE /persons/:id?collection=<collection code (UUID)>",
+  "collectionLabel": "Bộ sưu tập",
+  "emptyPickerLoading": "Đang tải…",
+  "emptyPickerSelectPerson": "Chọn một người đầu tiên.",
+  "emptyPickerNoMatch": "Không có bộ sưu tập phù hợp cho người này (kiểm tra GET person hoặc danh sách bộ sưu tập).",
+  "emptyPickerNoLoaded": "Không có bộ sưu tập nào được tải.",
+  "errSelectCollection": "Chọn một bộ sưu tập để xóa người đó.",
+  "submitFull": "Xóa người",
+  "submitCollection": "Xóa khỏi bộ sưu tập",
+  "processing": "Đang gửi yêu cầu…",
+  "resultNoPersonDocTitle": "Người đã bị xóa",
+  "resultNoPersonDocBody": "Máy chủ không trả lại tài liệu người (thường sau khi xóa toàn bộ). Kiểm tra payload thô nếu bạn cần chi tiết.",
+  "confirmTitleFull": "Xóa người này?",
+  "confirmTitleCollection": "Xóa khỏi bộ sưu tập?",
+  "confirmDescFull": "Xóa hoàn toàn người này khỏi dự án của bạn? Hành động này không thể hoàn tác.",
+  "confirmDescCollection": "Xóa người này khỏi bộ sưu tập đã chọn? Nếu đây là bộ sưu tập duy nhất của họ, máy chủ có thể xóa người đó hoàn toàn.",
+  "confirmSubmitFull": "Xóa người",
+  "confirmSubmitCollection": "Xóa khỏi bộ sưu tập",
+  "apiRefSummary": "Tham chiếu API: Xóa người",
+  "apiRefOfficialDocs": "Tài liệu chính thức:",
+  "apiRefLinkLabel": "docs.verifik.co/resources/persons/delete-a-person",
+  "apiRefEndpointLine": "DELETE https://api.verifik.co/v2/face-recognition/persons/<personId>",
+  "apiRefOptionalQuery": "Tùy chọn: ?collection=<collectionCodeUuid> (cùng id như trong danh sách collections của người)",
+  "relatedDocs": {
+    "0": {
+      "title": "Đối tượng Người",
+      "description": "Các trường và cấu trúc của hồ sơ người nhận dạng khuôn mặt.",
+      "badge": "Object"
+    },
+    "1": {
+      "title": "Liệt kê tất cả những người",
+      "description": "Truy xuất danh sách tất cả những người trong hệ thống nhận dạng khuôn mặt.",
+      "badge": "GET"
+    },
+    "2": {
+      "title": "Truy xuất một người",
+      "description": "Truy xuất một bản ghi người cụ thể bằng cách sử dụng mã định danh duy nhất của nó.",
+      "badge": "GET"
+    },
+    "3": {
+      "title": "Xóa một người",
+      "description": "Xóa hồ sơ người khỏi hệ thống nhận dạng khuôn mặt.",
+      "badge": "DELETE"
+    },
+    "4": {
+      "title": "Tạo một người",
+      "description": "Tạo một người mới trong hệ thống nhận dạng khuôn mặt.",
+      "badge": "POST"
+    },
+    "5": {
+      "title": "Tạo người kèm liveness",
+      "description": "Đăng ký với liveness, tìm kiếm trùng lặp và gộp tùy chọn.",
+      "badge": "POST"
+    },
+    "6": {
+      "title": "Cập nhật một người",
+      "description": "Hồ sơ, hình ảnh, bộ sưu tập, v.v.",
+      "badge": "PUT"
+    },
+    "7": {
+      "title": "Tổng quan người",
+      "description": "Tổng quan về hồ sơ người và dữ liệu sinh trắc học trong dự án của bạn.",
+      "badge": "Object"
+    }
+  }
+}

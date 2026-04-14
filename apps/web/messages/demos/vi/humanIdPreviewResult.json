@@ -1,0 +1,13 @@
+{
+  "successTitle": "Xem trước HumanID",
+  "successSubtitle": "Siêu dữ liệu công khai và các yêu cầu từ ZelfProof của bạn.",
+  "summaryHeading": "Bản tóm tắt",
+  "passwordLayerLabel": "Lớp mật khẩu",
+  "passwordNoPassword": "Không có mật khẩu",
+  "passwordRequired": "Yêu cầu mật khẩu",
+  "livenessRequiredLabel": "Cần có sự sống động",
+  "publicDataHeading": "Dữ liệu công khai",
+  "rawDebug": "Phản hồi thô (gỡ lỗi)",
+  "previewAnother": "Xem trước cái khác",
+  "backToDemos": "Quay lại bản demo"
+}

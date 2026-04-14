@@ -1,0 +1,84 @@
+{
+  "headerTitle": "사람 만들기",
+  "heroTitleForm": "사람 만들기",
+  "heroTitleResult": "등록된 사람",
+  "heroTitleConflict": "이미 등록됨",
+  "heroSubtitleForm": "얼굴 이미지와 메타데이터를 사용하여 새 사람을 등록하세요.",
+  "heroSubtitleResult": "OpenCV에 등록된 사람이 있습니다.",
+  "heroSubtitleConflict": "이 얼굴은 기존 사람과 일치합니다. 사용한 이미지를 검토하고 다음 단계를 선택하세요.",
+  "fullNameLabel": "이름",
+  "namePlaceholder": "제인 도",
+  "genderLabel": "성별",
+  "dobLabel": "생일",
+  "nationalityLabel": "국적",
+  "nationalityPlaceholder": "CO",
+  "collectionsLabel": "컬렉션",
+  "noCollectionsLead": "아직 컬렉션이 없습니다.",
+  "noCollectionsCta": "컬렉션 만들기",
+  "noCollectionsTail": "첫 번째.",
+  "faceImagesLabel": "얼굴 이미지",
+  "chooseOneDescription": "카메라로 스캔하거나 사진을 업로드하세요. 각 캡처는 등록된 얼굴 이미지에 추가됩니다.",
+  "cameraTitle": "라이브 카메라",
+  "cameraSubtitle": "카메라를 열고 얼굴 이미지 한 장을 캡처하세요.",
+  "uploadTitle": "갤러리의 사진",
+  "uploadSubtitle": "장치에서 하나 이상의 이미지 파일을 선택하십시오.",
+  "submit": "개인 등록",
+  "processing": "사람을 등록하는 중…",
+  "apiRefSummary": "API 참조: 사람 만들기",
+  "apiRefOfficialDocs": "공식 문서:",
+  "apiRefLinkLabel": "docs.verifik.co/resources/create-a-person",
+  "apiRefBody": "Base URL https://api.verifik.co. Send JSON with profile fields and at least one base64 face image per entry in images (no data URL prefix). The public docs also list optional fields such as notes, email, and phone.",
+  "apiRefEndpoint": "POST /v2/face-recognition/persons",
+  "apiRefEndpointDesc": "OpenCV 지원 인식을 위한 얼굴 생체 인식을 사용하여 지정된 컬렉션 ID(컬렉션 _id 값)에 새 사람을 등록합니다.",
+  "paramName": "이름",
+  "paramNameDesc": "표시 이름",
+  "paramImages": "이미지",
+  "paramImagesDesc": "base64 얼굴 이미지 배열(데이터 URL이 아닌 원시 base64)",
+  "paramGender": "성별",
+  "paramGenderDesc": "M 또는 F(이 데모에서는 필수)",
+  "paramDob": "생일",
+  "paramDobDesc": "YYYY-MM-DD(이 데모에 필요)",
+  "paramCollections": "컬렉션",
+  "paramCollectionsDesc": "컬렉션 _id 문자열 배열; 이 데모에서는 GET /v2/face-recognition/collections에서 이를 로드하고 하나 이상을 선택할 수 있습니다.",
+  "paramNationality": "국적",
+  "paramNationalityDesc": "선택적 국가/국적 코드 또는 라벨",
+  "bullet1": "이 데모에서는 세션 토큰과 함께 @humanauthn/api-client의 createPerson을 사용합니다.",
+  "bullet2": "응답에는 환경에 따라 데이터와 함께 ID 및 서명 블록이 포함될 수 있습니다.",
+  "relatedDocs": {
+    "0": {
+      "title": "사람 객체",
+      "description": "얼굴인식 개인기록의 필드 및 구조입니다.",
+      "badge": "Object"
+    },
+    "1": {
+      "title": "모든 개인 나열",
+      "description": "선택적 필터가 포함된 고객의 사람입니다.",
+      "badge": "GET"
+    },
+    "2": {
+      "title": "사람 검색",
+      "description": "아이디별 1인입니다.",
+      "badge": "GET"
+    },
+    "3": {
+      "title": "개인 업데이트",
+      "description": "프로필, 이미지, 컬렉션 등.",
+      "badge": "PUT"
+    },
+    "4": {
+      "title": "Delete a Person",
+      "description": "ID별로 개인 기록을 제거합니다.",
+      "badge": "DELETE"
+    },
+    "5": {
+      "title": "개인 업데이트(데모)",
+      "description": "기존 개인 ID에 대한 프로필 또는 컬렉션을 변경합니다.",
+      "badge": "Demo"
+    },
+    "6": {
+      "title": "사람 삭제 (데모)",
+      "description": "컬렉션에서만 전체 삭제 또는 제거.",
+      "badge": "Demo"
+    }
+  }
+}

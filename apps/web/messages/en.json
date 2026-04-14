@@ -1,0 +1,193 @@
+{
+  "RootLayout": {
+    "titleDefault": "HumanAuthn: Biometric API Demo",
+    "titleTemplate": "%s | HumanAuthn",
+    "description": "HumanAuthn by Verifik. Enterprise-grade liveness detection, face comparison, and biometric authentication.",
+    "keywords": [
+      "biometric authentication",
+      "liveness detection",
+      "face comparison",
+      "identity verification",
+      "Verifik",
+      "HumanAuthn",
+      "HumanID"
+    ],
+    "ogTitle": "HumanAuthn: Biometric API Demo",
+    "ogDescription": "Enterprise-grade biometric authentication APIs by Verifik",
+    "ogSiteName": "HumanAuthn"
+  },
+  "SplashPage": {
+    "metaTitle": "HumanAuthn: Biometric API Demo by Verifik",
+    "metaDescription": "Securely authenticate with liveness detection. The gold standard for digital identity verification. Powered by Verifik.",
+    "heroImageAlt": "Biometric facial recognition scan",
+    "readinessBadge": "Biometric Readiness: Active",
+    "brandPill": "Verifik · HumanAuthn",
+    "headlineLine1": "Human",
+    "headlineLine2": "Authn",
+    "tagline": "Securely authenticate with liveness detection. The gold standard for digital access.",
+    "ctaPrimary": "Get Started",
+    "ctaSecondary": "Explore Demos →",
+    "trustAria": "Security certifications"
+  },
+  "HomeHeader": {
+    "accountFallback": "Account",
+    "signIn": "Sign In",
+    "accountMenuAria": "Account menu",
+    "credits": "Credits",
+    "settings": "Settings",
+    "signOut": "Sign out",
+    "homeAria": "Verifik: Home"
+  },
+  "LanguageSwitcher": {
+    "ariaLabel": "Language",
+    "en": "English",
+    "es": "Español",
+    "pt": "Português",
+    "fr": "Français",
+    "hi": "हिन्दी",
+    "zh": "简体中文",
+    "ko": "한국어",
+    "ja": "日本語",
+    "de": "Deutsch",
+    "id": "Bahasa Indonesia",
+    "vi": "Tiếng Việt",
+    "tr": "Türkçe",
+    "ar": "العربية"
+  },
+  "home": {
+    "metaTitle": "Demo Dashboard",
+    "metaDescription": "Authentication anchored to human presence. Run Verifik's live biometric demos for face match, liveness, and HumanID in the browser.",
+    "heroEyebrow": "Biometrics · Live demos",
+    "heroTitle": "HumanAuthn · Enterprise grade biometrics",
+    "heroBody": "Run face match, liveness, HumanID, and live detection in the browser. Traditional biometrics cover server-side OpenCV collection management and search. Decentralized HumanAuthn demos show how a HumanID binds identity data to a live face without a central face database.",
+    "traditionalEyebrow": "OpenCV · Server-side gallery",
+    "traditionalTitle": "Traditional Biometrics",
+    "decentralizedEyebrow": "HumanAuthn · HumanID",
+    "decentralizedTitle": "Decentralized Biometrics · HumanAuthn",
+    "enterpriseEyebrow": "Verifik Platform",
+    "enterpriseTitle": "Enterprise Grade Security",
+    "enterpriseBody": "Our platform processes biometric data with end-to-end encryption. Privacy by design, ready for serious deployments.",
+    "pillGdpr": "GDPR Compliant",
+    "pillAes": "AES-256",
+    "pillSoc2": "SOC 2 Ready",
+    "navIdentity": "Identity",
+    "navSecurity": "Security",
+    "navSettings": "Settings",
+    "demoCta": "Run demo",
+    "sections": {
+      "enroll": "Enroll",
+      "manage": "Manage",
+      "search": "Search",
+      "detection": "Detection",
+      "comparison": "Comparison"
+    },
+    "demos": {
+      "create-collection": {
+        "badge": "Enroll",
+        "title": "Create Collection",
+        "description": "Create a named face collection to group enrolled persons for search and verification."
+      },
+      "create-person": {
+        "badge": "Enroll",
+        "title": "Create Person",
+        "description": "Enroll a new person by uploading face images and metadata. Stored in an OpenCV collection."
+      },
+      "create-person-with-liveness": {
+        "badge": "Enroll",
+        "title": "Create Person with Liveness",
+        "description": "Enroll a person while simultaneously running a liveness check and searching the collection for duplicates."
+      },
+      "update-person": {
+        "badge": "Manage",
+        "title": "Update Person",
+        "description": "Load a person by id and change profile fields or collection membership (no new face images in this API)."
+      },
+      "delete-person": {
+        "badge": "Manage",
+        "title": "Delete Person",
+        "description": "Delete a person completely or remove them from a single collection when they belong to several."
+      },
+      "search-person": {
+        "badge": "Search",
+        "title": "Search Person",
+        "description": "Upload one or more face images and search the collection for matching persons by similarity score."
+      },
+      "search-live-person": {
+        "badge": "Search",
+        "title": "Search Live Person",
+        "description": "Capture a live face, run liveness detection, and search the collection for a match in one flow."
+      },
+      "search-active-user": {
+        "badge": "Search",
+        "title": "Search Active User",
+        "description": "Authenticate an active user with a live face capture and return a liveness score alongside search results."
+      },
+      "detect-face": {
+        "badge": "Detection",
+        "title": "Detect Face",
+        "description": "Submit an image and detect all faces it contains, returning bounding boxes and crop data."
+      },
+      "search-crops": {
+        "badge": "Detection",
+        "title": "Search Crops",
+        "description": "Run a multi-image crop search to find matching persons across uploaded face crops with precision tuning."
+      },
+      "face-comparison": {
+        "badge": "Comparison",
+        "title": "Face Comparison",
+        "description": "Upload two photos and see if they are the same person. Useful for onboarding and ID checks."
+      },
+      "face-comparison-liveness": {
+        "badge": "Comparison",
+        "title": "Compare with Liveness",
+        "description": "Match a reference photo to a live selfie. Liveness runs only after the face match looks strong enough."
+      },
+      "verify-face": {
+        "badge": "Comparison",
+        "title": "Verify Face",
+        "description": "Verify a face image against a specific enrolled person by ID with a configurable similarity threshold."
+      },
+      "liveness": {
+        "badge": "Anti-spoof",
+        "title": "Liveness Detection",
+        "description": "Show that a real person is in front of the camera, not a photo, mask, or replay."
+      },
+      "humanid-create": {
+        "badge": "Encrypt",
+        "title": "Create HumanID",
+        "description": "Bind public identity data and a face to an encrypted HumanID proof stored on IPFS. Recoverable only by the live face."
+      },
+      "humanid-create-qr": {
+        "badge": "QR",
+        "title": "Create HumanID QR",
+        "description": "Generate a QR-coded HumanID from a face capture and identity metadata for portable offline verification."
+      },
+      "humanid-decrypt": {
+        "badge": "Decrypt",
+        "title": "Decrypt HumanID",
+        "description": "Recover the identity data in a HumanID by presenting the matching live face and the proof string."
+      },
+      "humanid-preview": {
+        "badge": "Preview",
+        "title": "Preview HumanID",
+        "description": "Inspect the public metadata inside a HumanID string without a face image or extra credentials."
+      }
+    }
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "body": "This page does not exist or the link is invalid.",
+    "homeLink": "Back to home"
+  },
+  "settingsNav": {
+    "title": "Settings",
+    "ariaLabel": "Settings sections",
+    "myAccount": "My account",
+    "developers": "Developers",
+    "profile": "Profile",
+    "apiKey": "API Key",
+    "mobileMenu": "Open settings menu",
+    "mobileTitle": "Settings",
+    "closeMenu": "Close menu"
+  }
+}

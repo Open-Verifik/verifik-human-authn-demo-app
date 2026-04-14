@@ -1,0 +1,22 @@
+{
+  "cancel": "إلغاء",
+  "brandTitle": "HumanID",
+  "kicker": "HumanID · مصادقة Verifik",
+  "idleTitle": "وسّط وجهك",
+  "idleSubtitle": "سيُلتقط الكشف تلقائيًا عندما تكون في وضعية مناسبة.",
+  "successTitle": "اكتمل الالتقاط",
+  "successSubtitle": "في الإنتاج سيستدعي هذا التدفق واجهات HumanID / ZelfProof.",
+  "failedTitle": "حدث خطأ",
+  "failedSubtitle": "أعد المحاولة أو حسّن الإضاءة.",
+  "chooseOneDescription": "امسح بالكاميرا أو ارفع صورة. أي خيار يعمل في هذا العرض.",
+  "cameraTitle": "كاميرا مباشرة",
+  "cameraSubtitle": "افتح الكاميرا ووسّط وجهك في الإطار",
+  "uploadTitle": "صورة من المعرض",
+  "uploadSubtitle": "بدلاً من ذلك اختر ملف صورة من جهازك",
+  "uploadPrimary": "رفع صورة",
+  "tryAgain": "إعادة المحاولة",
+  "continueDashboard": "متابعة إلى لوحة التحكم",
+  "engineLine": "ENGINE: HumanAuthn · Verifik",
+  "captureLine": "CAPTURE: Guided (@vladmandic/face-api)",
+  "protocolLine": "PROTOCOL: HUMAN_ID_v1"
+}

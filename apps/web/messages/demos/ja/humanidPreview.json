@@ -1,0 +1,63 @@
+{
+  "headerTitle": "HumanID をプレビューする",
+  "heroTitle": "HumanID をプレビューする",
+  "heroTitleResult": "プレビュー準備完了",
+  "heroSubtitle": "ZelfProof からのパブリック メタデータを検査します。顔も資格も必要ありません。",
+  "humanIdModeLabel": "HumanID",
+  "pasteString": "文字列を貼り付けます",
+  "uploadQrImage": "QR画像をアップロードする",
+  "proofLabel": "ZelfProof 文字列",
+  "proofPlaceholder": "ここに ZelfProof 文字列を貼り付けます…",
+  "qrUploadHelp": "HumanID QR の PNG または JPEG をアップロードします。 QR をデコードし、プレビュー用の証明文字列を入力します。",
+  "chooseQrImage": "QR画像を選択してください",
+  "readingQr": "QRを読み込んでいます…",
+  "secondaryPngJpeg": "PNG または JPEG",
+  "qrPreviewAlt": "QRプレビュー",
+  "extractedHeading": "抽出された HumanID (読み取り専用)",
+  "errorReadProof": "QR プレビュー応答から HumanID を読み取ることができませんでした。",
+  "qrExtractSuccess": "QRから抽出​​されたHumanID。必要に応じて検証キーを追加し、プレビューします。",
+  "verifierKeyOptional": "検証者キー (オプション)",
+  "verifierKeyPlaceholder": "作成時に設定されている場合、追加フィールドのロックを解除します",
+  "previewCta": "プレビュー",
+  "processing": "プレビューを取得中…",
+  "apiRefSummary": "API リファレンス: HumanID のプレビュー",
+  "apiOfficialLead": "公式ドキュメント:",
+  "apiOfficialLinkLabel": "docs.verifik.co/api/tags/preview-zelfproof",
+  "apiOfficialAfter": "(パラメータ、応答、例)。このデモでは、previewHumanId 経由で POST /v2/human-id/preview を呼び出します。これは、現在の API のワークフローと一致します。関連している：",
+  "apiBaseUrlNote": "Base URL https://api.verifik.co. Send JSON with Content-Type: application/json and Authorization: Bearer <access token> (same JWT as this demo after sign in).",
+  "apiPreviewEndpointDesc": "通常の署名付きデータ エンベロープ内のプルーフ用の非機密プレビュー フィールド (パスワードが必要かどうかなど) を返します。",
+  "apiPreviewQrEndpointDesc": "ユーザーが HumanID QR の PNG または JPEG を提供する場合に使用します。 API はペイロードをデコードし、上記のプレビュー呼び出しに送信できる zelfProof を返します。プレビューと同じ JSON ヘッダー。証明で verifierKey を使用する場合のオプションの verifierKey。",
+  "apiBullet1": "このデモでは、previewHumanId を使用し、QR 画像の場合は、セッション トークンを使用して @humanauthn/api-client からのreviewZelfIdQr を使用します。",
+  "apiBullet2": "成功の応答は Verifik パターンに従います: データ オブジェクト (プロジェクトで署名が有効になっている場合は、多くの場合署名)。",
+  "paramZelfProofDesc": "このフォームの貼り付けまたは QR 抽出からの HumanID 文字列",
+  "paramVerifierKeyDesc": "プルーフが検証キーを使用して作成された場合",
+  "paramQrCodeDesc": "データ URL (data:image/png;base64,...) または API で受け入れられる別の形式としての画像 (このデモではファイルからデータ URL を構築します)",
+  "paramVerifierKeyQrDesc": "プルーフで検証キーを使用する場合のプレビューと同じセマンティクス",
+  "relatedDocs": {
+    "0": {
+      "title": "ZelfProof をプレビューする",
+      "description": "公開メタデータを復号化したり他の場所で使用したりする前に、証明から公開メタデータを検査するためのリファレンス。",
+      "badge": "POST"
+    },
+    "1": {
+      "title": "ZelfProof を作成する",
+      "description": "公開フィールドを暗号化し、保存または共有できる新しい HumanID 文字列に顔をキャプチャします。",
+      "badge": "POST"
+    },
+    "2": {
+      "title": "ZelfProof を復号化する",
+      "description": "証明内の ID ペイロードを生きている顔と照合することで、そのペイロードのロックを解除します。",
+      "badge": "POST"
+    },
+    "3": {
+      "title": "QR ZelfProof の作成",
+      "description": "HumanID を埋め込んだ QR を生成し、ユーザーが画面やウォレットからスキャンできるようにします。",
+      "badge": "POST"
+    },
+    "4": {
+      "title": "生存検知",
+      "description": "顔画像がなりすましではなく実際に見えるかどうか専用のチェックを実行します。 HumanID プレビューとは別のものです。",
+      "badge": "POST"
+    }
+  }
+}

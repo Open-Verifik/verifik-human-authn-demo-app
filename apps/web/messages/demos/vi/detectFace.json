@@ -1,0 +1,65 @@
+{
+  "headerTitle": "Phát hiện khuôn mặt",
+  "heroTitleComplete": "Phát hiện hoàn tất",
+  "heroTitleInitial": "Phát hiện khuôn mặt",
+  "heroSubtitleComplete": "Kết quả được hiển thị dưới đây.Đặt lại để chạy phát hiện khác.",
+  "heroSubtitleInitial": "Xác định vị trí các khuôn mặt trong hình ảnh bằng các hộp giới hạn và điểm số (đường dẫn phát hiện OpenCV).",
+  "minScoreLabel": "Điểm tối thiểu {score}",
+  "searchModeLabel": "Chế độ tìm kiếm",
+  "chooseOneDescription": "Quét bằng máy ảnh của bạn hoặc tải ảnh lên.Một trong hai tùy chọn đều hoạt động cho bản demo này.",
+  "cameraTitle": "Máy ảnh trực tiếp",
+  "cameraSubtitle": "Mở máy ảnh và căn chỉnh khuôn mặt của bạn trong khung",
+  "uploadTitle": "Ảnh từ thư viện",
+  "uploadSubtitle": "Thay vào đó, hãy chọn tệp hình ảnh từ thiết bị của bạn",
+  "uploadPrimary": "Tải hình ảnh lên",
+  "uploadSecondary": "JPEG hoặc PNG từ thư viện của bạn",
+  "previewAlt": "Xem trước",
+  "detecting": "Đang phát hiện…",
+  "detectFaces": "Phát hiện khuôn mặt",
+  "resultTitle": "Kết quả phát hiện",
+  "reset": "Cài lại",
+  "apiRefSummary": "Tham chiếu API: Nhận diện khuôn mặt",
+  "apiRefLinkSuffix": "(tổng quan về nhận diện khuôn mặt, tải trọng mẫu và hình dạng phản hồi).",
+  "apiRefBody": "Bản demo này gọi cùng một tuyến POST /v2/face-recognition/detect bằng cách sử dụng min_score và search_mode theo xác thực API hiện tại. Bộ sưu tập_id và max_results tùy chọn được khách hàng hỗ trợ nhưng không được hiển thị trong biểu mẫu bên dưới.",
+  "apiRefEndpoint": "POST /v2/face-recognition/detect",
+  "apiRefEndpointDesc": "Trả về các khuôn mặt được phát hiện cùng với hình học và điểm số.Hướng dẫn Nhận diện khuôn mặt đã xuất bản cũng ghi lại các cờ tùy chọn như return_landmarks nếu được hỗ trợ.",
+  "paramImageDesc": "Hình ảnh thăm dò Base64 (base64 thô hoặc URI dữ liệu trên mỗi API)",
+  "paramMinScoreDesc": "Ngưỡng, thường là 0,5–1",
+  "paramSearchModeDesc": "FAST hoặc ACCURATE",
+  "paramCollectionIdDesc": "Phạm vi tùy chọn (không được sử dụng trong giao diện người dùng demo này)",
+  "paramMaxResultsDesc": "Giới hạn tùy chọn (không được sử dụng trong giao diện người dùng demo này)",
+  "bulletApiClient": "Bản demo này sử dụng detectFace từ @humanauthn/api-client với mã thông báo phiên của bạn.",
+  "bulletSearch": "Để nhận dạng 1:N sau khi chụp, hãy sử dụng Tìm kiếm khuôn mặt hoặc Tìm kiếm khuôn mặt trực tiếp từ các tài liệu liên quan.",
+  "relatedDocs": {
+    "0": {
+      "title": "Tìm kiếm khuôn mặt (1:N)",
+      "description": "Tìm kiếm theo hình ảnh khuôn mặt đối với những người đã đăng ký.",
+      "badge": "POST"
+    },
+    "1": {
+      "title": "Tìm kiếm khuôn mặt 1:N (Trực tiếp)",
+      "description": "Sự sống động trên hình ảnh thăm dò, sau đó tìm kiếm 1:N.",
+      "badge": "POST"
+    },
+    "2": {
+      "title": "Tìm kiếm khuôn mặt 1:N (Người dùng đang hoạt động)",
+      "description": "Tìm kiếm 1:N không có sự sống động đối với các luồng phiên hoạt động.",
+      "badge": "POST"
+    },
+    "3": {
+      "title": "Phát hiện sự sống",
+      "description": "Xác định xem một khuôn mặt có phải là khuôn mặt trực tiếp hay giả mạo hay không;điểm sống động.",
+      "badge": "POST"
+    },
+    "4": {
+      "title": "So sánh khuôn mặt",
+      "description": "So sánh khuôn mặt 1:1 để xác minh danh tính dựa trên hình ảnh tham chiếu.",
+      "badge": "POST"
+    },
+    "5": {
+      "title": "So sánh với sự sống động",
+      "description": "So sánh 1:1 cộng với khả năng phát hiện độ sống bằng các ngưỡng có thể định cấu hình.",
+      "badge": "POST"
+    }
+  }
+}

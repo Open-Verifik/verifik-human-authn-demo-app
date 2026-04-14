@@ -1,0 +1,12 @@
+{
+  "title": "Este rosto já está cadastrado",
+  "body": "A API retornou <code>person_already_set</code>. Já existe alguém com um rosto correspondente no seu projeto. Tente outra pessoa ou outra foto, ou abra as demos abaixo para atualizar metadados ou remover o cadastro existente.",
+  "imagesHeading": "Imagem(ns) que você tentou cadastrar",
+  "nextSteps": "Próximos passos",
+  "updateDemo": "Demo Atualizar pessoa",
+  "updateHint": "— altere nome, coleções ou notas de um id de pessoa existente.",
+  "deleteDemo": "Demo Excluir pessoa",
+  "deleteHint": "— exclusão total ou remover só de uma coleção.",
+  "editFormAgain": "Editar formulário e tentar de novo",
+  "backToDemos": "Voltar às demos"
+}

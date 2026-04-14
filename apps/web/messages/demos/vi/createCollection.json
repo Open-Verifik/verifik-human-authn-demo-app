@@ -1,0 +1,57 @@
+{
+  "metaTitle": "Tạo bộ sưu tập",
+  "metaDescription": "Tạo bộ sưu tập khuôn mặt được đặt tên trong thư viện được hỗ trợ OpenCV của bạn.",
+  "headerTitle": "Tạo bộ sưu tập",
+  "heroTitleForm": "Tạo bộ sưu tập",
+  "heroTitleResult": "Đã tạo bộ sưu tập",
+  "heroSubtitleForm": "Tạo một bộ sưu tập có tên để nhóm những người đã đăng ký.",
+  "heroSubtitleResult": "Một bộ sưu tập khuôn mặt mới đã được tạo trong cơ sở dữ liệu OpenCV của bạn.",
+  "nameLabel": "Tên bộ sưu tập",
+  "namePlaceholder": "vd. Nhân viên 2025",
+  "descLabel": "Mô tả",
+  "descPlaceholder": "Mô tả tùy chọn cho bộ sưu tập này",
+  "submit": "Tạo bộ sưu tập",
+  "processing": "Đang tạo bộ sưu tập…",
+  "successTitle": "Đã tạo bộ sưu tập thành công",
+  "createAnother": "Tạo cái khác",
+  "backToDemos": "Quay lại bản demo",
+  "apiRefSummary": "Tham chiếu API: Tạo bộ sưu tập",
+  "apiRefOfficialDocs": "Tài liệu chính thức:",
+  "apiRefLinkLabel": "docs.verifik.co/resources/create-a-collection",
+  "apiRefBody": "URL cơ sở https://api.verifik.co. Gửi nội dung JSON có tên hiển thị và mô tả tùy chọn.",
+  "apiRefEndpoint": "POST /v2/face-recognition/collections",
+  "apiRefEndpointDesc": "Tạo một bộ sưu tập được đặt tên để nhóm những người đã đăng ký để tìm kiếm và xác minh trong cơ sở dữ liệu được OpenCV hỗ trợ của bạn.",
+  "paramName": "name",
+  "paramNameDesc": "Tên hiển thị bộ sưu tập",
+  "paramDescription": "description",
+  "paramDescriptionDesc": "Mô tả tùy chọn",
+  "bullet1": "Bản demo này sử dụng createCollection từ @humanauthn/api-client bằng mã thông báo phiên của bạn.",
+  "bullet2": "Một số môi trường có thể đính kèm khối id hoặc chữ ký trên các phản hồi;hình trên hiển thị tải trọng dữ liệu cốt lõi.",
+  "relatedDocs": {
+    "0": {
+      "title": "Đối tượng Bộ sưu tập",
+      "description": "Các trường và cấu trúc của bộ sưu tập nhận dạng khuôn mặt.",
+      "badge": "Object"
+    },
+    "1": {
+      "title": "Liệt kê tất cả các bộ sưu tập",
+      "description": "Tất cả các bộ sưu tập cho khách hàng được xác thực.",
+      "badge": "GET"
+    },
+    "2": {
+      "title": "Truy xuất Bộ sưu tập",
+      "description": "Một bộ sưu tập duy nhất theo id.",
+      "badge": "GET"
+    },
+    "3": {
+      "title": "Cập nhật bộ sưu tập",
+      "description": "Tên, mô tả, dự án tùy chọn hoặc danh sách người.",
+      "badge": "PUT"
+    },
+    "4": {
+      "title": "Xóa bộ sưu tập",
+      "description": "Xóa bộ sưu tập theo id và dọn sạch dữ liệu được liên kết.",
+      "badge": "DELETE"
+    }
+  }
+}

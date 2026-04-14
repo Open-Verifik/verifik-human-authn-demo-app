@@ -1,0 +1,22 @@
+{
+  "cancel": "取消",
+  "brandTitle": "HumanID",
+  "kicker": "HumanID · Verifik 身份认证",
+  "idleTitle": "将人脸置于中央",
+  "idleSubtitle": "对准后将自动进行人脸检测与采集。",
+  "successTitle": "采集完成",
+  "successSubtitle": "生产环境中此画面将调用 HumanID / ZelfProof API。",
+  "failedTitle": "出现问题",
+  "failedSubtitle": "请重试或改善光线。",
+  "chooseOneDescription": "使用摄像头扫描或上传照片。两种方式均可用于本演示。",
+  "cameraTitle": "实时摄像头",
+  "cameraSubtitle": "打开摄像头并将人脸对准画框",
+  "uploadTitle": "从相册选择照片",
+  "uploadSubtitle": "或从设备选择一张图像文件",
+  "uploadPrimary": "上传图像",
+  "tryAgain": "重试",
+  "continueDashboard": "前往控制台",
+  "engineLine": "ENGINE: HumanAuthn · Verifik",
+  "captureLine": "CAPTURE: Guided (@vladmandic/face-api)",
+  "protocolLine": "PROTOCOL: HUMAN_ID_v1"
+}

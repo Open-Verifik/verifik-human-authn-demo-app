@@ -1,0 +1,78 @@
+{
+  "headerTitle": "HumanID 암호 해독",
+  "heroTitle": "HumanID 암호 해독",
+  "heroTitleResult": "해독됨",
+  "heroSubtitle": "일치하는 실제 얼굴을 제시하여 신원 데이터를 복구합니다.",
+  "humanIdModeLabel": "HumanID",
+  "pasteString": "문자열 붙여넣기",
+  "uploadQrImage": "QR 이미지 업로드",
+  "proofLabel": "HumanID",
+  "proofPlaceholder": "여기에 HumanID를 붙여넣으세요…",
+  "qrUploadHelp": "HumanID QR(바이너리 페이로드)의 PNG 또는 JPEG를 업로드하세요. HumanID를 추출하기 위해 Preview-zelf-id-qr을 호출합니다.",
+  "chooseQrImage": "QR 이미지 선택",
+  "readingQr": "QR 읽는 중…",
+  "secondaryPngJpeg": "PNG 또는 JPEG",
+  "qrPreviewAlt": "QR 미리보기",
+  "extractedHeading": "추출된 HumanID(읽기 전용)",
+  "errorReadProof": "미리보기 응답에서 HumanID를 읽을 수 없습니다.",
+  "qrExtractSuccess": "QR에서 추출한 HumanID입니다. 아래에서 암호를 해독할 수 있습니다.",
+  "passwordOptional": "비밀번호(선택사항)",
+  "passwordPlaceholder": "증명이 비밀번호로 생성된 경우에만",
+  "faceImageLabel": "얼굴 이미지",
+  "chooseOneDescription": "카메라로 스캔하거나 사진을 업로드하세요. 두 옵션 모두 이 단계에서 작동합니다.",
+  "cameraTitle": "라이브 카메라",
+  "cameraSubtitle": "카메라를 열고 프레임에 얼굴을 맞춥니다.",
+  "uploadTitle": "갤러리의 사진",
+  "uploadSubtitle": "대신 기기에서 이미지 파일을 선택하세요.",
+  "uploadPrimary": "이미지 업로드",
+  "changeFaceImage": "얼굴 이미지 변경",
+  "facePreviewAlt": "얼굴",
+  "decryptCta": "암호 해독",
+  "processing": "신원을 해독하는 중…",
+  "apiRefSummary": "API 참조: HumanID 복호화",
+  "apiOfficialGuide": "공식 가이드:",
+  "apiOfficialParen": "(요청 및 응답 필드, 선택적 비밀번호 및 검증자 키, 호출 예시)",
+  "apiRelated": "관련된:",
+  "apiDecryptLinkText": "docs.verifik.co/functions/decrypt-zelfproof",
+  "apiBaseUrlNote": "Base URL https://api.verifik.co. Send JSON with Content-Type: application/json and Authorization: Bearer <access token> (same JWT as this demo after sign in).",
+  "apiDecryptEndpointDesc": "얼굴 이미지를 증거와 비교한 다음 일치가 성공하면 일반적으로 서명된 데이터 봉투 내에 해독된 공개 필드 및 관련 페이로드(예: 얼굴 자르기 및 난이도)를 반환합니다.",
+  "apiPreviewQrEndpointDesc": "사용자가 HumanID QR의 PNG 또는 JPEG를 제공할 때 사용합니다. API는 QR 페이로드를 읽고, 문자열 미리보기와 동일한 종류의 미리보기를 실행하고, 해독에 전달할 수 있는 zelfProof를 반환합니다. 선택적 verifierKey는 증명이 생성될 때 적용됩니다. 암호 해독과 동일한 JSON 헤더입니다.",
+  "apiBullet1": "Decrypt는 @humanauthn/api-client의 decryptHumanId를 사용합니다. QR 업로드에서는 PreviewZelfIdQr을 먼저 사용한 다음 반환된 증명 문자열로 암호를 해독합니다.",
+  "apiBullet2": "성공 응답은 Verifik 패턴, 즉 데이터 개체(그리고 종종 프로젝트에 서명이 활성화될 때 서명)를 따릅니다.",
+  "apiBullet3": "얼굴 이미지 없이 교정본을 검사하려면 Preview HumanID 데모(previewHumanId) 또는 위에 링크된 Preview ZelfProof 가이드를 엽니다.",
+  "paramFaceBase64Desc": "원시 base64의 얼굴 이미지(이 데모는 다른 생체인식 데모와 동일한 형식을 사용합니다)",
+  "paramOsDesc": "DESKTOP, IOS 또는 ANDROID(데모에서는 DESKTOP 사용)",
+  "paramZelfProofDesc": "붙여넣기 또는 이 형식의 QR 이미지 추출에서 얻은 HumanID 문자열",
+  "paramPasswordDesc": "증명이 비밀번호로 생성된 경우에만",
+  "paramLivenessLevelDesc": "설정되면 암호 해독에 대한 서버 활성 기대치와 일치합니다(공식 가이드 참조).",
+  "paramVerifierKeyDesc": "검증자 키를 사용하여 증명이 생성된 경우",
+  "paramQrCodeDesc": "데이터 URL(data:image/png;base64,...) 또는 API에서 허용하는 다른 형식의 이미지(이 데모는 파일에서 데이터 URL을 구축합니다)",
+  "paramVerifierKeyQrDesc": "증명에서 검증자 키를 사용할 때 암호 해독과 동일한 의미",
+  "relatedDocs": {
+    "0": {
+      "title": "ZelfProof 암호 해독",
+      "description": "실제 얼굴과 일치시켜 증명 내의 신원 페이로드를 잠금 해제하세요. 증명이 생성되었을 때 선택적인 비밀번호를 하나의 비밀번호로 다룹니다.",
+      "badge": "POST"
+    },
+    "1": {
+      "title": "ZelfProof 생성",
+      "description": "공개 필드와 얼굴 캡처를 저장하거나 공유할 수 있는 새로운 HumanID 문자열로 암호화하세요.",
+      "badge": "POST"
+    },
+    "2": {
+      "title": "ZelfProof 미리보기",
+      "description": "얼굴 이미지를 전송하지 않고 공개 메타데이터와 암호 해독 전에 필요한 사항을 검사하세요. Preview HumanID 데모는 현재 API와 동일한 아이디어를 따릅니다.",
+      "badge": "POST"
+    },
+    "3": {
+      "title": "QR ZelfProof 생성",
+      "description": "사람들이 화면이나 지갑에서 스캔할 수 있도록 HumanID가 포함된 QR을 생성하세요.",
+      "badge": "POST"
+    },
+    "4": {
+      "title": "생체 감지",
+      "description": "얼굴 이미지가 스푸핑된 것이 아니라 실제처럼 보이는지 전용 검사를 실행하세요. 이는 HumanID 암호화 및 복호화와는 별개입니다.",
+      "badge": "POST"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Ce visage est déjà enrôlé",
+  "body": "L'API a renvoyé <code>person_already_set</code>. Une personne avec un visage correspondant existe déjà dans votre projet. Essayez une autre personne ou une autre photo, ou ouvrez les démos ci-dessous pour mettre à jour les métadonnées ou supprimer l'enrôlement existant.",
+  "imagesHeading": "Image(s) que vous avez tenté d'enrôler",
+  "nextSteps": "Étapes suivantes",
+  "updateDemo": "Démo Mettre à jour une personne",
+  "updateHint": "— modifiez le nom, les collections ou les notes d'un id personne existant.",
+  "deleteDemo": "Démo Supprimer une personne",
+  "deleteHint": "— suppression complète ou retrait d'une seule collection.",
+  "editFormAgain": "Modifier le formulaire et réessayer",
+  "backToDemos": "Retour aux démos"
+}

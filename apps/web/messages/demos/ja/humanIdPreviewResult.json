@@ -1,0 +1,13 @@
+{
+  "successTitle": "HumanID プレビュー",
+  "successSubtitle": "ZelfProof からの公開メタデータと要件。",
+  "summaryHeading": "まとめ",
+  "passwordLayerLabel": "パスワード層",
+  "passwordNoPassword": "パスワードなし",
+  "passwordRequired": "パスワードが必要です",
+  "livenessRequiredLabel": "活発さが必要",
+  "publicDataHeading": "公開データ",
+  "rawDebug": "生の応答 (デバッグ)",
+  "previewAnother": "別のプレビュー",
+  "backToDemos": "デモに戻る"
+}

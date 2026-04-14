@@ -1,0 +1,19 @@
+{
+  "successTitle": "HumanID đã được giải mã",
+  "successSubtitle": "Dữ liệu nhận dạng được khôi phục từ ZelfProof của bạn.",
+  "identifierHeading": "Mã định danh",
+  "publicDataHeading": "Dữ liệu công khai",
+  "metadataHeading": "Siêu dữ liệu",
+  "difficultyHeading": "Khó khăn",
+  "faceCropHeading": "Cắt mặt",
+  "faceCropAlt": "Cắt khuôn mặt được giải mã từ bằng chứng",
+  "sessionHeading": "Phiên họp",
+  "chargedLabel": "Đã tính phí",
+  "livenessRequiredLabel": "Cần có sự sống động",
+  "creditsHeading": "Tín dụng/cách sử dụng",
+  "chargedCredits": "Đã tính phí: {amount} tín dụng",
+  "creditChange": "Thay đổi tín dụng: {amount}",
+  "rawDebug": "Phản hồi thô (gỡ lỗi)",
+  "tryAgain": "Thử lại",
+  "backToDemos": "Quay lại bản demo"
+}

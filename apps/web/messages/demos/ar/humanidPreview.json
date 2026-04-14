@@ -1,0 +1,63 @@
+{
+  "headerTitle": "معاينة HumanID",
+  "heroTitle": "معاينة HumanID",
+  "heroTitleResult": "المعاينة جاهزة",
+  "heroSubtitle": "اطلع على البيانات الوصفية العامة من ZelfProof. لا حاجة لوجه أو بيانات اعتماد.",
+  "humanIdModeLabel": "HumanID",
+  "pasteString": "لصق السلسلة",
+  "uploadQrImage": "رفع صورة QR",
+  "proofLabel": "سلسلة ZelfProof",
+  "proofPlaceholder": "الصق سلسلة ZelfProof هنا…",
+  "qrUploadHelp": "ارفع PNG أو JPEG لرمز QR الخاص بـ HumanID. نفك رمز QR ونملأ سلسلة الدليل للمعاينة.",
+  "chooseQrImage": "اختر صورة QR",
+  "readingQr": "جاري قراءة QR…",
+  "secondaryPngJpeg": "PNG أو JPEG",
+  "qrPreviewAlt": "معاينة QR",
+  "extractedHeading": "HumanID المستخرج (للقراءة فقط)",
+  "errorReadProof": "تعذّر قراءة HumanID من استجابة معاينة QR.",
+  "qrExtractSuccess": "استُخرج HumanID من QR. أضف مفتاح مدقق إن لزم، ثم معاينة.",
+  "verifierKeyOptional": "مفتاح المدقق (اختياري)",
+  "verifierKeyPlaceholder": "يفتح حقولًا إضافية إذا ضُبط أثناء الإنشاء",
+  "previewCta": "معاينة",
+  "processing": "جاري جلب المعاينة…",
+  "apiRefSummary": "مرجع API: معاينة HumanID",
+  "apiOfficialLead": "الوثائق الرسمية:",
+  "apiOfficialLinkLabel": "docs.verifik.co/api/tags/preview-zelfproof",
+  "apiOfficialAfter": "(المعاملات والاستجابات والأمثلة). يستدعي هذا العرض POST /v2/human-id/preview عبر previewHumanId، بما يطابق ذلك السير على واجهة البرمجة الحالية. ذات صلة:",
+  "apiBaseUrlNote": "عنوان الأساس https://api.verifik.co. أرسل JSON مع Content-Type: application/json وAuthorization: Bearer <رمز الوصول> (نفس JWT بعد تسجيل الدخول).",
+  "apiPreviewEndpointDesc": "يعيد حقول معاينة غير حساسة للدليل (مثل ما إذا كانت كلمة المرور مطلوبة) داخل غلاف البيانات الموقّع المعتاد.",
+  "apiPreviewQrEndpointDesc": "استخدمه عندما يوفّر المستخدم PNG أو JPEG لرمز QR الخاص بـ HumanID. تفك واجهة البرمجة الحمولة وتعيد zelfProof يمكن إرساله لاستدعاء المعاينة أعلاه. نفس ترويسات JSON كالمعاينة. verifierKey اختياري عند استخدام الدليل لواحد.",
+  "apiBullet1": "يستخدم هذا العرض previewHumanId ولصور QR، previewZelfIdQr من @humanauthn/api-client مع رمز الجلسة.",
+  "apiBullet2": "تتبع الاستجابات الناجحة نمط Verifik: كائن بيانات (وغالبًا توقيع عند تفعيل التوقيع للمشروع).",
+  "paramZelfProofDesc": "سلسلة HumanID من اللصق، أو من استخراج QR في هذا النموذج",
+  "paramVerifierKeyDesc": "إذا وُلِّد الدليل بمفتاح مدقق",
+  "paramQrCodeDesc": "صورة كعنوان بيانات (data:image/png;base64,...) أو شكل آخر تقبله واجهة البرمجة (يبني هذا العرض عنوان بيانات من الملف)",
+  "paramVerifierKeyQrDesc": "نفس الدلالة كما في المعاينة عند استخدام الدليل لمفتاح مدقق",
+  "relatedDocs": {
+    "0": {
+      "title": "معاينة ZelfProof",
+      "description": "مرجع لفحص البيانات الوصفية العامة من الدليل قبل فك التشفير أو استخدامه في مكان آخر.",
+      "badge": "POST"
+    },
+    "1": {
+      "title": "إنشاء ZelfProof",
+      "description": "شفّر حقولك العامة ولقطة الوجه في سلسلة HumanID جديدة للتخزين أو المشاركة.",
+      "badge": "POST"
+    },
+    "2": {
+      "title": "فك تشفير ZelfProof",
+      "description": "افتح حمولة الهوية داخل الدليل بمطابقتها لوجه حي.",
+      "badge": "POST"
+    },
+    "3": {
+      "title": "إنشاء QR لـ ZelfProof",
+      "description": "ولّد رمز QR يضم HumanID ليمسحه المستخدمون من شاشة أو محفظة.",
+      "badge": "POST"
+    },
+    "4": {
+      "title": "كشف الحضور الحي",
+      "description": "شغّل فحصًا مخصصًا لأن صورة الوجه تبدو حية لا مزيفة. منفصل عن معاينة HumanID.",
+      "badge": "POST"
+    }
+  }
+}

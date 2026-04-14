@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef } from "react";
+import { useTranslations } from "next-intl";
 import clsx from "clsx";
 
 export type DemoConfirmModalProps = {
@@ -20,11 +21,13 @@ export default function DemoConfirmModal({
 	title,
 	description,
 	confirmLabel,
-	cancelLabel = "Cancel",
+	cancelLabel,
 	variant = "danger",
 	onConfirm,
 	onCancel,
 }: DemoConfirmModalProps) {
+	const tCommon = useTranslations("demos.common");
+	const resolvedCancel = cancelLabel ?? tCommon("cancel");
 	const titleId = useId();
 	const confirmRef = useRef<HTMLButtonElement>(null);
 
@@ -70,7 +73,7 @@ export default function DemoConfirmModal({
 							onClick={onCancel}
 							className="flex-1 py-3 bg-surface-container text-on-surface font-semibold rounded-lg ghost-border hover:bg-surface-container-high transition-all active:scale-[0.98]"
 						>
-							{cancelLabel}
+							{resolvedCancel}
 						</button>
 						<button
 							ref={confirmRef}

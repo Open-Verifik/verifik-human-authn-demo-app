@@ -1,0 +1,82 @@
+{
+  "headerTitle": "人物を削除",
+  "heroTitleForm": "人物を削除",
+  "heroTitleResult": "リクエストが完了しました",
+  "heroSubtitleForm": "個人を完全に削除するか、1 つのコレクションからのみ削除します (部分更新)。",
+  "heroSubtitleResult": "API が応答しました。以下の概要を参照してください。",
+  "fullDeleteRich": "<strong>完全削除:</strong> 収集クエリを省略します。その人物は顔認識とプロジェクトの記録から完全に削除されます。",
+  "partialDeleteRich": "<strong>1 つのコレクションから削除:</strong> コレクション <highlight>code</highlight> (UUID) を使用して <code>collection</code> をクエリ パラメータとして渡し、ユーザーの <code>collections</code> 配列に保存されている値と一致します。ドロップダウンには、この人が属するコレクションのみがリストされます (GET 人から)。",
+  "personLabel": "人",
+  "personHint": "GET /v2/face-recognition/persons からのリスト — Update Person と同じです。",
+  "noPeopleEmpty": "人が見つかりませんでした。まず、Create Person で誰かを登録します。",
+  "loadingPersonCollections": "この人のコレクションを読み込んでいます…",
+  "modeLegend": "モード",
+  "modeFullTitle": "完全削除",
+  "modeFullHint": "DELETE /persons/:id with no query params.",
+  "modeCollectionTitle": "コレクションからのみ削除",
+  "modeCollectionHint": "DELETE /persons/:id?collection=<collection code (UUID)>",
+  "collectionLabel": "コレクション",
+  "emptyPickerLoading": "読み込み中…",
+  "emptyPickerSelectPerson": "まず人物を選択してください。",
+  "emptyPickerNoMatch": "この人物に一致するコレクションはありません (GET person または list collections を確認してください)。",
+  "emptyPickerNoLoaded": "コレクションがロードされていません。",
+  "errSelectCollection": "個人を削除するコレクションを選択します。",
+  "submitFull": "人物を削除する",
+  "submitCollection": "コレクションから削除",
+  "processing": "リクエストを送信中…",
+  "resultNoPersonDocTitle": "削除された人物",
+  "resultNoPersonDocBody": "サーバーは個人文書を返しませんでした (完全な削除後は通常)。詳細が必要な場合は、生のペイロードを確認してください。",
+  "confirmTitleFull": "この人を削除しますか?",
+  "confirmTitleCollection": "コレクションから削除しますか?",
+  "confirmDescFull": "この人をプロジェクトから完全に削除しますか?これを元に戻すことはできません。",
+  "confirmDescCollection": "この人を選択したコレクションから削除しますか?これが唯一のコレクションである場合、サーバーはその人物を完全に削除する可能性があります。",
+  "confirmSubmitFull": "人物を削除する",
+  "confirmSubmitCollection": "コレクションから削除",
+  "apiRefSummary": "API リファレンス: 個人の削除",
+  "apiRefOfficialDocs": "公式ドキュメント:",
+  "apiRefLinkLabel": "docs.verifik.co/resources/persons/delete-a-person",
+  "apiRefEndpointLine": "DELETE https://api.verifik.co/v2/face-recognition/persons/<personId>",
+  "apiRefOptionalQuery": "オプション: ?collection=<collectionCodeUuid> (個人のコレクション リストと同じ ID)",
+  "relatedDocs": {
+    "0": {
+      "title": "人物オブジェクト",
+      "description": "顔認識人物レコードのフィールドと構造。",
+      "badge": "Object"
+    },
+    "1": {
+      "title": "すべての人物をリストする",
+      "description": "顔認識システム内のすべての人物のリストを取得します。",
+      "badge": "GET"
+    },
+    "2": {
+      "title": "人物を取得する",
+      "description": "一意の識別子を使用して特定の個人レコードを取得します。",
+      "badge": "GET"
+    },
+    "3": {
+      "title": "Delete a Person",
+      "description": "Delete a person record from the facial recognition system.",
+      "badge": "DELETE"
+    },
+    "4": {
+      "title": "人物を作成する",
+      "description": "顔認識システムで新しい人物を作成します。",
+      "badge": "POST"
+    },
+    "5": {
+      "title": "生き生きとした人物を創る",
+      "description": "liveness、重複検索、およびオプションのマージを使用して登録します。",
+      "badge": "POST"
+    },
+    "6": {
+      "title": "個人を更新する",
+      "description": "プロフィール、画像、コレクションなど。",
+      "badge": "PUT"
+    },
+    "7": {
+      "title": "人",
+      "description": "プロジェクト内の個人記録と生体認証データの概要。",
+      "badge": "Object"
+    }
+  }
+}

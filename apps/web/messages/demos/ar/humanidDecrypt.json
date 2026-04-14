@@ -1,0 +1,78 @@
+{
+  "headerTitle": "فك تشفير HumanID",
+  "heroTitle": "فك تشفير HumanID",
+  "heroTitleResult": "تم فك التشفير",
+  "heroSubtitle": "استرجع بيانات الهوية بعرض الوجه الحي المطابق.",
+  "humanIdModeLabel": "HumanID",
+  "pasteString": "لصق السلسلة",
+  "uploadQrImage": "رفع صورة QR",
+  "proofLabel": "HumanID",
+  "proofPlaceholder": "الصق HumanID هنا…",
+  "qrUploadHelp": "ارفع PNG أو JPEG لرمز QR الخاص بـ HumanID (حمولة ثنائية). نستدعي preview-zelf-id-qr لاستخراج HumanID.",
+  "chooseQrImage": "اختر صورة QR",
+  "readingQr": "جاري قراءة QR…",
+  "secondaryPngJpeg": "PNG أو JPEG",
+  "qrPreviewAlt": "معاينة QR",
+  "extractedHeading": "HumanID المستخرج (للقراءة فقط)",
+  "errorReadProof": "تعذّر قراءة HumanID من استجابة المعاينة.",
+  "qrExtractSuccess": "استُخرج HumanID من QR. يمكنك فك التشفير أدناه.",
+  "passwordOptional": "كلمة المرور (اختياري)",
+  "passwordPlaceholder": "فقط إذا وُلِّد الدليل بكلمة مرور",
+  "faceImageLabel": "صورة الوجه",
+  "chooseOneDescription": "امسح بالكاميرا أو ارفع صورة. أي خيار يعمل في هذه الخطوة.",
+  "cameraTitle": "كاميرا مباشرة",
+  "cameraSubtitle": "افتح الكاميرا ووسّط وجهك في الإطار",
+  "uploadTitle": "صورة من المعرض",
+  "uploadSubtitle": "بدلاً من ذلك اختر ملف صورة من جهازك",
+  "uploadPrimary": "رفع صورة",
+  "changeFaceImage": "تغيير صورة الوجه",
+  "facePreviewAlt": "الوجه",
+  "decryptCta": "فك التشفير",
+  "processing": "جاري فك تشفير الهوية…",
+  "apiRefSummary": "مرجع API: فك تشفير HumanID",
+  "apiOfficialGuide": "الدليل الرسمي:",
+  "apiOfficialParen": "(حقول الطلب والاستجابة، وكلمة المرور الاختيارية ومفتاح المدقق، وأمثلة الاستدعاء).",
+  "apiRelated": "ذات صلة:",
+  "apiDecryptLinkText": "docs.verifik.co/functions/decrypt-zelfproof",
+  "apiBaseUrlNote": "عنوان الأساس https://api.verifik.co. أرسل JSON مع Content-Type: application/json وAuthorization: Bearer <رمز الوصول> (نفس JWT بعد تسجيل الدخول).",
+  "apiDecryptEndpointDesc": "يقارن صورة وجهك بالدليل، ثم يعيد الحقول العامة المفكوكة والحمولة ذات الصلة (مثل قص الوجه والصعوبة) داخل غلاف البيانات الموقّع المعتاد عند نجاح المطابقة.",
+  "apiPreviewQrEndpointDesc": "استخدمه عندما يوفّر المستخدم PNG أو JPEG لرمز QR الخاص بـ HumanID. تقرأ واجهة البرمجة حمولة QR وتشغّل معاينة مماثلة لمعاينة السلسلة، وتعيد zelfProof يمكن تمريره إلى فك التشفير. يطبق verifierKey الاختياري عند إنشاء الدليل بواحد. نفس ترويسات JSON كفك التشفير.",
+  "apiBullet1": "يستخدم فك التشفير decryptHumanId من @humanauthn/api-client. رفع QR يستخدم previewZelfIdQr أولًا، ثم تفك التشفير بسلسلة الدليل المُرجعة.",
+  "apiBullet2": "تتبع الاستجابات الناجحة نمط Verifik: كائن بيانات (وغالبًا توقيع عند تفعيل التوقيع للمشروع).",
+  "apiBullet3": "لفحص دليل دون صورة وجه، افتح عرض معاينة HumanID (previewHumanId) أو دليل معاينة ZelfProof المرتبط أعلاه.",
+  "paramFaceBase64Desc": "صورة الوجه كـ base64 خام (نفس تنسيق العروض القياسية الحيوية الأخرى)",
+  "paramOsDesc": "DESKTOP أو IOS أو ANDROID (العرض يستخدم DESKTOP)",
+  "paramZelfProofDesc": "سلسلة HumanID من اللصق، أو من استخراج صورة QR في هذا النموذج",
+  "paramPasswordDesc": "فقط إذا وُلِّد الدليل بكلمة مرور",
+  "paramLivenessLevelDesc": "عند الضبط، يتماشى مع توقعات الحضور الحي للخادم عند فك التشفير (انظر الدليل الرسمي)",
+  "paramVerifierKeyDesc": "إذا وُلِّد الدليل بمفتاح مدقق",
+  "paramQrCodeDesc": "صورة كعنوان بيانات (data:image/png;base64,...) أو شكل آخر تقبله واجهة البرمجة (يبني هذا العرض عنوان بيانات من الملف)",
+  "paramVerifierKeyQrDesc": "نفس الدلالة كما في فك التشفير عند استخدام الدليل لمفتاح مدقق",
+  "relatedDocs": {
+    "0": {
+      "title": "فك تشفير ZelfProof",
+      "description": "افتح حمولة الهوية داخل الدليل بمطابقتها لوجه حي. يغطي كلمة المرور الاختيارية عند إنشاء الدليل بها.",
+      "badge": "POST"
+    },
+    "1": {
+      "title": "إنشاء ZelfProof",
+      "description": "شفّر حقولك العامة ولقطة الوجه في سلسلة HumanID جديدة للتخزين أو المشاركة.",
+      "badge": "POST"
+    },
+    "2": {
+      "title": "معاينة ZelfProof",
+      "description": "اطلع على البيانات الوصفية العامة وما سيُطلَب قبل فك التشفير، دون إرسال صورة وجه. عرض معاينة HumanID يتبع الفكرة نفسها على واجهة البرمجة الحالية.",
+      "badge": "POST"
+    },
+    "3": {
+      "title": "إنشاء QR لـ ZelfProof",
+      "description": "ولّد رمز QR يضم HumanID ليمسحه المستخدمون من شاشة أو محفظة.",
+      "badge": "POST"
+    },
+    "4": {
+      "title": "كشف الحضور الحي",
+      "description": "شغّل فحصًا مخصصًا لأن صورة الوجه تبدو حية لا مزيفة. منفصل عن تشفير وفك تشفير HumanID.",
+      "badge": "POST"
+    }
+  }
+}

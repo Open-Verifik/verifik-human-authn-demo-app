@@ -1,0 +1,32 @@
+{
+  "headerTitle": "تحديث شخص",
+  "heroTitleForm": "تحديث شخص",
+  "heroTitleResult": "تم تحديث الشخص",
+  "heroSubtitleForm": "اختر شخصًا مسجّلًا في مشروعك، عدّل الملف أو المجموعات، ثم احفظ. هذا المسار لا يستبدل صور الوجه (حسب واجهة البرمجة الحالية).",
+  "heroSubtitleResult": "أُرسلت التغييرات عبر PUT /v2/face-recognition/persons/:id.",
+  "personLabel": "الشخص",
+  "personHint": "قائمة من GET /v2/face-recognition/persons — الأشخاص المرتبطون بحسابك فقط.",
+  "noPeopleEmpty": "لا يوجد أشخاص. سجّل شخصًا أولًا في إنشاء شخص.",
+  "loadingProfile": "جاري تحميل الملف…",
+  "unexpectedResponseShape": "شكل استجابة غير متوقع.",
+  "fullNameLabel": "الاسم الكامل",
+  "genderLabel": "الجنس",
+  "dobLabel": "تاريخ الميلاد",
+  "nationalityLabel": "الجنسية",
+  "nationalityPlaceholder": "اختياري",
+  "notesLabel": "ملاحظات",
+  "collectionsLabel": "المجموعات",
+  "noCollectionsLoaded": "لم تُحمَّل أي مجموعات.",
+  "saveChanges": "حفظ التغييرات",
+  "processing": "جاري تحديث الشخص…",
+  "apiRefSummary": "مرجع API: تحديث شخص",
+  "apiRefOfficialDocs": "الوثائق الرسمية:",
+  "apiRefLinkLabel": "docs.verifik.co/resources/persons/update-a-person",
+  "apiRefBody": "PUT /v2/face-recognition/persons/:id مع حقول JSON اختيارية: name، gender، date_of_birth، nationality، collections (مصفوفة سلاسل _id للمجموعة)، notes. لا تُستبدل صور الوجه المصغّرة المسجّلة عبر هذا العرض؛ قد تتطلب إضافة صور وجه جديدة تدفقات خاصة بالمنتج غير مكشوفة في مخطط Joi الحالي.",
+  "relatedDocs": {
+    "0": { "title": "استرجاع شخص", "description": "GET لشخص واحد بالمعرّف.", "badge": "GET" },
+    "1": { "title": "تحديث شخص", "description": "مرجع واجهة البرمجة الرسمي لـ PUT.", "badge": "PUT" },
+    "2": { "title": "إنشاء شخص", "description": "إنشاء شخص جديد في نظام التعرف على الوجوه.", "badge": "POST" },
+    "3": { "title": "حذف شخص", "description": "حذف سجل شخص من نظام التعرف على الوجوه.", "badge": "DELETE" }
+  }
+}

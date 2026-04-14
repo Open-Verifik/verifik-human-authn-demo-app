@@ -1,0 +1,193 @@
+{
+  "RootLayout": {
+    "titleDefault": "HumanAuthn: عرض تجريبي لواجهة برمجة التطبيقات للقياسات الحيوية",
+    "titleTemplate": "%s | HumanAuthn",
+    "description": "HumanAuthn من Verifik. كشف الحضور الحي، ومقارنة الوجوه، والمصادقة القياسية الحيوية على مستوى المؤسسات.",
+    "keywords": [
+      "مصادقة قياسية حيوية",
+      "كشف الحضور الحي",
+      "مقارنة الوجوه",
+      "التحقق من الهوية",
+      "Verifik",
+      "HumanAuthn",
+      "HumanID"
+    ],
+    "ogTitle": "HumanAuthn: عرض تجريبي لواجهة برمجة التطبيقات للقياسات الحيوية",
+    "ogDescription": "واجهات مصادقة قياسية حيوية على مستوى المؤسسات من Verifik",
+    "ogSiteName": "HumanAuthn"
+  },
+  "SplashPage": {
+    "metaTitle": "HumanAuthn: عرض تجريبي لواجهة برمجة التطبيقات للقياسات الحيوية من Verifik",
+    "metaDescription": "وثّق هويتك بأمان عبر كشف الحضور الحي. معيار موثوق للتحقق الرقمي من الهوية. من Verifik.",
+    "heroImageAlt": "مسح للتعرّف على الوجه بالقياسات الحيوية",
+    "readinessBadge": "جاهزية القياسات الحيوية: نشطة",
+    "brandPill": "Verifik · HumanAuthn",
+    "headlineLine1": "Human",
+    "headlineLine2": "Authn",
+    "tagline": "وثّق هويتك بأمان عبر كشف الحضور الحي. معيار موثوق للوصول الرقمي.",
+    "ctaPrimary": "ابدأ الآن",
+    "ctaSecondary": "استكشف العروض التجريبية ←",
+    "trustAria": "شهادات الأمان"
+  },
+  "HomeHeader": {
+    "accountFallback": "الحساب",
+    "signIn": "تسجيل الدخول",
+    "accountMenuAria": "قائمة الحساب",
+    "credits": "الرصيد",
+    "settings": "الإعدادات",
+    "signOut": "تسجيل الخروج",
+    "homeAria": "Verifik: الرئيسية"
+  },
+  "LanguageSwitcher": {
+    "ariaLabel": "اللغة",
+    "en": "English",
+    "es": "Español",
+    "pt": "Português",
+    "fr": "Français",
+    "hi": "हिन्दी",
+    "zh": "简体中文",
+    "ko": "한국어",
+    "ja": "日本語",
+    "de": "Deutsch",
+    "id": "Bahasa Indonesia",
+    "vi": "Tiếng Việt",
+    "tr": "Türkçe",
+    "ar": "العربية"
+  },
+  "home": {
+    "metaTitle": "لوحة العروض التجريبية",
+    "metaDescription": "مصادقة مرتبطة بوجود إنسان حي. شغّل في المتصفّح عروض Verifik التجريبية المباشرة للمطابقة الوجهية وكشف الحضور الحي وHumanID.",
+    "heroEyebrow": "قياسات حيوية · عروض مباشرة",
+    "heroTitle": "HumanAuthn · قياسات حيوية على مستوى المؤسسات",
+    "heroBody": "شغّل مطابقة الوجه وكشف الحضور الحي وHumanID والكشف المباشر في المتصفّح. القياسات الحيوية التقليدية تغطّي إدارة معرض OpenCV من جهة الخادم والبحث فيه. عروض HumanAuthn اللامركزية توضّح كيف يربط HumanID بيانات الهوية بوجه حي دون قاعدة وجوه مركزية.",
+    "traditionalEyebrow": "OpenCV · معرض من جهة الخادم",
+    "traditionalTitle": "قياسات حيوية تقليدية",
+    "decentralizedEyebrow": "HumanAuthn · HumanID",
+    "decentralizedTitle": "قياسات حيوية لامركزية · HumanAuthn",
+    "enterpriseEyebrow": "منصة Verifik",
+    "enterpriseTitle": "أمان على مستوى المؤسسات",
+    "enterpriseBody": "تعالج منصّتنا البيانات القياسية الحيوية بتشفير شامل بين الطرفين. خصوصية مدمجة بالتصميم، جاهزة للنشر الجاد.",
+    "pillGdpr": "متوافق مع GDPR",
+    "pillAes": "AES-256",
+    "pillSoc2": "جاهزية SOC 2",
+    "navIdentity": "الهوية",
+    "navSecurity": "الأمان",
+    "navSettings": "الإعدادات",
+    "demoCta": "تشغيل العرض",
+    "sections": {
+      "enroll": "التسجيل",
+      "manage": "الإدارة",
+      "search": "البحث",
+      "detection": "الكشف",
+      "comparison": "المقارنة"
+    },
+    "demos": {
+      "create-collection": {
+        "badge": "التسجيل",
+        "title": "إنشاء مجموعة",
+        "description": "أنشئ مجموعة وجوه مسماة لتجميع الأشخاص المسجّلين للبحث والتحقق."
+      },
+      "create-person": {
+        "badge": "التسجيل",
+        "title": "إنشاء شخص",
+        "description": "سجّل شخصًا جديدًا برفع صور الوجه والبيانات الوصفية. تُخزَّن في مجموعة OpenCV."
+      },
+      "create-person-with-liveness": {
+        "badge": "التسجيل",
+        "title": "إنشاء شخص مع كشف الحضور الحي",
+        "description": "سجّل شخصًا مع تشغيل فحص الحضور الحي والبحث في المجموعة عن التكرار في آن واحد."
+      },
+      "update-person": {
+        "badge": "الإدارة",
+        "title": "تحديث شخص",
+        "description": "حمّل شخصًا بالمعرّف وعدّل حقول الملف أو عضوية المجموعة (دون صور وجه جديدة في واجهة البرمجة هذه)."
+      },
+      "delete-person": {
+        "badge": "الإدارة",
+        "title": "حذف شخص",
+        "description": "احذف الشخص بالكامل أو أزِله من مجموعة واحدة عند انتمائه لعدة مجموعات."
+      },
+      "search-person": {
+        "badge": "البحث",
+        "title": "البحث عن شخص",
+        "description": "ارفع صورة وجه أو أكثر وابحث في المجموعة عن أشخاص مطابقين حسب درجة التشابه."
+      },
+      "search-live-person": {
+        "badge": "البحث",
+        "title": "البحث عن شخص حي",
+        "description": "التقط وجهًا حيًا، شغّل كشف الحضور الحي، وابحث في المجموعة عن مطابقة في تدفّق واحد."
+      },
+      "search-active-user": {
+        "badge": "البحث",
+        "title": "البحث عن مستخدم نشط",
+        "description": "وثّق مستخدمًا نشطًا بلقطة وجه حي وأعد درجة الحضور الحي مع نتائج البحث."
+      },
+      "detect-face": {
+        "badge": "الكشف",
+        "title": "كشف الوجه",
+        "description": "أرسل صورة واكتشف كل الوجوه فيها مع إرجاع مربعات الإحاطة وبيانات القص."
+      },
+      "search-crops": {
+        "badge": "الكشف",
+        "title": "البحث في القصاصات",
+        "description": "نفّذ بحثًا متعدد الصور على قصاصات الوجه للعثور على أشخاص مطابقين مع ضبط الدقّة."
+      },
+      "face-comparison": {
+        "badge": "المقارنة",
+        "title": "مقارنة الوجوه",
+        "description": "ارفع صورتين وتحقّق مما إذا كانا لنفس الشخص. مفيد للتسجيل وفحص الهوية."
+      },
+      "face-comparison-liveness": {
+        "badge": "المقارنة",
+        "title": "المقارنة مع كشف الحضور الحي",
+        "description": "طابق صورة مرجعية مع صورة سيلفي حيّة. يُشغَّل كشف الحضور الحي فقط بعد أن تبدو مطابقة الوجه قوية بما يكفي."
+      },
+      "verify-face": {
+        "badge": "المقارنة",
+        "title": "التحقق من الوجه",
+        "description": "تحقّق من صورة وجه ضد شخص مسجّل محدد بالمعرّف مع عتبة تشابه قابلة للضبط."
+      },
+      "liveness": {
+        "badge": "مكافحة التزييف",
+        "title": "كشف الحضور الحي",
+        "description": "أثبت أن شخصًا حقيقيًا أمام الكاميرا وليس صورة أو قناعًا أو تسجيلًا مُعاد تشغيله."
+      },
+      "humanid-create": {
+        "badge": "تشفير",
+        "title": "إنشاء HumanID",
+        "description": "اربط بيانات الهوية العامة والوجه بدليل HumanID مشفّر مخزَّن على IPFS. لا يُسترجع إلا بالوجه الحي المطابق."
+      },
+      "humanid-create-qr": {
+        "badge": "QR",
+        "title": "إنشاء HumanID كرمز QR",
+        "description": "ولّد HumanID مرمزًا بـ QR من لقطة للوجه وبيانات هوية للتحقق المحمول دون اتصال."
+      },
+      "humanid-decrypt": {
+        "badge": "فك التشفير",
+        "title": "فك تشفير HumanID",
+        "description": "استرجع بيانات الهوية في HumanID بعرض الوجه الحي المطابق وسلسلة الدليل."
+      },
+      "humanid-preview": {
+        "badge": "معاينة",
+        "title": "معاينة HumanID",
+        "description": "اطلع على البيانات الوصفية العامة داخل سلسلة HumanID دون صورة وجه أو بيانات اعتماد إضافية."
+      }
+    }
+  },
+  "NotFound": {
+    "title": "الصفحة غير موجودة",
+    "body": "هذه الصفحة غير موجودة أو الرابط غير صالح.",
+    "homeLink": "العودة إلى الرئيسية"
+  },
+  "settingsNav": {
+    "title": "الإعدادات",
+    "ariaLabel": "أقسام الإعدادات",
+    "myAccount": "حسابي",
+    "developers": "المطوّرون",
+    "profile": "الملف الشخصي",
+    "apiKey": "مفتاح API",
+    "mobileMenu": "فتح قائمة الإعدادات",
+    "mobileTitle": "الإعدادات",
+    "closeMenu": "إغلاق القائمة"
+  }
+}

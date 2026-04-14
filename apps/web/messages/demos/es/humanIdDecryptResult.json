@@ -1,0 +1,19 @@
+{
+  "successTitle": "HumanID descifrado",
+  "successSubtitle": "Datos de identidad recuperados de tu ZelfProof.",
+  "identifierHeading": "Identificador",
+  "publicDataHeading": "Datos públicos",
+  "metadataHeading": "Metadatos",
+  "difficultyHeading": "Dificultad",
+  "faceCropHeading": "Recorte facial",
+  "faceCropAlt": "Recorte facial decodificado de la prueba",
+  "sessionHeading": "Sesión",
+  "chargedLabel": "Cobrado",
+  "livenessRequiredLabel": "Prueba de vida requerida",
+  "creditsHeading": "Créditos / uso",
+  "chargedCredits": "Cobrado: {amount} créditos",
+  "creditChange": "Cambio de créditos: {amount}",
+  "rawDebug": "Respuesta en bruto (depuración)",
+  "tryAgain": "Reintentar",
+  "backToDemos": "Volver a demos"
+}

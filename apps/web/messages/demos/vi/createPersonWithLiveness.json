@@ -1,0 +1,100 @@
+{
+  "headerTitle": "Tạo ra con người sống động",
+  "heroTitleForm": "Tạo ra con người sống động",
+  "heroTitleResult": "Người đã đăng ký",
+  "heroTitleConflict": "Đã đăng ký",
+  "heroSubtitleForm": "Đăng ký + kiểm tra hoạt động + tìm kiếm trùng lặp trong một cuộc gọi.",
+  "heroSubtitleResult": "Người đã được đăng ký với kiểm tra hoạt động và tìm kiếm.",
+  "heroSubtitleConflict": "Khuôn mặt này phù hợp với một người hiện có.Xem lại những hình ảnh bạn đã sử dụng và chọn bước tiếp theo.",
+  "fullNameLabel": "Tên đầy đủ",
+  "namePlaceholder": "Jane Doe",
+  "genderLabel": "Giới tính",
+  "dobLabel": "Ngày sinh",
+  "nationalityLabel": "Quốc tịch",
+  "nationalityPlaceholder": "CO",
+  "collectionIdLabel": "ID bộ sưu tập",
+  "collectionIdPlaceholder": "Bộ sưu tập _id duy nhất",
+  "livenessMinLabel": "Sự sống động tối thiểu {value}",
+  "matchMinLabel": "Điểm tối thiểu {value}",
+  "searchModeLabel": "Chế độ tìm kiếm",
+  "faceImagesLabel": "Hình ảnh khuôn mặt",
+  "chooseOneDescription": "Quét bằng máy ảnh của bạn hoặc tải ảnh lên.Mỗi lần chụp sẽ được thêm vào hình ảnh khuôn mặt đã đăng ký.",
+  "cameraTitle": "Máy ảnh trực tiếp",
+  "cameraSubtitle": "Mở camera và chụp ảnh một khuôn mặt",
+  "uploadTitle": "Ảnh từ thư viện",
+  "uploadSubtitle": "Chọn một hoặc nhiều tệp hình ảnh từ thiết bị của bạn",
+  "submit": "Đăng ký với Liveness",
+  "processing": "Đang đăng ký và kiểm tra hoạt động…",
+  "successTitle": "Người đăng ký với sự sống động",
+  "tryAgain": "Thử lại",
+  "apiRefSummary": "Tham khảo API: Tạo người sống động",
+  "apiRefDocsEnLead": "Tài liệu chính thức (tiếng Anh):",
+  "apiRefDocsEnLink": "docs.verifik.co/resources/create-a-person-with-liveness",
+  "apiRefDocsEsLead": "Tài liệu (tiếng Tây Ban Nha):",
+  "apiRefDocsEsLink": "docs.verifik.co/verifik-es/resources/personas/crear-una-persona-con-deteccion-de-vida",
+  "apiRefBody": "URL cơ sở https://api.verifik.co. Gửi JSON kèm theo trường hồ sơ, một sưu tập_id, ngưỡng hoạt động và tìm kiếm, đồng thời có ít nhất một hình ảnh khuôn mặt base64 cho mỗi mục nhập trong hình ảnh (không có tiền tố dữ liệu URL).",
+  "apiRefEndpoint": "POST /v2/face-recognition/persons/search-live-face",
+  "apiRefEndpointDesc": "Chạy hoạt động trên (các) khuôn mặt đã gửi, tìm kiếm các lượt đăng ký tương tự, sau đó tạo hoặc cập nhật một người trong bộ sưu tập mục tiêu.",
+  "paramName": "name",
+  "paramNameDesc": "Tên hiển thị",
+  "paramImages": "images",
+  "paramImagesDesc": "Mảng hình ảnh khuôn mặt base64 (base64 thô, không phải URL dữ liệu)",
+  "paramGender": "gender",
+  "paramGenderDesc": "M hoặc F",
+  "paramDob": "date_of_birth",
+  "paramDobDesc": "YYYY-MM-DD",
+  "paramCollectionId": "collection_id",
+  "paramCollectionIdDesc": "Id duy nhất của một bộ sưu tập",
+  "paramLivenessMin": "liveness_min_score",
+  "paramLivenessMinDesc": "0,5–1",
+  "paramMinScore": "min_score",
+  "paramMinScoreDesc": "Ngưỡng tìm kiếm nội bộ, 0,5–1",
+  "paramSearchMode": "search_mode",
+  "paramSearchModeDesc": "FAST hoặc ACCURATE",
+  "paramNationality": "nationality",
+  "paramNationalityDesc": "Không bắt buộc",
+  "bullet1": "Bản demo này sử dụng createPersonWithLiveness từ @humanauthn/api-client bằng mã thông báo phiên của bạn.",
+  "bullet2": "Phản hồi có thể bao gồm khối chữ ký cùng với dữ liệu tùy thuộc vào môi trường.",
+  "relatedDocs": {
+    "0": {
+      "title": "Đối tượng Người",
+      "description": "Các trường và cấu trúc của hồ sơ người nhận dạng khuôn mặt.",
+      "badge": "Object"
+    },
+    "1": {
+      "title": "Liệt kê tất cả những người",
+      "description": "Người dành cho khách hàng của bạn, với các bộ lọc tùy chọn.",
+      "badge": "GET"
+    },
+    "2": {
+      "title": "Truy xuất một người",
+      "description": "Một người duy nhất theo id.",
+      "badge": "GET"
+    },
+    "3": {
+      "title": "Cập nhật một người",
+      "description": "Hồ sơ, hình ảnh, bộ sưu tập, v.v.",
+      "badge": "PUT"
+    },
+    "4": {
+      "title": "Xóa một người",
+      "description": "Xóa bản ghi người theo id.",
+      "badge": "DELETE"
+    },
+    "5": {
+      "title": "Tạo ra con người sống động",
+      "description": "Sống động, tìm kiếm trùng lặp và đăng ký vào một yêu cầu.",
+      "badge": "POST"
+    },
+    "6": {
+      "title": "Cập nhật người (bản demo)",
+      "description": "Thay đổi hồ sơ hoặc bộ sưu tập cho id người hiện có.",
+      "badge": "Demo"
+    },
+    "7": {
+      "title": "Xóa người (bản demo)",
+      "description": "Chỉ xóa hoàn toàn hoặc xóa khỏi bộ sưu tập.",
+      "badge": "Demo"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "cancel": "Hủy bỏ",
+  "brandTitle": "ID người",
+  "kicker": "HumanID · Xác thực Verifik",
+  "idleTitle": "Căn giữa khuôn mặt của bạn",
+  "idleSubtitle": "Tính năng nhận diện khuôn mặt sẽ tự động chụp khi bạn căn chỉnh.",
+  "successTitle": "Chụp hoàn tất",
+  "successSubtitle": "Trong quá trình sản xuất, nguồn cấp dữ liệu này sẽ gọi API HumanID / ZelfProof.",
+  "failedTitle": "Đã xảy ra lỗi",
+  "failedSubtitle": "Hãy thử lại hoặc sử dụng ánh sáng tốt hơn.",
+  "chooseOneDescription": "Quét bằng máy ảnh của bạn hoặc tải ảnh lên.Một trong hai tùy chọn đều hoạt động cho bản demo này.",
+  "cameraTitle": "Máy ảnh trực tiếp",
+  "cameraSubtitle": "Mở máy ảnh và căn chỉnh khuôn mặt của bạn trong khung",
+  "uploadTitle": "Ảnh từ thư viện",
+  "uploadSubtitle": "Thay vào đó, hãy chọn tệp hình ảnh từ thiết bị của bạn",
+  "uploadPrimary": "Tải hình ảnh lên",
+  "tryAgain": "Thử lại",
+  "continueDashboard": "Tiếp tục tới Trang tổng quan",
+  "engineLine": "ĐỘNG CƠ: HumanAuthn · Xác minh",
+  "captureLine": "CHỤP: Có hướng dẫn (@vladmandic/face-api)",
+  "protocolLine": "GIAO THỨC: HUMAN_ID_v1"
+}

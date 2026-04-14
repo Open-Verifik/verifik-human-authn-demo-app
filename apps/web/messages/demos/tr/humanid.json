@@ -1,0 +1,22 @@
+{
+  "cancel": "İptal etmek",
+  "brandTitle": "İnsan Kimliği",
+  "kicker": "İnsan Kimliği · Doğrulama Kimlik Doğrulaması",
+  "idleTitle": "Yüzünü ortala",
+  "idleSubtitle": "Yüz algılama, hizalandığınızda otomatik olarak yakalanacaktır.",
+  "successTitle": "Yakalama tamamlandı",
+  "successSubtitle": "Üretimde bu besleme HumanID / ZelfProof API'lerini çağıracaktır.",
+  "failedTitle": "Bir şeyler ters gitti",
+  "failedSubtitle": "Tekrar deneyin veya daha iyi bir aydınlatma kullanın.",
+  "chooseOneDescription": "Kameranızla tarayın veya bir fotoğraf yükleyin. Bu demo için her iki seçenek de işe yarar.",
+  "cameraTitle": "Canlı kamera",
+  "cameraSubtitle": "Kamerayı açın ve yüzünüzü çerçeveye hizalayın",
+  "uploadTitle": "Galeriden fotoğraf",
+  "uploadSubtitle": "Bunun yerine cihazınızdan bir resim dosyası seçin",
+  "uploadPrimary": "Resim yükle",
+  "tryAgain": "Tekrar deneyin",
+  "continueDashboard": "Kontrol Paneline Devam Et",
+  "engineLine": "MOTOR: HumanAuthn · Doğrulama",
+  "captureLine": "YAKALAMA: Rehberli (@vladmandic/face-api)",
+  "protocolLine": "PROTOKOL: HUMAN_ID_v1"
+}

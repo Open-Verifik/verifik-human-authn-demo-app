@@ -1,0 +1,78 @@
+{
+  "headerTitle": "İnsan Kimliğinin şifresini çöz",
+  "heroTitle": "İnsan Kimliğinin şifresini çöz",
+  "heroTitleResult": "Şifresi çözüldü",
+  "heroSubtitle": "Eşleşen canlı yüzü sunarak kimlik verilerini kurtarın.",
+  "humanIdModeLabel": "İnsan Kimliği",
+  "pasteString": "Dize yapıştır",
+  "uploadQrImage": "QR resmini yükle",
+  "proofLabel": "İnsan Kimliği",
+  "proofPlaceholder": "İnsan Kimliğinizi buraya yapıştırın…",
+  "qrUploadHelp": "HumanID QR'nin (ikili veri) PNG veya JPEG dosyasını yükleyin. HumanID'nizi çıkarmak için önizleme-zelf-id-qr'yi çağırıyoruz.",
+  "chooseQrImage": "QR resmini seçin",
+  "readingQr": "QR okunuyor…",
+  "secondaryPngJpeg": "PNG veya JPEG",
+  "qrPreviewAlt": "QR önizlemesi",
+  "extractedHeading": "Çıkarılan HumanID (salt okunur)",
+  "errorReadProof": "Önizleme yanıtından HumanID okunamadı.",
+  "qrExtractSuccess": "İnsan Kimliği QR'den çıkarıldı. Aşağıda şifresini çözebilirsiniz.",
+  "passwordOptional": "Şifre (isteğe bağlı)",
+  "passwordPlaceholder": "Yalnızca kanıtın bir parolayla oluşturulmuş olması durumunda",
+  "faceImageLabel": "Yüz resmi",
+  "chooseOneDescription": "Kameranızla tarayın veya bir fotoğraf yükleyin. Bu adım için her iki seçenek de işe yarar.",
+  "cameraTitle": "Canlı kamera",
+  "cameraSubtitle": "Kamerayı açın ve yüzünüzü çerçeveye hizalayın",
+  "uploadTitle": "Galeriden fotoğraf",
+  "uploadSubtitle": "Bunun yerine cihazınızdan bir resim dosyası seçin",
+  "uploadPrimary": "Resim yükle",
+  "changeFaceImage": "Yüz resmini değiştir",
+  "facePreviewAlt": "Yüz",
+  "decryptCta": "Şifreyi çöz",
+  "processing": "Kimliğin şifresi çözülüyor…",
+  "apiRefSummary": "API referansı: İnsan Kimliğinin Şifresini Çözme",
+  "apiOfficialGuide": "Resmi kılavuz:",
+  "apiOfficialParen": "(istek ve yanıt alanları, isteğe bağlı parola ve doğrulama anahtarı ve örnek çağrılar).",
+  "apiRelated": "İlgili:",
+  "apiDecryptLinkText": "docs.verifik.co/functions/decrypt-zelfproof",
+  "apiBaseUrlNote": "Temel URL https://api.verifik.co. JSON'u Content-Type: application/json ve Authorization: Bearer <access token> ile gönderin (oturum açtıktan sonra bu demoyla aynı JWT).",
+  "apiDecryptEndpointDesc": "Yüz resminizi kanıtla karşılaştırır, ardından eşleşme başarılı olduğunda şifresi çözülmüş genel alanları ve ilgili yükü (örneğin yüz kırpma ve zorluk) olağan imzalı veri zarfı içinde döndürür.",
+  "apiPreviewQrEndpointDesc": "Kullanıcı HumanID QR'nin PNG veya JPEG dosyasını sağladığında bunu kullanın. API, QR yükünü okur, dize önizlemesiyle aynı türde önizlemeyi çalıştırır ve şifre çözme işlemine aktarabileceğiniz bir zelfProof döndürür. İsteğe bağlı verifierKey, kanıt bir anahtarla oluşturulduğunda uygulanır. Şifre çözmeyle aynı JSON başlıkları.",
+  "apiBullet1": "Şifre çözme, @humanauthn/api-client'teki decryptHumanId'yi kullanır. QR yüklemesi önce önizlemeZelfIdQr'yi kullanır, ardından döndürülen kanıt dizesiyle şifreyi çözersiniz.",
+  "apiBullet2": "Başarı yanıtları Verifik modelini takip eder: bir veri nesnesi (ve genellikle projeniz için imzalama etkinleştirildiğinde bir imza).",
+  "apiBullet3": "Bir kanıtı yüz görüntüsü olmadan incelemek için Preview HumanID demosunu (previewHumanId) veya yukarıda bağlantısı verilen Preview ZelfProof kılavuzunu açın.",
+  "paramFaceBase64Desc": "Ham base64 olarak yüz görüntüsü (bu demo diğer biyometrik demolarla aynı formatı kullanır)",
+  "paramOsDesc": "MASAÜSTÜ, IOS veya ANDROID (demo MASAÜSTÜ'nü kullanır)",
+  "paramZelfProofDesc": "Yapıştırma işleminden veya bu formdaki QR görüntü çıkarma işleminden elde edilen HumanID dizesi",
+  "paramPasswordDesc": "Yalnızca kanıtın bir parolayla oluşturulmuş olması durumunda",
+  "paramLivenessLevelDesc": "Ayarlandığında, şifre çözme için sunucunun canlılık beklentileriyle uyumlu hale gelir (resmi kılavuza bakın)",
+  "paramVerifierKeyDesc": "Kanıt bir doğrulama anahtarıyla oluşturulduysa",
+  "paramQrCodeDesc": "Veri URL'si (data:image/png;base64,...) veya API tarafından kabul edilen başka bir form olarak resim (bu demo, dosyadan bir veri URL'si oluşturur)",
+  "paramVerifierKeyQrDesc": "Kanıt bir doğrulama anahtarı kullandığında şifre çözme işlemiyle aynı anlambilim",
+  "relatedDocs": {
+    "0": {
+      "title": "ZelfProof'un şifresini çözme",
+      "description": "Bir kanıtın içindeki kimlik yükünün kilidini, onu canlı bir yüzle eşleştirerek açın. Prova tek bir parolayla oluşturulduğunda isteğe bağlı parolayı kapsar.",
+      "badge": "POSTALAMAK"
+    },
+    "1": {
+      "title": "ZelfProof oluşturun",
+      "description": "Herkese açık alanlarınızı ve yüz yakalamanızı, saklayabileceğiniz veya paylaşabileceğiniz yeni bir HumanID dizesinde şifreleyin.",
+      "badge": "POSTALAMAK"
+    },
+    "2": {
+      "title": "ZelfProof'u önizle",
+      "description": "Bir yüz görüntüsü göndermeden, herkese açık meta verileri ve şifreyi çözmeden önce nelerin gerekli olacağını inceleyin. Preview HumanID demosu mevcut API'de aynı fikri takip ediyor.",
+      "badge": "POSTALAMAK"
+    },
+    "3": {
+      "title": "QR ZelfProof oluşturun",
+      "description": "İnsanların bir ekrandan veya cüzdandan tarayabilmesi için HumanID'yi içeren bir QR oluşturun.",
+      "badge": "POSTALAMAK"
+    },
+    "4": {
+      "title": "Canlılık tespiti",
+      "description": "Bir yüz görüntüsünün sahte değil canlı göründüğüne dair özel bir kontrol yapın. Bu, HumanID şifreleme ve şifre çözme işleminden farklıdır.",
+      "badge": "POSTALAMAK"
+    }
+  }
+}

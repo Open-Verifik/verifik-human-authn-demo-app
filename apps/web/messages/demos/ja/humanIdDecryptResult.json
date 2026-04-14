@@ -1,0 +1,19 @@
+{
+  "successTitle": "HumanID が復号化されました",
+  "successSubtitle": "ZelfProof から復元された ID データ。",
+  "identifierHeading": "識別子",
+  "publicDataHeading": "公開データ",
+  "metadataHeading": "メタデータ",
+  "difficultyHeading": "困難",
+  "faceCropHeading": "顔のトリミング",
+  "faceCropAlt": "証拠からデコードされた顔のトリミング",
+  "sessionHeading": "セッション",
+  "chargedLabel": "充電済み",
+  "livenessRequiredLabel": "活発さが必要",
+  "creditsHeading": "クレジット/使用量",
+  "chargedCredits": "請求済み: {amount} クレジット",
+  "creditChange": "クレジット変更: {金額}",
+  "rawDebug": "生の応答 (デバッグ)",
+  "tryAgain": "もう一度やり直してください",
+  "backToDemos": "デモに戻る"
+}

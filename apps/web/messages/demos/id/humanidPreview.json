@@ -1,0 +1,63 @@
+{
+  "headerTitle": "Pratinjau HumanID",
+  "heroTitle": "Pratinjau HumanID",
+  "heroTitleResult": "Pratinjau siap",
+  "heroSubtitle": "Periksa metadata publik dari ZelfProof. Tidak perlu wajah atau kredensial.",
+  "humanIdModeLabel": "HumanID",
+  "pasteString": "Tempel string",
+  "uploadQrImage": "Unggah gambar QR",
+  "proofLabel": "String ZelfProof",
+  "proofPlaceholder": "Tempel string ZelfProof di sini…",
+  "qrUploadHelp": "Unggah PNG atau JPEG QR HumanID. Kami mendekode QR dan mengisi string bukti untuk pratinjau.",
+  "chooseQrImage": "Pilih gambar QR",
+  "readingQr": "Membaca QR…",
+  "secondaryPngJpeg": "PNG atau JPEG",
+  "qrPreviewAlt": "Pratinjau QR",
+  "extractedHeading": "HumanID diekstrak (hanya baca)",
+  "errorReadProof": "Tidak dapat membaca HumanID dari respons pratinjau QR.",
+  "qrExtractSuccess": "HumanID diekstrak dari QR. Tambahkan kunci verifikator jika perlu, lalu pratinjau.",
+  "verifierKeyOptional": "Kunci verifikator (opsional)",
+  "verifierKeyPlaceholder": "Membuka bidang tambahan jika disetel saat pembuatan",
+  "previewCta": "Pratinjau",
+  "processing": "Mengambil pratinjau…",
+  "apiRefSummary": "Referensi API: Pratinjau HumanID",
+  "apiOfficialLead": "Dokumentasi resmi:",
+  "apiOfficialLinkLabel": "docs.verifik.co/api/tags/preview-zelfproof",
+  "apiOfficialAfter": "(parameter, respons, dan contoh). Demo ini memanggil POST /v2/human-id/preview melalui previewHumanId, yang cocok dengan alur itu pada API saat ini. Terkait:",
+  "apiBaseUrlNote": "Base URL https://api.verifik.co. Kirim JSON dengan Content-Type: application/json dan Authorization: Bearer <access token> (JWT sama seperti demo ini setelah masuk).",
+  "apiPreviewEndpointDesc": "Mengembalikan bidang pratinjau non-sensitif untuk bukti (misalnya apakah kata sandi diperlukan) di dalam amplop data bertanda tangan biasa.",
+  "apiPreviewQrEndpointDesc": "Gunakan saat pengguna memberikan PNG atau JPEG QR HumanID. API mendekode payload dan mengembalikan zelfProof yang dapat Anda kirim ke panggilan pratinjau di atas. Header JSON sama seperti pratinjau. verifierKey opsional saat bukti memakainya.",
+  "apiBullet1": "Demo ini memakai previewHumanId dan, untuk gambar QR, previewZelfIdQr dari @humanauthn/api-client dengan token sesi Anda.",
+  "apiBullet2": "Respons sukses mengikuti pola Verifik: objek data (dan sering signature saat penandatanganan diaktifkan untuk proyek Anda).",
+  "paramZelfProofDesc": "String HumanID dari tempel, atau dari ekstraksi QR di formulir ini",
+  "paramVerifierKeyDesc": "Jika bukti dibuat dengan kunci verifikator",
+  "paramQrCodeDesc": "Gambar sebagai data URL (data:image/png;base64,...) atau bentuk lain yang diterima API (demo ini membangun data URL dari file)",
+  "paramVerifierKeyQrDesc": "Semantik sama seperti pada pratinjau saat bukti memakai kunci verifikator",
+  "relatedDocs": {
+    "0": {
+      "title": "Pratinjau ZelfProof",
+      "description": "Referensi untuk memeriksa metadata publik dari bukti sebelum Anda mendekripsi atau memakainya di tempat lain.",
+      "badge": "POST"
+    },
+    "1": {
+      "title": "Buat ZelfProof",
+      "description": "Enkripsi bidang publik dan tangkapan wajah ke string HumanID baru yang dapat Anda simpan atau bagikan.",
+      "badge": "POST"
+    },
+    "2": {
+      "title": "Dekripsi ZelfProof",
+      "description": "Buka payload identitas di dalam bukti dengan mencocokkannya ke wajah hidup.",
+      "badge": "POST"
+    },
+    "3": {
+      "title": "Buat QR ZelfProof",
+      "description": "Hasilkan QR yang menyematkan HumanID agar orang dapat memindai dari layar atau dompet.",
+      "badge": "POST"
+    },
+    "4": {
+      "title": "Deteksi keaktifan",
+      "description": "Jalankan pemeriksaan khusus bahwa gambar wajah tampak hidup daripada spoof. Terpisah dari pratinjau HumanID.",
+      "badge": "POST"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Wajah ini sudah terdaftar",
+  "body": "API mengembalikan <code>person_already_set</code>. Seseorang dengan wajah yang cocok sudah ada di proyek Anda. Coba lagi dengan orang atau foto berbeda, atau buka demo di bawah untuk memperbarui metadata atau menghapus pendaftaran yang ada.",
+  "imagesHeading": "Gambar yang Anda coba daftarkan",
+  "nextSteps": "Langkah berikutnya",
+  "updateDemo": "Demo Perbarui orang",
+  "updateHint": "— ubah nama, koleksi, atau catatan untuk id orang yang ada.",
+  "deleteDemo": "Demo Hapus orang",
+  "deleteHint": "— hapus penuh atau hapus dari satu koleksi saja.",
+  "editFormAgain": "Edit formulir dan coba lagi",
+  "backToDemos": "Kembali ke demo"
+}

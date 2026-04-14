@@ -1,0 +1,62 @@
+{
+  "headerTitle": "Yüzü Doğrula",
+  "heroTitleComplete": "Doğrulama tamamlandı",
+  "heroTitleInitial": "Yüzü Doğrula",
+  "heroSubtitleComplete": "Sonuç aşağıda gösterilmiştir. Tekrar doğrulamak için sıfırlayın.",
+  "heroSubtitleInitial": "Kimlik ile kayıtlı bir kişiye karşı 1:1 doğrulama.",
+  "personIdLabel": "Kişi Kimliği",
+  "personPlaceholder": "Kayıtlı kişi kimliği",
+  "minScoreLabel": "Minimum puan {score}",
+  "searchModeLabel": "Arama modu",
+  "collectionIdLabel": "Koleksiyon Kimliği",
+  "optionalPlaceholder": "İsteğe bağlı",
+  "chooseOneDescription": "Kameranızla tarayın veya bir fotoğraf yükleyin. Her yakalama, doğrulama için resimlere eklenir.",
+  "cameraTitle": "Canlı kamera",
+  "cameraSubtitle": "Kamerayı açın ve bir yüz görüntüsü yakalayın",
+  "uploadTitle": "Galeriden fotoğraf",
+  "uploadSubtitle": "Cihazınızdan bir veya daha fazla görüntü dosyası seçin",
+  "verifying": "Doğrulanıyor…",
+  "verify": "Doğrulamak",
+  "resultTitle": "Doğrulama sonucu",
+  "reset": "Sıfırla",
+  "apiRefSummary": "API referansı: Yüzü Doğrula (1:1)",
+  "apiRefOfficialEn": "Resmi belgeler (EN):",
+  "apiRefSpanishLabel": "İspanyol:",
+  "apiRefBody": "Temel URL https://api.verifik.co. Kayıtlı kişinin kimliğine MongoDB kimliğini ve resimlere bir veya daha fazla ham base64 yüz resmini gönderin (veri URL'si öneki yok). İsteğe bağlı koleksiyon_id kontrolün kapsamını belirler.",
+  "apiRefEndpoint": "POST /v2/yüz tanıma/doğrulama",
+  "apiRefEndpointDesc": "Bilinen kayıtlı bir kişiye karşı 1:1: eşiğe ulaşıldığında skorla birlikte bir data.match döndürür.",
+  "paramIdDesc": "Kayıtlı kişi MongoDB kimliği",
+  "paramImagesDesc": "Base64 yüz görüntüleri dizisi (aynı konu)",
+  "paramMinScoreDesc": "Eşleşme eşiği (0,5–1)",
+  "paramSearchModeDesc": "HIZLI veya DOĞRU",
+  "paramCollectionIdDesc": "İsteğe bağlı koleksiyon kapsamı",
+  "bulletApiClient": "Bu demo, oturum belirteciniz ile birlikte @humanauthn/api-client'ten doğrulamaFace'i kullanır.",
+  "bulletResponse": "Yanıtlar, etkinleştirildiğinde data.match ve imza bloğunu içerir.",
+  "relatedDocs": {
+    "0": {
+      "title": "Yüz Karşılaştırması",
+      "description": "Kayıtlı kişi kimliği olmadan iki görüntü seti arasında 1:1 yüz karşılaştırması.",
+      "badge": "POSTALAMAK"
+    },
+    "1": {
+      "title": "Yüz Karşılaştırması (Canlı)",
+      "description": "Prob görüntüsündeki canlılıkla 1:1 karşılaştırma.",
+      "badge": "POSTALAMAK"
+    },
+    "2": {
+      "title": "Liveness ile karşılaştırın",
+      "description": "1:1 karşılaştırma artı yapılandırılabilir canlılık eşikleri.",
+      "badge": "POSTALAMAK"
+    },
+    "3": {
+      "title": "Yüz Arama (1:N)",
+      "description": "Koleksiyonlarınızdaki kayıtlı kişilere karşı yüz görseline göre arama yapın.",
+      "badge": "POSTALAMAK"
+    },
+    "4": {
+      "title": "Canlılık Tespiti",
+      "description": "Bir yüzün canlı mı yoksa sahte mi olduğunu belirleyin; canlılık puanı",
+      "badge": "POSTALAMAK"
+    }
+  }
+}

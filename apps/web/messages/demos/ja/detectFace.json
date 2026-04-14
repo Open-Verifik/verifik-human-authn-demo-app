@@ -1,0 +1,65 @@
+{
+  "headerTitle": "顔を検出",
+  "heroTitleComplete": "検出完了",
+  "heroTitleInitial": "顔を検出",
+  "heroSubtitleComplete": "結果を以下に示します。別の検出を実行するにはリセットします。",
+  "heroSubtitleInitial": "境界ボックスとスコアを使用して画像内の顔を特定します (OpenCV 検出パイプライン)。",
+  "minScoreLabel": "最小スコア {スコア}",
+  "searchModeLabel": "検索モード",
+  "chooseOneDescription": "カメラでスキャンするか、写真をアップロードします。このデモではどちらのオプションも機能します。",
+  "cameraTitle": "ライブカメラ",
+  "cameraSubtitle": "カメラを開いて顔をフレームに合わせます",
+  "uploadTitle": "ギャラリーからの写真",
+  "uploadSubtitle": "代わりにデバイスから画像ファイルを選択してください",
+  "uploadPrimary": "画像をアップロードする",
+  "uploadSecondary": "ギャラリーからの JPEG または PNG",
+  "previewAlt": "プレビュー",
+  "detecting": "検出中…",
+  "detectFaces": "顔を検出する",
+  "resultTitle": "検出結果",
+  "reset": "リセット",
+  "apiRefSummary": "API リファレンス: 顔検出",
+  "apiRefLinkSuffix": "(顔検出の概要、サンプル ペイロード、応答形状)。",
+  "apiRefBody": "このデモでは、現在の API 検証で必要とされる min_score と search_mode を使用して、同じ POST /v2/face-recognition/detect ルートを呼び出します。オプションの collection_id と max_results はクライアントによってサポートされていますが、以下の形式では公開されていません。",
+  "apiRefEndpoint": "POST /v2/face-recognition/detect",
+  "apiRefEndpointDesc": "検出された顔をジオメトリとスコアとともに返します。公開されている顔検出ガイドには、サポートされている return_landmarks などのオプションのフラグも記載されています。",
+  "paramImageDesc": "Base64 プローブ イメージ (生の Base64 または API ごとのデータ URI)",
+  "paramMinScoreDesc": "しきい値、通常は 0.5 ～ 1",
+  "paramSearchModeDesc": "速いか正確か",
+  "paramCollectionIdDesc": "オプションのスコープ (このデモ UI では使用されません)",
+  "paramMaxResultsDesc": "オプションのキャップ (このデモ UI では使用されません)",
+  "bulletApiClient": "このデモでは、セッション トークンで @humanauthn/api-client からの detectFace を使用します。",
+  "bulletSearch": "キャプチャ後の 1:N 識別には、関連ドキュメントの顔検索またはライブ顔を検索を使用します。",
+  "relatedDocs": {
+    "0": {
+      "title": "顔検索 (1:N)",
+      "description": "登録者を顔画像で検索します。",
+      "badge": "POST"
+    },
+    "1": {
+      "title": "顔検索 1:N (ライブ)",
+      "description": "プローブ画像上でライブネスを確認し、1:N で検索します。",
+      "badge": "POST"
+    },
+    "2": {
+      "title": "顔検索 1:N (アクティブ ユーザー)",
+      "description": "アクティブセッションフローのライブネスなしの 1:N 検索。",
+      "badge": "POST"
+    },
+    "3": {
+      "title": "生存検知",
+      "description": "顔が生きているのか、なりすましであるかを判断します。生存スコア。",
+      "badge": "POST"
+    },
+    "4": {
+      "title": "顔の比較",
+      "description": "1:1 の顔を比較して、参照画像と照合して同一性を検証します。",
+      "badge": "POST"
+    },
+    "5": {
+      "title": "Livenessとの比較",
+      "description": "1:1 比較と、構成可能なしきい値による生存検出。",
+      "badge": "POST"
+    }
+  }
+}

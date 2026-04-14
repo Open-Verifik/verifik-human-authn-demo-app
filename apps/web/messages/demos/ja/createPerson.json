@@ -1,0 +1,84 @@
+{
+  "headerTitle": "人物の作成",
+  "heroTitleForm": "人物の作成",
+  "heroTitleResult": "在籍者",
+  "heroTitleConflict": "すでに登録されています",
+  "heroSubtitleForm": "顔画像とメタデータを使用して新しい人を登録します。",
+  "heroSubtitleResult": "この人は OpenCV に登録されています。",
+  "heroSubtitleConflict": "この顔は既存の人物と一致します。使用した画像を確認し、次のステップを選択します。",
+  "fullNameLabel": "フルネーム",
+  "namePlaceholder": "ジェーン・ドウ",
+  "genderLabel": "性別",
+  "dobLabel": "生年月日",
+  "nationalityLabel": "国籍",
+  "nationalityPlaceholder": "CO",
+  "collectionsLabel": "コレクション",
+  "noCollectionsLead": "まだコレクションはありません。",
+  "noCollectionsCta": "コレクションを作成する",
+  "noCollectionsTail": "初め。",
+  "faceImagesLabel": "顔画像",
+  "chooseOneDescription": "カメラでスキャンするか、写真をアップロードします。各キャプチャは登録された顔画像に追加されます。",
+  "cameraTitle": "ライブカメラ",
+  "cameraSubtitle": "カメラを開いて顔画像を 1 枚キャプチャします",
+  "uploadTitle": "ギャラリーからの写真",
+  "uploadSubtitle": "デバイスから 1 つ以上の画像ファイルを選択します",
+  "submit": "人物を登録する",
+  "processing": "登録している人…",
+  "apiRefSummary": "API リファレンス: 個人の作成",
+  "apiRefOfficialDocs": "公式ドキュメント:",
+  "apiRefLinkLabel": "docs.verifik.co/resources/create-a-person",
+  "apiRefBody": "Base URL https://api.verifik.co. Send JSON with profile fields and at least one base64 face image per entry in images (no data URL prefix). The public docs also list optional fields such as notes, email, and phone.",
+  "apiRefEndpoint": "POST /v2/face-recognition/persons",
+  "apiRefEndpointDesc": "OpenCV による認識のための顔生体認証を使用して、新しい人を指定されたコレクション ID (collection _id 値) に登録します。",
+  "paramName": "名前",
+  "paramNameDesc": "表示名",
+  "paramImages": "画像",
+  "paramImagesDesc": "Base64 顔画像の配列 (データ URL ではなく生の Base64)",
+  "paramGender": "性別",
+  "paramGenderDesc": "M または F (このデモでは必須)",
+  "paramDob": "生年月日",
+  "paramDobDesc": "YYYY-MM-DD (このデモでは必須)",
+  "paramCollections": "コレクション",
+  "paramCollectionsDesc": "コレクション _id 文字列の配列。このデモでは、GET /v2/face-recognition/collections からそれらをロードし、1 つ以上を選択できます。",
+  "paramNationality": "国籍",
+  "paramNationalityDesc": "オプションの国/国籍コードまたはラベル",
+  "bullet1": "このデモでは、セッション トークンを使用して @humanauthn/api-client からの createperson を使用します。",
+  "bullet2": "環境に応じて、応答にはデータとともに ID と署名ブロックが含まれる場合があります。",
+  "relatedDocs": {
+    "0": {
+      "title": "人物オブジェクト",
+      "description": "顔認識人物レコードのフィールドと構造。",
+      "badge": "Object"
+    },
+    "1": {
+      "title": "すべての人物をリストする",
+      "description": "オプションのフィルターを使用したクライアントの担当者。",
+      "badge": "GET"
+    },
+    "2": {
+      "title": "人物を取得する",
+      "description": "ID による 1 人の人物。",
+      "badge": "GET"
+    },
+    "3": {
+      "title": "個人を更新する",
+      "description": "プロフィール、画像、コレクションなど。",
+      "badge": "PUT"
+    },
+    "4": {
+      "title": "Delete a Person",
+      "description": "ID によって個人レコードを削除します。",
+      "badge": "DELETE"
+    },
+    "5": {
+      "title": "人物の更新 (デモ)",
+      "description": "既存の個人 ID のプロフィールまたはコレクションを変更します。",
+      "badge": "Demo"
+    },
+    "6": {
+      "title": "人物削除（デモ）",
+      "description": "完全に削除するか、コレクションのみから削除します。",
+      "badge": "Demo"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "headerTitle": "작물 검색",
+  "heroTitleComplete": "검색 완료",
+  "heroTitleInitial": "작물 검색",
+  "heroSubtitleComplete": "아래에 일치 항목이 표시됩니다. 다른 검색을 실행하려면 재설정하세요.",
+  "heroSubtitleInitial": "얼굴 크롭(소영역)을 이용한 1:N 검색입니다. min_score는 0.5에서 1 사이여야 합니다.",
+  "minScoreLabel": "최소 점수 {score}",
+  "searchModeLabel": "검색 모드",
+  "collectionIdLabel": "컬렉션 ID",
+  "maxResultsLabel": "최대 결과",
+  "optionalPlaceholder": "선택 과목",
+  "chooseOneDescription": "카메라로 스캔하거나 사진을 업로드하세요. 각 캡처는 1:N 검색을 위한 얼굴 자르기로 추가됩니다.",
+  "cameraTitle": "라이브 카메라",
+  "cameraSubtitle": "카메라를 열고 얼굴 이미지 한 장을 캡처하세요.",
+  "uploadTitle": "갤러리의 사진",
+  "uploadSubtitle": "기기에서 하나 이상의 자르기 이미지를 선택하세요.",
+  "cropsAddMore": "{count} 자르기, 더 추가",
+  "uploadFaceCrops": "얼굴 자르기 업로드",
+  "searching": "수색…",
+  "search": "찾다",
+  "resultTitle": "검색결과",
+  "reset": "다시 놓기",
+  "apiRefSummary": "API 참조: 얼굴 검색 1:N(자르기)",
+  "apiRefLead": "(얼굴 자르기에 대한 1:N 검색; 표준 얼굴 검색과 달리 min_score는 0.5-1입니다.)",
+  "apiRefBody": "Base URL https://api.verifik.co. Send one or more entries in images as raw base64 or HTTPS URLs to images (the API may fetch URLs server-side). Optionally set collection_id and max_results.",
+  "apiRefEndpoint": "POST /v2/face-recognition/search/crops",
+  "apiRefEndpointDesc": "/face-recognition/search와 동일한 일반 형태로 순위가 매겨진 후보 인물을 데이터로 반환합니다.",
+  "paramImagesDesc": "얼굴 자르기(base64 및/또는 HTTPS URL), 동일한 주제",
+  "paramMinScoreDesc": "0.5–1",
+  "paramSearchModeDesc": "빠르고 정확함",
+  "paramCollectionIdDesc": "하나의 컬렉션으로 검색 제한",
+  "paramMaxResultsDesc": "반환된 일치 항목에 대한 한도",
+  "bulletApiClient": "이 데모에서는 세션 토큰과 함께 @humanauthn/api-client의 searchCrops를 사용합니다.",
+  "bulletSignature": "응답에는 일반적으로 순위가 매겨진 일치 항목이 포함되며 환경에 따라 서명 블록이 포함될 수도 있습니다.",
+  "relatedDocs": {
+    "0": {
+      "title": "얼굴 검색(1:N)",
+      "description": "전체 얼굴 이미지를 사용한 표준 갤러리 검색 min_score 최저점(0.2–1).",
+      "badge": "POST"
+    },
+    "1": {
+      "title": "얼굴 검색 1:N (라이브)",
+      "description": "프로브 이미지의 활성 상태를 확인한 후 1:N 검색합니다.",
+      "badge": "POST"
+    },
+    "2": {
+      "title": "얼굴 검색 1:N (활성 사용자)",
+      "description": "프로브의 활성 없이 활성 세션 흐름을 1:N 검색합니다.",
+      "badge": "POST"
+    },
+    "3": {
+      "title": "얼굴 인증(1:1)",
+      "description": "알려진 등록 개인 ID와 프로브 이미지를 일치시킵니다.",
+      "badge": "POST"
+    },
+    "4": {
+      "title": "얼굴 인식",
+      "description": "검색하기 전에 이미지에서 얼굴을 감지하여 자르기를 얻습니다.",
+      "badge": "POST"
+    },
+    "5": {
+      "title": "모든 개인 나열",
+      "description": "귀하의 고객을 위해 등록된 사람을 검사하십시오.",
+      "badge": "GET"
+    }
+  }
+}

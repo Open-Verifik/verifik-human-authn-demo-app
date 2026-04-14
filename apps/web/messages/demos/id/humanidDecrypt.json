@@ -1,0 +1,78 @@
+{
+  "headerTitle": "Dekripsi HumanID",
+  "heroTitle": "Dekripsi HumanID",
+  "heroTitleResult": "Terdidekripsi",
+  "heroSubtitle": "Pulihkan data identitas dengan menunjukkan wajah hidup yang cocok.",
+  "humanIdModeLabel": "HumanID",
+  "pasteString": "Tempel string",
+  "uploadQrImage": "Unggah gambar QR",
+  "proofLabel": "HumanID",
+  "proofPlaceholder": "Tempel HumanID Anda di sini…",
+  "qrUploadHelp": "Unggah PNG atau JPEG QR HumanID (payload biner). Kami memanggil preview-zelf-id-qr untuk mengekstrak HumanID Anda.",
+  "chooseQrImage": "Pilih gambar QR",
+  "readingQr": "Membaca QR…",
+  "secondaryPngJpeg": "PNG atau JPEG",
+  "qrPreviewAlt": "Pratinjau QR",
+  "extractedHeading": "HumanID diekstrak (hanya baca)",
+  "errorReadProof": "Tidak dapat membaca HumanID dari respons pratinjau.",
+  "qrExtractSuccess": "HumanID diekstrak dari QR. Anda dapat mendekripsi di bawah.",
+  "passwordOptional": "Kata sandi (opsional)",
+  "passwordPlaceholder": "Hanya jika bukti dibuat dengan kata sandi",
+  "faceImageLabel": "Gambar wajah",
+  "chooseOneDescription": "Pindai dengan kamera atau unggah foto. Keduanya didukung di langkah ini.",
+  "cameraTitle": "Kamera langsung",
+  "cameraSubtitle": "Buka kamera dan sejajarkan wajah Anda di bingkai",
+  "uploadTitle": "Foto dari galeri",
+  "uploadSubtitle": "Pilih file gambar dari perangkat Anda sebagai gantinya",
+  "uploadPrimary": "Unggah gambar",
+  "changeFaceImage": "Ubah gambar wajah",
+  "facePreviewAlt": "Wajah",
+  "decryptCta": "Dekripsi",
+  "processing": "Mendekripsi identitas…",
+  "apiRefSummary": "Referensi API: Dekripsi HumanID",
+  "apiOfficialGuide": "Panduan resmi:",
+  "apiOfficialParen": "(bidang permintaan dan respons, kata sandi opsional dan kunci verifikator, serta contoh panggilan).",
+  "apiRelated": "Terkait:",
+  "apiDecryptLinkText": "docs.verifik.co/functions/decrypt-zelfproof",
+  "apiBaseUrlNote": "Base URL https://api.verifik.co. Kirim JSON dengan Content-Type: application/json dan Authorization: Bearer <access token> (JWT sama seperti demo ini setelah masuk).",
+  "apiDecryptEndpointDesc": "Membandingkan gambar wajah Anda ke bukti, lalu mengembalikan bidang publik terdekripsi dan payload terkait (misalnya crop wajah dan difficulty) di dalam amplop data bertanda tangan biasa saat kecocokan berhasil.",
+  "apiPreviewQrEndpointDesc": "Gunakan saat pengguna memberikan PNG atau JPEG QR HumanID. API membaca payload QR, menjalankan jenis pratinjau yang sama seperti pratinjau string, dan mengembalikan zelfProof yang dapat Anda masukkan ke dekripsi. verifierKey opsional berlaku saat bukti dibuat dengan satu. Header JSON sama seperti dekripsi.",
+  "apiBullet1": "Dekripsi memakai decryptHumanId dari @humanauthn/api-client. Unggah QR memakai previewZelfIdQr terlebih dahulu, lalu Anda mendekripsi dengan string bukti yang dikembalikan.",
+  "apiBullet2": "Respons sukses mengikuti pola Verifik: objek data (dan sering signature saat penandatanganan diaktifkan untuk proyek Anda).",
+  "apiBullet3": "Untuk memeriksa bukti tanpa gambar wajah, buka demo Pratinjau HumanID (previewHumanId) atau panduan Pratinjau ZelfProof yang ditautkan di atas.",
+  "paramFaceBase64Desc": "Gambar wajah sebagai base64 mentah (demo ini memakai format sama seperti demo biometrik lain)",
+  "paramOsDesc": "DESKTOP, IOS, atau ANDROID (demo memakai DESKTOP)",
+  "paramZelfProofDesc": "String HumanID dari tempel, atau dari ekstraksi gambar QR di formulir ini",
+  "paramPasswordDesc": "Hanya jika bukti dibuat dengan kata sandi",
+  "paramLivenessLevelDesc": "Saat disetel, selaras dengan ekspektasi keaktifan server untuk dekripsi (lihat panduan resmi)",
+  "paramVerifierKeyDesc": "Jika bukti dibuat dengan kunci verifikator",
+  "paramQrCodeDesc": "Gambar sebagai data URL (data:image/png;base64,...) atau bentuk lain yang diterima API (demo ini membangun data URL dari file)",
+  "paramVerifierKeyQrDesc": "Semantik sama seperti pada dekripsi saat bukti memakai kunci verifikator",
+  "relatedDocs": {
+    "0": {
+      "title": "Dekripsi ZelfProof",
+      "description": "Buka payload identitas di dalam bukti dengan mencocokkannya ke wajah hidup. Mencakup kata sandi opsional saat bukti dibuat dengannya.",
+      "badge": "POST"
+    },
+    "1": {
+      "title": "Buat ZelfProof",
+      "description": "Enkripsi bidang publik dan tangkapan wajah ke string HumanID baru yang dapat Anda simpan atau bagikan.",
+      "badge": "POST"
+    },
+    "2": {
+      "title": "Pratinjau ZelfProof",
+      "description": "Periksa metadata publik dan apa yang akan diperlukan sebelum Anda mendekripsi, tanpa mengirim gambar wajah. Demo Pratinjau HumanID mengikuti ide yang sama pada API saat ini.",
+      "badge": "POST"
+    },
+    "3": {
+      "title": "Buat QR ZelfProof",
+      "description": "Hasilkan QR yang menyematkan HumanID agar orang dapat memindai dari layar atau dompet.",
+      "badge": "POST"
+    },
+    "4": {
+      "title": "Deteksi keaktifan",
+      "description": "Jalankan pemeriksaan khusus bahwa gambar wajah tampak hidup daripada spoof. Terpisah dari enkripsi dan dekripsi HumanID.",
+      "badge": "POST"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "headerTitle": "生きている人物を検索",
+  "heroTitleComplete": "検索完了",
+  "heroTitleInitial": "生きている人物を検索",
+  "heroSubtitleComplete": "結果を以下に示します。別のライブ検索を実行するにはリセットします。",
+  "heroSubtitleInitial": "1 つのプローブ画像のライブネス、その後 1:N の顔検索 (ライブ)。",
+  "livenessMinLabel": "最小生存時間 {スコア}",
+  "minScoreLabel": "最小スコア {スコア}",
+  "searchModeLabel": "検索モード",
+  "collectionIdLabel": "コレクションID",
+  "optionalPlaceholder": "オプション",
+  "chooseOneDescription": "カメラでスキャンするか、写真をアップロードします。このデモではどちらのオプションも機能します。",
+  "cameraTitle": "ライブカメラ",
+  "cameraSubtitle": "カメラを開いて顔をフレームに合わせます",
+  "uploadTitle": "ギャラリーからの写真",
+  "uploadSubtitle": "代わりにデバイスから画像ファイルを選択してください",
+  "uploadPrimary": "画像をアップロードする",
+  "uploadSecondary": "ギャラリーからの JPEG または PNG",
+  "previewAlt": "捕らえられた",
+  "searching": "検索中…",
+  "searchLive": "ライブ検索",
+  "apiRefSummary": "API リファレンス: 顔検索 1:N (ライブ)",
+  "apiRefLinkSuffix": "(プローブ画像上の活性、その後 1:N 検索)。",
+  "apiRefBody": "Base URL https://api.verifik.co. Send a single raw base64 probe in image (no data URL prefix), required os (ANDROID, IOS, or DESKTOP), liveness and match thresholds, and search_mode. This demo uses DESKTOP.",
+  "apiRefEndpoint": "POST /v2/face-recognition/search-live-face",
+  "apiRefEndpointDesc": "最初にアンチスプーフィング/ライブネスを実行します。合格した場合は、登録された顔に対して類似性検索を実行します。",
+  "paramImageDesc": "単一のbase64プローブ画像",
+  "paramOsDesc": "アンドロイド、IOS、またはデスクトップ",
+  "paramLivenessMinDesc": "生存閾値 (0.5 ～ 1.0)",
+  "paramMinScoreDesc": "一致しきい値 (ドキュメントあたり 0.5 ～ 1.0)",
+  "paramSearchModeDesc": "速いか正確か",
+  "paramCollectionIdDesc": "検索範囲を 1 つのコレクションに限定",
+  "bulletApiClient": "このデモでは、セッション トークンを使用して @humanauthn/api-client からの searchLiveperson を使用します。",
+  "bulletLivenessFail": "活性しきい値を下回る障害が発生すると、エラー応答が返される場合があります (エラーの形状については API ドキュメントを参照してください)。",
+  "relatedDocs": {
+    "0": {
+      "title": "人物オブジェクト",
+      "description": "顔認識人物レコードのフィールドと構造。",
+      "badge": "Object"
+    },
+    "1": {
+      "title": "すべての人物をリストする",
+      "description": "オプションのフィルターを使用したクライアントの担当者。",
+      "badge": "GET"
+    },
+    "2": {
+      "title": "人物を取得する",
+      "description": "ID による 1 人の人物。",
+      "badge": "GET"
+    },
+    "3": {
+      "title": "個人を更新する",
+      "description": "プロフィール、画像、コレクションなど。",
+      "badge": "PUT"
+    },
+    "4": {
+      "title": "Delete a Person",
+      "description": "ID によって個人レコードを削除します。",
+      "badge": "DELETE"
+    },
+    "5": {
+      "title": "顔検索 1:N (ライブ)",
+      "description": "プローブ画像上のライブネスを確認し、一致するものを 1:N で検索します。",
+      "badge": "POST"
+    }
+  }
+}

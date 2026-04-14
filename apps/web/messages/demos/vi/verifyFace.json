@@ -1,0 +1,62 @@
+{
+  "headerTitle": "Xác minh khuôn mặt",
+  "heroTitleComplete": "Xác minh hoàn tất",
+  "heroTitleInitial": "Xác minh khuôn mặt",
+  "heroSubtitleComplete": "Kết quả được hiển thị dưới đây.Đặt lại để xác minh lại.",
+  "heroSubtitleInitial": "Xác minh 1:1 đối với người đã đăng ký bằng ID.",
+  "personIdLabel": "ID người",
+  "personPlaceholder": "ID người đã đăng ký",
+  "minScoreLabel": "Điểm tối thiểu {score}",
+  "searchModeLabel": "Chế độ tìm kiếm",
+  "collectionIdLabel": "ID bộ sưu tập",
+  "optionalPlaceholder": "Không bắt buộc",
+  "chooseOneDescription": "Quét bằng máy ảnh của bạn hoặc tải ảnh lên.Mỗi lần chụp sẽ được thêm vào hình ảnh để xác minh.",
+  "cameraTitle": "Máy ảnh trực tiếp",
+  "cameraSubtitle": "Mở camera và chụp ảnh một khuôn mặt",
+  "uploadTitle": "Ảnh từ thư viện",
+  "uploadSubtitle": "Chọn một hoặc nhiều tệp hình ảnh từ thiết bị của bạn",
+  "verifying": "Đang xác minh…",
+  "verify": "Xác minh",
+  "resultTitle": "Kết quả xác minh",
+  "reset": "Cài lại",
+  "apiRefSummary": "Tham chiếu API: Xác minh khuôn mặt (1:1)",
+  "apiRefOfficialEn": "Tài liệu chính thức (EN):",
+  "apiRefSpanishLabel": "tiếng Tây Ban Nha:",
+  "apiRefBody": "URL cơ sở https://api.verifik.co. Gửi id MongoDB của người đã đăng ký trong id và một hoặc nhiều hình ảnh khuôn mặt base64 thô trong hình ảnh (không có tiền tố dữ liệu URL). Collection_id tùy chọn giới hạn việc kiểm tra.",
+  "apiRefEndpoint": "POST /v2/face-recognition/verify",
+  "apiRefEndpointDesc": "1:1 so với một người đã đăng ký đã biết: trả về một data.match có điểm khi đạt đến ngưỡng.",
+  "paramIdDesc": "ID người đã đăng ký MongoDB",
+  "paramImagesDesc": "Mảng ảnh khuôn mặt base64 (cùng chủ đề)",
+  "paramMinScoreDesc": "Ngưỡng phù hợp (0,5–1)",
+  "paramSearchModeDesc": "FAST hoặc ACCURATE",
+  "paramCollectionIdDesc": "Phạm vi thu thập tùy chọn",
+  "bulletApiClient": "Bản demo này sử dụng verifyFace từ @humanauthn/api-client bằng mã thông báo phiên của bạn.",
+  "bulletResponse": "Các phản hồi bao gồm data.match và khối chữ ký khi được bật.",
+  "relatedDocs": {
+    "0": {
+      "title": "So sánh khuôn mặt",
+      "description": "So sánh khuôn mặt 1:1 giữa hai bộ ảnh không có id người đã đăng ký.",
+      "badge": "POST"
+    },
+    "1": {
+      "title": "So sánh khuôn mặt (Trực tiếp)",
+      "description": "So sánh 1:1 với độ sống động trên hình ảnh thăm dò.",
+      "badge": "POST"
+    },
+    "2": {
+      "title": "So sánh với sự sống động",
+      "description": "So sánh 1:1 cộng với ngưỡng hoạt động có thể định cấu hình.",
+      "badge": "POST"
+    },
+    "3": {
+      "title": "Tìm kiếm khuôn mặt (1:N)",
+      "description": "Tìm kiếm theo hình ảnh khuôn mặt đối với những người đã đăng ký trong bộ sưu tập của bạn.",
+      "badge": "POST"
+    },
+    "4": {
+      "title": "Phát hiện sự sống",
+      "description": "Xác định xem một khuôn mặt có phải là khuôn mặt trực tiếp hay giả mạo hay không;điểm sống động.",
+      "badge": "POST"
+    }
+  }
+}

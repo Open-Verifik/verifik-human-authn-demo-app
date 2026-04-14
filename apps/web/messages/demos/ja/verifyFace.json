@@ -1,0 +1,62 @@
+{
+  "headerTitle": "顔を認証する",
+  "heroTitleComplete": "検証が完了しました",
+  "heroTitleInitial": "顔を認証する",
+  "heroSubtitleComplete": "結果を以下に示します。リセットして再度確認します。",
+  "heroSubtitleInitial": "IDによる登録者との1対1の認証。",
+  "personIdLabel": "個人ID",
+  "personPlaceholder": "登録者ID",
+  "minScoreLabel": "最小スコア {スコア}",
+  "searchModeLabel": "検索モード",
+  "collectionIdLabel": "コレクションID",
+  "optionalPlaceholder": "オプション",
+  "chooseOneDescription": "カメラでスキャンするか、写真をアップロードします。各キャプチャは検証のために画像に追加されます。",
+  "cameraTitle": "ライブカメラ",
+  "cameraSubtitle": "カメラを開いて顔画像を 1 枚キャプチャします",
+  "uploadTitle": "ギャラリーからの写真",
+  "uploadSubtitle": "デバイスから 1 つ以上の画像ファイルを選択します",
+  "verifying": "確認中…",
+  "verify": "確認する",
+  "resultTitle": "検証結果",
+  "reset": "リセット",
+  "apiRefSummary": "API リファレンス: 顔の検証 (1:1)",
+  "apiRefOfficialEn": "公式ドキュメント (英語):",
+  "apiRefSpanishLabel": "スペイン語:",
+  "apiRefBody": "Base URL https://api.verifik.co. Send the enrolled person's MongoDB id in id and one or more raw base64 face images in images (no data URL prefix). Optional collection_id scopes the check.",
+  "apiRefEndpoint": "POST /v2/face-recognition/verify",
+  "apiRefEndpointDesc": "既知の登録者と 1 対 1 で対戦: しきい値に達すると、スコアとの data.match を返します。",
+  "paramIdDesc": "登録者 MongoDB ID",
+  "paramImagesDesc": "Base64 顔画像の配列 (同じ被写体)",
+  "paramMinScoreDesc": "一致しきい値 (0.5 ～ 1)",
+  "paramSearchModeDesc": "速いか正確か",
+  "paramCollectionIdDesc": "オプションの収集範囲",
+  "bulletApiClient": "このデモでは、セッション トークンを使用して @humanauthn/api-client から verifyFace を使用します。",
+  "bulletResponse": "有効になっている場合、応答には data.match と署名ブロックが含まれます。",
+  "relatedDocs": {
+    "0": {
+      "title": "顔の比較",
+      "description": "登録者 ID を持たない 2 つの画像セット間の 1:1 の顔比較。",
+      "badge": "POST"
+    },
+    "1": {
+      "title": "顔の比較 (ライブ)",
+      "description": "プローブ画像上のライブネスと 1:1 の比較。",
+      "badge": "POST"
+    },
+    "2": {
+      "title": "Livenessとの比較",
+      "description": "1:1 比較と構成可能な生存しきい値。",
+      "badge": "POST"
+    },
+    "3": {
+      "title": "顔検索 (1:N)",
+      "description": "コレクションに登録されている人物を顔画像で検索します。",
+      "badge": "POST"
+    },
+    "4": {
+      "title": "生存検知",
+      "description": "顔が生きているのか、なりすましであるかを判断します。生存スコア。",
+      "badge": "POST"
+    }
+  }
+}

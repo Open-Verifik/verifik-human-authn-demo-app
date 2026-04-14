@@ -1,0 +1,63 @@
+{
+  "headerTitle": "HumanID 미리보기",
+  "heroTitle": "HumanID 미리보기",
+  "heroTitleResult": "미리보기 준비됨",
+  "heroSubtitle": "ZelfProof에서 공개 메타데이터를 검사합니다. 얼굴이나 자격 증명이 필요하지 않습니다.",
+  "humanIdModeLabel": "HumanID",
+  "pasteString": "문자열 붙여넣기",
+  "uploadQrImage": "QR 이미지 업로드",
+  "proofLabel": "ZelfProof 문자열",
+  "proofPlaceholder": "여기에 ZelfProof 문자열을 붙여넣으세요…",
+  "qrUploadHelp": "HumanID QR의 PNG 또는 JPEG를 업로드하세요. QR을 디코딩하고 미리보기를 위해 증명 문자열을 채웁니다.",
+  "chooseQrImage": "QR 이미지 선택",
+  "readingQr": "QR 읽는 중…",
+  "secondaryPngJpeg": "PNG 또는 JPEG",
+  "qrPreviewAlt": "QR 미리보기",
+  "extractedHeading": "추출된 HumanID(읽기 전용)",
+  "errorReadProof": "QR 미리보기 응답에서 HumanID를 읽을 수 없습니다.",
+  "qrExtractSuccess": "QR에서 추출한 HumanID입니다. 필요한 경우 확인 키를 추가한 다음 미리 봅니다.",
+  "verifierKeyOptional": "검증자 키(선택사항)",
+  "verifierKeyPlaceholder": "생성 중에 설정된 경우 추가 필드를 잠금 해제합니다.",
+  "previewCta": "시사",
+  "processing": "미리보기를 가져오는 중…",
+  "apiRefSummary": "API 참조: HumanID 미리보기",
+  "apiOfficialLead": "공식 문서:",
+  "apiOfficialLinkLabel": "docs.verifik.co/api/tags/preview-zelfproof",
+  "apiOfficialAfter": "(매개변수, 응답 및 예시) 이 데모에서는 현재 API의 해당 워크플로와 일치하는 PreviewHumanId를 통해 POST /v2/human-id/preview을 호출합니다. 관련된:",
+  "apiBaseUrlNote": "Base URL https://api.verifik.co. Send JSON with Content-Type: application/json and Authorization: Bearer <access token> (same JWT as this demo after sign in).",
+  "apiPreviewEndpointDesc": "일반적으로 서명된 데이터 봉투 내의 증거(예: 비밀번호가 필요한지 여부)에 대해 민감하지 않은 미리 보기 필드를 반환합니다.",
+  "apiPreviewQrEndpointDesc": "사용자가 HumanID QR의 PNG 또는 JPEG를 제공할 때 사용합니다. API는 페이로드를 디코딩하고 위의 미리보기 호출에 보낼 수 있는 zelfProof를 반환합니다. 미리보기와 동일한 JSON 헤더입니다. 증명에서 verifierKey를 사용하는 경우 선택적인 verifierKey입니다.",
+  "apiBullet1": "이 데모에서는 PreviewHumanId를 사용하고, QR 이미지의 경우 세션 토큰과 함께 @humanauthn/api-client의 PreviewZelfIdQr을 사용합니다.",
+  "apiBullet2": "성공 응답은 Verifik 패턴, 즉 데이터 개체(그리고 종종 프로젝트에 서명이 활성화될 때 서명)를 따릅니다.",
+  "paramZelfProofDesc": "붙여넣기 또는 이 형식의 QR 추출에서 얻은 HumanID 문자열",
+  "paramVerifierKeyDesc": "검증자 키를 사용하여 증명이 생성된 경우",
+  "paramQrCodeDesc": "데이터 URL(data:image/png;base64,...) 또는 API에서 허용하는 다른 형식의 이미지(이 데모는 파일에서 데이터 URL을 구축합니다)",
+  "paramVerifierKeyQrDesc": "증명에서 검증자 키를 사용할 때 미리보기와 동일한 의미",
+  "relatedDocs": {
+    "0": {
+      "title": "ZelfProof 미리보기",
+      "description": "공개 메타데이터를 해독하거나 다른 곳에서 사용하기 전에 증명에서 공개 메타데이터를 검사하기 위한 참조입니다.",
+      "badge": "POST"
+    },
+    "1": {
+      "title": "ZelfProof 생성",
+      "description": "공개 필드와 얼굴 캡처를 저장하거나 공유할 수 있는 새로운 HumanID 문자열로 암호화하세요.",
+      "badge": "POST"
+    },
+    "2": {
+      "title": "ZelfProof 암호 해독",
+      "description": "실제 얼굴과 일치시켜 증명 내의 신원 페이로드를 잠금 해제하세요.",
+      "badge": "POST"
+    },
+    "3": {
+      "title": "QR ZelfProof 생성",
+      "description": "사람들이 화면이나 지갑에서 스캔할 수 있도록 HumanID가 포함된 QR을 생성하세요.",
+      "badge": "POST"
+    },
+    "4": {
+      "title": "생체 감지",
+      "description": "얼굴 이미지가 스푸핑된 것이 아니라 실제처럼 보이는지 전용 검사를 실행하세요. HumanID 미리보기와는 별개입니다.",
+      "badge": "POST"
+    }
+  }
+}

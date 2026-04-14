@@ -1,0 +1,193 @@
+{
+  "RootLayout": {
+    "titleDefault": "HumanAuthn: 생체 인증 API 데모",
+    "titleTemplate": "%s | HumanAuthn",
+    "description": "Verifik의 HumanAuthn. 엔터프라이즈급 라이브니스 검출, 얼굴 비교 및 생체 인증.",
+    "keywords": [
+      "생체 인증",
+      "라이브니스 검출",
+      "얼굴 비교",
+      "신원 확인",
+      "Verifik",
+      "HumanAuthn",
+      "HumanID"
+    ],
+    "ogTitle": "HumanAuthn: 생체 인증 API 데모",
+    "ogDescription": "Verifik의 엔터프라이즈급 생체 인증 API",
+    "ogSiteName": "HumanAuthn"
+  },
+  "SplashPage": {
+    "metaTitle": "HumanAuthn: Verifik 생체 인증 API 데모",
+    "metaDescription": "라이브니스 검출로 안전하게 인증하세요. 디지털 신원 확인의 표준. Verifik 제공.",
+    "heroImageAlt": "생체 인식 얼굴 스캔",
+    "readinessBadge": "생체 준비 상태: 활성",
+    "brandPill": "Verifik · HumanAuthn",
+    "headlineLine1": "Human",
+    "headlineLine2": "Authn",
+    "tagline": "라이브니스 검출로 안전하게 인증하세요. 디지털 접근의 표준.",
+    "ctaPrimary": "시작하기",
+    "ctaSecondary": "데모 둘러보기 →",
+    "trustAria": "보안 인증"
+  },
+  "HomeHeader": {
+    "accountFallback": "계정",
+    "signIn": "로그인",
+    "accountMenuAria": "계정 메뉴",
+    "credits": "크레딧",
+    "settings": "설정",
+    "signOut": "로그아웃",
+    "homeAria": "Verifik: 홈"
+  },
+  "LanguageSwitcher": {
+    "ariaLabel": "언어",
+    "en": "English",
+    "es": "Español",
+    "pt": "Português",
+    "fr": "Français",
+    "hi": "हिन्दी",
+    "zh": "中文",
+    "ko": "한국어",
+    "ja": "日本語",
+    "de": "Deutsch",
+    "id": "Bahasa Indonesia",
+    "vi": "Tiếng Việt",
+    "tr": "Türkçe",
+    "ar": "العربية"
+  },
+  "home": {
+    "metaTitle": "데모 대시보드",
+    "metaDescription": "실제 사용자의 존재에 기반한 인증. 브라우저에서 Verifik의 실시간 생체 데모를 실행하세요—얼굴 매칭, 라이브니스, HumanID.",
+    "heroEyebrow": "생체 인식 · 실시간 데모",
+    "heroTitle": "HumanAuthn · 엔터프라이즈급 생체 인식",
+    "heroBody": "브라우저에서 얼굴 매칭, 라이브니스, HumanID 및 라이브 검출을 실행합니다. 전통적 생체 인식은 서버 측 OpenCV 컬렉션 관리와 검색을 다룩니다. 탈중앙화 HumanAuthn 데모는 중앙 얼굴 DB 없이 HumanID가 신원 데이터를 실시간 얼굴에 연결하는 방법을 보여 줍니다.",
+    "traditionalEyebrow": "OpenCV · 서버 측 갤러리",
+    "traditionalTitle": "전통적 생체 인식",
+    "decentralizedEyebrow": "HumanAuthn · HumanID",
+    "decentralizedTitle": "탈중앙화 생체 인식 · HumanAuthn",
+    "enterpriseEyebrow": "Verifik 플랫폼",
+    "enterpriseTitle": "엔터프라이즈급 보안",
+    "enterpriseBody": "플랫폼은 생체 데이터를 종단 간 암호화로 처리합니다. 설계상 프라이버시, 실제 배포에 준비되어 있습니다.",
+    "pillGdpr": "GDPR 준수",
+    "pillAes": "AES-256",
+    "pillSoc2": "SOC 2 준비",
+    "navIdentity": "신원",
+    "navSecurity": "보안",
+    "navSettings": "설정",
+    "demoCta": "데모 실행",
+    "sections": {
+      "enroll": "등록",
+      "manage": "관리",
+      "search": "검색",
+      "detection": "검출",
+      "comparison": "비교"
+    },
+    "demos": {
+      "create-collection": {
+        "badge": "등록",
+        "title": "컬렉션 만들기",
+        "description": "검색 및 검증을 위해 등록된 사람들을 그룹화하는 이름 있는 얼굴 컬렉션을 만듭니다."
+      },
+      "create-person": {
+        "badge": "등록",
+        "title": "사람 등록",
+        "description": "얼굴 이미지와 메타데이터를 업로드하여 새 사람을 등록합니다. OpenCV 컬렉션에 저장됩니다."
+      },
+      "create-person-with-liveness": {
+        "badge": "등록",
+        "title": "라이브니스로 사람 등록",
+        "description": "라이브니스 확인과 컬렉션 중복 검색을 동시에 수행하며 사람을 등록합니다."
+      },
+      "update-person": {
+        "badge": "관리",
+        "title": "사람 업데이트",
+        "description": "ID로 사람을 불러와 프로필 필드나 컬렉션 소속을 변경합니다(이 API에서는 새 얼굴 이미지 없음)."
+      },
+      "delete-person": {
+        "badge": "관리",
+        "title": "사람 삭제",
+        "description": "사람을 완전히 삭제하거나, 여러 컬렉션에 속한 경우 하나의 컬렉션에서만 제거합니다."
+      },
+      "search-person": {
+        "badge": "검색",
+        "title": "사람 검색",
+        "description": "하나 이상의 얼굴 이미지를 업로드하고 유사도 점수로 컬렉션에서 일치하는 사람을 검색합니다."
+      },
+      "search-live-person": {
+        "badge": "검색",
+        "title": "실시간 사람 검색",
+        "description": "실시간 얼굴을 캡처하고 라이브니스를 실행한 뒤 한 흐름에서 컬렉션 일치를 검색합니다."
+      },
+      "search-active-user": {
+        "badge": "검색",
+        "title": "활성 사용자 검색",
+        "description": "실시간 얼굴 캡처로 활성 사용자를 인증하고 검색 결과와 함께 라이브니스 점수를 반환합니다."
+      },
+      "detect-face": {
+        "badge": "검출",
+        "title": "얼굴 검출",
+        "description": "이미지를 제출하면 포함된 모든 얼굴을 검출하고 경계 상자와 크롭 데이터를 반환합니다."
+      },
+      "search-crops": {
+        "badge": "검출",
+        "title": "크롭 검색",
+        "description": "다중 이미지 크롭 검색으로 업로드한 얼굴 크롭 간 정밀 튜닝과 함께 일치하는 사람을 찾습니다."
+      },
+      "face-comparison": {
+        "badge": "비교",
+        "title": "얼굴 비교",
+        "description": "두 사진을 업로드해 동일인인지 확인합니다. 온보딩 및 신분증 확인에 유용합니다."
+      },
+      "face-comparison-liveness": {
+        "badge": "비교",
+        "title": "라이브니스와 비교",
+        "description": "기준 사진을 라이브 셀피와 매칭합니다. 얼굴 매칭이 충분할 때만 라이브니스가 실행됩니다."
+      },
+      "verify-face": {
+        "badge": "비교",
+        "title": "얼굴 검증",
+        "description": "설정 가능한 유사도 임계값으로 특정 등록 ID의 사람에 대해 얼굴 이미지를 검증합니다."
+      },
+      "liveness": {
+        "badge": "안티 스푸핑",
+        "title": "라이브니스 검출",
+        "description": "카메라 앞에 실제 사람이 있음을 보여 줍니다. 사진, 마스크, 재생이 아닙니다."
+      },
+      "humanid-create": {
+        "badge": "암호화",
+        "title": "HumanID 만들기",
+        "description": "공개 신원 데이터와 얼굴을 IPFS에 저장된 암호화 HumanID 증명에 연결합니다. 일치하는 라이브 얼굴로만 복구할 수 있습니다."
+      },
+      "humanid-create-qr": {
+        "badge": "QR",
+        "title": "HumanID QR 만들기",
+        "description": "얼굴 캡처와 신원 메타데이터로 QR로 인코딩된 HumanID를 생성해 휴대용 오프라인 검증에 사용합니다."
+      },
+      "humanid-decrypt": {
+        "badge": "복호화",
+        "title": "HumanID 복호화",
+        "description": "일치하는 라이브 얼굴과 증명 문자열을 제시해 HumanID 안의 신원 데이터를 복구합니다."
+      },
+      "humanid-preview": {
+        "badge": "미리보기",
+        "title": "HumanID 미리보기",
+        "description": "얼굴 이미지나 추가 자격 증명 없이 HumanID 문자열 안의 공개 메타데이터를 확인합니다."
+      }
+    }
+  },
+  "NotFound": {
+    "title": "페이지를 찾을 수 없습니다",
+    "body": "이 페이지가 없거나 링크가 잘못되었습니다.",
+    "homeLink": "홈으로 돌아가기"
+  },
+  "settingsNav": {
+    "title": "설정",
+    "ariaLabel": "설정 섹션",
+    "myAccount": "내 계정",
+    "developers": "개발자",
+    "profile": "프로필",
+    "apiKey": "API 키",
+    "mobileMenu": "설정 메뉴 열기",
+    "mobileTitle": "설정",
+    "closeMenu": "메뉴 닫기"
+  }
+}

@@ -1,0 +1,193 @@
+{
+  "RootLayout": {
+    "titleDefault": "HumanAuthn : démo API biométrique",
+    "titleTemplate": "%s | HumanAuthn",
+    "description": "HumanAuthn par Verifik. Détection de vivacité, comparaison faciale et authentification biométrique de niveau entreprise.",
+    "keywords": [
+      "authentification biométrique",
+      "détection de vivacité",
+      "comparaison faciale",
+      "vérification d'identité",
+      "Verifik",
+      "HumanAuthn",
+      "HumanID"
+    ],
+    "ogTitle": "HumanAuthn : démo API biométrique",
+    "ogDescription": "API d'authentification biométrique de niveau entreprise par Verifik",
+    "ogSiteName": "HumanAuthn"
+  },
+  "SplashPage": {
+    "metaTitle": "HumanAuthn : démo API biométrique par Verifik",
+    "metaDescription": "Authentifiez-vous en toute sécurité avec la détection de vivacité. La référence pour la vérification d'identité numérique. Propulsé par Verifik.",
+    "heroImageAlt": "Scan biométrique par reconnaissance faciale",
+    "readinessBadge": "Préparation biométrique : active",
+    "brandPill": "Verifik · HumanAuthn",
+    "headlineLine1": "Human",
+    "headlineLine2": "Authn",
+    "tagline": "Authentifiez-vous en toute sécurité avec la détection de vivacité. La référence pour l'accès numérique.",
+    "ctaPrimary": "Commencer",
+    "ctaSecondary": "Explorer les démos →",
+    "trustAria": "Certifications de sécurité"
+  },
+  "HomeHeader": {
+    "accountFallback": "Compte",
+    "signIn": "Connexion",
+    "accountMenuAria": "Menu du compte",
+    "credits": "Crédits",
+    "settings": "Paramètres",
+    "signOut": "Déconnexion",
+    "homeAria": "Verifik : accueil"
+  },
+  "LanguageSwitcher": {
+    "ariaLabel": "Langue",
+    "en": "English",
+    "es": "Español",
+    "pt": "Português",
+    "fr": "Français",
+    "hi": "हिन्दी",
+    "zh": "简体中文",
+    "ko": "한국어",
+    "ja": "日本語",
+    "de": "Deutsch",
+    "id": "Bahasa Indonesia",
+    "vi": "Tiếng Việt",
+    "tr": "Türkçe",
+    "ar": "العربية"
+  },
+  "home": {
+    "metaTitle": "Tableau de bord des démos",
+    "metaDescription": "Authentification ancrée sur la présence humaine. Exécutez dans le navigateur les démos biométriques en direct de Verifik : correspondance faciale, vivacité et HumanID.",
+    "heroEyebrow": "Biométrie · Démos en direct",
+    "heroTitle": "HumanAuthn · Biométrie de niveau entreprise",
+    "heroBody": "Exécutez la correspondance faciale, la vivacité, HumanID et la détection en direct dans le navigateur. La biométrie classique couvre la gestion de galerie OpenCV côté serveur et la recherche. Les démos HumanAuthn décentralisées montrent comment un HumanID lie les données d'identité à un visage en direct sans base centrale de visages.",
+    "traditionalEyebrow": "OpenCV · Galerie côté serveur",
+    "traditionalTitle": "Biométrie classique",
+    "decentralizedEyebrow": "HumanAuthn · HumanID",
+    "decentralizedTitle": "Biométrie décentralisée · HumanAuthn",
+    "enterpriseEyebrow": "Plateforme Verifik",
+    "enterpriseTitle": "Sécurité de niveau entreprise",
+    "enterpriseBody": "Notre plateforme traite les données biométriques avec un chiffrement de bout en bout. Confidentialité dès la conception, prête pour les déploiements sérieux.",
+    "pillGdpr": "Conforme RGPD",
+    "pillAes": "AES-256",
+    "pillSoc2": "Prêt SOC 2",
+    "navIdentity": "Identité",
+    "navSecurity": "Sécurité",
+    "navSettings": "Paramètres",
+    "demoCta": "Lancer la démo",
+    "sections": {
+      "enroll": "Enrôlement",
+      "manage": "Gestion",
+      "search": "Recherche",
+      "detection": "Détection",
+      "comparison": "Comparaison"
+    },
+    "demos": {
+      "create-collection": {
+        "badge": "Enrôlement",
+        "title": "Créer une collection",
+        "description": "Créez une collection faciale nommée pour regrouper les personnes enrôlées pour la recherche et la vérification."
+      },
+      "create-person": {
+        "badge": "Enrôlement",
+        "title": "Créer une personne",
+        "description": "Enrôlez une nouvelle personne en téléversant des images faciales et des métadonnées. Stockées dans une collection OpenCV."
+      },
+      "create-person-with-liveness": {
+        "badge": "Enrôlement",
+        "title": "Créer une personne avec vivacité",
+        "description": "Enrôlez une personne tout en exécutant un contrôle de vivacité et en recherchant les doublons dans la collection."
+      },
+      "update-person": {
+        "badge": "Gestion",
+        "title": "Mettre à jour une personne",
+        "description": "Chargez une personne par id et modifiez les champs du profil ou l'appartenance aux collections (pas de nouvelles images faciales dans cette API)."
+      },
+      "delete-person": {
+        "badge": "Gestion",
+        "title": "Supprimer une personne",
+        "description": "Supprimez complètement une personne ou retirez-la d'une seule collection lorsqu'elle appartient à plusieurs."
+      },
+      "search-person": {
+        "badge": "Recherche",
+        "title": "Rechercher une personne",
+        "description": "Téléversez une ou plusieurs images faciales et recherchez dans la collection les personnes correspondantes par score de similarité."
+      },
+      "search-live-person": {
+        "badge": "Recherche",
+        "title": "Recherche personne en direct",
+        "description": "Capturez un visage en direct, exécutez la détection de vivacité et recherchez une correspondance dans la collection en un seul flux."
+      },
+      "search-active-user": {
+        "badge": "Recherche",
+        "title": "Recherche utilisateur actif",
+        "description": "Authentifiez un utilisateur actif avec une capture en direct et renvoyez un score de vivacité avec les résultats de recherche."
+      },
+      "detect-face": {
+        "badge": "Détection",
+        "title": "Détecter un visage",
+        "description": "Soumettez une image et détectez tous les visages qu'elle contient, avec les boîtes englobantes et les données de recadrage."
+      },
+      "search-crops": {
+        "badge": "Détection",
+        "title": "Recherche par recadrages",
+        "description": "Lancez une recherche multi-images sur des recadrages pour trouver des personnes correspondantes avec un réglage fin de la précision."
+      },
+      "face-comparison": {
+        "badge": "Comparaison",
+        "title": "Comparaison faciale",
+        "description": "Téléversez deux photos pour vérifier s'il s'agit de la même personne. Utile pour l'onboarding et les contrôles d'identité."
+      },
+      "face-comparison-liveness": {
+        "badge": "Comparaison",
+        "title": "Comparer avec vivacité",
+        "description": "Associez une photo de référence à un selfie en direct. La vivacité ne s'exécute qu'après une correspondance faciale suffisamment forte."
+      },
+      "verify-face": {
+        "badge": "Comparaison",
+        "title": "Vérifier un visage",
+        "description": "Vérifiez une image faciale contre une personne enrôlée précise par ID avec un seuil de similarité configurable."
+      },
+      "liveness": {
+        "badge": "Anti-spoof",
+        "title": "Détection de vivacité",
+        "description": "Prouvez qu'une vraie personne est devant la caméra, pas une photo, un masque ou une relecture."
+      },
+      "humanid-create": {
+        "badge": "Chiffrer",
+        "title": "Créer un HumanID",
+        "description": "Liez des données d'identité publiques et un visage à une preuve HumanID chiffrée stockée sur IPFS. Récupérable uniquement par le visage en direct correspondant."
+      },
+      "humanid-create-qr": {
+        "badge": "QR",
+        "title": "Créer un HumanID QR",
+        "description": "Générez un HumanID encodé en QR à partir d'une capture faciale et de métadonnées d'identité pour une vérification portable hors ligne."
+      },
+      "humanid-decrypt": {
+        "badge": "Déchiffrer",
+        "title": "Déchiffrer un HumanID",
+        "description": "Récupérez les données d'identité d'un HumanID en présentant le visage en direct correspondant et la chaîne de preuve."
+      },
+      "humanid-preview": {
+        "badge": "Aperçu",
+        "title": "Aperçu HumanID",
+        "description": "Inspectez les métadonnées publiques d'une chaîne HumanID sans image faciale ni identifiants supplémentaires."
+      }
+    }
+  },
+  "NotFound": {
+    "title": "Page introuvable",
+    "body": "Cette page n'existe pas ou le lien est invalide.",
+    "homeLink": "Retour à l'accueil"
+  },
+  "settingsNav": {
+    "title": "Paramètres",
+    "ariaLabel": "Sections des paramètres",
+    "myAccount": "Mon compte",
+    "developers": "Développeurs",
+    "profile": "Profil",
+    "apiKey": "Clé API",
+    "mobileMenu": "Ouvrir le menu des paramètres",
+    "mobileTitle": "Paramètres",
+    "closeMenu": "Fermer le menu"
+  }
+}

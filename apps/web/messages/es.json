@@ -1,0 +1,193 @@
+{
+  "RootLayout": {
+    "titleDefault": "HumanAuthn: demo de API biométrica",
+    "titleTemplate": "%s | HumanAuthn",
+    "description": "HumanAuthn de Verifik. Detección de vida, comparación facial y autenticación biométrica de nivel empresarial.",
+    "keywords": [
+      "autenticación biométrica",
+      "detección de vida",
+      "comparación facial",
+      "verificación de identidad",
+      "Verifik",
+      "HumanAuthn",
+      "HumanID"
+    ],
+    "ogTitle": "HumanAuthn: demo de API biométrica",
+    "ogDescription": "APIs de autenticación biométrica de nivel empresarial por Verifik",
+    "ogSiteName": "HumanAuthn"
+  },
+  "SplashPage": {
+    "metaTitle": "HumanAuthn: demo de API biométrica por Verifik",
+    "metaDescription": "Autentícate con detección de vida. El estándar para la verificación de identidad digital. Impulsado por Verifik.",
+    "heroImageAlt": "Escaneo biométrico facial",
+    "readinessBadge": "Estado biométrico: activo",
+    "brandPill": "Verifik · HumanAuthn",
+    "headlineLine1": "Human",
+    "headlineLine2": "Authn",
+    "tagline": "Autentícate con detección de vida. El estándar para el acceso digital.",
+    "ctaPrimary": "Comenzar",
+    "ctaSecondary": "Explorar demos →",
+    "trustAria": "Certificaciones de seguridad"
+  },
+  "HomeHeader": {
+    "accountFallback": "Cuenta",
+    "signIn": "Iniciar sesión",
+    "accountMenuAria": "Menú de cuenta",
+    "credits": "Créditos",
+    "settings": "Ajustes",
+    "signOut": "Cerrar sesión",
+    "homeAria": "Verifik: inicio"
+  },
+  "LanguageSwitcher": {
+    "ariaLabel": "Idioma",
+    "en": "English",
+    "es": "Español",
+    "pt": "Português",
+    "fr": "Français",
+    "hi": "हिन्दी",
+    "zh": "简体中文",
+    "ko": "한국어",
+    "ja": "日本語",
+    "de": "Deutsch",
+    "id": "Bahasa Indonesia",
+    "vi": "Tiếng Việt",
+    "tr": "Türkçe",
+    "ar": "العربية"
+  },
+  "home": {
+    "metaTitle": "Panel de demos",
+    "metaDescription": "Autenticación anclada a la presencia humana. Ejecuta en el navegador las demos en vivo de Verifik para coincidencia facial, vida y HumanID.",
+    "heroEyebrow": "Biometría · Demos en vivo",
+    "heroTitle": "HumanAuthn · Biometría de nivel empresarial",
+    "heroBody": "Ejecuta coincidencia facial, vida, HumanID y detección en vivo en el navegador. La biometría tradicional cubre la gestión de colecciones OpenCV en servidor y la búsqueda. Las demos descentralizadas de HumanAuthn muestran cómo un HumanID vincula datos de identidad a un rostro en vivo sin una base central de rostros.",
+    "traditionalEyebrow": "OpenCV · Galería en servidor",
+    "traditionalTitle": "Biometría tradicional",
+    "decentralizedEyebrow": "HumanAuthn · HumanID",
+    "decentralizedTitle": "Biometría descentralizada · HumanAuthn",
+    "enterpriseEyebrow": "Plataforma Verifik",
+    "enterpriseTitle": "Seguridad de nivel empresarial",
+    "enterpriseBody": "Nuestra plataforma procesa datos biométricos con cifrado de extremo a extremo. Privacidad por diseño, lista para despliegues serios.",
+    "pillGdpr": "Compatible con GDPR",
+    "pillAes": "AES-256",
+    "pillSoc2": "Listo para SOC 2",
+    "navIdentity": "Identidad",
+    "navSecurity": "Seguridad",
+    "navSettings": "Ajustes",
+    "demoCta": "Ejecutar demo",
+    "sections": {
+      "enroll": "Registro",
+      "manage": "Gestión",
+      "search": "Búsqueda",
+      "detection": "Detección",
+      "comparison": "Comparación"
+    },
+    "demos": {
+      "create-collection": {
+        "badge": "Registro",
+        "title": "Crear colección",
+        "description": "Crea una colección nominal de rostros para agrupar personas registradas para búsqueda y verificación."
+      },
+      "create-person": {
+        "badge": "Registro",
+        "title": "Crear persona",
+        "description": "Registra una nueva persona subiendo imágenes faciales y metadatos. Almacenado en una colección OpenCV."
+      },
+      "create-person-with-liveness": {
+        "badge": "Registro",
+        "title": "Crear persona con vida",
+        "description": "Registra a una persona ejecutando a la vez una prueba de vida y buscando duplicados en la colección."
+      },
+      "update-person": {
+        "badge": "Gestión",
+        "title": "Actualizar persona",
+        "description": "Carga una persona por id y cambia campos de perfil o pertenencia a colecciones (sin nuevas imágenes faciales en esta API)."
+      },
+      "delete-person": {
+        "badge": "Gestión",
+        "title": "Eliminar persona",
+        "description": "Elimina por completo a una persona o retírala de una sola colección cuando pertenezca a varias."
+      },
+      "search-person": {
+        "badge": "Búsqueda",
+        "title": "Buscar persona",
+        "description": "Sube una o más imágenes faciales y busca en la colección personas coincidentes por puntuación de similitud."
+      },
+      "search-live-person": {
+        "badge": "Búsqueda",
+        "title": "Buscar persona en vivo",
+        "description": "Captura un rostro en vivo, ejecuta detección de vida y busca una coincidencia en la colección en un solo flujo."
+      },
+      "search-active-user": {
+        "badge": "Búsqueda",
+        "title": "Buscar usuario activo",
+        "description": "Autentica a un usuario activo con captura facial en vivo y devuelve una puntuación de vida junto con los resultados de búsqueda."
+      },
+      "detect-face": {
+        "badge": "Detección",
+        "title": "Detectar rostro",
+        "description": "Envía una imagen y detecta todos los rostros que contiene, devolviendo cajas delimitadoras y datos de recorte."
+      },
+      "search-crops": {
+        "badge": "Detección",
+        "title": "Buscar recortes",
+        "description": "Ejecuta una búsqueda multi-imagen por recortes para encontrar personas coincidentes con ajuste fino de precisión."
+      },
+      "face-comparison": {
+        "badge": "Comparación",
+        "title": "Comparación facial",
+               "description": "Sube dos fotos y comprueba si son la misma persona. Util para incorporacion y revisiones de identificacion."
+      },
+      "face-comparison-liveness": {
+        "badge": "Comparación",
+        "title": "Comparar con vida",
+        "description": "Empareja una foto de referencia con un selfie en vivo. La prueba de vida solo corre cuando la coincidencia facial es suficientemente fuerte."
+      },
+      "verify-face": {
+        "badge": "Comparación",
+        "title": "Verificar rostro",
+        "description": "Verifica una imagen facial contra una persona inscrita específica por ID con un umbral de similitud configurable."
+      },
+      "liveness": {
+        "badge": "Anti-suplantación",
+        "title": "Detección de vida",
+        "description": "Demuestra que hay una persona real frente a la cámara, no una foto, máscara o reproducción."
+      },
+      "humanid-create": {
+        "badge": "Cifrar",
+        "title": "Crear HumanID",
+        "description": "Vincula datos de identidad públicos y un rostro a una prueba HumanID cifrada en IPFS. Recuperable solo con el rostro en vivo."
+      },
+      "humanid-create-qr": {
+        "badge": "QR",
+        "title": "Crear HumanID QR",
+        "description": "Genera un HumanID codificado en QR a partir de una captura facial y metadatos de identidad para verificación portátil sin conexión."
+      },
+      "humanid-decrypt": {
+        "badge": "Descifrar",
+        "title": "Descifrar HumanID",
+        "description": "Recupera los datos de identidad de un HumanID presentando el rostro en vivo coincidente y la cadena de prueba."
+      },
+      "humanid-preview": {
+        "badge": "Vista previa",
+        "title": "Vista previa HumanID",
+        "description": "Inspecciona los metadatos públicos dentro de una cadena HumanID sin imagen facial ni credenciales adicionales."
+      }
+    }
+  },
+  "NotFound": {
+    "title": "Pagina no encontrada",
+    "body": "Esta pagina no existe o el enlace no es valido.",
+    "homeLink": "Volver al inicio"
+  },
+  "settingsNav": {
+    "title": "Ajustes",
+    "ariaLabel": "Secciones de ajustes",
+    "myAccount": "Mi cuenta",
+    "developers": "Desarrolladores",
+    "profile": "Perfil",
+    "apiKey": "Clave API",
+    "mobileMenu": "Abrir menú de ajustes",
+    "mobileTitle": "Ajustes",
+    "closeMenu": "Cerrar menú"
+  }
+}

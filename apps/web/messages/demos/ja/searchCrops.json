@@ -1,0 +1,67 @@
+{
+  "headerTitle": "作物を探す",
+  "heroTitleComplete": "検索完了",
+  "heroTitleInitial": "作物を探す",
+  "heroSubtitleComplete": "一致したものを以下に示します。別の検索を実行するにはリセットします。",
+  "heroSubtitleInitial": "顔のトリミング (小さな領域) を使用した 1:N 検索。 min_score は 0.5 ～ 1 の範囲にする必要があります。",
+  "minScoreLabel": "最小スコア {スコア}",
+  "searchModeLabel": "検索モード",
+  "collectionIdLabel": "コレクションID",
+  "maxResultsLabel": "最大の結果",
+  "optionalPlaceholder": "オプション",
+  "chooseOneDescription": "カメラでスキャンするか、写真をアップロードします。各キャプチャは、1:N 検索の顔トリミングとして追加されます。",
+  "cameraTitle": "ライブカメラ",
+  "cameraSubtitle": "カメラを開いて顔画像を 1 枚キャプチャします",
+  "uploadTitle": "ギャラリーからの写真",
+  "uploadSubtitle": "デバイスから 1 つ以上のトリミング画像を選択します",
+  "cropsAddMore": "{count} 個の作物、さらに追加します",
+  "uploadFaceCrops": "顔のトリミングをアップロードする",
+  "searching": "検索中…",
+  "search": "検索",
+  "resultTitle": "検索結果",
+  "reset": "リセット",
+  "apiRefSummary": "API リファレンス: 顔検索 1:N (作物)",
+  "apiRefLead": "(顔トリミングの 1:N 検索。標準の顔検索とは異なり、min_score は 0.5 ～ 1 です)。",
+  "apiRefBody": "Base URL https://api.verifik.co. Send one or more entries in images as raw base64 or HTTPS URLs to images (the API may fetch URLs server-side). Optionally set collection_id and max_results.",
+  "apiRefEndpoint": "POST /v2/face-recognition/search/crops",
+  "apiRefEndpointDesc": "/face-recognition/search と同じ一般的な形状で、データ内のランク付けされた候補者を返します。",
+  "paramImagesDesc": "顔のトリミング (base64 および/または HTTPS URL)、同じ主題",
+  "paramMinScoreDesc": "0.5～1",
+  "paramSearchModeDesc": "速いか正確か",
+  "paramCollectionIdDesc": "検索を 1 つのコレクションに限定する",
+  "paramMaxResultsDesc": "返された試合の上限",
+  "bulletApiClient": "このデモでは、セッション トークンで @humanauthn/api-client の searchCrops を使用します。",
+  "bulletSignature": "通常、応答にはランク付けされた一致が含まれ、環境によっては署名ブロックが含まれる場合があります。",
+  "relatedDocs": {
+    "0": {
+      "title": "顔検索 (1:N)",
+      "description": "顔全体の画像による標準のギャラリー検索。 min_score の下限 (0.2 ～ 1)。",
+      "badge": "POST"
+    },
+    "1": {
+      "title": "顔検索 1:N (ライブ)",
+      "description": "プローブ画像上でライブネスを確認し、1:N で検索します。",
+      "badge": "POST"
+    },
+    "2": {
+      "title": "顔検索 1:N (アクティブ ユーザー)",
+      "description": "プローブ上で活性のないアクティブ セッション フローを 1:N 検索します。",
+      "badge": "POST"
+    },
+    "3": {
+      "title": "顔を検証 (1:1)",
+      "description": "プローブ画像を既知の登録者の ID と照合します。",
+      "badge": "POST"
+    },
+    "4": {
+      "title": "顔検出",
+      "description": "画像内の顔を検出して、検索前にトリミングを取得します。",
+      "badge": "POST"
+    },
+    "5": {
+      "title": "すべての人物をリストする",
+      "description": "クライアントの登録者を検査します。",
+      "badge": "GET"
+    }
+  }
+}

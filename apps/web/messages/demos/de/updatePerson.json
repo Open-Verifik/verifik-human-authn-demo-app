@@ -1,0 +1,32 @@
+{
+  "headerTitle": "Person aktualisieren",
+  "heroTitleForm": "Person aktualisieren",
+  "heroTitleResult": "Person aktualisiert",
+  "heroSubtitleForm": "Wählen Sie eine im Projekt registrierte Person, bearbeiten Sie Profil oder Sammlungen und speichern. Diese Route ersetzt keine Gesichtsbilder (aktueller Stand der API).",
+  "heroSubtitleResult": "Änderungen wurden mit PUT /v2/face-recognition/persons/:id gesendet.",
+  "personLabel": "Person",
+  "personHint": "Liste von GET /v2/face-recognition/persons — nur Personen Ihres Kontos.",
+  "noPeopleEmpty": "Keine Personen gefunden. Registrieren Sie zuerst jemanden unter „Person anlegen“.",
+  "loadingProfile": "Profil wird geladen…",
+  "unexpectedResponseShape": "Unerwartete Antwortstruktur.",
+  "fullNameLabel": "Vollständiger Name",
+  "genderLabel": "Geschlecht",
+  "dobLabel": "Geburtsdatum",
+  "nationalityLabel": "Staatsangehörigkeit",
+  "nationalityPlaceholder": "Optional",
+  "notesLabel": "Notizen",
+  "collectionsLabel": "Sammlungen",
+  "noCollectionsLoaded": "Keine Sammlungen geladen.",
+  "saveChanges": "Änderungen speichern",
+  "processing": "Person wird aktualisiert…",
+  "apiRefSummary": "API-Referenz: Person aktualisieren",
+  "apiRefOfficialDocs": "Offizielle Docs:",
+  "apiRefLinkLabel": "docs.verifik.co/resources/persons/update-a-person",
+  "apiRefBody": "PUT /v2/face-recognition/persons/:id mit optionalen JSON-Feldern: name, gender, date_of_birth, nationality, collections (Array von Sammlungs-_id-Strings), notes. Registrierte Gesichtsvorschaubilder werden in dieser Demo nicht ersetzt; neue Bilder können produktspezifische Abläufe erfordern, die im aktuellen Joi-Schema nicht abgebildet sind.",
+  "relatedDocs": {
+    "0": { "title": "Retrieve a Person", "description": "GET einer einzelnen Person nach ID.", "badge": "GET" },
+    "1": { "title": "Update a Person", "description": "Offizielle API-Referenz für PUT.", "badge": "PUT" },
+    "2": { "title": "Create a Person", "description": "Neue Person im Gesichtserkennungssystem anlegen.", "badge": "POST" },
+    "3": { "title": "Delete a Person", "description": "Personendatensatz aus dem Gesichtserkennungssystem löschen.", "badge": "DELETE" }
+  }
+}

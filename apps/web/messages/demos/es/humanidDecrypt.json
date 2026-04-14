@@ -1,0 +1,78 @@
+{
+  "headerTitle": "Descifrar HumanID",
+  "heroTitle": "Descifrar HumanID",
+  "heroTitleResult": "Descifrado",
+  "heroSubtitle": "Recupera datos de identidad presentando el rostro en vivo coincidente.",
+  "humanIdModeLabel": "HumanID",
+  "pasteString": "Pegar cadena",
+  "uploadQrImage": "Subir imagen QR",
+  "proofLabel": "HumanID",
+  "proofPlaceholder": "Pega tu HumanID aquí…",
+  "qrUploadHelp": "Sube un PNG o JPEG del QR de HumanID (carga binaria). Llamamos a preview-zelf-id-qr para extraer tu HumanID.",
+  "chooseQrImage": "Elegir imagen QR",
+  "readingQr": "Leyendo QR…",
+  "secondaryPngJpeg": "PNG o JPEG",
+  "qrPreviewAlt": "Vista previa del QR",
+  "extractedHeading": "HumanID extraído (solo lectura)",
+  "errorReadProof": "No se pudo leer el HumanID de la respuesta de vista previa.",
+  "qrExtractSuccess": "HumanID extraído del QR. Puedes descifrar abajo.",
+  "passwordOptional": "Contraseña (opcional)",
+  "passwordPlaceholder": "Solo si la prueba se creó con contraseña",
+  "faceImageLabel": "Imagen facial",
+  "chooseOneDescription": "Escanea con la cámara o sube una foto. Cualquiera sirve para este paso.",
+  "cameraTitle": "Cámara en vivo",
+  "cameraSubtitle": "Abre la cámara y alinea tu rostro en el encuadre",
+  "uploadTitle": "Foto de la galería",
+  "uploadSubtitle": "Selecciona un archivo de imagen de tu dispositivo",
+  "uploadPrimary": "Subir imagen",
+  "changeFaceImage": "Cambiar imagen facial",
+  "facePreviewAlt": "Rostro",
+  "decryptCta": "Descifrar",
+  "processing": "Descifrando identidad…",
+  "apiRefSummary": "Referencia API: Descifrar HumanID",
+  "apiOfficialGuide": "Guía oficial:",
+  "apiOfficialParen": "(campos de petición y respuesta, contraseña opcional y clave verificadora, y llamadas de ejemplo).",
+  "apiRelated": "Relacionado:",
+  "apiDecryptLinkText": "docs.verifik.co/functions/decrypt-zelfproof",
+  "apiBaseUrlNote": "URL base https://api.verifik.co. Envía JSON con Content-Type: application/json y Authorization: Bearer <token de acceso> (el mismo JWT que esta demo tras iniciar sesión).",
+  "apiDecryptEndpointDesc": "Compara tu imagen facial con la prueba y devuelve los campos públicos descifrados y la carga relacionada (por ejemplo recorte facial y dificultad) dentro del sobre data habitual firmado cuando la coincidencia tiene éxito.",
+  "apiPreviewQrEndpointDesc": "Úsalo cuando el usuario proporciona un PNG o JPEG del QR de HumanID. La API lee la carga del QR, ejecuta el mismo tipo de vista previa que la cadena y devuelve un zelfProof que puedes pasar al descifrado. La clave verificadora opcional aplica si la prueba se creó con una. Mismos encabezados JSON que el descifrado.",
+  "apiBullet1": "El descifrado usa decryptHumanId de @humanauthn/api-client. La subida por QR usa previewZelfIdQr primero y luego descifras con la cadena devuelta.",
+  "apiBullet2": "Las respuestas exitosas siguen el patrón Verifik: un objeto data (y a menudo signature cuando la firma está habilitada en tu proyecto).",
+  "apiBullet3": "Para inspeccionar una prueba sin imagen facial, abre la demo Vista previa HumanID (previewHumanId) o la guía Preview ZelfProof enlazada arriba.",
+  "paramFaceBase64Desc": "Imagen facial en base64 cruda (esta demo usa el mismo formato que otras demos biométricas)",
+  "paramOsDesc": "DESKTOP, IOS o ANDROID (la demo usa DESKTOP)",
+  "paramZelfProofDesc": "Cadena HumanID pegada o extraída de imagen QR en este formulario",
+  "paramPasswordDesc": "Solo si la prueba se creó con contraseña",
+  "paramLivenessLevelDesc": "Si se define, alinea las expectativas de prueba de vida del servidor al descifrar (ver guía oficial)",
+  "paramVerifierKeyDesc": "Si la prueba se creó con clave verificadora",
+  "paramQrCodeDesc": "Imagen como URL de datos (data:image/png;base64,...) u otra forma aceptada por la API (esta demo construye una URL de datos desde el archivo)",
+  "paramVerifierKeyQrDesc": "Misma semántica que en descifrado cuando la prueba usa clave verificadora",
+  "relatedDocs": {
+    "0": {
+      "title": "Descifrar un ZelfProof",
+      "description": "Desbloquea la carga de identidad dentro de una prueba haciéndola coincidir con un rostro en vivo. Cubre contraseña opcional si la prueba se creó con una.",
+      "badge": "POST"
+    },
+    "1": {
+      "title": "Crear un ZelfProof",
+      "description": "Cifra tus campos públicos y la captura facial en una nueva cadena HumanID que puedes almacenar o compartir.",
+      "badge": "POST"
+    },
+    "2": {
+      "title": "Vista previa ZelfProof",
+      "description": "Inspecciona metadatos públicos y qué se requerirá antes de descifrar, sin enviar imagen facial. La demo Vista previa HumanID sigue la misma idea en la API actual.",
+      "badge": "POST"
+    },
+    "3": {
+      "title": "Crear QR ZelfProof",
+      "description": "Genera un QR que incrusta un HumanID para escanearlo desde pantalla o billetera.",
+      "badge": "POST"
+    },
+    "4": {
+      "title": "Detección de prueba de vida",
+      "description": "Ejecuta una comprobación dedicada de que un rostro parece vivo y no falsificado. Es independiente del cifrado y descifrado HumanID.",
+      "badge": "POST"
+    }
+  }
+}

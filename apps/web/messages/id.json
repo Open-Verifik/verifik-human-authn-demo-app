@@ -1,0 +1,193 @@
+{
+  "RootLayout": {
+    "titleDefault": "HumanAuthn: Demo API Biometrik",
+    "titleTemplate": "%s | HumanAuthn",
+    "description": "HumanAuthn oleh Verifik. Deteksi keaktifan, perbandingan wajah, dan autentikasi biometrik tingkat perusahaan.",
+    "keywords": [
+      "autentikasi biometrik",
+      "deteksi keaktifan",
+      "perbandingan wajah",
+      "verifikasi identitas",
+      "Verifik",
+      "HumanAuthn",
+      "HumanID"
+    ],
+    "ogTitle": "HumanAuthn: Demo API Biometrik",
+    "ogDescription": "API autentikasi biometrik tingkat perusahaan oleh Verifik",
+    "ogSiteName": "HumanAuthn"
+  },
+  "SplashPage": {
+    "metaTitle": "HumanAuthn: Demo API Biometrik oleh Verifik",
+    "metaDescription": "Autentikasi dengan aman menggunakan deteksi keaktifan. Standar emas verifikasi identitas digital. Didukung oleh Verifik.",
+    "heroImageAlt": "Pemindaian pengenalan wajah biometrik",
+    "readinessBadge": "Kesiapan biometrik: Aktif",
+    "brandPill": "Verifik · HumanAuthn",
+    "headlineLine1": "Human",
+    "headlineLine2": "Authn",
+    "tagline": "Autentikasi dengan aman menggunakan deteksi keaktifan. Standar emas akses digital.",
+    "ctaPrimary": "Mulai",
+    "ctaSecondary": "Jelajahi demo →",
+    "trustAria": "Sertifikasi keamanan"
+  },
+  "HomeHeader": {
+    "accountFallback": "Akun",
+    "signIn": "Masuk",
+    "accountMenuAria": "Menu akun",
+    "credits": "Kredit",
+    "settings": "Pengaturan",
+    "signOut": "Keluar",
+    "homeAria": "Verifik: Beranda"
+  },
+  "LanguageSwitcher": {
+    "ariaLabel": "Bahasa",
+    "en": "English",
+    "es": "Español",
+    "pt": "Português",
+    "fr": "Français",
+    "hi": "हिन्दी",
+    "zh": "简体中文",
+    "ko": "한국어",
+    "ja": "日本語",
+    "de": "Deutsch",
+    "id": "Bahasa Indonesia",
+    "vi": "Tiếng Việt",
+    "tr": "Türkçe",
+    "ar": "العربية"
+  },
+  "home": {
+    "metaTitle": "Dasbor demo",
+    "metaDescription": "Autentikasi yang mengakar pada kehadiran manusia. Jalankan demo biometrik langsung Verifik untuk pencocokan wajah, keaktifan, dan HumanID di peramban.",
+    "heroEyebrow": "Biometrik · Demo langsung",
+    "heroTitle": "HumanAuthn · Biometrik tingkat perusahaan",
+    "heroBody": "Jalankan pencocokan wajah, keaktifan, HumanID, dan deteksi langsung di peramban. Biometrik tradisional mencakup manajemen galeri OpenCV sisi server dan pencarian. Demo HumanAuthn terdesentralisasi menunjukkan bagaimana HumanID mengikat data identitas ke wajah hidup tanpa basis data wajah terpusat.",
+    "traditionalEyebrow": "OpenCV · Galeri sisi server",
+    "traditionalTitle": "Biometrik tradisional",
+    "decentralizedEyebrow": "HumanAuthn · HumanID",
+    "decentralizedTitle": "Biometrik terdesentralisasi · HumanAuthn",
+    "enterpriseEyebrow": "Platform Verifik",
+    "enterpriseTitle": "Keamanan tingkat perusahaan",
+    "enterpriseBody": "Platform kami memproses data biometrik dengan enkripsi ujung ke ujung. Privasi by design, siap untuk deployment serius.",
+    "pillGdpr": "Mematuhi GDPR",
+    "pillAes": "AES-256",
+    "pillSoc2": "Siap SOC 2",
+    "navIdentity": "Identitas",
+    "navSecurity": "Keamanan",
+    "navSettings": "Pengaturan",
+    "demoCta": "Jalankan demo",
+    "sections": {
+      "enroll": "Pendaftaran",
+      "manage": "Kelola",
+      "search": "Cari",
+      "detection": "Deteksi",
+      "comparison": "Perbandingan"
+    },
+    "demos": {
+      "create-collection": {
+        "badge": "Pendaftaran",
+        "title": "Buat koleksi",
+        "description": "Buat koleksi wajah bernama untuk mengelompokkan orang terdaftar untuk pencarian dan verifikasi."
+      },
+      "create-person": {
+        "badge": "Pendaftaran",
+        "title": "Buat orang",
+        "description": "Daftarkan orang baru dengan mengunggah gambar wajah dan metadata. Disimpan dalam koleksi OpenCV."
+      },
+      "create-person-with-liveness": {
+        "badge": "Pendaftaran",
+        "title": "Buat orang dengan keaktifan",
+        "description": "Daftarkan seseorang sambil menjalankan pemeriksaan keaktifan dan mencari duplikat dalam koleksi."
+      },
+      "update-person": {
+        "badge": "Kelola",
+        "title": "Perbarui orang",
+        "description": "Muat orang berdasarkan id dan ubah profil atau keanggotaan koleksi (tanpa gambar wajah baru di API ini)."
+      },
+      "delete-person": {
+        "badge": "Kelola",
+        "title": "Hapus orang",
+        "description": "Hapus orang sepenuhnya atau hapus dari satu koleksi jika mereka termasuk beberapa koleksi."
+      },
+      "search-person": {
+        "badge": "Cari",
+        "title": "Cari orang",
+        "description": "Unggah satu atau lebih gambar wajah dan cari orang yang cocok di koleksi berdasarkan skor kemiripan."
+      },
+      "search-live-person": {
+        "badge": "Cari",
+        "title": "Cari orang langsung",
+        "description": "Ambil wajah langsung, jalankan deteksi keaktifan, dan cari kecocokan di koleksi dalam satu alur."
+      },
+      "search-active-user": {
+        "badge": "Cari",
+        "title": "Cari pengguna aktif",
+        "description": "Autentikasi pengguna aktif dengan tangkapan wajah langsung dan kembalikan skor keaktifan bersama hasil pencarian."
+      },
+      "detect-face": {
+        "badge": "Deteksi",
+        "title": "Deteksi wajah",
+        "description": "Kirim gambar dan deteksi semua wajah di dalamnya, mengembalikan kotak pembatas dan data crop."
+      },
+      "search-crops": {
+        "badge": "Deteksi",
+        "title": "Cari crop",
+        "description": "Jalankan pencarian multi-gambar crop untuk menemukan orang yang cocok pada crop wajah yang diunggah dengan penyetelan presisi."
+      },
+      "face-comparison": {
+        "badge": "Perbandingan",
+        "title": "Perbandingan wajah",
+        "description": "Unggah dua foto dan lihat apakah itu orang yang sama. Berguna untuk onboarding dan pemeriksaan ID."
+      },
+      "face-comparison-liveness": {
+        "badge": "Perbandingan",
+        "title": "Bandingkan dengan keaktifan",
+        "description": "Cocokkan foto referensi dengan selfie langsung. Keaktifan hanya berjalan setelah pencocokan wajah cukup kuat."
+      },
+      "verify-face": {
+        "badge": "Perbandingan",
+        "title": "Verifikasi wajah",
+        "description": "Verifikasi gambar wajah terhadap orang terdaftar tertentu berdasarkan ID dengan ambang kemiripan yang dapat dikonfigurasi."
+      },
+      "liveness": {
+        "badge": "Anti-spoof",
+        "title": "Deteksi keaktifan",
+        "description": "Tunjukkan bahwa orang nyata di depan kamera, bukan foto, topeng, atau replay."
+      },
+      "humanid-create": {
+        "badge": "Enkripsi",
+        "title": "Buat HumanID",
+        "description": "Ikat data identitas publik dan wajah ke bukti HumanID terenkripsi di IPFS. Hanya dapat dipulihkan dengan wajah hidup yang cocok."
+      },
+      "humanid-create-qr": {
+        "badge": "QR",
+        "title": "Buat QR HumanID",
+        "description": "Hasilkan HumanID berkode QR dari tangkapan wajah dan metadata identitas untuk verifikasi offline portabel."
+      },
+      "humanid-decrypt": {
+        "badge": "Dekripsi",
+        "title": "Dekripsi HumanID",
+        "description": "Pulihkan data identitas dalam HumanID dengan menunjukkan wajah langsung yang cocok dan string bukti."
+      },
+      "humanid-preview": {
+        "badge": "Pratinjau",
+        "title": "Pratinjau HumanID",
+        "description": "Periksa metadata publik dalam string HumanID tanpa gambar wajah atau kredensial tambahan."
+      }
+    }
+  },
+  "NotFound": {
+    "title": "Halaman tidak ditemukan",
+    "body": "Halaman ini tidak ada atau tautan tidak valid.",
+    "homeLink": "Kembali ke beranda"
+  },
+  "settingsNav": {
+    "title": "Pengaturan",
+    "ariaLabel": "Bagian pengaturan",
+    "myAccount": "Akun saya",
+    "developers": "Pengembang",
+    "profile": "Profil",
+    "apiKey": "Kunci API",
+    "mobileMenu": "Buka menu pengaturan",
+    "mobileTitle": "Pengaturan",
+    "closeMenu": "Tutup menu"
+  }
+}

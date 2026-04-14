@@ -1,0 +1,84 @@
+{
+  "headerTitle": "Tạo người",
+  "heroTitleForm": "Tạo người",
+  "heroTitleResult": "Người đã đăng ký",
+  "heroTitleConflict": "Đã đăng ký",
+  "heroSubtitleForm": "Đăng ký một người mới bằng hình ảnh khuôn mặt và siêu dữ liệu.",
+  "heroSubtitleResult": "Người đã được ghi danh vào OpenCV.",
+  "heroSubtitleConflict": "Khuôn mặt này phù hợp với một người hiện có.Xem lại những hình ảnh bạn đã sử dụng và chọn bước tiếp theo.",
+  "fullNameLabel": "Tên đầy đủ",
+  "namePlaceholder": "Jane Doe",
+  "genderLabel": "Giới tính",
+  "dobLabel": "Ngày sinh",
+  "nationalityLabel": "Quốc tịch",
+  "nationalityPlaceholder": "CO",
+  "collectionsLabel": "Bộ sưu tập",
+  "noCollectionsLead": "Chưa có bộ sưu tập nào.",
+  "noCollectionsCta": "Tạo một bộ sưu tập",
+  "noCollectionsTail": "Đầu tiên.",
+  "faceImagesLabel": "Hình ảnh khuôn mặt",
+  "chooseOneDescription": "Quét bằng máy ảnh của bạn hoặc tải ảnh lên.Mỗi lần chụp sẽ được thêm vào hình ảnh khuôn mặt đã đăng ký.",
+  "cameraTitle": "Máy ảnh trực tiếp",
+  "cameraSubtitle": "Mở camera và chụp ảnh một khuôn mặt",
+  "uploadTitle": "Ảnh từ thư viện",
+  "uploadSubtitle": "Chọn một hoặc nhiều tệp hình ảnh từ thiết bị của bạn",
+  "submit": "Người đăng ký",
+  "processing": "Người đăng ký…",
+  "apiRefSummary": "Tham chiếu API: Tạo người",
+  "apiRefOfficialDocs": "Tài liệu chính thức:",
+  "apiRefLinkLabel": "docs.verifik.co/resources/create-a-person",
+  "apiRefBody": "URL cơ sở https://api.verifik.co. Gửi JSON kèm theo các trường hồ sơ và ít nhất một hình ảnh khuôn mặt base64 cho mỗi mục nhập trong hình ảnh (không có tiền tố dữ liệu URL). Tài liệu công khai cũng liệt kê các trường tùy chọn như ghi chú, email và điện thoại.",
+  "apiRefEndpoint": "POST /v2/face-recognition/persons",
+  "apiRefEndpointDesc": "Đăng ký một người mới vào các id bộ sưu tập nhất định (giá trị _id bộ sưu tập) bằng sinh trắc học khuôn mặt để nhận dạng được hỗ trợ bởi OpenCV.",
+  "paramName": "name",
+  "paramNameDesc": "Tên hiển thị",
+  "paramImages": "images",
+  "paramImagesDesc": "Mảng hình ảnh khuôn mặt base64 (base64 thô, không phải URL dữ liệu)",
+  "paramGender": "gender",
+  "paramGenderDesc": "M hoặc F (bắt buộc trong bản demo này)",
+  "paramDob": "date_of_birth",
+  "paramDobDesc": "YYYY-MM-DD (bắt buộc trong bản demo này)",
+  "paramCollections": "collections",
+  "paramCollectionsDesc": "Mảng chuỗi thu thập _id; Bản demo này tải chúng từ GET /v2/face-recognition/collections và cho phép bạn chọn một hoặc nhiều.",
+  "paramNationality": "nationality",
+  "paramNationalityDesc": "Mã hoặc nhãn quốc gia/quốc tịch tùy chọn",
+  "bullet1": "Bản demo này sử dụng createPerson từ @humanauthn/api-client bằng mã thông báo phiên của bạn.",
+  "bullet2": "Phản hồi có thể bao gồm id và khối chữ ký cùng với dữ liệu tùy thuộc vào môi trường.",
+  "relatedDocs": {
+    "0": {
+      "title": "Đối tượng Người",
+      "description": "Các trường và cấu trúc của hồ sơ người nhận dạng khuôn mặt.",
+      "badge": "Object"
+    },
+    "1": {
+      "title": "Liệt kê tất cả những người",
+      "description": "Người dành cho khách hàng của bạn, với các bộ lọc tùy chọn.",
+      "badge": "GET"
+    },
+    "2": {
+      "title": "Truy xuất một người",
+      "description": "Một người duy nhất theo id.",
+      "badge": "GET"
+    },
+    "3": {
+      "title": "Cập nhật một người",
+      "description": "Hồ sơ, hình ảnh, bộ sưu tập, v.v.",
+      "badge": "PUT"
+    },
+    "4": {
+      "title": "Xóa một người",
+      "description": "Xóa bản ghi người theo id.",
+      "badge": "DELETE"
+    },
+    "5": {
+      "title": "Cập nhật người (bản demo)",
+      "description": "Thay đổi hồ sơ hoặc bộ sưu tập cho id người hiện có.",
+      "badge": "Demo"
+    },
+    "6": {
+      "title": "Xóa người (bản demo)",
+      "description": "Chỉ xóa hoàn toàn hoặc xóa khỏi bộ sưu tập.",
+      "badge": "Demo"
+    }
+  }
+}

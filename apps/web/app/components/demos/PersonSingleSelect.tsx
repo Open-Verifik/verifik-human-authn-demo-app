@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import clsx from "clsx";
 import type { PersonListItem } from "@humanauthn/api-client";
 
@@ -37,6 +38,7 @@ export function PersonSingleSelect({
 	emptySlot,
 	labelId,
 }: PersonSingleSelectProps) {
+	const t = useTranslations("demos.common");
 	const listId = useId();
 	const [open, setOpen] = useState(false);
 	const [search, setSearch] = useState("");
@@ -84,7 +86,7 @@ export function PersonSingleSelect({
 	}, [open, close]);
 
 	const selected = selectedId ? byId.get(selectedId) : undefined;
-	const summary = selected ? selected.name || truncateId(selected._id) : "Select a person…";
+	const summary = selected ? selected.name || truncateId(selected._id) : t("selectPerson");
 
 	const pick = (id: string) => {
 		onChange(id);
@@ -107,7 +109,7 @@ export function PersonSingleSelect({
 						(disabled || loading) && "opacity-50 cursor-not-allowed",
 					)}
 				>
-					<span className={clsx(!selected && "text-on-surface-variant")}>{loading ? "Loading people…" : summary}</span>
+					<span className={clsx(!selected && "text-on-surface-variant")}>{loading ? t("loadingPeople") : summary}</span>
 					<span className="material-symbols-outlined text-on-surface-variant/70 shrink-0">
 						{open ? "expand_less" : "expand_more"}
 					</span>
@@ -119,12 +121,12 @@ export function PersonSingleSelect({
 						role="presentation"
 					>
 						{items.length === 0 ? (
-							<div className="px-4 py-6 text-sm text-on-surface-variant text-center">{emptySlot ?? "No people in this project."}</div>
+							<div className="px-4 py-6 text-sm text-on-surface-variant text-center">{emptySlot ?? t("noPeopleInProject")}</div>
 						) : (
 							<>
 								<div className="shrink-0 border-b border-outline-variant/20 p-2">
 									<label htmlFor={`${listId}-search`} className="sr-only">
-										Search people
+										{t("searchPeopleSr")}
 									</label>
 									<div className="relative">
 										<span
@@ -140,7 +142,7 @@ export function PersonSingleSelect({
 											autoComplete="off"
 											value={search}
 											onChange={(e) => setSearch(e.target.value)}
-											placeholder="Search by name or id"
+											placeholder={t("searchPeoplePlaceholder")}
 											className="w-full rounded-lg border border-outline-variant/30 bg-surface-container-high/50 py-2 pl-9 pr-3 text-sm text-on-surface outline-none placeholder:text-on-surface-variant/50 focus:border-primary/60"
 										/>
 									</div>
@@ -148,11 +150,11 @@ export function PersonSingleSelect({
 								<ul
 									id={listId}
 									role="listbox"
-									aria-label="People"
+									aria-label={t("peopleListAria")}
 									className="min-h-0 flex-1 overflow-y-auto overscroll-contain py-1"
 								>
 									{filtered.length === 0 ? (
-										<li className="px-3 py-6 text-center text-xs text-on-surface-variant">No matches</li>
+										<li className="px-3 py-6 text-center text-xs text-on-surface-variant">{t("noMatches")}</li>
 									) : (
 										filtered.map((it) => {
 											const checked = selectedId === it._id;
@@ -176,7 +178,7 @@ export function PersonSingleSelect({
 															{checked ? <span className="h-1.5 w-1.5 rounded-full bg-white" /> : null}
 														</span>
 														<span className="min-w-0 flex-1">
-															<span className="font-medium text-on-surface block truncate">{it.name || "—"}</span>
+															<span className="font-medium text-on-surface block truncate">{it.name || t("emDash")}</span>
 															<span className="text-xs text-on-surface-variant font-mono">{truncateId(it._id)}</span>
 														</span>
 													</button>

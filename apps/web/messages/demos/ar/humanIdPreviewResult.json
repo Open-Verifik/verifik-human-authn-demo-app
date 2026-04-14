@@ -1,0 +1,13 @@
+{
+  "successTitle": "معاينة HumanID",
+  "successSubtitle": "البيانات الوصفية العامة والمتطلبات من ZelfProof.",
+  "summaryHeading": "الملخص",
+  "passwordLayerLabel": "طبقة كلمة المرور",
+  "passwordNoPassword": "لا توجد كلمة مرور",
+  "passwordRequired": "كلمة المرور مطلوبة",
+  "livenessRequiredLabel": "الحضور الحي مطلوب",
+  "publicDataHeading": "البيانات العامة",
+  "rawDebug": "الاستجابة الخام (تصحيح)",
+  "previewAnother": "معاينة أخرى",
+  "backToDemos": "العودة إلى العروض التجريبية"
+}

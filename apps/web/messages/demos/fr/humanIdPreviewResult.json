@@ -1,0 +1,13 @@
+{
+  "successTitle": "Aperçu HumanID",
+  "successSubtitle": "Métadonnées publiques et exigences de votre ZelfProof.",
+  "summaryHeading": "Résumé",
+  "passwordLayerLabel": "Couche mot de passe",
+  "passwordNoPassword": "Sans mot de passe",
+  "passwordRequired": "Mot de passe requis",
+  "livenessRequiredLabel": "Vivacité requise",
+  "publicDataHeading": "Données publiques",
+  "rawDebug": "Réponse brute (débogage)",
+  "previewAnother": "Autre aperçu",
+  "backToDemos": "Retour aux démos"
+}

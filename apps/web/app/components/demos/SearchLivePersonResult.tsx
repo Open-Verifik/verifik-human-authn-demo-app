@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useTranslations } from "next-intl";
 
 function isPlainObject(value: unknown): value is Record<string, unknown> {
 	return value !== null && typeof value === "object" && !Array.isArray(value);
@@ -16,12 +17,6 @@ function thumbnailToDataUrl(b64: string): string {
 	return `data:image/jpeg;base64,${trimmed}`;
 }
 
-function formatGender(gender: string): string {
-	if (gender === "M") return "Male";
-	if (gender === "F") return "Female";
-	return gender;
-}
-
 function formatDate(value: string): string {
 	const date = new Date(value);
 	if (Number.isNaN(date.getTime())) return value;
@@ -34,8 +29,8 @@ function formatDob(value: string): string {
 	return date.toLocaleDateString(undefined, { dateStyle: "long" });
 }
 
-function formatScore(score: number | null): string {
-	if (score === null || !Number.isFinite(score)) return "N/A";
+function formatScore(score: number | null, naLabel: string): string {
+	if (score === null || !Number.isFinite(score)) return naLabel;
 	return `${(score * 100).toFixed(2)}%`;
 }
 
@@ -47,8 +42,16 @@ type SearchLivePersonResultProps = {
 type ResultTab = "matches" | "raw";
 
 export default function SearchLivePersonResult({ result, onReset }: SearchLivePersonResultProps) {
+	const t = useTranslations("demos.searchLivePersonResult");
+	const tCommon = useTranslations("demos.common");
 	const [activeTab, setActiveTab] = useState<ResultTab>("matches");
 	const [copyState, setCopyState] = useState<"idle" | "copied" | "error">("idle");
+
+	const formatGender = (gender: string) => {
+		if (gender === "M") return tCommon("male");
+		if (gender === "F") return tCommon("female");
+		return gender;
+	};
 
 	const parsed = useMemo(() => {
 		const data = isPlainObject(result?.data) ? result.data : null;
@@ -87,7 +90,7 @@ export default function SearchLivePersonResult({ result, onReset }: SearchLivePe
 
 				return {
 					id: typeof person.id === "string" ? person.id : "",
-					name: typeof person.name === "string" ? person.name : "Unknown person",
+					name: typeof person.name === "string" ? person.name : tCommon("unknownPerson"),
 					gender: typeof person.gender === "string" ? person.gender : "",
 					dateOfBirth: typeof person.date_of_birth === "string" ? person.date_of_birth : "",
 					nationality: typeof person.nationality === "string" ? person.nationality : "",
@@ -130,7 +133,7 @@ export default function SearchLivePersonResult({ result, onReset }: SearchLivePe
 		const requestId = typeof result?.id === "string" ? result.id : "";
 
 		return { matches, liveness, signature, requestId };
-	}, [result]);
+	}, [result, tCommon]);
 
 	const handleCopyRaw = async () => {
 		if (!result) return;
@@ -144,6 +147,9 @@ export default function SearchLivePersonResult({ result, onReset }: SearchLivePe
 		}
 	};
 
+	const na = tCommon("scoreNA");
+	const dash = tCommon("emDash");
+
 	return (
 		<div className="rounded-2xl bg-surface-container-low border border-primary/20 p-6 space-y-4">
 			<div className="inline-flex rounded-lg border border-outline-variant/30 bg-surface-container-high/40 p-1">
@@ -154,7 +160,7 @@ export default function SearchLivePersonResult({ result, onReset }: SearchLivePe
 						activeTab === "matches" ? "bg-primary text-on-primary" : "text-on-surface-variant hover:text-on-surface"
 					}`}
 				>
-					Matches
+					{t("tabMatches")}
 				</button>
 				<button
 					type="button"
@@ -163,64 +169,64 @@ export default function SearchLivePersonResult({ result, onReset }: SearchLivePe
 						activeTab === "raw" ? "bg-primary text-on-primary" : "text-on-surface-variant hover:text-on-surface"
 					}`}
 				>
-					Raw JSON
+					{t("tabRaw")}
 				</button>
 			</div>
 
 			{activeTab === "matches" ? (
 				<div className="space-y-4">
 					<div className="flex items-center justify-between">
-						<p className="font-bold text-on-surface">Live search results</p>
+						<p className="font-bold text-on-surface">{t("liveSearchResults")}</p>
 						<button type="button" onClick={onReset} className="text-xs text-primary underline">
-							Reset
+							{t("reset")}
 						</button>
 					</div>
 
 					{parsed.liveness ? (
 						<div className="rounded-xl border border-outline-variant/20 bg-surface-container-high/40 p-4">
-							<p className="font-semibold text-on-surface mb-2">Liveness check</p>
+							<p className="font-semibold text-on-surface mb-2">{t("livenessCheck")}</p>
 							<dl className="space-y-1.5 text-sm">
 								{parsed.liveness.result?.passed !== null ? (
 									<div className="grid grid-cols-1 sm:grid-cols-[minmax(0,10rem)_1fr] gap-x-3 gap-y-1">
-										<dt className="text-on-surface-variant font-medium">Status</dt>
+										<dt className="text-on-surface-variant font-medium">{t("status")}</dt>
 										<dd className={parsed.liveness.result?.passed ? "text-emerald-400" : "text-error"}>
-											{parsed.liveness.result?.passed ? "Passed" : "Failed"}
+											{parsed.liveness.result?.passed ? t("passed") : t("failed")}
 										</dd>
 									</div>
 								) : null}
 								{parsed.liveness.result?.livenessScore !== null ? (
 									<div className="grid grid-cols-1 sm:grid-cols-[minmax(0,10rem)_1fr] gap-x-3 gap-y-1">
-										<dt className="text-on-surface-variant font-medium">Liveness score</dt>
-										<dd className="text-on-surface">{formatScore(parsed.liveness.result?.livenessScore ?? null)}</dd>
+										<dt className="text-on-surface-variant font-medium">{t("livenessScore")}</dt>
+										<dd className="text-on-surface">{formatScore(parsed.liveness.result?.livenessScore ?? null, na)}</dd>
 									</div>
 								) : null}
 								{parsed.liveness.result?.minScore !== null ? (
 									<div className="grid grid-cols-1 sm:grid-cols-[minmax(0,10rem)_1fr] gap-x-3 gap-y-1">
-										<dt className="text-on-surface-variant font-medium">Min score</dt>
-										<dd className="text-on-surface">{formatScore(parsed.liveness.result?.minScore ?? null)}</dd>
+										<dt className="text-on-surface-variant font-medium">{t("minScore")}</dt>
+										<dd className="text-on-surface">{formatScore(parsed.liveness.result?.minScore ?? null, na)}</dd>
 									</div>
 								) : null}
 								{parsed.liveness.searchMode ? (
 									<div className="grid grid-cols-1 sm:grid-cols-[minmax(0,10rem)_1fr] gap-x-3 gap-y-1">
-										<dt className="text-on-surface-variant font-medium">Search mode</dt>
+										<dt className="text-on-surface-variant font-medium">{t("searchMode")}</dt>
 										<dd className="text-on-surface">{parsed.liveness.searchMode}</dd>
 									</div>
 								) : null}
 								{parsed.liveness.os ? (
 									<div className="grid grid-cols-1 sm:grid-cols-[minmax(0,10rem)_1fr] gap-x-3 gap-y-1">
-										<dt className="text-on-surface-variant font-medium">OS</dt>
+										<dt className="text-on-surface-variant font-medium">{t("os")}</dt>
 										<dd className="text-on-surface">{parsed.liveness.os}</dd>
 									</div>
 								) : null}
 								{parsed.liveness.createdAt ? (
 									<div className="grid grid-cols-1 sm:grid-cols-[minmax(0,10rem)_1fr] gap-x-3 gap-y-1">
-										<dt className="text-on-surface-variant font-medium">Created</dt>
+										<dt className="text-on-surface-variant font-medium">{t("created")}</dt>
 										<dd className="text-on-surface">{formatDate(parsed.liveness.createdAt)}</dd>
 									</div>
 								) : null}
 								{parsed.liveness.updatedAt ? (
 									<div className="grid grid-cols-1 sm:grid-cols-[minmax(0,10rem)_1fr] gap-x-3 gap-y-1">
-										<dt className="text-on-surface-variant font-medium">Updated</dt>
+										<dt className="text-on-surface-variant font-medium">{t("updated")}</dt>
 										<dd className="text-on-surface">{formatDate(parsed.liveness.updatedAt)}</dd>
 									</div>
 								) : null}
@@ -230,7 +236,7 @@ export default function SearchLivePersonResult({ result, onReset }: SearchLivePe
 
 					{parsed.matches.length === 0 ? (
 						<div className="rounded-xl border border-outline-variant/20 bg-surface-container-high/40 p-4 text-sm text-on-surface-variant">
-							No matches above your current threshold.
+							{t("noMatchesThreshold")}
 						</div>
 					) : (
 						<div className="space-y-3">
@@ -246,49 +252,51 @@ export default function SearchLivePersonResult({ result, onReset }: SearchLivePe
 												/>
 											) : null}
 											<div>
-												<p className="text-sm text-on-surface-variant">Match #{index + 1}</p>
+												<p className="text-sm text-on-surface-variant">{t("matchNumber", { n: index + 1 })}</p>
 												<p className="font-bold text-on-surface">{match.name}</p>
 												{match.id ? <p className="font-mono text-xs text-on-surface-variant break-all">{match.id}</p> : null}
 											</div>
 										</div>
 										<div className="rounded-lg bg-primary/10 border border-primary/25 px-3 py-2">
-											<p className="text-[0.65rem] uppercase tracking-wide text-primary/80">Similarity</p>
-											<p className="font-bold text-primary">{formatScore(match.score)}</p>
+											<p className="text-[0.65rem] uppercase tracking-wide text-primary/80">{t("similarity")}</p>
+											<p className="font-bold text-primary">{formatScore(match.score, na)}</p>
 										</div>
 									</div>
 
 									<dl className="mt-4 space-y-2 text-sm">
 										{match.gender ? (
 											<div className="grid grid-cols-1 sm:grid-cols-[minmax(0,10rem)_1fr] gap-x-3 gap-y-1">
-												<dt className="text-on-surface-variant font-medium">Gender</dt>
+												<dt className="text-on-surface-variant font-medium">{t("gender")}</dt>
 												<dd className="text-on-surface">{formatGender(match.gender)}</dd>
 											</div>
 										) : null}
 										{match.dateOfBirth ? (
 											<div className="grid grid-cols-1 sm:grid-cols-[minmax(0,10rem)_1fr] gap-x-3 gap-y-1">
-												<dt className="text-on-surface-variant font-medium">Date of birth</dt>
+												<dt className="text-on-surface-variant font-medium">{t("dateOfBirth")}</dt>
 												<dd className="text-on-surface">{formatDob(match.dateOfBirth)}</dd>
 											</div>
 										) : null}
 										{match.nationality ? (
 											<div className="grid grid-cols-1 sm:grid-cols-[minmax(0,10rem)_1fr] gap-x-3 gap-y-1">
-												<dt className="text-on-surface-variant font-medium">Nationality</dt>
+												<dt className="text-on-surface-variant font-medium">{t("nationality")}</dt>
 												<dd className="text-on-surface">{match.nationality}</dd>
 											</div>
 										) : null}
 										<div className="grid grid-cols-1 sm:grid-cols-[minmax(0,10rem)_1fr] gap-x-3 gap-y-1">
-											<dt className="text-on-surface-variant font-medium">Notes</dt>
-											<dd className="text-on-surface">{match.notes === null || match.notes === undefined || match.notes === "" ? "—" : String(match.notes)}</dd>
+											<dt className="text-on-surface-variant font-medium">{t("notes")}</dt>
+											<dd className="text-on-surface">
+												{match.notes === null || match.notes === undefined || match.notes === "" ? dash : String(match.notes)}
+											</dd>
 										</div>
 									</dl>
 
 									{match.collections.length > 0 ? (
 										<div className="mt-4 rounded-lg border border-outline-variant/20 bg-surface-container-low/50 p-3">
-											<p className="text-xs font-semibold text-primary mb-2">Collections</p>
+											<p className="text-xs font-semibold text-primary mb-2">{t("collections")}</p>
 											<ul className="space-y-1.5">
 												{match.collections.map((collection) => (
 													<li key={`${collection.id}-${collection.name}`} className="text-xs text-on-surface">
-														<span className="font-semibold">{collection.name || collection.id || "Unnamed collection"}</span>
+														<span className="font-semibold">{collection.name || collection.id || t("unnamedCollection")}</span>
 														{collection.description ? (
 															<span className="text-on-surface-variant"> — {collection.description}</span>
 														) : null}
@@ -300,8 +308,16 @@ export default function SearchLivePersonResult({ result, onReset }: SearchLivePe
 
 									{match.createDate || match.modifiedDate ? (
 										<div className="mt-3 text-xs text-on-surface-variant space-y-1">
-											{match.createDate ? <p>Created: {formatDate(match.createDate)}</p> : null}
-											{match.modifiedDate ? <p>Updated: {formatDate(match.modifiedDate)}</p> : null}
+											{match.createDate ? (
+												<p>
+													{t("createdPrefix")} {formatDate(match.createDate)}
+												</p>
+											) : null}
+											{match.modifiedDate ? (
+												<p>
+													{t("updatedPrefix")} {formatDate(match.modifiedDate)}
+												</p>
+											) : null}
 										</div>
 									) : null}
 								</div>
@@ -311,19 +327,27 @@ export default function SearchLivePersonResult({ result, onReset }: SearchLivePe
 
 					{parsed.signature || parsed.requestId ? (
 						<div className="rounded-xl border border-outline-variant/20 bg-surface-container-high/30 p-4 text-sm space-y-1">
-							<p className="font-semibold text-on-surface">Response signature</p>
+							<p className="font-semibold text-on-surface">{t("responseSignature")}</p>
 							{parsed.signature?.message ? <p className="text-on-surface-variant">{parsed.signature.message}</p> : null}
-							{parsed.signature?.dateTime ? <p className="text-on-surface-variant">Timestamp: {parsed.signature.dateTime}</p> : null}
-							{parsed.requestId ? <p className="font-mono text-xs text-on-surface-variant break-all">Request ID: {parsed.requestId}</p> : null}
+							{parsed.signature?.dateTime ? (
+								<p className="text-on-surface-variant">
+									{t("timestampPrefix")} {parsed.signature.dateTime}
+								</p>
+							) : null}
+							{parsed.requestId ? (
+								<p className="font-mono text-xs text-on-surface-variant break-all">
+									{t("requestIdPrefix")} {parsed.requestId}
+								</p>
+							) : null}
 						</div>
 					) : null}
 				</div>
 			) : (
 				<div className="space-y-3">
 					<div className="flex items-center justify-between">
-						<p className="font-bold text-on-surface">Raw response</p>
+						<p className="font-bold text-on-surface">{t("rawResponse")}</p>
 						<button type="button" onClick={handleCopyRaw} className="text-xs text-primary underline">
-							{copyState === "copied" ? "Copied!" : copyState === "error" ? "Copy failed" : "Copy"}
+							{copyState === "copied" ? t("copied") : copyState === "error" ? t("copyFailed") : t("copy")}
 						</button>
 					</div>
 					<pre className="text-[0.65rem] font-mono bg-surface-container-high/80 rounded-lg p-3 overflow-x-auto text-on-surface whitespace-pre-wrap">

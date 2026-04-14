@@ -1,0 +1,19 @@
+{
+  "successTitle": "HumanID가 해독되었습니다.",
+  "successSubtitle": "ZelfProof에서 복구된 신원 데이터.",
+  "identifierHeading": "식별자",
+  "publicDataHeading": "공공 데이터",
+  "metadataHeading": "메타데이터",
+  "difficultyHeading": "어려움",
+  "faceCropHeading": "얼굴 자르기",
+  "faceCropAlt": "증명에서 디코딩된 얼굴 자르기",
+  "sessionHeading": "세션",
+  "chargedLabel": "청구됨",
+  "livenessRequiredLabel": "활동성 필요",
+  "creditsHeading": "크레딧 / 사용량",
+  "chargedCredits": "청구됨: {amount} 크레딧",
+  "creditChange": "크레딧 변경: {amount}",
+  "rawDebug": "원시 응답(디버그)",
+  "tryAgain": "다시 시도",
+  "backToDemos": "데모로 돌아가기"
+}

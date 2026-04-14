@@ -1,0 +1,19 @@
+{
+  "successTitle": "İnsan kimliğinin şifresi çözüldü",
+  "successSubtitle": "ZelfProof'unuzdan kurtarılan kimlik verileri.",
+  "identifierHeading": "Tanımlayıcı",
+  "publicDataHeading": "Herkese açık veriler",
+  "metadataHeading": "Meta veriler",
+  "difficultyHeading": "Zorluk",
+  "faceCropHeading": "Yüz kırpma",
+  "faceCropAlt": "Kanıttan yüzün kodu çözüldü",
+  "sessionHeading": "Oturum",
+  "chargedLabel": "Ücretlendirildi",
+  "livenessRequiredLabel": "Canlılık gerekli",
+  "creditsHeading": "Krediler / kullanım",
+  "chargedCredits": "Alınan ücret: {amount} kredi",
+  "creditChange": "Kredi değişikliği: {amount}",
+  "rawDebug": "Ham yanıt (hata ayıklama)",
+  "tryAgain": "Tekrar deneyin",
+  "backToDemos": "Demolara Geri Dön"
+}

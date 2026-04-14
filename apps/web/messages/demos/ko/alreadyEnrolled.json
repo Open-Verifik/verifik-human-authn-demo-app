@@ -1,0 +1,12 @@
+{
+  "title": "이 얼굴은 이미 등록되어 있습니다.",
+  "body": "API가 <code>person_already_set</code>를 반환했습니다. 일치하는 얼굴을 가진 사람이 이미 프로젝트에 존재합니다. 다른 사람이나 사진으로 다시 시도하거나 아래 데모를 열어 메타데이터를 업데이트하거나 기존 등록을 제거하세요.",
+  "imagesHeading": "등록하려고 시도한 이미지",
+  "nextSteps": "다음 단계",
+  "updateDemo": "개인 데모 업데이트",
+  "updateHint": "— 기존 개인 ID에 대한 이름, 컬렉션 또는 메모를 변경합니다.",
+  "deleteDemo": "사람 삭제 데모",
+  "deleteHint": "— 컬렉션에서만 전체 삭제 또는 제거.",
+  "editFormAgain": "양식을 수정하고 다시 시도하세요.",
+  "backToDemos": "데모로 돌아가기"
+}

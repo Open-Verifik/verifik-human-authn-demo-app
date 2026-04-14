@@ -1,0 +1,12 @@
+{
+  "title": "Bu yüz zaten kayıtlı",
+  "body": "API <code>person_already_set</code> değerini döndürdü. Projenizde eşleşen yüze sahip biri zaten mevcut. Farklı bir kişi veya fotoğrafla tekrar deneyin veya meta verileri güncellemek veya mevcut kaydı kaldırmak için aşağıdaki demoları açın.",
+  "imagesHeading": "Kaydetmeye çalıştığınız resim(ler)",
+  "nextSteps": "Sonraki adımlar",
+  "updateDemo": "Kişi demosunu güncelle",
+  "updateHint": "— mevcut bir kişi kimliğine ilişkin adı, koleksiyonları veya notları değiştirin.",
+  "deleteDemo": "Kişi demosunu sil",
+  "deleteHint": "— yalnızca koleksiyondan tam silme veya kaldırma.",
+  "editFormAgain": "Formu düzenleyip tekrar deneyin",
+  "backToDemos": "Demolara geri dön"
+}

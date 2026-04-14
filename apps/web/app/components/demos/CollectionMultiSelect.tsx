@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import clsx from "clsx";
 import type { FaceCollectionListItem } from "@humanauthn/api-client";
 
@@ -35,6 +36,7 @@ export function CollectionMultiSelect({
 	emptySlot,
 	labelId,
 }: CollectionMultiSelectProps) {
+	const t = useTranslations("demos.common");
 	const listId = useId();
 	const [open, setOpen] = useState(false);
 	const [search, setSearch] = useState("");
@@ -94,9 +96,7 @@ export function CollectionMultiSelect({
 	};
 
 	const summary =
-		selectedIds.length === 0
-			? "Select collections…"
-			: `${selectedIds.length} collection${selectedIds.length === 1 ? "" : "s"} selected`;
+		selectedIds.length === 0 ? t("selectCollections") : t("collectionsSelected", { count: selectedIds.length });
 
 	return (
 		<div ref={rootRef} className="space-y-2">
@@ -115,7 +115,7 @@ export function CollectionMultiSelect({
 								onClick={() => remove(id)}
 								disabled={disabled}
 								className="shrink-0 p-0.5 rounded hover:bg-primary/20 text-on-surface-variant disabled:opacity-50"
-								aria-label={`Remove ${label}`}
+								aria-label={t("removeItemAria", { label })}
 							>
 								<span className="material-symbols-outlined text-[16px]">close</span>
 							</button>
@@ -139,7 +139,7 @@ export function CollectionMultiSelect({
 						(disabled || loading) && "opacity-50 cursor-not-allowed",
 					)}
 				>
-					<span className={clsx(selectedIds.length === 0 && "text-on-surface-variant")}>{loading ? "Loading collections…" : summary}</span>
+					<span className={clsx(selectedIds.length === 0 && "text-on-surface-variant")}>{loading ? t("loadingCollections") : summary}</span>
 					<span className="material-symbols-outlined text-on-surface-variant/70 shrink-0">
 						{open ? "expand_less" : "expand_more"}
 					</span>
@@ -151,12 +151,12 @@ export function CollectionMultiSelect({
 						role="presentation"
 					>
 						{items.length === 0 ? (
-							<div className="px-4 py-6 text-sm text-on-surface-variant text-center">{emptySlot ?? "No collections available."}</div>
+							<div className="px-4 py-6 text-sm text-on-surface-variant text-center">{emptySlot ?? t("noCollectionsAvailable")}</div>
 						) : (
 							<>
 								<div className="shrink-0 border-b border-outline-variant/20 p-2">
 									<label htmlFor={`${listId}-search`} className="sr-only">
-										Search collections
+										{t("searchCollectionsSr")}
 									</label>
 									<div className="relative">
 										<span
@@ -172,7 +172,7 @@ export function CollectionMultiSelect({
 											autoComplete="off"
 											value={search}
 											onChange={(e) => setSearch(e.target.value)}
-											placeholder="Search by name or code"
+											placeholder={t("searchCollectionsPlaceholder")}
 											className="w-full rounded-lg border border-outline-variant/30 bg-surface-container-high/50 py-2 pl-9 pr-3 text-sm text-on-surface outline-none placeholder:text-on-surface-variant/50 focus:border-primary/60"
 										/>
 									</div>
@@ -180,11 +180,11 @@ export function CollectionMultiSelect({
 								<ul
 									id={listId}
 									role="listbox"
-									aria-label="Face collections"
+									aria-label={t("collectionsListAria")}
 									className="min-h-0 flex-1 overflow-y-auto overscroll-contain py-1"
 								>
 									{filtered.length === 0 ? (
-										<li className="px-3 py-6 text-center text-xs text-on-surface-variant">No matches</li>
+										<li className="px-3 py-6 text-center text-xs text-on-surface-variant">{t("noMatches")}</li>
 									) : (
 										filtered.map((it) => {
 											const checked = selectedIds.includes(it._id);

@@ -1,0 +1,12 @@
+{
+  "title": "Khuôn mặt này đã được đăng ký",
+  "body": "API trả về <code>person_already_set</code>. Đã có người có khuôn mặt khớp trong dự án của bạn. Thử lại với người hoặc ảnh khác, hoặc mở các demo bên dưới để cập nhật siêu dữ liệu hoặc gỡ đăng ký hiện có.",
+  "imagesHeading": "(Các) hình ảnh bạn đã cố gắng đăng ký",
+  "nextSteps": "Các bước tiếp theo",
+  "updateDemo": "Cập nhật bản demo Person",
+  "updateHint": "— thay đổi tên, bộ sưu tập hoặc ghi chú cho id người hiện có.",
+  "deleteDemo": "Xóa bản demo người",
+  "deleteHint": "- chỉ xóa hoàn toàn hoặc xóa khỏi bộ sưu tập.",
+  "editFormAgain": "Chỉnh sửa biểu mẫu và thử lại",
+  "backToDemos": "Quay lại bản demo"
+}

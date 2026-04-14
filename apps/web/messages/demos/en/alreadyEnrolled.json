@@ -1,0 +1,12 @@
+{
+  "title": "This face is already enrolled",
+  "body": "The API returned <code>person_already_set</code>. Someone with a matching face already exists in your project. Try again with a different person or photo, or open the demos below to update metadata or remove the existing enrollment.",
+  "imagesHeading": "Image(s) you tried to enroll",
+  "nextSteps": "Next steps",
+  "updateDemo": "Update Person demo",
+  "updateHint": "— change name, collections, or notes for an existing person id.",
+  "deleteDemo": "Delete Person demo",
+  "deleteHint": "— full delete or remove from a collection only.",
+  "editFormAgain": "Edit form and try again",
+  "backToDemos": "Back to demos"
+}

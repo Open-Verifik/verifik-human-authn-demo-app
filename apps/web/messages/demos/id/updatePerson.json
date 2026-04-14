@@ -1,0 +1,32 @@
+{
+  "headerTitle": "Perbarui orang",
+  "heroTitleForm": "Perbarui orang",
+  "heroTitleResult": "Orang diperbarui",
+  "heroSubtitleForm": "Pilih seseorang yang terdaftar di proyek Anda, edit profil atau koleksi, lalu simpan. Rute ini tidak mengganti gambar wajah (sesuai API saat ini).",
+  "heroSubtitleResult": "Perubahan dikirim dengan PUT /v2/face-recognition/persons/:id.",
+  "personLabel": "Orang",
+  "personHint": "Daftar dari GET /v2/face-recognition/persons — hanya orang yang terhubung ke akun Anda.",
+  "noPeopleEmpty": "Tidak ada orang. Daftarkan dulu di Buat orang.",
+  "loadingProfile": "Memuat profil…",
+  "unexpectedResponseShape": "Bentuk respons tidak terduga.",
+  "fullNameLabel": "Nama lengkap",
+  "genderLabel": "Jenis kelamin",
+  "dobLabel": "Tanggal lahir",
+  "nationalityLabel": "Kewarganegaraan",
+  "nationalityPlaceholder": "Opsional",
+  "notesLabel": "Catatan",
+  "collectionsLabel": "Koleksi",
+  "noCollectionsLoaded": "Tidak ada koleksi yang dimuat.",
+  "saveChanges": "Simpan perubahan",
+  "processing": "Memperbarui orang…",
+  "apiRefSummary": "Referensi API: Perbarui orang",
+  "apiRefOfficialDocs": "Dokumentasi resmi:",
+  "apiRefLinkLabel": "docs.verifik.co/resources/persons/update-a-person",
+  "apiRefBody": "PUT /v2/face-recognition/persons/:id dengan bidang JSON opsional: name, gender, date_of_birth, nationality, collections (array string _id koleksi), notes. Gambar mini wajah terdaftar tidak diganti melalui demo ini; menambah gambar wajah baru mungkin memerlukan alur produk tertentu yang tidak terekspos di skema Joi saat ini.",
+  "relatedDocs": {
+    "0": { "title": "Ambil orang", "description": "GET satu orang berdasarkan id.", "badge": "GET" },
+    "1": { "title": "Perbarui orang", "description": "Referensi API resmi untuk PUT.", "badge": "PUT" },
+    "2": { "title": "Buat orang", "description": "Buat orang baru di sistem pengenalan wajah.", "badge": "POST" },
+    "3": { "title": "Hapus orang", "description": "Hapus rekaman orang dari sistem pengenalan wajah.", "badge": "DELETE" }
+  }
+}

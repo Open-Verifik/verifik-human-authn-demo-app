@@ -1,0 +1,32 @@
+{
+  "headerTitle": "Update Person",
+  "heroTitleForm": "Update Person",
+  "heroTitleResult": "Person updated",
+  "heroSubtitleForm": "Choose someone enrolled in your project, edit profile or collections, then save. This route does not replace face images (per current API).",
+  "heroSubtitleResult": "Changes were sent with PUT /v2/face-recognition/persons/:id.",
+  "personLabel": "Person",
+  "personHint": "List from GET /v2/face-recognition/persons — only people linked to your account.",
+  "noPeopleEmpty": "No people found. Enroll someone first in Create Person.",
+  "loadingProfile": "Loading profile…",
+  "unexpectedResponseShape": "Unexpected response shape.",
+  "fullNameLabel": "Full name",
+  "genderLabel": "Gender",
+  "dobLabel": "Date of birth",
+  "nationalityLabel": "Nationality",
+  "nationalityPlaceholder": "Optional",
+  "notesLabel": "Notes",
+  "collectionsLabel": "Collections",
+  "noCollectionsLoaded": "No collections loaded.",
+  "saveChanges": "Save changes",
+  "processing": "Updating person…",
+  "apiRefSummary": "API reference: Update Person",
+  "apiRefOfficialDocs": "Official docs:",
+  "apiRefLinkLabel": "docs.verifik.co/resources/persons/update-a-person",
+  "apiRefBody": "PUT /v2/face-recognition/persons/:id with optional JSON fields: name, gender, date_of_birth, nationality, collections (array of collection _id strings), notes. The enrolled face thumbnails are not replaced through this demo; adding new face images may require product-specific flows not exposed in the current Joi schema.",
+  "relatedDocs": {
+    "0": { "title": "Retrieve a Person", "description": "GET a single person by id.", "badge": "GET" },
+    "1": { "title": "Update a Person", "description": "Official API reference for PUT.", "badge": "PUT" },
+    "2": { "title": "Create a Person", "description": "Create a new person in the facial recognition system.", "badge": "POST" },
+    "3": { "title": "Delete a Person", "description": "Delete a person record from the facial recognition system.", "badge": "DELETE" }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "metaTitle": "컬렉션 만들기",
+  "metaDescription": "OpenCV 지원 갤러리에 이름이 지정된 얼굴 컬렉션을 만듭니다.",
+  "headerTitle": "컬렉션 만들기",
+  "heroTitleForm": "컬렉션 만들기",
+  "heroTitleResult": "컬렉션이 생성되었습니다.",
+  "heroSubtitleForm": "등록된 사람을 그룹화하기 위해 명명된 컬렉션을 만듭니다.",
+  "heroSubtitleResult": "OpenCV 데이터베이스에 새로운 얼굴 컬렉션이 생성되었습니다.",
+  "nameLabel": "컬렉션 이름",
+  "namePlaceholder": "예를 들어 직원수 2025",
+  "descLabel": "설명",
+  "descPlaceholder": "이 컬렉션에 대한 선택적 설명",
+  "submit": "컬렉션 만들기",
+  "processing": "컬렉션을 만드는 중…",
+  "successTitle": "컬렉션이 성공적으로 생성되었습니다.",
+  "createAnother": "다른 만들기",
+  "backToDemos": "데모로 돌아가기",
+  "apiRefSummary": "API 참조: 컬렉션 생성",
+  "apiRefOfficialDocs": "공식 문서:",
+  "apiRefLinkLabel": "docs.verifik.co/resources/create-a-collection",
+  "apiRefBody": "Base URL https://api.verifik.co. Send a JSON body with a display name and an optional description.",
+  "apiRefEndpoint": "POST /v2/face-recognition/collections",
+  "apiRefEndpointDesc": "OpenCV 지원 데이터베이스에서 검색 및 확인을 위해 등록된 사람을 그룹화하는 명명된 컬렉션을 만듭니다.",
+  "paramName": "이름",
+  "paramNameDesc": "컬렉션 표시 이름",
+  "paramDescription": "설명",
+  "paramDescriptionDesc": "선택적 설명",
+  "bullet1": "이 데모에서는 세션 토큰과 함께 @humanauthn/api-client의 createCollection을 사용합니다.",
+  "bullet2": "일부 환경에서는 응답에 ID 또는 서명 블록을 첨부할 수 있습니다. 위의 모양은 핵심 데이터 페이로드를 보여줍니다.",
+  "relatedDocs": {
+    "0": {
+      "title": "컬렉션 객체",
+      "description": "얼굴 인식 컬렉션의 필드 및 구조.",
+      "badge": "Object"
+    },
+    "1": {
+      "title": "모든 컬렉션 나열",
+      "description": "인증된 클라이언트에 대한 모든 컬렉션입니다.",
+      "badge": "GET"
+    },
+    "2": {
+      "title": "컬렉션 검색",
+      "description": "ID별 단일 컬렉션입니다.",
+      "badge": "GET"
+    },
+    "3": {
+      "title": "컬렉션 업데이트",
+      "description": "이름, 설명, 선택적 프로젝트 또는 사람 목록.",
+      "badge": "PUT"
+    },
+    "4": {
+      "title": "Delete a Collection",
+      "description": "ID별로 컬렉션을 제거하고 연결된 데이터를 정리합니다.",
+      "badge": "DELETE"
+    }
+  }
+}

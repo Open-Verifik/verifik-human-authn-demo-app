@@ -1,0 +1,193 @@
+{
+  "RootLayout": {
+    "titleDefault": "HumanAuthn: Demo API sinh trắc học",
+    "titleTemplate": "%s | HumanAuthn",
+    "description": "HumanAuthn của Verifik. Phát hiện sống, so khớp khuôn mặt và xác thực sinh trắc học cấp doanh nghiệp.",
+    "keywords": [
+      "xác thực sinh trắc học",
+      "phát hiện sống",
+      "so khớp khuôn mặt",
+      "xác minh danh tính",
+      "Verifik",
+      "HumanAuthn",
+      "HumanID"
+    ],
+    "ogTitle": "HumanAuthn: Demo API sinh trắc học",
+    "ogDescription": "API xác thực sinh trắc học cấp doanh nghiệp của Verifik",
+    "ogSiteName": "HumanAuthn"
+  },
+  "SplashPage": {
+    "metaTitle": "HumanAuthn: Demo API sinh trắc học của Verifik",
+    "metaDescription": "Xác thực an toàn với phát hiện sống. Tiêu chuẩn vàng cho xác minh danh tính số. Được cung cấp bởi Verifik.",
+    "heroImageAlt": "Quét nhận diện khuôn mặt sinh trắc học",
+    "readinessBadge": "Sẵn sàng sinh trắc học: Đang hoạt động",
+    "brandPill": "Verifik · HumanAuthn",
+    "headlineLine1": "Human",
+    "headlineLine2": "Authn",
+    "tagline": "Xác thực an toàn với phát hiện sống. Tiêu chuẩn vàng cho truy cập số.",
+    "ctaPrimary": "Bắt đầu",
+    "ctaSecondary": "Khám phá demo →",
+    "trustAria": "Chứng nhận bảo mật"
+  },
+  "HomeHeader": {
+    "accountFallback": "Tài khoản",
+    "signIn": "Đăng nhập",
+    "accountMenuAria": "Menu tài khoản",
+    "credits": "Tín dụng",
+    "settings": "Cài đặt",
+    "signOut": "Đăng xuất",
+    "homeAria": "Verifik: Trang chủ"
+  },
+  "LanguageSwitcher": {
+    "ariaLabel": "Ngôn ngữ",
+    "en": "English",
+    "es": "Español",
+    "pt": "Português",
+    "fr": "Français",
+    "hi": "हिन्दी",
+    "zh": "简体中文",
+    "ko": "한국어",
+    "ja": "日本語",
+    "de": "Deutsch",
+    "id": "Bahasa Indonesia",
+    "vi": "Tiếng Việt",
+    "tr": "Türkçe",
+    "ar": "العربية"
+  },
+  "home": {
+    "metaTitle": "Bảng điều khiển demo",
+    "metaDescription": "Xác thực neo vào sự hiện diện con người. Chạy demo sinh trắc học trực tiếp của Verifik cho so khớp khuôn mặt, phát hiện sống và HumanID trong trình duyệt.",
+    "heroEyebrow": "Sinh trắc học · Demo trực tiếp",
+    "heroTitle": "HumanAuthn · Sinh trắc học cấp doanh nghiệp",
+    "heroBody": "Chạy so khớp khuôn mặt, phát hiện sống, HumanID và phát hiện trực tiếp trong trình duyệt. Sinh trắc học truyền thống bao gồm quản lý bộ sưu tập OpenCV phía máy chủ và tìm kiếm. Demo HumanAuthn phi tập trung cho thấy HumanID gắn dữ liệu danh tính với khuôn mặt thật mà không cần cơ sở dữ liệu khuôn mặt trung tâm.",
+    "traditionalEyebrow": "OpenCV · Bộ sưu tập phía máy chủ",
+    "traditionalTitle": "Sinh trắc học truyền thống",
+    "decentralizedEyebrow": "HumanAuthn · HumanID",
+    "decentralizedTitle": "Sinh trắc học phi tập trung · HumanAuthn",
+    "enterpriseEyebrow": "Nền tảng Verifik",
+    "enterpriseTitle": "Bảo mật cấp doanh nghiệp",
+    "enterpriseBody": "Nền tảng của chúng tôi xử lý dữ liệu sinh trắc học với mã hóa đầu cuối. Quyền riêng tư theo thiết kế, sẵn sàng cho triển khai nghiêm túc.",
+    "pillGdpr": "Tuân thủ GDPR",
+    "pillAes": "AES-256",
+    "pillSoc2": "Sẵn sàng SOC 2",
+    "navIdentity": "Danh tính",
+    "navSecurity": "Bảo mật",
+    "navSettings": "Cài đặt",
+    "demoCta": "Chạy demo",
+    "sections": {
+      "enroll": "Đăng ký",
+      "manage": "Quản lý",
+      "search": "Tìm kiếm",
+      "detection": "Phát hiện",
+      "comparison": "So sánh"
+    },
+    "demos": {
+      "create-collection": {
+        "badge": "Đăng ký",
+        "title": "Tạo bộ sưu tập",
+        "description": "Tạo bộ sưu tập khuôn mặt có tên để nhóm người đã đăng ký cho tìm kiếm và xác minh."
+      },
+      "create-person": {
+        "badge": "Đăng ký",
+        "title": "Tạo người",
+        "description": "Đăng ký người mới bằng cách tải ảnh khuôn mặt và siêu dữ liệu. Lưu trong bộ sưu tập OpenCV."
+      },
+      "create-person-with-liveness": {
+        "badge": "Đăng ký",
+        "title": "Tạo người với phát hiện sống",
+        "description": "Đăng ký một người đồng thời chạy kiểm tra sống và tìm trùng lặp trong bộ sưu tập."
+      },
+      "update-person": {
+        "badge": "Quản lý",
+        "title": "Cập nhật người",
+        "description": "Tải người theo id và chỉnh sửa hồ sơ hoặc thành viên bộ sưu tập (không có ảnh khuôn mặt mới trong API này)."
+      },
+      "delete-person": {
+        "badge": "Quản lý",
+        "title": "Xóa người",
+        "description": "Xóa hoàn toàn hoặc gỡ khỏi một bộ sưu tập khi họ thuộc nhiều bộ sưu tập."
+      },
+      "search-person": {
+        "badge": "Tìm kiếm",
+        "title": "Tìm người",
+        "description": "Tải một hoặc nhiều ảnh khuôn mặt và tìm người khớp trong bộ sưu tập theo điểm tương đồng."
+      },
+      "search-live-person": {
+        "badge": "Tìm kiếm",
+        "title": "Tìm người trực tiếp",
+        "description": "Chụp khuôn mặt trực tiếp, chạy phát hiện sống và tìm khớp trong bộ sưu tập trong một luồng."
+      },
+      "search-active-user": {
+        "badge": "Tìm kiếm",
+        "title": "Tìm người dùng đang hoạt động",
+        "description": "Xác thực người dùng đang hoạt động bằng chụp khuôn mặt trực tiếp và trả về điểm sống cùng kết quả tìm kiếm."
+      },
+      "detect-face": {
+        "badge": "Phát hiện",
+        "title": "Phát hiện khuôn mặt",
+        "description": "Gửi ảnh và phát hiện mọi khuôn mặt, trả về hộp giới hạn và dữ liệu crop."
+      },
+      "search-crops": {
+        "badge": "Phát hiện",
+        "title": "Tìm crop",
+        "description": "Chạy tìm kiếm nhiều ảnh crop để tìm người khớp trên crop khuôn mặt đã tải với độ chính xác tinh chỉnh."
+      },
+      "face-comparison": {
+        "badge": "So sánh",
+        "title": "So sánh khuôn mặt",
+        "description": "Tải hai ảnh và xem có cùng một người không. Hữu ích cho onboarding và kiểm tra giấy tờ."
+      },
+      "face-comparison-liveness": {
+        "badge": "So sánh",
+        "title": "So sánh với phát hiện sống",
+        "description": "Khớp ảnh tham chiếu với selfie trực tiếp. Phát hiện sống chỉ chạy khi so khớp khuôn mặt đủ mạnh."
+      },
+      "verify-face": {
+        "badge": "So sánh",
+        "title": "Xác minh khuôn mặt",
+        "description": "Xác minh ảnh khuôn mặt với một người đã đăng ký cụ thể theo ID với ngưỡng tương đồng có thể cấu hình."
+      },
+      "liveness": {
+        "badge": "Chống giả mạo",
+        "title": "Phát hiện sống",
+        "description": "Chứng minh có người thật trước camera, không phải ảnh, mặt nạ hay phát lại."
+      },
+      "humanid-create": {
+        "badge": "Mã hóa",
+        "title": "Tạo HumanID",
+        "description": "Gắn dữ liệu danh tính công khai và khuôn mặt vào bằng chứng HumanID mã hóa trên IPFS. Chỉ khôi phục được bằng khuôn mặt sống khớp."
+      },
+      "humanid-create-qr": {
+        "badge": "QR",
+        "title": "Tạo QR HumanID",
+        "description": "Tạo HumanID mã QR từ chụp khuôn mặt và siêu dữ liệu danh tính để xác minh ngoại tuyến di động."
+      },
+      "humanid-decrypt": {
+        "badge": "Giải mã",
+        "title": "Giải mã HumanID",
+        "description": "Khôi phục dữ liệu danh tính trong HumanID bằng cách trình bày khuôn mặt sống khớp và chuỗi bằng chứng."
+      },
+      "humanid-preview": {
+        "badge": "Xem trước",
+        "title": "Xem trước HumanID",
+        "description": "Xem siêu dữ liệu công khai trong chuỗi HumanID mà không cần ảnh khuôn mặt hay thông tin đăng nhập thêm."
+      }
+    }
+  },
+  "NotFound": {
+    "title": "Không tìm thấy trang",
+    "body": "Trang này không tồn tại hoặc liên kết không hợp lệ.",
+    "homeLink": "Về trang chủ"
+  },
+  "settingsNav": {
+    "title": "Cài đặt",
+    "ariaLabel": "Mục cài đặt",
+    "myAccount": "Tài khoản của tôi",
+    "developers": "Nhà phát triển",
+    "profile": "Hồ sơ",
+    "apiKey": "Khóa API",
+    "mobileMenu": "Mở menu cài đặt",
+    "mobileTitle": "Cài đặt",
+    "closeMenu": "Đóng menu"
+  }
+}

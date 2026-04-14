@@ -1,0 +1,13 @@
+{
+  "successTitle": "HumanID preview",
+  "successSubtitle": "Public metadata and requirements from your ZelfProof.",
+  "summaryHeading": "Summary",
+  "passwordLayerLabel": "Password layer",
+  "passwordNoPassword": "No password",
+  "passwordRequired": "Password required",
+  "livenessRequiredLabel": "Liveness required",
+  "publicDataHeading": "Public data",
+  "rawDebug": "Raw response (debug)",
+  "previewAnother": "Preview Another",
+  "backToDemos": "Back to Demos"
+}

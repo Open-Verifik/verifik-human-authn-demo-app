@@ -1,9 +1,15 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+
 export type DemoRelatedDocItem = {
 	href: string;
 	title: string;
 	description: string;
-	/** Shown like Projects endpoint verbs; use "Object" for schema/reference pages; "Demo" for in-app demo links */
-	badge: "GET" | "POST" | "PUT" | "DELETE" | "Object" | "Demo";
+	/** HTTP verb, Object, Demo, etc. (localized). */
+	badge: string;
+	/** Muted chip style for schema / object pages */
+	badgeMuted?: boolean;
 };
 
 type DemoRelatedDocsSectionProps = {
@@ -14,6 +20,8 @@ type DemoRelatedDocsSectionProps = {
  * External doc links for demo pages — layout aligned with Verifik Projects-style API docs (verb + title + summary).
  */
 export default function DemoRelatedDocsSection({ items }: DemoRelatedDocsSectionProps) {
+	const t = useTranslations("demos.common");
+
 	return (
 		<section
 			className="mt-12 rounded-2xl border border-outline-variant/20 bg-surface-container-low/35 p-6 md:p-8"
@@ -26,9 +34,9 @@ export default function DemoRelatedDocsSection({ items }: DemoRelatedDocsSection
 					</span>
 					<div>
 						<h3 id="related-docs-heading" className="text-lg font-black tracking-tight text-on-surface">
-							Related documentation
+							{t("relatedDocsTitle")}
 						</h3>
-						<p className="text-xs text-on-surface-variant mt-0.5">Official guides on docs.verifik.co</p>
+						<p className="text-xs text-on-surface-variant mt-0.5">{t("relatedDocsSubtitle")}</p>
 					</div>
 				</div>
 			</div>
@@ -45,7 +53,7 @@ export default function DemoRelatedDocsSection({ items }: DemoRelatedDocsSection
 						<div className="mb-2 flex items-start justify-between gap-2">
 							<span
 								className={`inline-flex shrink-0 items-center rounded-md border px-2 py-0.5 font-mono text-[0.625rem] font-bold uppercase tracking-wide tabular-nums ${
-									doc.badge === "Object"
+									doc.badgeMuted
 										? "border-outline-variant/35 bg-surface-container-high/40 text-on-surface-variant"
 										: "border-primary/25 bg-primary/8 text-primary"
 								}`}

@@ -1,0 +1,19 @@
+{
+  "successTitle": "HumanID entschlüsselt",
+  "successSubtitle": "Identitätsdaten aus Ihrem ZelfProof wiederhergestellt.",
+  "identifierHeading": "Kennung",
+  "publicDataHeading": "Öffentliche Daten",
+  "metadataHeading": "Metadaten",
+  "difficultyHeading": "Schwierigkeit",
+  "faceCropHeading": "Gesichtsausschnitt",
+  "faceCropAlt": "Dekodierter Gesichtsausschnitt aus dem Nachweis",
+  "sessionHeading": "Sitzung",
+  "chargedLabel": "Abgerechnet",
+  "livenessRequiredLabel": "Lebenderkennung erforderlich",
+  "creditsHeading": "Guthaben / Nutzung",
+  "chargedCredits": "Abgerechnet: {amount} Credits",
+  "creditChange": "Guthabenänderung: {amount}",
+  "rawDebug": "Rohantwort (Debug)",
+  "tryAgain": "Erneut versuchen",
+  "backToDemos": "Zurück zu den Demos"
+}

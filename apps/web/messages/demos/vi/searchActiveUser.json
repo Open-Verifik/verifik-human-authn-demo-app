@@ -1,0 +1,66 @@
+{
+  "headerTitle": "Tìm kiếm người dùng đang hoạt động",
+  "heroTitleComplete": "Tìm kiếm hoàn tất",
+  "heroTitleInitial": "Tìm kiếm người dùng đang hoạt động",
+  "heroSubtitleComplete": "Kết quả được hiển thị dưới đây.Đặt lại để chạy tìm kiếm khác.",
+  "heroSubtitleInitial": "Tìm kiếm khuôn mặt 1:N không có sự sống động—dành cho luồng người dùng đang hoạt động và kiểu phiên (hình ảnh thăm dò đơn).",
+  "livenessMinLabel": "Sự sống động tối thiểu {score}",
+  "searchMinLabel": "Tìm kiếm điểm tối thiểu {score}",
+  "searchModeLabel": "Chế độ tìm kiếm",
+  "collectionIdLabel": "ID bộ sưu tập",
+  "optionalPlaceholder": "Không bắt buộc",
+  "chooseOneDescription": "Quét bằng máy ảnh của bạn hoặc tải ảnh lên.Một trong hai tùy chọn đều hoạt động cho bản demo này.",
+  "cameraTitle": "Máy ảnh trực tiếp",
+  "cameraSubtitle": "Mở máy ảnh và căn chỉnh khuôn mặt của bạn trong khung",
+  "uploadTitle": "Ảnh từ thư viện",
+  "uploadSubtitle": "Thay vào đó, hãy chọn tệp hình ảnh từ thiết bị của bạn",
+  "uploadPrimary": "Tải hình ảnh lên",
+  "uploadSecondary": "JPEG hoặc PNG từ thư viện của bạn",
+  "previewAlt": "Đã chụp",
+  "searching": "Đang tìm kiếm…",
+  "searchActiveUser": "Tìm kiếm người dùng đang hoạt động",
+  "apiRefSummary": "Tham chiếu API: Tìm kiếm khuôn mặt 1:N (Người dùng đang hoạt động)",
+  "apiRefLinkSuffix": "(Tìm kiếm 1:N không có sự sống động—luồng người dùng đang hoạt động/phiên).",
+  "apiRefBody": "URL cơ sở https://api.verifik.co. Gửi một đầu dò base64 thô trong hình ảnh, hệ điều hành bắt buộc (ANDROID, iOS hoặc DESKTOP), cộng với min_score và search_mode. Bản demo này sử dụng DESKTOP.",
+  "apiRefEndpoint": "POST /v2/face-recognition/search-active-user",
+  "apiRefEndpointDesc": "Tương tự như tìm kiếm trực tiếp nhưng không có cổng hoạt động—sử dụng khi người dùng đã ở trong phiên được xác thực hoặc đáng tin cậy.",
+  "paramImageDesc": "Hình ảnh đầu dò base64 đơn",
+  "paramOsDesc": "ANDROID, iOS hoặc DESKTOP",
+  "paramMinScoreDesc": "Ngưỡng phù hợp (0,5–1,0)",
+  "paramSearchModeDesc": "FAST hoặc ACCURATE",
+  "paramCollectionIdDesc": "Tìm kiếm phạm vi cho một bộ sưu tập",
+  "bulletApiClient": "Bản demo này sử dụng searchActiveUser từ @humanauthn/api-client bằng mã thông báo phiên của bạn.",
+  "bulletLiveInstead": "Để có độ sống động + 1:N, thay vào đó hãy sử dụng search-live-face (xem Face Search 1:N Live trong tài liệu).",
+  "relatedDocs": {
+    "0": {
+      "title": "Đối tượng Người",
+      "description": "Các trường và cấu trúc của hồ sơ người nhận dạng khuôn mặt.",
+      "badge": "Object"
+    },
+    "1": {
+      "title": "Liệt kê tất cả những người",
+      "description": "Người dành cho khách hàng của bạn, với các bộ lọc tùy chọn.",
+      "badge": "GET"
+    },
+    "2": {
+      "title": "Truy xuất một người",
+      "description": "Một người duy nhất theo id.",
+      "badge": "GET"
+    },
+    "3": {
+      "title": "Cập nhật một người",
+      "description": "Hồ sơ, hình ảnh, bộ sưu tập, v.v.",
+      "badge": "PUT"
+    },
+    "4": {
+      "title": "Xóa một người",
+      "description": "Xóa bản ghi người theo id.",
+      "badge": "DELETE"
+    },
+    "5": {
+      "title": "Tìm kiếm khuôn mặt 1:N (Người dùng đang hoạt động)",
+      "description": "Tìm kiếm 1:N không có tính sống động—dành cho luồng người dùng đang hoạt động/phiên.",
+      "badge": "POST"
+    }
+  }
+}

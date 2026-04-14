@@ -1,0 +1,66 @@
+{
+  "headerTitle": "활성 사용자 검색",
+  "heroTitleComplete": "검색 완료",
+  "heroTitleInitial": "활성 사용자 검색",
+  "heroSubtitleComplete": "결과는 아래와 같습니다. 다른 검색을 실행하려면 재설정하세요.",
+  "heroSubtitleInitial": "활성 사용자 및 세션 스타일 흐름(단일 프로브 이미지)을 위한 활성 없는 1:N 얼굴 검색입니다.",
+  "livenessMinLabel": "최소 활성 {score}",
+  "searchMinLabel": "최소 점수 {score} 검색",
+  "searchModeLabel": "검색 모드",
+  "collectionIdLabel": "컬렉션 ID",
+  "optionalPlaceholder": "선택 과목",
+  "chooseOneDescription": "카메라로 스캔하거나 사진을 업로드하세요. 두 옵션 모두 이 데모에 적합합니다.",
+  "cameraTitle": "라이브 카메라",
+  "cameraSubtitle": "카메라를 열고 프레임에 얼굴을 맞춥니다.",
+  "uploadTitle": "갤러리의 사진",
+  "uploadSubtitle": "대신 기기에서 이미지 파일을 선택하세요.",
+  "uploadPrimary": "이미지 업로드",
+  "uploadSecondary": "갤러리의 JPEG 또는 PNG",
+  "previewAlt": "캡처됨",
+  "searching": "수색…",
+  "searchActiveUser": "활성 사용자 검색",
+  "apiRefSummary": "API 참조: 얼굴 검색 1:N(활성 사용자)",
+  "apiRefLinkSuffix": "(활성성 없는 1:N 검색 - 활성 사용자/세션 흐름).",
+  "apiRefBody": "Base URL https://api.verifik.co. Send one raw base64 probe in image, required os (ANDROID, IOS, or DESKTOP), plus min_score and search_mode. This demo uses DESKTOP.",
+  "apiRefEndpoint": "POST /v2/face-recognition/search-active-user",
+  "apiRefEndpointDesc": "실시간 검색과 유사하지만 활성 게이트가 없습니다. 사용자가 이미 인증되었거나 신뢰할 수 있는 세션에 있을 때 사용합니다.",
+  "paramImageDesc": "단일 base64 프로브 이미지",
+  "paramOsDesc": "안드로이드, IOS, 데스크탑",
+  "paramMinScoreDesc": "일치 임계값(0.5–1.0)",
+  "paramSearchModeDesc": "빠르고 정확함",
+  "paramCollectionIdDesc": "하나의 컬렉션으로 검색 범위 지정",
+  "bulletApiClient": "이 데모에서는 세션 토큰과 함께 @humanauthn/api-client의 searchActiveUser를 사용합니다.",
+  "bulletLiveInstead": "활성도 + 1:N의 경우 대신 search-live-face를 사용하세요(문서에서 Face Search 1:N Live 참조).",
+  "relatedDocs": {
+    "0": {
+      "title": "사람 객체",
+      "description": "얼굴인식 개인기록의 필드 및 구조입니다.",
+      "badge": "Object"
+    },
+    "1": {
+      "title": "모든 개인 나열",
+      "description": "선택적 필터가 포함된 고객의 사람입니다.",
+      "badge": "GET"
+    },
+    "2": {
+      "title": "사람 검색",
+      "description": "아이디별 1인입니다.",
+      "badge": "GET"
+    },
+    "3": {
+      "title": "개인 업데이트",
+      "description": "프로필, 이미지, 컬렉션 등.",
+      "badge": "PUT"
+    },
+    "4": {
+      "title": "Delete a Person",
+      "description": "ID별로 개인 기록을 제거합니다.",
+      "badge": "DELETE"
+    },
+    "5": {
+      "title": "얼굴 검색 1:N (활성 사용자)",
+      "description": "활성 없는 1:N 검색 - 활성 사용자/세션 흐름을 위한 것입니다.",
+      "badge": "POST"
+    }
+  }
+}

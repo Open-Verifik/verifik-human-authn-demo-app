@@ -1,0 +1,12 @@
+{
+  "title": "此人脸已注册",
+  "body": "API 返回了 <code>person_already_set</code>。项目中已存在匹配人脸的人员。请换人或换照片重试，或打开下方演示以更新元数据或移除已有注册。",
+  "imagesHeading": "您尝试注册的图像",
+  "nextSteps": "后续步骤",
+  "updateDemo": "更新人员演示",
+  "updateHint": "— 更改已有人员 ID 的姓名、人脸库或备注。",
+  "deleteDemo": "删除人员演示",
+  "deleteHint": "— 完全删除或仅从一个人脸库移除。",
+  "editFormAgain": "编辑表单并重试",
+  "backToDemos": "返回演示列表"
+}

@@ -1,0 +1,13 @@
+{
+  "successTitle": "Pratinjau HumanID",
+  "successSubtitle": "Metadata publik dan persyaratan dari ZelfProof Anda.",
+  "summaryHeading": "Ringkasan",
+  "passwordLayerLabel": "Lapisan kata sandi",
+  "passwordNoPassword": "Tidak ada kata sandi",
+  "passwordRequired": "Kata sandi wajib",
+  "livenessRequiredLabel": "Keaktifan wajib",
+  "publicDataHeading": "Data publik",
+  "rawDebug": "Respons mentah (debug)",
+  "previewAnother": "Pratinjau lagi",
+  "backToDemos": "Kembali ke Demo"
+}

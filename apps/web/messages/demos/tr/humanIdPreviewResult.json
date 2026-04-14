@@ -1,0 +1,13 @@
+{
+  "successTitle": "İnsan Kimliği önizlemesi",
+  "successSubtitle": "ZelfProof'unuzdan genel meta veriler ve gereksinimler.",
+  "summaryHeading": "Özet",
+  "passwordLayerLabel": "Şifre katmanı",
+  "passwordNoPassword": "Şifre yok",
+  "passwordRequired": "Şifre gerekli",
+  "livenessRequiredLabel": "Canlılık gerekli",
+  "publicDataHeading": "Herkese açık veriler",
+  "rawDebug": "Ham yanıt (hata ayıklama)",
+  "previewAnother": "Başka Birini Önizle",
+  "backToDemos": "Demolara Geri Dön"
+}

@@ -1,0 +1,32 @@
+{
+  "headerTitle": "Mettre à jour une personne",
+  "heroTitleForm": "Mettre à jour une personne",
+  "heroTitleResult": "Personne mise à jour",
+  "heroSubtitleForm": "Choisissez une personne enrôlée dans votre projet, modifiez le profil ou les collections et enregistrez. Cette route ne remplace pas les images faciales (selon l'API actuelle).",
+  "heroSubtitleResult": "Les modifications ont été envoyées avec PUT /v2/face-recognition/persons/:id.",
+  "personLabel": "Personne",
+  "personHint": "Liste de GET /v2/face-recognition/persons — uniquement les personnes liées à votre compte.",
+  "noPeopleEmpty": "Aucune personne trouvée. Enrôlez d'abord quelqu'un via Créer une personne.",
+  "loadingProfile": "Chargement du profil…",
+  "unexpectedResponseShape": "Format de réponse inattendu.",
+  "fullNameLabel": "Nom complet",
+  "genderLabel": "Genre",
+  "dobLabel": "Date de naissance",
+  "nationalityLabel": "Nationalité",
+  "nationalityPlaceholder": "Facultatif",
+  "notesLabel": "Notes",
+  "collectionsLabel": "Collections",
+  "noCollectionsLoaded": "Aucune collection chargée.",
+  "saveChanges": "Enregistrer les modifications",
+  "processing": "Mise à jour de la personne…",
+  "apiRefSummary": "Référence API : mettre à jour une personne",
+  "apiRefOfficialDocs": "Documentation officielle :",
+  "apiRefLinkLabel": "docs.verifik.co/resources/persons/update-a-person",
+  "apiRefBody": "PUT /v2/face-recognition/persons/:id avec des champs JSON facultatifs : name, gender, date_of_birth, nationality, collections (tableau de chaînes _id de collection), notes. Les vignettes enrôlées ne sont pas remplacées dans cette démo ; de nouvelles images peuvent nécessiter des flux produit hors du schéma Joi actuel.",
+  "relatedDocs": {
+    "0": { "title": "Obtenir une personne", "description": "GET d'une personne par id.", "badge": "GET" },
+    "1": { "title": "Mettre à jour une personne", "description": "Référence officielle API pour PUT.", "badge": "PUT" },
+    "2": { "title": "Créer une personne", "description": "Créez une nouvelle personne dans le système de reconnaissance faciale.", "badge": "POST" },
+    "3": { "title": "Supprimer une personne", "description": "Supprimez un enregistrement personne du système de reconnaissance faciale.", "badge": "DELETE" }
+  }
+}

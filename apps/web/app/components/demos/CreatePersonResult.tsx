@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
+import { useTranslations } from "next-intl";
 
 function isPlainObject(v: unknown): v is Record<string, unknown> {
 	return v !== null && typeof v === "object" && !Array.isArray(v);
@@ -26,12 +27,6 @@ function formatDob(iso: string): string {
 	const d = new Date(iso);
 	if (Number.isNaN(d.getTime())) return iso;
 	return d.toLocaleDateString(undefined, { dateStyle: "long" });
-}
-
-function formatGender(g: string): string {
-	if (g === "M") return "Male";
-	if (g === "F") return "Female";
-	return g;
 }
 
 /** Keeps raw JSON readable in the debug expander (avoids multi‑KB base64 lines). */
@@ -87,10 +82,18 @@ export default function CreatePersonResult({
 	onBackToDemos,
 	mode = "create",
 }: CreatePersonResultProps) {
+	const t = useTranslations("demos.personResult");
+	const tCommon = useTranslations("demos.common");
 	const isUpdate = mode === "update";
 	const isDelete = mode === "delete";
 
-	const primaryActionLabel = isDelete ? "Another action" : isUpdate ? "Update another" : "Enroll Another";
+	const primaryActionLabel = isDelete ? t("anotherAction") : isUpdate ? t("updateAnother") : t("enrollAnother");
+
+	const formatGender = (g: string) => {
+		if (g === "M") return tCommon("male");
+		if (g === "F") return tCommon("female");
+		return g;
+	};
 
 	const headerIcon = isDelete ? "delete" : isUpdate ? "edit" : "person_add";
 
@@ -158,11 +161,11 @@ export default function CreatePersonResult({
 		return (
 			<div className="space-y-5">
 				<div className="rounded-2xl border border-outline-variant/20 bg-surface-container-low p-6">
-					<p className="text-on-surface-variant text-sm">No person object in the response.</p>
+					<p className="text-on-surface-variant text-sm">{t("noPersonObject")}</p>
 				</div>
 				<details className="rounded-xl border border-outline-variant/20 bg-surface-container-low/50 px-4 py-3 group">
 					<summary className="cursor-pointer list-none font-bold text-sm text-on-surface-variant flex items-center justify-between gap-2">
-						<span>Raw response (debug)</span>
+						<span>{t("rawDebug")}</span>
 						<span className="material-symbols-outlined text-on-surface-variant/70 group-open:rotate-180 transition-transform text-lg">
 							expand_more
 						</span>
@@ -184,7 +187,7 @@ export default function CreatePersonResult({
 						onClick={onBackToDemos}
 						className="flex-1 py-3 bg-primary-cta text-on-primary-container font-semibold rounded-lg shadow-primary hover:opacity-90 active:scale-95 transition-all"
 					>
-						Back to Demos
+						{t("backToDemos")}
 					</button>
 				</div>
 			</div>
@@ -192,13 +195,9 @@ export default function CreatePersonResult({
 	}
 
 	const headerTitle =
-		parsed.name || (isDelete ? "Delete completed" : isUpdate ? "Person updated" : "Person enrolled");
+		parsed.name || (isDelete ? t("deleteCompleted") : isUpdate ? t("personUpdated") : t("personEnrolled"));
 
-	const headerSubtitle = isDelete
-		? "Latest record returned from DELETE /persons/:id (e.g. after removing from one collection)."
-		: isUpdate
-			? "Latest record returned from PUT /persons/:id."
-			: "Stored in your OpenCV collections.";
+	const headerSubtitle = isDelete ? t("subtitleDelete") : isUpdate ? t("subtitleUpdate") : t("subtitleCreate");
 
 	return (
 		<div className="space-y-5">
@@ -213,55 +212,55 @@ export default function CreatePersonResult({
 
 				{parsed.personId ? (
 					<section className="mb-6 rounded-xl border border-outline-variant/20 bg-surface-container-high/40 p-4">
-						<h3 className="text-sm font-bold text-primary mb-2">Person ID</h3>
+						<h3 className="text-sm font-bold text-primary mb-2">{t("personId")}</h3>
 						<p className="font-mono text-sm text-on-surface break-all">{parsed.personId}</p>
 					</section>
 				) : null}
 
 				<section className="mb-6 rounded-xl border border-outline-variant/20 bg-surface-container-high/40 p-4">
-					<h3 className="text-sm font-bold text-primary mb-3">Profile</h3>
+					<h3 className="text-sm font-bold text-primary mb-3">{t("profile")}</h3>
 					<dl className="space-y-2 text-sm">
 						{parsed.gender ? (
 							<div className="grid grid-cols-1 sm:grid-cols-[minmax(0,11rem)_1fr] gap-x-3 gap-y-1">
-								<dt className="text-on-surface-variant font-medium">Gender</dt>
+								<dt className="text-on-surface-variant font-medium">{t("gender")}</dt>
 								<dd className="text-on-surface">{formatGender(parsed.gender)}</dd>
 							</div>
 						) : null}
 						{parsed.dateOfBirth ? (
 							<div className="grid grid-cols-1 sm:grid-cols-[minmax(0,11rem)_1fr] gap-x-3 gap-y-1">
-								<dt className="text-on-surface-variant font-medium">Date of birth</dt>
+								<dt className="text-on-surface-variant font-medium">{t("dateOfBirth")}</dt>
 								<dd className="text-on-surface">{formatDob(parsed.dateOfBirth)}</dd>
 							</div>
 						) : null}
 						{parsed.nationality ? (
 							<div className="grid grid-cols-1 sm:grid-cols-[minmax(0,11rem)_1fr] gap-x-3 gap-y-1">
-								<dt className="text-on-surface-variant font-medium">Nationality</dt>
+								<dt className="text-on-surface-variant font-medium">{t("nationality")}</dt>
 								<dd className="text-on-surface">{parsed.nationality}</dd>
 							</div>
 						) : null}
 						<div className="grid grid-cols-1 sm:grid-cols-[minmax(0,11rem)_1fr] gap-x-3 gap-y-1">
-							<dt className="text-on-surface-variant font-medium">Notes</dt>
+							<dt className="text-on-surface-variant font-medium">{t("notes")}</dt>
 							<dd className="text-on-surface font-mono text-xs break-all">
 								{parsed.notes === null || parsed.notes === undefined || parsed.notes === ""
-									? "—"
+									? tCommon("emDash")
 									: String(parsed.notes)}
 							</dd>
 						</div>
 						{parsed.isDemoPerson !== undefined ? (
 							<div className="grid grid-cols-1 sm:grid-cols-[minmax(0,11rem)_1fr] gap-x-3 gap-y-1">
-								<dt className="text-on-surface-variant font-medium">Demo person</dt>
-								<dd className="text-on-surface">{parsed.isDemoPerson ? "Yes" : "No"}</dd>
+								<dt className="text-on-surface-variant font-medium">{t("demoPerson")}</dt>
+								<dd className="text-on-surface">{parsed.isDemoPerson ? tCommon("yes") : tCommon("no")}</dd>
 							</div>
 						) : null}
 						{parsed.environment ? (
 							<div className="grid grid-cols-1 sm:grid-cols-[minmax(0,11rem)_1fr] gap-x-3 gap-y-1">
-								<dt className="text-on-surface-variant font-medium">Environment</dt>
+								<dt className="text-on-surface-variant font-medium">{t("environment")}</dt>
 								<dd className="font-mono text-xs text-on-surface break-all">{parsed.environment}</dd>
 							</div>
 						) : null}
 						{parsed.client ? (
 							<div className="grid grid-cols-1 sm:grid-cols-[minmax(0,11rem)_1fr] gap-x-3 gap-y-1">
-								<dt className="text-on-surface-variant font-medium">Client</dt>
+								<dt className="text-on-surface-variant font-medium">{t("client")}</dt>
 								<dd className="font-mono text-xs text-on-surface break-all">{parsed.client}</dd>
 							</div>
 						) : null}
@@ -270,7 +269,7 @@ export default function CreatePersonResult({
 
 				{parsed.collections.length > 0 ? (
 					<section className="mb-6 rounded-xl border border-outline-variant/20 bg-surface-container-high/40 p-4">
-						<h3 className="text-sm font-bold text-primary mb-3">Collections</h3>
+						<h3 className="text-sm font-bold text-primary mb-3">{t("collections")}</h3>
 						<ul className="space-y-1.5 text-sm">
 							{parsed.collections.map((id) => (
 								<li key={id} className="font-mono text-xs text-on-surface break-all">
@@ -283,15 +282,15 @@ export default function CreatePersonResult({
 
 				{parsed.thumbnails.length > 0 ? (
 					<section className="mb-6 rounded-xl border border-outline-variant/20 bg-surface-container-high/40 p-4">
-						<h3 className="text-sm font-bold text-primary mb-3">Thumbnails</h3>
+						<h3 className="text-sm font-bold text-primary mb-3">{t("thumbnails")}</h3>
 						<div className="flex flex-wrap gap-4">
-							{parsed.thumbnails.map((t, i) => (
-								<div key={t.id || i} className="flex flex-col gap-2">
+							{parsed.thumbnails.map((thumb, i) => (
+								<div key={thumb.id || i} className="flex flex-col gap-2">
 									<div className="rounded-xl border border-outline-variant/20 bg-surface-container-high overflow-hidden inline-block max-w-[200px]">
-										<img src={t.src} alt="Enrollment thumbnail" className="max-h-48 w-auto max-w-full object-contain" />
+										<img src={thumb.src} alt={t("thumbnailAlt")} className="max-h-48 w-auto max-w-full object-contain" />
 									</div>
-									{t.id ? (
-										<p className="text-[0.65rem] font-mono text-on-surface-variant break-all max-w-[200px]">{t.id}</p>
+									{thumb.id ? (
+										<p className="text-[0.65rem] font-mono text-on-surface-variant break-all max-w-[200px]">{thumb.id}</p>
 									) : null}
 								</div>
 							))}
@@ -304,29 +303,29 @@ export default function CreatePersonResult({
 					parsed.createDate ||
 					parsed.modifiedDate) && (
 					<section className="mb-6 rounded-xl border border-outline-variant/20 bg-surface-container-high/40 p-4">
-						<h3 className="text-sm font-bold text-primary mb-3">Record</h3>
+						<h3 className="text-sm font-bold text-primary mb-3">{t("record")}</h3>
 						<dl className="space-y-2 text-sm">
 							{parsed.createdAt ? (
 								<div className="grid grid-cols-1 sm:grid-cols-[minmax(0,11rem)_1fr] gap-x-3 gap-y-1">
-									<dt className="text-on-surface-variant font-medium">Created</dt>
+									<dt className="text-on-surface-variant font-medium">{t("created")}</dt>
 									<dd className="text-on-surface">{formatDate(parsed.createdAt)}</dd>
 								</div>
 							) : null}
 							{parsed.updatedAt ? (
 								<div className="grid grid-cols-1 sm:grid-cols-[minmax(0,11rem)_1fr] gap-x-3 gap-y-1">
-									<dt className="text-on-surface-variant font-medium">Updated</dt>
+									<dt className="text-on-surface-variant font-medium">{t("updated")}</dt>
 									<dd className="text-on-surface">{formatDate(parsed.updatedAt)}</dd>
 								</div>
 							) : null}
 							{parsed.createDate ? (
 								<div className="grid grid-cols-1 sm:grid-cols-[minmax(0,11rem)_1fr] gap-x-3 gap-y-1">
-									<dt className="text-on-surface-variant font-medium">create_date</dt>
+									<dt className="text-on-surface-variant font-medium">{t("createDateLabel")}</dt>
 									<dd className="text-on-surface">{formatDate(parsed.createDate)}</dd>
 								</div>
 							) : null}
 							{parsed.modifiedDate ? (
 								<div className="grid grid-cols-1 sm:grid-cols-[minmax(0,11rem)_1fr] gap-x-3 gap-y-1">
-									<dt className="text-on-surface-variant font-medium">modified_date</dt>
+									<dt className="text-on-surface-variant font-medium">{t("modifiedDateLabel")}</dt>
 									<dd className="text-on-surface">{formatDate(parsed.modifiedDate)}</dd>
 								</div>
 							) : null}
@@ -336,7 +335,7 @@ export default function CreatePersonResult({
 
 				{Object.keys(parsed.extra).length > 0 ? (
 					<section className="rounded-xl border border-outline-variant/20 bg-surface-container-high/40 p-4">
-						<h3 className="text-sm font-bold text-primary mb-3">Additional fields</h3>
+						<h3 className="text-sm font-bold text-primary mb-3">{t("additionalFields")}</h3>
 						<pre className="text-[0.65rem] font-mono bg-surface-container-high/80 rounded-lg p-3 overflow-x-auto text-on-surface whitespace-pre-wrap">
 							{JSON.stringify(parsed.extra, null, 2)}
 						</pre>
@@ -346,7 +345,7 @@ export default function CreatePersonResult({
 
 			<details className="rounded-xl border border-outline-variant/20 bg-surface-container-low/50 px-4 py-3 group">
 				<summary className="cursor-pointer list-none font-bold text-sm text-on-surface-variant flex items-center justify-between gap-2">
-					<span>Raw response (debug)</span>
+					<span>{t("rawDebug")}</span>
 					<span className="material-symbols-outlined text-on-surface-variant/70 group-open:rotate-180 transition-transform text-lg">
 						expand_more
 					</span>
@@ -369,7 +368,7 @@ export default function CreatePersonResult({
 					onClick={onBackToDemos}
 					className="flex-1 py-3 bg-primary-cta text-on-primary-container font-semibold rounded-lg shadow-primary hover:opacity-90 active:scale-95 transition-all"
 				>
-					Back to Demos
+					{t("backToDemos")}
 				</button>
 			</div>
 		</div>
