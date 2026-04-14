@@ -43,7 +43,7 @@ pnpm install
 
 The dev and production `start` scripts read **`PORT`** from `apps/web/.env` or `apps/web/.env.local` (`.env.local` wins if both set `PORT`). If **`PORT` is not set**, the server uses **3000**. The example file sets **3017**—see `apps/web/.env.example`.
 
-**`NEXT_PUBLIC_SITE_URL`** is the canonical public URL used for the sitemap, `robots.txt`, Open Graph tags, and `llms.txt`. Set it to your production domain (e.g. `https://humanauthn.verifik.co`) in deployment. Defaults to `http://localhost:3000` when unset.
+**`NEXT_PUBLIC_SITE_URL`** is the canonical public URL used for the sitemap, `robots.txt`, Open Graph tags, and `llms.txt`. Production is **`https://demos.verifik.co`** (also the default when this variable is unset). For local-only absolute URLs in those artifacts, set e.g. `http://localhost:3000` in `.env.local`.
 
 ```bash
 cp apps/web/.env.example apps/web/.env   # first-time: create .env (gitignored) if you do not have one yet
