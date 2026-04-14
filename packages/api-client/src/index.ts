@@ -7,7 +7,21 @@ const BIOMETRICS_BASE = ACCESS_BASE;
 export { verifikConfig };
 
 export type ValidationMethod = "verificationCode" | "magicLink";
-export type Language = "en" | "es";
+/** Request `language` for OTP / validation emails & SMS (UI locale codes). */
+export type Language =
+	| "en"
+	| "es"
+	| "pt"
+	| "fr"
+	| "de"
+	| "ja"
+	| "ko"
+	| "zh"
+	| "hi"
+	| "id"
+	| "vi"
+	| "tr"
+	| "ar";
 
 export interface EmailValidationPayload {
 	email: string;
