@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import {
   authSession,
   getUpdatedClientFromPutResponse,
@@ -19,6 +20,7 @@ type FormState = {
 };
 
 export default function SettingsProfilePage() {
+  const translateProfile = useTranslations('settingsProfile');
   const token = useAuthStore((s) => s.token);
   const userId = useAuthStore((s) => s.userId);
   const setUserDisplay = useAuthStore((s) => s.setUserDisplay);
@@ -52,7 +54,7 @@ export default function SettingsProfilePage() {
       }
       const user = sess.data?.user;
       if (!user || typeof user !== 'object') {
-        setLoadError('Could not load profile.');
+        setLoadError(translateProfile('errorLoadProfile'));
         setLoaded(true);
         return;
       }
@@ -73,7 +75,7 @@ export default function SettingsProfilePage() {
     return () => {
       cancelled = true;
     };
-  }, [token]);
+  }, [token, translateProfile]);
 
   const onFile = useCallback((files: FileList | null) => {
     const file = files?.[0];
@@ -87,12 +89,12 @@ export default function SettingsProfilePage() {
     reader.readAsDataURL(file);
   }, []);
 
-  const onSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
     setSaveError(null);
     setSaveOk(false);
     if (!token || !userId) {
-      setSaveError('Not signed in.');
+      setSaveError(translateProfile('errorNotSignedIn'));
       return;
     }
     setSaving(true);
@@ -156,22 +158,24 @@ export default function SettingsProfilePage() {
   return (
     <div className="w-full max-w-4xl mx-auto p-6 md:p-10 pb-safe">
       <div className="mb-8">
-        <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-on-surface">Profile</h1>
-        <p className="text-on-surface-variant mt-2 text-sm md:text-base">Manage your Verifik profile.</p>
+        <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-on-surface">
+          {translateProfile('title')}
+        </h1>
+        <p className="text-on-surface-variant mt-2 text-sm md:text-base">{translateProfile('subtitle')}</p>
       </div>
 
       <div className="rounded-2xl border border-frost bg-surface-container-low/40 overflow-hidden mb-6">
         <div className="p-6 md:p-8 flex flex-col gap-10">
           <div className="border-b border-outline-variant/20 pb-10">
             <div className="flex flex-col gap-1 mb-6">
-              <h2 className="text-lg font-semibold text-on-surface">Photo</h2>
-              <p className="text-sm text-on-surface-variant">Upload a profile image (.png, .jpeg, .jpg).</p>
+              <h2 className="text-lg font-semibold text-on-surface">{translateProfile('photoSectionTitle')}</h2>
+              <p className="text-sm text-on-surface-variant">{translateProfile('photoSectionHint')}</p>
             </div>
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="shrink-0">
                 <div className="w-32 h-32 rounded-full bg-surface-container-high border-2 border-dashed border-outline-variant flex items-center justify-center overflow-hidden">
                   {avatar ? (
-                    <img src={avatar} alt="" className="w-full h-full object-cover" />
+                    <img src={avatar} alt={translateProfile('avatarAlt')} className="w-full h-full object-cover" />
                   ) : (
                     <span className="material-symbols-outlined text-5xl text-on-surface-variant">person</span>
                   )}
@@ -187,7 +191,8 @@ export default function SettingsProfilePage() {
                   />
                   <span className="material-symbols-outlined text-on-surface-variant text-3xl mb-2">cloud_upload</span>
                   <p className="text-sm text-on-surface-variant text-center px-4">
-                    <span className="font-semibold text-on-surface">Drag and drop</span> or click to upload
+                    <span className="font-semibold text-on-surface">{translateProfile('photoUploadEmphasis')}</span>{' '}
+                    {translateProfile('photoUploadOrClick')}
                   </p>
                 </label>
                 {avatar && (
@@ -197,7 +202,7 @@ export default function SettingsProfilePage() {
                       onClick={() => setAvatar(undefined)}
                       className="text-sm font-medium text-error hover:underline"
                     >
-                      Remove photo
+                      {translateProfile('removePhoto')}
                     </button>
                   </div>
                 )}
@@ -207,13 +212,13 @@ export default function SettingsProfilePage() {
 
           <form onSubmit={onSubmit}>
             <div className="flex flex-col gap-1 mb-6">
-              <h2 className="text-lg font-semibold text-on-surface">Personal information</h2>
-              <p className="text-sm text-on-surface-variant">This information is associated with your account.</p>
+              <h2 className="text-lg font-semibold text-on-surface">{translateProfile('personalInfoTitle')}</h2>
+              <p className="text-sm text-on-surface-variant">{translateProfile('personalInfoHint')}</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-semibold text-on-surface">Full name</label>
+                <label className="text-sm font-semibold text-on-surface">{translateProfile('labelFullName')}</label>
                 <input
                   type="text"
                   value={form.name}
@@ -223,7 +228,7 @@ export default function SettingsProfilePage() {
                 />
               </div>
               <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-semibold text-on-surface">Email</label>
+                <label className="text-sm font-semibold text-on-surface">{translateProfile('labelEmail')}</label>
                 <input
                   type="email"
                   value={form.email}
@@ -233,7 +238,7 @@ export default function SettingsProfilePage() {
                 />
               </div>
               <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-semibold text-on-surface">Prefix</label>
+                <label className="text-sm font-semibold text-on-surface">{translateProfile('labelPrefix')}</label>
                 <input
                   type="text"
                   value={prefixDisplay}
@@ -242,7 +247,7 @@ export default function SettingsProfilePage() {
                 />
               </div>
               <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-semibold text-on-surface">Phone</label>
+                <label className="text-sm font-semibold text-on-surface">{translateProfile('labelPhone')}</label>
                 <input
                   type="text"
                   value={form.phone}
@@ -251,7 +256,7 @@ export default function SettingsProfilePage() {
                 />
               </div>
               <div className="md:col-span-2 flex flex-col gap-1.5">
-                <label className="text-sm font-semibold text-on-surface">Company</label>
+                <label className="text-sm font-semibold text-on-surface">{translateProfile('labelCompany')}</label>
                 <input
                   type="text"
                   value={form.company}
@@ -260,7 +265,7 @@ export default function SettingsProfilePage() {
                 />
               </div>
               <div className="md:col-span-2 flex flex-col gap-1.5">
-                <label className="text-sm font-semibold text-on-surface">Address</label>
+                <label className="text-sm font-semibold text-on-surface">{translateProfile('labelAddress')}</label>
                 <input
                   type="text"
                   value={form.address}
@@ -271,7 +276,7 @@ export default function SettingsProfilePage() {
             </div>
 
             {saveError && <p className="text-error text-sm mb-4">{saveError}</p>}
-            {saveOk && <p className="text-primary text-sm mb-4">Profile saved.</p>}
+            {saveOk && <p className="text-primary text-sm mb-4">{translateProfile('saveSuccess')}</p>}
 
             <div className="flex justify-end">
               <button
@@ -279,7 +284,7 @@ export default function SettingsProfilePage() {
                 disabled={saving}
                 className="bg-primary text-on-primary px-8 h-11 rounded-lg font-semibold text-sm hover:opacity-90 disabled:opacity-50 transition-opacity"
               >
-                {saving ? 'Saving…' : 'Save'}
+                {saving ? translateProfile('saveSaving') : translateProfile('save')}
               </button>
             </div>
           </form>

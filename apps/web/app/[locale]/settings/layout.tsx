@@ -34,13 +34,24 @@ function SettingsSidebar({
       className={`flex flex-col gap-6 border-r border-frost bg-surface-container-low/40 ${className}`}
       aria-label={t('ariaLabel')}
     >
-      <div className="px-4 pt-6 pb-2 md:px-5">
+      <div className="px-4 pt-6 pb-2 md:px-5 space-y-3">
         <div className="flex items-center gap-2 text-primary">
           <span className="material-symbols-outlined text-xl" aria-hidden>
             settings
           </span>
           <span className="text-lg font-bold tracking-tight text-on-surface">{t('title')}</span>
         </div>
+        <Link
+          href="/home"
+          onClick={onNavigate}
+          className="flex items-center gap-2 rounded-xl border border-primary/30 bg-primary/5 px-3 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10"
+          aria-label={t('backToDemosAria')}
+        >
+          <span className="material-symbols-outlined text-lg" aria-hidden>
+            grid_view
+          </span>
+          {t('backToDemos')}
+        </Link>
       </div>
       {nav.map(({ section, items }) => (
         <div key={section} className="px-2 md:px-3">
@@ -118,13 +129,20 @@ export default function SettingsLayout({ children }: { children: React.ReactNode
               <button
                 type="button"
                 onClick={() => setMobileNavOpen(true)}
-                className="flex h-10 w-10 items-center justify-center rounded-lg border border-frost text-on-surface hover:bg-surface-container-high"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-frost text-on-surface hover:bg-surface-container-high"
                 aria-expanded={mobileNavOpen}
                 aria-label={t('mobileMenu')}
               >
                 <span className="material-symbols-outlined">menu</span>
               </button>
-              <span className="font-semibold text-on-surface">{t('mobileTitle')}</span>
+              <span className="min-w-0 flex-1 truncate font-semibold text-on-surface">{t('mobileTitle')}</span>
+              <Link
+                href="/home"
+                className="shrink-0 rounded-lg border border-primary/30 bg-primary/5 px-3 py-2 text-xs font-semibold text-primary hover:bg-primary/10"
+                aria-label={t('backToDemosAria')}
+              >
+                {t('backToDemos')}
+              </Link>
             </div>
 
             {mobileNavOpen && (

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import {
   authSessionRefresh,
   getAccessTokenFromSessionBody,
@@ -22,6 +23,7 @@ function maskToken(token: string): string {
 }
 
 export default function SettingsApiKeyPage() {
+  const translateApiKey = useTranslations('settingsApiKey');
   const token = useAuthStore((s) => s.token);
   const setAccessToken = useAuthStore((s) => s.setAccessToken);
 
@@ -46,7 +48,7 @@ export default function SettingsApiKeyPage() {
       setCopyOk(true);
       setTimeout(() => setCopyOk(false), 2000);
     } catch {
-      setError('Could not copy to clipboard.');
+      setError(translateApiKey('errorCopyFailed'));
     }
   };
 
@@ -80,7 +82,7 @@ export default function SettingsApiKeyPage() {
     const raw = res.data as Record<string, unknown> | undefined;
     const next = raw ? getAccessTokenFromSessionBody(raw) : null;
     if (!next) {
-      setError('No token in response.');
+      setError(translateApiKey('errorNoToken'));
       return;
     }
     setAccessToken(next);
@@ -102,7 +104,7 @@ export default function SettingsApiKeyPage() {
     }
     const next = getTokenFromRenewAndRevoke(res.data);
     if (!next) {
-      setError('No token in response.');
+      setError(translateApiKey('errorNoToken'));
       return;
     }
     setAccessToken(next);
@@ -115,7 +117,7 @@ export default function SettingsApiKeyPage() {
   if (!token) {
     return (
       <div className="p-6 md:p-10 max-w-4xl mx-auto">
-        <p className="text-on-surface-variant text-sm">Sign in to manage your API key.</p>
+        <p className="text-on-surface-variant text-sm">{translateApiKey('signInPrompt')}</p>
       </div>
     );
   }
@@ -127,10 +129,8 @@ export default function SettingsApiKeyPage() {
           <span className="material-symbols-outlined text-2xl">vpn_key</span>
         </div>
         <div>
-          <h1 className="text-2xl font-bold text-on-surface">API Key</h1>
-          <p className="text-on-surface-variant text-sm mt-1">
-            Your bearer token for Verifik API calls. Keep it secret.
-          </p>
+          <h1 className="text-2xl font-bold text-on-surface">{translateApiKey('pageTitle')}</h1>
+          <p className="text-on-surface-variant text-sm mt-1">{translateApiKey('pageSubtitle')}</p>
         </div>
       </div>
 
@@ -138,16 +138,14 @@ export default function SettingsApiKeyPage() {
         <div className="mb-6 rounded-xl border border-primary/30 bg-primary/10 p-4 flex gap-3 items-start">
           <span className="material-symbols-outlined text-primary shrink-0">check_circle</span>
           <div className="flex-1 min-w-0">
-            <p className="font-semibold text-on-surface">New token generated</p>
-            <p className="text-sm text-on-surface-variant mt-1">
-              Copy it now. Store it securely; you may not see the full value again.
-            </p>
+            <p className="font-semibold text-on-surface">{translateApiKey('newTokenTitle')}</p>
+            <p className="text-sm text-on-surface-variant mt-1">{translateApiKey('newTokenBody')}</p>
           </div>
           <button
             type="button"
             onClick={dismissAlert}
             className="text-on-surface-variant hover:text-on-surface p-1"
-            aria-label="Dismiss"
+            aria-label={translateApiKey('dismissAria')}
           >
             <span className="material-symbols-outlined">close</span>
           </button>
@@ -159,13 +157,13 @@ export default function SettingsApiKeyPage() {
           <div className="flex items-center gap-3">
             <span className="material-symbols-outlined text-primary">vpn_key</span>
             <div>
-              <h2 className="font-semibold text-on-surface">Current token</h2>
-              <p className="text-xs text-on-surface-variant">Use as Authorization: Bearer …</p>
+              <h2 className="font-semibold text-on-surface">{translateApiKey('currentTokenTitle')}</h2>
+              <p className="text-xs text-on-surface-variant">{translateApiKey('currentTokenHint')}</p>
             </div>
           </div>
           <span className="inline-flex items-center gap-2 text-xs font-medium text-primary">
             <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-            Active
+            {translateApiKey('active')}
           </span>
         </div>
         <div className="p-5">
@@ -174,7 +172,7 @@ export default function SettingsApiKeyPage() {
               type="button"
               onClick={copyToken}
               className="flex-1 text-left font-mono text-sm text-on-surface break-all cursor-pointer hover:opacity-90"
-              title="Copy"
+              title={translateApiKey('copyTitle')}
             >
               {hideToken ? maskToken(displayToken) : displayToken}
             </button>
@@ -183,7 +181,7 @@ export default function SettingsApiKeyPage() {
                 type="button"
                 onClick={() => setHideToken((h) => !h)}
                 className="p-2 rounded-lg hover:bg-surface-container-high text-on-surface-variant"
-                aria-label={hideToken ? 'Show token' : 'Hide token'}
+                aria-label={hideToken ? translateApiKey('showTokenAria') : translateApiKey('hideTokenAria')}
               >
                 <span className="material-symbols-outlined text-xl">
                   {hideToken ? 'visibility' : 'visibility_off'}
@@ -193,16 +191,16 @@ export default function SettingsApiKeyPage() {
                 type="button"
                 onClick={copyToken}
                 className="p-2 rounded-lg hover:bg-surface-container-high text-on-surface-variant"
-                aria-label="Copy token"
+                aria-label={translateApiKey('copyTokenAria')}
               >
                 <span className="material-symbols-outlined text-xl">content_copy</span>
               </button>
             </div>
           </div>
-          {copyOk && <p className="text-primary text-xs mt-2">Copied.</p>}
+          {copyOk && <p className="text-primary text-xs mt-2">{translateApiKey('copied')}</p>}
           <p className="flex items-start gap-2 text-xs text-on-surface-variant mt-3">
             <span className="material-symbols-outlined text-base shrink-0">info</span>
-            Use this token in the demo app and in your integrations. Do not expose it in client-side public code.
+            {translateApiKey('tokenInfo')}
           </p>
         </div>
       </div>
@@ -213,23 +211,23 @@ export default function SettingsApiKeyPage() {
         <div className="rounded-2xl border border-frost bg-surface-container-low/30 p-5 flex flex-col">
           <div className="flex items-center gap-2 mb-2">
             <span className="material-symbols-outlined text-primary">autorenew</span>
-            <h3 className="font-semibold text-on-surface">Renew token</h3>
+            <h3 className="font-semibold text-on-surface">{translateApiKey('renewTitle')}</h3>
           </div>
-          <p className="text-sm text-on-surface-variant mb-4 flex-1">
-            Extend validity without revoking other sessions immediately.
-          </p>
+          <p className="text-sm text-on-surface-variant mb-4 flex-1">{translateApiKey('renewDescription')}</p>
           {!showRenewPanel ? (
             <button
               type="button"
               onClick={openRenew}
               className="w-full sm:w-auto border border-primary text-primary px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-primary/10 transition-colors inline-flex items-center justify-center gap-2"
             >
-              Extend validity
+              {translateApiKey('extendValidity')}
               <span className="material-symbols-outlined text-lg">arrow_forward</span>
             </button>
           ) : (
             <div className="space-y-4 border-t border-outline-variant/20 pt-4">
-              <p className="text-xs font-medium text-on-surface-variant uppercase tracking-wide">Expiration</p>
+              <p className="text-xs font-medium text-on-surface-variant uppercase tracking-wide">
+                {translateApiKey('expiration')}
+              </p>
               <div className="flex flex-wrap gap-2">
                 {EXPIRATION_MONTHS.map((m) => (
                   <button
@@ -243,7 +241,7 @@ export default function SettingsApiKeyPage() {
                     }`}
                   >
                     {m}
-                    <span className="text-on-surface-variant text-xs ml-1">mo</span>
+                    <span className="text-on-surface-variant text-xs ml-1">{translateApiKey('monthSuffix')}</span>
                   </button>
                 ))}
               </div>
@@ -254,7 +252,7 @@ export default function SettingsApiKeyPage() {
                   disabled={renewing}
                   className="px-4 py-2 text-sm text-on-surface-variant hover:text-on-surface"
                 >
-                  Cancel
+                  {translateApiKey('cancel')}
                 </button>
                 <button
                   type="button"
@@ -262,7 +260,7 @@ export default function SettingsApiKeyPage() {
                   disabled={renewing}
                   className="px-4 py-2 rounded-lg bg-primary text-on-primary text-sm font-semibold disabled:opacity-50"
                 >
-                  {renewing ? 'Renewing…' : 'Renew now'}
+                  {renewing ? translateApiKey('renewing') : translateApiKey('renewNow')}
                 </button>
               </div>
             </div>
@@ -272,25 +270,23 @@ export default function SettingsApiKeyPage() {
         <div className="rounded-2xl border border-error/30 bg-error-container/5 p-5 flex flex-col">
           <div className="flex items-center gap-2 mb-2">
             <span className="material-symbols-outlined text-error">sync_problem</span>
-            <h3 className="font-semibold text-on-surface">Revoke &amp; new token</h3>
+            <h3 className="font-semibold text-on-surface">{translateApiKey('revokeTitle')}</h3>
           </div>
-          <p className="text-sm text-on-surface-variant mb-4 flex-1">
-            Invalidates existing tokens and issues a fresh one. Use if a key was leaked.
-          </p>
+          <p className="text-sm text-on-surface-variant mb-4 flex-1">{translateApiKey('revokeDescription')}</p>
           {!showRevokeConfirm ? (
             <button
               type="button"
               onClick={openRevoke}
               className="w-full sm:w-auto border border-error text-error px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-error/10 transition-colors inline-flex items-center justify-center gap-2"
             >
-              Revoke all &amp; generate
+              {translateApiKey('revokeAction')}
               <span className="material-symbols-outlined text-lg">arrow_forward</span>
             </button>
           ) : (
             <div className="space-y-4 border-t border-error/20 pt-4">
               <div className="flex gap-3 rounded-lg bg-error/10 p-3 text-sm text-on-surface">
                 <span className="material-symbols-outlined text-error shrink-0">warning</span>
-                <p>This will invalidate tokens tied to your account. Update any services using the old key.</p>
+                <p>{translateApiKey('revokeWarning')}</p>
               </div>
               <div className="flex flex-wrap gap-2 justify-end">
                 <button
@@ -299,7 +295,7 @@ export default function SettingsApiKeyPage() {
                   disabled={revoking}
                   className="px-4 py-2 text-sm text-on-surface-variant hover:text-on-surface"
                 >
-                  Cancel
+                  {translateApiKey('cancel')}
                 </button>
                 <button
                   type="button"
@@ -307,7 +303,7 @@ export default function SettingsApiKeyPage() {
                   disabled={revoking}
                   className="px-4 py-2 rounded-lg bg-error text-on-error-container text-sm font-semibold disabled:opacity-50"
                 >
-                  {revoking ? 'Working…' : 'Confirm revoke'}
+                  {revoking ? translateApiKey('working') : translateApiKey('confirmRevoke')}
                 </button>
               </div>
             </div>
@@ -318,8 +314,8 @@ export default function SettingsApiKeyPage() {
       <div className="mt-6 rounded-2xl border border-frost bg-surface-container-low/30 p-5 flex flex-col sm:flex-row sm:items-center gap-4">
         <span className="material-symbols-outlined text-primary text-2xl">menu_book</span>
         <div className="flex-1">
-          <h3 className="font-medium text-on-surface">Documentation</h3>
-          <p className="text-sm text-on-surface-variant">Learn how JWT renewal works in the Verifik docs.</p>
+          <h3 className="font-medium text-on-surface">{translateApiKey('documentationTitle')}</h3>
+          <p className="text-sm text-on-surface-variant">{translateApiKey('documentationBody')}</p>
         </div>
         <a
           href="https://docs.verifik.co/authentication/renew-your-token-jwt"
@@ -327,7 +323,7 @@ export default function SettingsApiKeyPage() {
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center gap-2 border border-frost px-4 py-2.5 rounded-lg text-sm font-medium text-primary hover:bg-surface-container-high transition-colors shrink-0"
         >
-          View docs
+          {translateApiKey('viewDocs')}
           <span className="material-symbols-outlined text-lg">open_in_new</span>
         </a>
       </div>
