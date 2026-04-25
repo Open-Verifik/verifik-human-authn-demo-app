@@ -71,7 +71,10 @@
     "footerCrypto": "AES-256",
     "footerBrand": "Verifik",
     "validationEmailInvalid": "Saisissez une adresse e-mail valide",
-    "validationPhoneInvalid": "Saisissez un numéro de téléphone valide"
+    "validationPhoneInvalid": "Saisissez un numéro de téléphone valide",
+    "validationPhoneTooShort": "Saisissez au moins 7 chiffres",
+    "validationPhoneTooLong": "Saisissez au plus 13 chiffres",
+    "validationPhoneDigitsOnly": "Seuls les chiffres (0-9) sont autorisés"
   },
   "AuthOtp": {
     "backAria": "Retour",

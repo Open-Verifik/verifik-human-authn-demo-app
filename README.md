@@ -26,68 +26,168 @@ verifik-human-authn-demo-app/
 
 ---
 
-## Running the Apps
-
-### Prerequisites
+## Prerequisites (all platforms)
 
 Use a **normal user** shell (not a persistent `sudo su` / root session). Running `pnpm install` as root can create root-owned files under `node_modules`, and later installs or `next dev` may fail with permission errors.
 
-From the **repository root** (`verifik-human-authn-demo-app/`), not from `apps/web`:
+From the **repository root** (`verifik-human-authn-demo-app/`):
 
 ```bash
 cd verifik-human-authn-demo-app
 pnpm install
 ```
 
-### Web Environment
+**Node / tooling:** Use a current LTS Node.js. The repo expects **pnpm** (see `packageManager` in the root `package.json`).
+
+---
+
+## Web (Next.js)
+
+### Environment variables
 
 The dev and production `start` scripts read **`PORT`** from `apps/web/.env` or `apps/web/.env.local` (`.env.local` wins if both set `PORT`). If **`PORT` is not set**, the server uses **3000**. The example file sets **3017**—see `apps/web/.env.example`.
 
 **`NEXT_PUBLIC_SITE_URL`** is the canonical public URL used for the sitemap, `robots.txt`, Open Graph tags, and `llms.txt`. Production is **`https://demos.verifik.co`** (also the default when this variable is unset). For local-only absolute URLs in those artifacts, set e.g. `http://localhost:3000` in `.env.local`.
 
+First-time setup:
+
 ```bash
-cp apps/web/.env.example apps/web/.env   # first-time: create .env (gitignored) if you do not have one yet
+cp apps/web/.env.example apps/web/.env
 ```
+
+### Run (development)
+
+From the repository root, any of the following start the Next.js dev server:
+
+```bash
+pnpm dev              # alias: runs turbo dev for the web app
+pnpm dev:web
+pnpm --filter web dev
+```
+
+Open **http://localhost:${PORT}** (e.g. **http://localhost:3000** if `PORT` is unset, or **http://localhost:3017** if you copied the example).
+
+> **Note:** `pnpm dev:desktop` and the Electron app read the same port from `apps/web/scripts/dev-port.cjs`, so you only configure `PORT` in one place.
+
+### Build (compile for production)
 
 From the repository root:
 
 ```bash
-pnpm --filter web dev
+pnpm build:web          # turbo: build only the web app
+pnpm build              # turbo: build all packages that define a `build` task (web + desktop)
 ```
 
-Open **http://localhost:${PORT}** (e.g. **http://localhost:3000** with no `.env`, or **http://localhost:3017** if you copied the example).
+Output: Next.js production bundle under `apps/web/.next/`.
 
-> **Note:** `pnpm dev` / `pnpm dev:desktop` and the Electron app resolve the same port via `apps/web/scripts/dev-port.cjs`, so you only change `PORT` in one place.
+### Run the production build locally
 
-### Mobile Environment
-
-The mobile app relies on the Expo bundler (Metro).
-
-*Note: Do not run these commands as root/sudo!*
+After `pnpm build:web`:
 
 ```bash
-pnpm --filter mobile run android --clear
-# or for iOS
-pnpm --filter mobile run ios --clear
+pnpm --filter web start
 ```
 
-> **Troubleshooting Note:** If the Android emulator throws a "Cannot connect to Metro" error, port `8081` might be locked. Run `killall node` to forcefully clear it, step out of any root terminal, and restart the Expo command.
+Serves the compiled app on the same **PORT** rules as development.
 
-### Desktop Environment
+---
 
-For local development (recommended), run Electron + Next.js together:
+## Mobile (Expo / React Native)
+
+The app uses the **Expo** CLI and **Metro**. Do not run Expo or Metro as root.
+
+### Run (development)
+
+From the repository root:
 
 ```bash
-pnpm --filter desktop run dev
+pnpm dev:mobile
+# equivalent: pnpm --filter mobile dev   →   expo start
 ```
 
-If the web server is already running separately, you can launch only the Electron shell:
+Then:
+
+- Press **`a`** in the terminal to open Android, **`i`** for iOS (simulator), or scan the QR code with Expo Go; or
+- In a **second** terminal from the repo root, open a platform directly:
 
 ```bash
-pnpm --filter desktop run start
+pnpm --filter mobile android    # expo start --android
+pnpm --filter mobile ios        # expo start --ios
 ```
 
-### Troubleshooting: Web / pnpm
+To clear Metro cache when debugging stale bundles (from `apps/mobile`):
+
+```bash
+cd apps/mobile
+pnpm exec expo start --clear
+# add --android or --ios if you want to jump straight to a device
+```
+
+> **Troubleshooting:** If Android shows “Cannot connect to Metro”, port **8081** may be stuck. Exit any root shell, run `killall node` (macOS) or free the port, then start Expo again. See also `apps/mobile/README.md`.
+
+### Build / compile (native binaries)
+
+The `mobile` package does not define a root `build` script in `package.json`. For **installable** Android/iOS artifacts you typically use **EAS Build** (Expo Application Services) or a local native build after prebuild:
+
+- **EAS (recommended for CI and store builds):** install `eas-cli`, log in, then `eas build --platform android` / `ios` (you may need an `eas.json` in `apps/mobile`; the app references an EAS project id in `app.json`).
+- **Local debug builds:** from `apps/mobile`, `npx expo prebuild` then `npx expo run:android` or `npx expo run:ios` (requires Android SDK / Xcode as per Expo docs).
+
+Type-check only (no binary):
+
+```bash
+pnpm --filter mobile type-check
+```
+
+---
+
+## Desktop (Electron)
+
+The desktop app wraps the **web** build and packages it with **electron-builder**.
+
+### Run (development)
+
+Starts Next.js in dev mode and opens Electron when the dev server is ready:
+
+```bash
+pnpm dev:desktop
+# or, equivalently:
+pnpm dev:all
+```
+
+From the desktop package only:
+
+```bash
+pnpm --filter desktop dev
+```
+
+If the web server is **already** running separately, launch only the Electron shell:
+
+```bash
+pnpm --filter desktop start
+```
+
+### Build (compile installers)
+
+This runs **`next build`** for the web app, then **electron-builder** (DMG / NSIS / Linux targets per `apps/desktop/package.json`):
+
+```bash
+pnpm --filter desktop build
+```
+
+Artifacts are written under `apps/desktop/dist/`.
+
+Other desktop packaging commands (from repo root):
+
+```bash
+pnpm --filter desktop pack    # electron-builder --dir (unpackaged test)
+pnpm --filter desktop dist    # electron-builder (same family as `build` without the web step—ensure `.next` exists)
+```
+
+> For a full fresh desktop release build, prefer `pnpm --filter desktop build` so the web bundle is always current.
+
+---
+
+## Troubleshooting: Web / pnpm
 
 **`Cannot find module 'next-intl/plugin'` (or other missing packages)**  
 Dependencies are missing or `pnpm install` did not finish. From the repo root, as your normal user:

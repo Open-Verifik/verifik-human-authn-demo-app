@@ -37,6 +37,12 @@ export default function AuthScreen() {
       setError(mode === 'email' ? 'Enter a valid email address' : 'Enter a valid phone number');
       return;
     }
+    if (mode === 'phone') {
+      if (!/^\d+$/.test(value) || value.length < 7 || value.length > 13) {
+        setError('Use only digits (0-9), between 7 and 13 digits');
+        return;
+      }
+    }
     setLoading(true);
     try {
       const endpoint = mode === 'email'
@@ -122,10 +128,14 @@ export default function AuthScreen() {
           <TextInput
             style={[styles.input, !!error && styles.inputError]}
             value={value}
-            onChangeText={(t) => { setValue(t); setError(''); }}
-            placeholder={mode === 'email' ? 'you@company.com' : '+1 (555) 000-0000'}
+            onChangeText={(t) => {
+              setError('');
+              setValue(mode === 'phone' ? t.replace(/\D/g, '').slice(0, 13) : t);
+            }}
+            placeholder={mode === 'email' ? 'you@company.com' : '5550000123'}
             placeholderTextColor={colors.outline}
-            keyboardType={mode === 'email' ? 'email-address' : 'phone-pad'}
+            keyboardType={mode === 'email' ? 'email-address' : 'number-pad'}
+            maxLength={mode === 'phone' ? 13 : undefined}
             autoCapitalize="none"
             autoCorrect={false}
             returnKeyType="send"

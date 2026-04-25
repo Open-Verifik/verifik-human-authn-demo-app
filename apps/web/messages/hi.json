@@ -71,7 +71,10 @@
     "footerCrypto": "AES-256",
     "footerBrand": "Verifik",
     "validationEmailInvalid": "मान्य ईमेल पता दर्ज करें",
-    "validationPhoneInvalid": "मान्य फ़ोन नंबर दर्ज करें"
+    "validationPhoneInvalid": "मान्य फ़ोन नंबर दर्ज करें",
+    "validationPhoneTooShort": "कम से कम 7 अंक दर्ज करें",
+    "validationPhoneTooLong": "अधिकतम 13 अंक दर्ज करें",
+    "validationPhoneDigitsOnly": "केवल अंक (0-9) अनुमत हैं"
   },
   "AuthOtp": {
     "backAria": "वापस जाएँ",

@@ -71,7 +71,10 @@
     "footerCrypto": "AES-256",
     "footerBrand": "Verifik",
     "validationEmailInvalid": "أدخل عنوان بريد إلكتروني صالحًا",
-    "validationPhoneInvalid": "أدخل رقم هاتف صالحًا"
+    "validationPhoneInvalid": "أدخل رقم هاتف صالحًا",
+    "validationPhoneTooShort": "أدخل 7 أرقام على الأقل",
+    "validationPhoneTooLong": "أدخل 13 رقمًا كحد أقصى",
+    "validationPhoneDigitsOnly": "يُسمح بالأرقام (0-9) فقط"
   },
   "AuthOtp": {
     "backAria": "رجوع",

@@ -71,7 +71,10 @@
     "footerCrypto": "AES-256",
     "footerBrand": "Verifik",
     "validationEmailInvalid": "Nhập địa chỉ email hợp lệ",
-    "validationPhoneInvalid": "Nhập số điện thoại hợp lệ"
+    "validationPhoneInvalid": "Nhập số điện thoại hợp lệ",
+    "validationPhoneTooShort": "Nhập ít nhất 7 chữ số",
+    "validationPhoneTooLong": "Nhập tối đa 13 chữ số",
+    "validationPhoneDigitsOnly": "Chỉ cho phép chữ số (0-9)"
   },
   "AuthOtp": {
     "backAria": "Quay lại",

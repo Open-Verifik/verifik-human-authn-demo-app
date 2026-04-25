@@ -71,7 +71,10 @@
     "footerCrypto": "AES-256",
     "footerBrand": "Verifik",
     "validationEmailInvalid": "Masukkan alamat email yang valid",
-    "validationPhoneInvalid": "Masukkan nomor telepon yang valid"
+    "validationPhoneInvalid": "Masukkan nomor telepon yang valid",
+    "validationPhoneTooShort": "Masukkan minimal 7 digit",
+    "validationPhoneTooLong": "Masukkan maksimal 13 digit",
+    "validationPhoneDigitsOnly": "Hanya angka (0-9) yang diperbolehkan"
   },
   "AuthOtp": {
     "backAria": "Kembali",

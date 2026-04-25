@@ -71,7 +71,10 @@
     "footerCrypto": "AES-256",
     "footerBrand": "Verifik",
     "validationEmailInvalid": "Geçerli bir e-posta adresi girin",
-    "validationPhoneInvalid": "Geçerli bir telefon numarası girin"
+    "validationPhoneInvalid": "Geçerli bir telefon numarası girin",
+    "validationPhoneTooShort": "En az 7 rakam girin",
+    "validationPhoneTooLong": "En fazla 13 rakam girin",
+    "validationPhoneDigitsOnly": "Yalnızca rakamlar (0-9) kabul edilir"
   },
   "AuthOtp": {
     "backAria": "Geri",

@@ -71,7 +71,10 @@
     "footerCrypto": "AES-256",
     "footerBrand": "Verifik",
     "validationEmailInvalid": "有効なメールアドレスを入力してください",
-    "validationPhoneInvalid": "有効な電話番号を入力してください"
+    "validationPhoneInvalid": "有効な電話番号を入力してください",
+    "validationPhoneTooShort": "7桁以上で入力してください",
+    "validationPhoneTooLong": "13桁以下で入力してください",
+    "validationPhoneDigitsOnly": "数字（0-9）のみ入力できます"
   },
   "AuthOtp": {
     "backAria": "戻る",

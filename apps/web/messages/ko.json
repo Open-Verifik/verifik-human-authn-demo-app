@@ -71,7 +71,10 @@
     "footerCrypto": "AES-256",
     "footerBrand": "Verifik",
     "validationEmailInvalid": "유효한 이메일 주소를 입력하세요",
-    "validationPhoneInvalid": "유효한 전화번호를 입력하세요"
+    "validationPhoneInvalid": "유효한 전화번호를 입력하세요",
+    "validationPhoneTooShort": "숫자 7자리 이상 입력하세요",
+    "validationPhoneTooLong": "숫자 13자리 이하로 입력하세요",
+    "validationPhoneDigitsOnly": "숫자(0-9)만 입력할 수 있습니다"
   },
   "AuthOtp": {
     "backAria": "뒤로",

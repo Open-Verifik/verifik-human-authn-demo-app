@@ -71,7 +71,10 @@
     "footerCrypto": "AES-256",
     "footerBrand": "Verifik",
     "validationEmailInvalid": "请输入有效的电子邮箱地址",
-    "validationPhoneInvalid": "请输入有效的电话号码"
+    "validationPhoneInvalid": "请输入有效的电话号码",
+    "validationPhoneTooShort": "请至少输入 7 位数字",
+    "validationPhoneTooLong": "请最多输入 13 位数字",
+    "validationPhoneDigitsOnly": "仅允许输入数字（0-9）"
   },
   "AuthOtp": {
     "backAria": "返回",
