@@ -10,6 +10,9 @@ import { SITE_URL } from '@/lib/site-url';
 import { fontInter, fontJetbrainsMono } from '@/app/fonts';
 import { Providers } from '../providers';
 
+const MATERIAL_SYMBOLS_STYLESHEET =
+  'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap';
+
 const THEME_INIT_SCRIPT = `(function(){try{var k='humanauthn-theme';var t=localStorage.getItem(k);var pref=(t==='light'||t==='dark'||t==='system')?t:'dark';var resolved=pref==='system'?(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):pref;var r=document.documentElement;r.setAttribute('data-theme',resolved);if(resolved==='dark')r.classList.add('dark');else r.classList.remove('dark');}catch(e){}})();`;
 
 type LocaleLayoutProps = {
@@ -86,6 +89,9 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       className={`${fontInter.variable} ${fontJetbrainsMono.variable}`}
     >
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="stylesheet" href={MATERIAL_SYMBOLS_STYLESHEET} />
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <script
           type="application/ld+json"

@@ -193,7 +193,7 @@ export default async function HomePage() {
             <p className="text-primary text-[0.75rem] font-semibold tracking-widest uppercase mb-4">
               {t('enterpriseEyebrow')}
             </p>
-            <h2 className="text-4xl font-bold tracking-tight text-white mb-6">{t('enterpriseTitle')}</h2>
+            <h2 className="text-4xl font-bold tracking-tight text-on-surface mb-6">{t('enterpriseTitle')}</h2>
             <p className="text-on-surface-variant text-lg leading-relaxed mb-10">{t('enterpriseBody')}</p>
             <div className="flex flex-wrap gap-4">
               <div className="border border-frost bg-white/[0.02] px-4 py-2 rounded-full flex items-center gap-2">
