@@ -2,6 +2,7 @@
 
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
+import { DemoRasterImage } from "@/app/components/DemoRasterImage";
 
 export type CreatePersonAlreadyExistsResultProps = {
 	/** Preview URLs (blob or data URLs) for images the user attempted to enroll. */
@@ -41,7 +42,7 @@ export default function CreatePersonAlreadyExistsResult({
 									key={i}
 									className="rounded-xl border border-outline-variant/20 bg-surface-container-high overflow-hidden inline-block max-w-[220px]"
 								>
-									<img src={src} alt="" className="max-h-56 w-auto max-w-full object-contain" />
+									<DemoRasterImage src={src} alt="" width={800} height={600} className="max-h-56 w-auto max-w-full object-contain" />
 								</div>
 							))}
 						</div>

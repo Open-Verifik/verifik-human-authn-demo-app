@@ -2,6 +2,7 @@
 
 import { useMemo, useCallback } from "react";
 import { useTranslations } from "next-intl";
+import { DemoRasterImage } from "@/app/components/DemoRasterImage";
 
 function isPlainObject(v: unknown): v is Record<string, unknown> {
 	return v !== null && typeof v === "object" && !Array.isArray(v);
@@ -167,9 +168,11 @@ export default function HumanIdDecryptResult({ result, onTryAgain, onBackToDemos
 					<section className="mb-6 rounded-xl border border-outline-variant/20 bg-surface-container-high/40 p-4">
 						<h3 className="text-sm font-bold text-primary mb-3">{t("faceCropHeading")}</h3>
 						<div className="rounded-xl border border-outline-variant/20 bg-surface-container-high overflow-hidden inline-block max-w-full">
-							<img
+							<DemoRasterImage
 								src={faceCropToDataUrl(parsed.faceCropBase64)}
 								alt={t("faceCropAlt")}
+								width={800}
+								height={600}
 								className="max-h-64 w-auto max-w-full object-contain"
 							/>
 						</div>

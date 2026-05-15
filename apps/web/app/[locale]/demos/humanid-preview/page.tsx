@@ -11,6 +11,7 @@ import DemoSignInPrompt from "../DemoSignInPrompt";
 import ElectronAwareAppHeader from "../../../components/layout/ElectronAwareAppHeader";
 
 import HumanIdPreviewResult from "../../../components/demos/HumanIdPreviewResult";
+import { DemoRasterImage } from "@/app/components/DemoRasterImage";
 import DemoRelatedDocsSection, { type DemoRelatedDocItem } from "../../../components/demos/DemoRelatedDocsSection";
 
 const DOCS_BASE = "https://docs.verifik.co";
@@ -237,10 +238,12 @@ export default function HumanIdPreviewPage() {
 									onChange={(e) => handleQrFile(e.target.files)}
 								/>
 								{qrPreview ? (
-									<img
+									<DemoRasterImage
 										src={qrPreview}
 										alt={t("qrPreviewAlt")}
-										className="max-h-40 rounded-lg border border-outline-variant/30 object-contain bg-white p-2"
+										width={400}
+										height={160}
+										className="max-h-40 w-auto rounded-lg border border-outline-variant/30 object-contain bg-white p-2"
 									/>
 								) : null}
 								{zelfProof && proofMode === "qr" ? (

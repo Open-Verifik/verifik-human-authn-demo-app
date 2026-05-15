@@ -15,6 +15,7 @@ import DemoSignInPrompt from "../DemoSignInPrompt";
 import ElectronAwareAppHeader from "../../../components/layout/ElectronAwareAppHeader";
 
 import HumanIdDecryptResult from "../../../components/demos/HumanIdDecryptResult";
+import { DemoRasterImage } from "@/app/components/DemoRasterImage";
 import DemoRelatedDocsSection, { type DemoRelatedDocItem } from "../../../components/demos/DemoRelatedDocsSection";
 
 const DOCS_BASE = "https://docs.verifik.co";
@@ -253,7 +254,13 @@ export default function HumanIdDecryptPage() {
 									onChange={(e) => handleQrFile(e.target.files)}
 								/>
 								{qrPreview ? (
-									<img src={qrPreview} alt={t("qrPreviewAlt")} className="max-h-40 rounded-lg border border-outline-variant/30 object-contain bg-white p-2" />
+									<DemoRasterImage
+										src={qrPreview}
+										alt={t("qrPreviewAlt")}
+										width={400}
+										height={160}
+										className="max-h-40 w-auto rounded-lg border border-outline-variant/30 object-contain bg-white p-2"
+									/>
 								) : null}
 								{zelfProof && proofMode === "qr" ? (
 									<div className="rounded-lg border border-primary/30 bg-surface-container-high/40 px-3 py-2">
@@ -319,7 +326,9 @@ export default function HumanIdDecryptPage() {
 								</div>
 							) : null}
 							{facePreview && faceB64 && (
-								<img src={facePreview} alt={t("facePreviewAlt")} className="w-full aspect-video object-cover rounded-xl border border-frost mb-3" />
+								<div className="relative w-full aspect-video rounded-xl border border-frost mb-3 overflow-hidden">
+									<DemoRasterImage src={facePreview} alt={t("facePreviewAlt")} fill className="object-cover" sizes="100vw" />
+								</div>
 							)}
 							<div className="flex gap-3">
 								{faceB64 ? (

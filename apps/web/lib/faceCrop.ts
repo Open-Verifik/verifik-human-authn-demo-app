@@ -94,8 +94,8 @@ export async function cropLargestFaceBase64(rawBase64: string, mime = "image/jpe
 	const { x, y, width, height } = largest.box;
 	const paddedWidth = width * (1 + PADDING);
 	const paddedHeight = height * (1 + PADDING);
-	let paddedX = Math.max(0, x - (width * PADDING) / 2);
-	let paddedY = Math.max(0, y - (height * PADDING) / 2);
+	const paddedX = Math.max(0, x - (width * PADDING) / 2);
+	const paddedY = Math.max(0, y - (height * PADDING) / 2);
 
 	const maxX = img.width;
 	const maxY = img.height;

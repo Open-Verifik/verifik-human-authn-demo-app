@@ -7,6 +7,7 @@ import {
   getUpdatedClientFromPutResponse,
   updateClient,
 } from '@humanauthn/api-client';
+import { DemoRasterImage } from '@/app/components/DemoRasterImage';
 import { PHONE_COUNTRIES } from '../../../../lib/phoneCountries';
 import { readUserCreditsFromSessionUser, useAuthStore } from '../../../store/authStore';
 
@@ -173,9 +174,9 @@ export default function SettingsProfilePage() {
             </div>
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="shrink-0">
-                <div className="w-32 h-32 rounded-full bg-surface-container-high border-2 border-dashed border-outline-variant flex items-center justify-center overflow-hidden">
+                <div className="relative w-32 h-32 rounded-full bg-surface-container-high border-2 border-dashed border-outline-variant flex items-center justify-center overflow-hidden">
                   {avatar ? (
-                    <img src={avatar} alt={translateProfile('avatarAlt')} className="w-full h-full object-cover" />
+                    <DemoRasterImage src={avatar} alt={translateProfile('avatarAlt')} fill className="object-cover" sizes="128px" />
                   ) : (
                     <span className="material-symbols-outlined text-5xl text-on-surface-variant">person</span>
                   )}

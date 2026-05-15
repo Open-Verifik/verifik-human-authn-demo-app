@@ -73,11 +73,11 @@ module.exports = {
         round: "9999px",
       },
       fontFamily: {
-        sans: ["'Inter'", "system-ui", "sans-serif"],
-        headline: ["'Inter'", "system-ui", "sans-serif"],
-        body: ["'Inter'", "system-ui", "sans-serif"],
-        label: ["'Inter'", "system-ui", "sans-serif"],
-        mono: ["'JetBrains Mono'", "monospace"],
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        headline: ["var(--font-inter)", "system-ui", "sans-serif"],
+        body: ["var(--font-inter)", "system-ui", "sans-serif"],
+        label: ["var(--font-inter)", "system-ui", "sans-serif"],
+        mono: ["var(--font-jetbrains-mono)", "ui-monospace", "monospace"],
       },
       backgroundImage: {
         "primary-gradient": "var(--bg-primary-gradient)",

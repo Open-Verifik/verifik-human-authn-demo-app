@@ -16,6 +16,7 @@ import FaceGuidedCamera from "../../../components/demos/FaceGuidedCameraLoader";
 import DemoRelatedDocsSection, { type DemoRelatedDocItem } from "../../../components/demos/DemoRelatedDocsSection";
 import DemoSignInPrompt from "../DemoSignInPrompt";
 import ElectronAwareAppHeader from "../../../components/layout/ElectronAwareAppHeader";
+import { DemoRasterImage } from "@/app/components/DemoRasterImage";
 
 import CreatePersonResult from "../../../components/demos/CreatePersonResult";
 import CreatePersonAlreadyExistsResult from "../../../components/demos/CreatePersonAlreadyExistsResult";
@@ -332,7 +333,7 @@ export default function CreatePersonPage() {
 							{previews.length > 0 && (
 								<div className="flex flex-wrap gap-2 mb-3">
 									{previews.map((u, i) => (
-										<img key={i} src={u} alt="" className="w-20 h-20 object-cover rounded-lg border border-frost" />
+										<DemoRasterImage key={i} src={u} alt="" width={80} height={80} className="w-20 h-20 object-cover rounded-lg border border-frost" />
 									))}
 								</div>
 							)}

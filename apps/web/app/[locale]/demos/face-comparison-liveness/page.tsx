@@ -23,6 +23,7 @@ import DemoSignInPrompt from "../DemoSignInPrompt";
 import ElectronAwareAppHeader from "../../../components/layout/ElectronAwareAppHeader";
 
 import { Checkbox } from "@/components/ui/checkbox";
+import { DemoRasterImage } from "@/app/components/DemoRasterImage";
 
 type Step = 1 | 2 | 3;
 interface FaceSlot {
@@ -291,7 +292,7 @@ export default function FaceComparisonPage() {
 												}`}
 											>
 												{slot.preview ? (
-													<img src={slot.preview} alt={label} className="h-full w-full object-cover" />
+													<DemoRasterImage src={slot.preview} alt={label} fill className="object-cover" sizes="64px" />
 												) : (
 													<div className="flex h-full w-full items-center justify-center">
 														<span className="material-symbols-outlined text-on-surface-variant/55">face</span>
@@ -556,8 +557,8 @@ export default function FaceComparisonPage() {
 						<div className="flex items-center gap-4 mb-8 justify-center">
 							{[source.preview, target.preview].map((preview, i) => (
 								<div key={i} className="flex flex-col items-center gap-2">
-									<div className="w-24 h-24 rounded-full overflow-hidden bg-surface-container-high ghost-border">
-										{preview && <img src={preview} alt="" className="w-full h-full object-cover" />}
+									<div className="relative w-24 h-24 rounded-full overflow-hidden bg-surface-container-high ghost-border">
+										{preview && <DemoRasterImage src={preview} alt="" fill className="object-cover" sizes="96px" />}
 									</div>
 									<span className="label-meta text-[10px] text-on-surface-variant">{i === 0 ? t("slotSource") : t("slotTarget")}</span>
 								</div>

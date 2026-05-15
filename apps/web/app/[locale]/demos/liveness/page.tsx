@@ -20,6 +20,7 @@ import DemoUploadImageButton from "../../../components/demos/DemoUploadImageButt
 import FaceGuidedCamera from "../../../components/demos/FaceGuidedCameraLoader";
 import DemoSignInPrompt from "../DemoSignInPrompt";
 import ElectronAwareAppHeader from "../../../components/layout/ElectronAwareAppHeader";
+import { DemoRasterImage } from "@/app/components/DemoRasterImage";
 
 type Step = "capture" | "processing" | "result";
 type NumericStep = 1 | 2;
@@ -391,14 +392,14 @@ export default function LivenessPage() {
 											disabled={!canUseDemo}
 											onClick={() => void runSampleImage(src)}
 											aria-label={t("samplePortraitAria", { n: i + 1 })}
-											className={`aspect-square rounded-lg overflow-hidden border transition-all text-left p-0
+											className={`relative aspect-square rounded-lg overflow-hidden border transition-all text-left p-0
 												${
 													canUseDemo
 														? "cursor-pointer border-transparent hover:border-primary/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
 														: "cursor-not-allowed opacity-50 border-outline-variant/20"
 												}`}
 										>
-											<img src={src} alt="" className="w-full h-full object-cover" />
+											<DemoRasterImage src={src} alt="" fill className="object-cover" sizes="120px" />
 										</button>
 									))}
 								</div>
@@ -412,9 +413,15 @@ export default function LivenessPage() {
 					<div className="flex flex-col items-center justify-center py-24 animate-fade-in">
 						<div className="relative mb-8">
 							<div className="auth-pulse w-40 h-40 absolute inset-0" />
-							<div className="relative w-32 h-32 rounded-full bg-surface-container-high flex items-center justify-center ghost-border">
+							<div className="relative w-32 h-32 rounded-full bg-surface-container-high flex items-center justify-center ghost-border overflow-hidden">
 								{previewUrl && (
-									<img src={previewUrl} alt={t("previewAlt")} className="w-full h-full object-cover rounded-full grayscale opacity-70" />
+									<DemoRasterImage
+										src={previewUrl}
+										alt={t("previewAlt")}
+										fill
+										className="object-cover grayscale opacity-70"
+										sizes="128px"
+									/>
 								)}
 							</div>
 							<div className="absolute -inset-3 border-2 border-primary/40 rounded-full animate-pulse-slow scanning-ring" />

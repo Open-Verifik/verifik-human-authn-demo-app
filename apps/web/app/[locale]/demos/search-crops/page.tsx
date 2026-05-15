@@ -15,6 +15,7 @@ import FaceGuidedCamera from "../../../components/demos/FaceGuidedCameraLoader";
 import DemoRelatedDocsSection, { type DemoRelatedDocItem } from "../../../components/demos/DemoRelatedDocsSection";
 import DemoSignInPrompt from "../DemoSignInPrompt";
 import ElectronAwareAppHeader from "../../../components/layout/ElectronAwareAppHeader";
+import { DemoRasterImage } from "@/app/components/DemoRasterImage";
 
 const DOCS_BASE = "https://docs.verifik.co";
 
@@ -222,7 +223,7 @@ export default function SearchCropsPage() {
 						{previews.length > 0 && (
 							<div className="flex flex-wrap gap-2">
 								{previews.map((u, i) => (
-									<img key={i} src={u} alt="" className="w-20 h-20 object-cover rounded-lg border border-frost" />
+									<DemoRasterImage key={i} src={u} alt="" width={80} height={80} className="w-20 h-20 object-cover rounded-lg border border-frost" />
 								))}
 							</div>
 						)}

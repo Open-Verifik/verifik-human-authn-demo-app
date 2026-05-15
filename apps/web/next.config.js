@@ -6,9 +6,7 @@ const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "standalone",
-  experimental: {
-    outputFileTracingRoot: path.join(__dirname, "../.."),
-  },
+  outputFileTracingRoot: path.join(__dirname, "../.."),
   async redirects() {
     return [
       {

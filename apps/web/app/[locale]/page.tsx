@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 
@@ -27,10 +28,13 @@ export default async function SplashPage() {
 
       <div className="relative z-10 w-full max-w-2xl px-6 pt-12 md:pt-16 flex flex-col items-center">
         <div className="relative w-full aspect-[4/3] md:aspect-[16/9] rounded-2xl overflow-hidden mask-gradient-bottom">
-          <img
+          <Image
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfmJQC0Xpka4crIYxjI6Dta1wZKYOC3NetOpAIWsnR8CI07aOICUI0zrYPJAvYCJ1hYMPHUV7IY5QO1n0HLJRLjum3d9MqvhVobgtRE7eK6MLw6IA5H2aLpDPxaaFl_PTd3zwMfhfnNB6I2FRnze3T7cMcSb2dw2H6NBVBtPKHGMPSV2Z_Vw_9lGYouvrK7u54dT6j936Hz--LNGujRL4hII3NQeS0Zx9MpEIirboEOU2ZsIAV7qGhKxwfj-WR6Nmr90aU9mtx0c8"
             alt={t('heroImageAlt')}
-            className="w-full h-full object-cover opacity-80 grayscale scale-110"
+            fill
+            sizes="(max-width: 768px) 100vw, 42rem"
+            className="object-cover opacity-80 grayscale scale-110"
+            priority
           />
 
           <div className="absolute inset-0 z-20 flex flex-col justify-center items-center pointer-events-none">

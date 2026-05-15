@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
+import { DemoRasterImage } from "@/app/components/DemoRasterImage";
 
 function truncateMiddle(s: string, head = 28, tail = 16): string {
 	if (s.length <= head + tail + 3) return s;
@@ -194,7 +195,7 @@ export default function HumanIdStructuredResult({
 						</p>
 						<div className="flex flex-col sm:flex-row gap-4 items-center sm:items-start">
 							<div className="flex justify-center rounded-xl border border-outline-variant/20 bg-white p-4 shrink-0">
-								<img src={zelfQrPngDataUrl} alt={t("qrCodeAlt")} className="w-56 h-56 object-contain" />
+								<DemoRasterImage src={zelfQrPngDataUrl} alt={t("qrCodeAlt")} width={224} height={224} className="w-56 h-56 object-contain" />
 							</div>
 							<div className="flex flex-col gap-2 min-w-0">
 								<a
@@ -261,7 +262,7 @@ export default function HumanIdStructuredResult({
 						<div className="flex flex-col sm:flex-row gap-4 items-start">
 							{qrSrc ? (
 								<div className="shrink-0 rounded-lg border border-outline-variant/20 bg-white p-2">
-									<img
+									<DemoRasterImage
 										src={qrSrc}
 										alt=""
 										width={200}

@@ -2,6 +2,7 @@
 
 import { useMemo } from "react";
 import { useTranslations } from "next-intl";
+import { DemoRasterImage } from "@/app/components/DemoRasterImage";
 
 function isPlainObject(v: unknown): v is Record<string, unknown> {
 	return v !== null && typeof v === "object" && !Array.isArray(v);
@@ -287,7 +288,7 @@ export default function CreatePersonResult({
 							{parsed.thumbnails.map((thumb, i) => (
 								<div key={thumb.id || i} className="flex flex-col gap-2">
 									<div className="rounded-xl border border-outline-variant/20 bg-surface-container-high overflow-hidden inline-block max-w-[200px]">
-										<img src={thumb.src} alt={t("thumbnailAlt")} className="max-h-48 w-auto max-w-full object-contain" />
+										<DemoRasterImage src={thumb.src} alt={t("thumbnailAlt")} width={800} height={600} className="max-h-48 w-auto max-w-full object-contain" />
 									</div>
 									{thumb.id ? (
 										<p className="text-[0.65rem] font-mono text-on-surface-variant break-all max-w-[200px]">{thumb.id}</p>

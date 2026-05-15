@@ -15,6 +15,7 @@ import DemoSignInPrompt from "../DemoSignInPrompt";
 import ElectronAwareAppHeader from "../../../components/layout/ElectronAwareAppHeader";
 import HumanIdJsonKeyValueField, { type HumanIdJsonKeyValueFieldHandle } from "../../../components/demos/HumanIdJsonKeyValueField";
 import HumanIdStructuredResult from "../../../components/demos/HumanIdStructuredResult";
+import { DemoRasterImage } from "@/app/components/DemoRasterImage";
 
 type Step = "form" | "processing" | "result";
 
@@ -274,7 +275,9 @@ export default function HumanIdCreatePage() {
 								</div>
 							) : null}
 							{facePreview && faceB64 && (
-								<img src={facePreview} alt={t("facePreviewAlt")} className="w-full aspect-video object-cover rounded-xl border border-frost mb-3" />
+								<div className="relative w-full aspect-video rounded-xl border border-frost mb-3 overflow-hidden">
+									<DemoRasterImage src={facePreview} alt={t("facePreviewAlt")} fill className="object-cover" sizes="100vw" />
+								</div>
 							)}
 							<div className="flex gap-3">
 								{faceB64 ? (

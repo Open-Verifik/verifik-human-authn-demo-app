@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
+import { DemoRasterImage } from "@/app/components/DemoRasterImage";
 
 function isPlainObject(value: unknown): value is Record<string, unknown> {
 	return value !== null && typeof value === "object" && !Array.isArray(value);
@@ -213,9 +214,11 @@ export default function SearchActiveUserResult({ result, onReset }: SearchActive
 									<div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
 										<div className="flex items-start gap-3">
 											{match.thumbnails[0] ? (
-												<img
+												<DemoRasterImage
 													src={match.thumbnails[0].src}
 													alt={match.name}
+													width={64}
+													height={64}
 													className="w-16 h-16 rounded-lg object-cover border border-outline-variant/25"
 												/>
 											) : null}

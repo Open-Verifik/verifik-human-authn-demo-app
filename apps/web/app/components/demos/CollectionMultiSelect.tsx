@@ -132,7 +132,6 @@ export function CollectionMultiSelect({
 					aria-haspopup="listbox"
 					aria-expanded={open}
 					aria-controls={open ? listId : undefined}
-					aria-multiselectable="true"
 					onClick={() => !disabled && !loading && setOpen((o) => !o)}
 					className={clsx(
 						"w-full flex items-center justify-between gap-2 bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-left text-sm text-on-surface focus:outline-none focus:border-primary/60 transition-colors",
@@ -180,6 +179,7 @@ export function CollectionMultiSelect({
 								<ul
 									id={listId}
 									role="listbox"
+									aria-multiselectable="true"
 									aria-label={t("collectionsListAria")}
 									className="min-h-0 flex-1 overflow-y-auto overscroll-contain py-1"
 								>

@@ -16,6 +16,7 @@ import DemoRelatedDocsSection, { type DemoRelatedDocItem } from "../../../compon
 import SearchLivePersonResult from "../../../components/demos/SearchLivePersonResult";
 import DemoSignInPrompt from "../DemoSignInPrompt";
 import ElectronAwareAppHeader from "../../../components/layout/ElectronAwareAppHeader";
+import { DemoRasterImage } from "@/app/components/DemoRasterImage";
 
 const DOCS_BASE = "https://docs.verifik.co";
 
@@ -248,7 +249,9 @@ export default function SearchLivePersonPage() {
 										: "border-frost"
 								}`}
 							>
-								<img src={preview} alt={t("previewAlt")} className="w-full aspect-video object-cover" />
+								<div className="relative w-full aspect-video overflow-hidden">
+									<DemoRasterImage src={preview} alt={t("previewAlt")} fill className="object-cover" sizes="100vw" />
+								</div>
 							</div>
 						) : null}
 						<div className="flex flex-wrap gap-3">
