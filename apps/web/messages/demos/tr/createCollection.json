@@ -1,11 +1,11 @@
 {
   "metaTitle": "Koleksiyon oluştur",
-  "metaDescription": "OpenCV destekli galerinizde adlandırılmış bir yüz koleksiyonu oluşturun.",
+  "metaDescription": "Verifik destekli galerinizde adlandırılmış bir yüz koleksiyonu oluşturun.",
   "headerTitle": "Koleksiyon oluştur",
   "heroTitleForm": "Koleksiyon oluştur",
   "heroTitleResult": "Koleksiyon oluşturuldu",
   "heroSubtitleForm": "Kayıtlı kişileri gruplamak için adlandırılmış bir koleksiyon oluşturun.",
-  "heroSubtitleResult": "OpenCV veritabanınızda yeni bir yüz koleksiyonu oluşturuldu.",
+  "heroSubtitleResult": "Verifik veritabanınızda yeni bir yüz koleksiyonu oluşturuldu.",
   "nameLabel": "Koleksiyon adı",
   "namePlaceholder": "ör. Çalışanlar 2025",
   "descLabel": "Açıklama",

@@ -96,8 +96,8 @@
     "metaDescription": "Authentification ancrée sur la présence humaine. Exécutez dans le navigateur les démos biométriques en direct de Verifik : correspondance faciale, vivacité et HumanID.",
     "heroEyebrow": "Biométrie · Démos en direct",
     "heroTitle": "HumanAuthn · Biométrie de niveau entreprise",
-    "heroBody": "Exécutez la correspondance faciale, la vivacité, HumanID et la détection en direct dans le navigateur. La biométrie classique couvre la gestion de galerie OpenCV côté serveur et la recherche. Les démos HumanAuthn décentralisées montrent comment un HumanID lie les données d'identité à un visage en direct sans base centrale de visages.",
-    "traditionalEyebrow": "OpenCV · Galerie côté serveur",
+    "heroBody": "Exécutez la correspondance faciale, la vivacité, HumanID et la détection en direct dans le navigateur. La biométrie classique couvre la gestion de galerie Verifik côté serveur et la recherche. Les démos HumanAuthn décentralisées montrent comment un HumanID lie les données d'identité à un visage en direct sans base centrale de visages.",
+    "traditionalEyebrow": "Verifik · Galerie côté serveur",
     "traditionalTitle": "Biométrie classique",
     "decentralizedEyebrow": "HumanAuthn · HumanID",
     "decentralizedTitle": "Biométrie décentralisée · HumanAuthn",
@@ -127,7 +127,7 @@
       "create-person": {
         "badge": "Enrôlement",
         "title": "Créer une personne",
-        "description": "Enrôlez une nouvelle personne en téléversant des images faciales et des métadonnées. Stockées dans une collection OpenCV."
+        "description": "Enrôlez une nouvelle personne en téléversant des images faciales et des métadonnées. Stockées dans une collection Verifik."
       },
       "create-person-with-liveness": {
         "badge": "Enrôlement",

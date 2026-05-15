@@ -96,8 +96,8 @@
     "metaDescription": "Xác thực neo vào sự hiện diện con người. Chạy demo sinh trắc học trực tiếp của Verifik cho so khớp khuôn mặt, phát hiện sống và HumanID trong trình duyệt.",
     "heroEyebrow": "Sinh trắc học · Demo trực tiếp",
     "heroTitle": "HumanAuthn · Sinh trắc học cấp doanh nghiệp",
-    "heroBody": "Chạy so khớp khuôn mặt, phát hiện sống, HumanID và phát hiện trực tiếp trong trình duyệt. Sinh trắc học truyền thống bao gồm quản lý bộ sưu tập OpenCV phía máy chủ và tìm kiếm. Demo HumanAuthn phi tập trung cho thấy HumanID gắn dữ liệu danh tính với khuôn mặt thật mà không cần cơ sở dữ liệu khuôn mặt trung tâm.",
-    "traditionalEyebrow": "OpenCV · Bộ sưu tập phía máy chủ",
+    "heroBody": "Chạy so khớp khuôn mặt, phát hiện sống, HumanID và phát hiện trực tiếp trong trình duyệt. Sinh trắc học truyền thống bao gồm quản lý bộ sưu tập Verifik phía máy chủ và tìm kiếm. Demo HumanAuthn phi tập trung cho thấy HumanID gắn dữ liệu danh tính với khuôn mặt thật mà không cần cơ sở dữ liệu khuôn mặt trung tâm.",
+    "traditionalEyebrow": "Verifik · Bộ sưu tập phía máy chủ",
     "traditionalTitle": "Sinh trắc học truyền thống",
     "decentralizedEyebrow": "HumanAuthn · HumanID",
     "decentralizedTitle": "Sinh trắc học phi tập trung · HumanAuthn",
@@ -127,7 +127,7 @@
       "create-person": {
         "badge": "Đăng ký",
         "title": "Tạo người",
-        "description": "Đăng ký người mới bằng cách tải ảnh khuôn mặt và siêu dữ liệu. Lưu trong bộ sưu tập OpenCV."
+        "description": "Đăng ký người mới bằng cách tải ảnh khuôn mặt và siêu dữ liệu. Lưu trong bộ sưu tập Verifik."
       },
       "create-person-with-liveness": {
         "badge": "Đăng ký",

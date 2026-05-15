@@ -10,7 +10,7 @@
   "personEnrolled": "Person enrolled",
   "subtitleDelete": "Latest record returned from DELETE /persons/:id (e.g. after removing from one collection).",
   "subtitleUpdate": "Latest record returned from PUT /persons/:id.",
-  "subtitleCreate": "Stored in your OpenCV collections.",
+  "subtitleCreate": "Stored in your Verifik collections.",
   "personId": "Person ID",
   "profile": "Profile",
   "gender": "Gender",

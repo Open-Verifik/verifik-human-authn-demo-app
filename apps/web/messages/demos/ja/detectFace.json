@@ -3,7 +3,7 @@
   "heroTitleComplete": "検出完了",
   "heroTitleInitial": "顔を検出",
   "heroSubtitleComplete": "結果を以下に示します。別の検出を実行するにはリセットします。",
-  "heroSubtitleInitial": "境界ボックスとスコアを使用して画像内の顔を特定します (OpenCV 検出パイプライン)。",
+  "heroSubtitleInitial": "境界ボックスとスコアを使用して画像内の顔を特定します (Verifik 検出パイプライン)。",
   "minScoreLabel": "最小スコア {スコア}",
   "searchModeLabel": "検索モード",
   "chooseOneDescription": "カメラでスキャンするか、写真をアップロードします。このデモではどちらのオプションも機能します。",

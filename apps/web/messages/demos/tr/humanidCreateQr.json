@@ -41,6 +41,6 @@
   "paramOs": "MASAÜSTÜ / IOS / ANDROID",
   "paramIdentifier": "Alfasayısal kişi tanımlayıcı",
   "paramRequireLiveness": "Şifre çözmede canlılık gerektir",
-  "paramTolerance": "DÜZENLİ / YUMUŞAK / SERTLEŞTİRİLMİŞ",
+  "paramTolerance": "DÜZENLİ / YUMUŞAK / HARDENED",
   "paramPassword": "İsteğe bağlı şifreleme şifresi"
 }

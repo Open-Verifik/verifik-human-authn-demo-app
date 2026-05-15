@@ -474,11 +474,6 @@ export default function HumanIdDecryptPage() {
 											<td>{tCommon("no")}</td>
 											<td>{t("paramPasswordDesc")}</td>
 										</tr>
-										<tr className="border-b border-outline-variant/10 align-top">
-											<td className="py-2 font-mono text-primary">livenessLevel</td>
-											<td>{tCommon("no")}</td>
-											<td>{t("paramLivenessLevelDesc")}</td>
-										</tr>
 										<tr className="align-top">
 											<td className="py-2 font-mono text-primary">verifierKey</td>
 											<td>{tCommon("no")}</td>

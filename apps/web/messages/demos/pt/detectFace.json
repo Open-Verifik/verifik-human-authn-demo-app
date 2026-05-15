@@ -3,7 +3,7 @@
   "heroTitleComplete": "Detecção concluída",
   "heroTitleInitial": "Detectar face",
   "heroSubtitleComplete": "Os resultados aparecem abaixo. Redefina para outra detecção.",
-  "heroSubtitleInitial": "Localize faces em uma imagem com caixas delimitadoras e pontuações (pipeline OpenCV).",
+  "heroSubtitleInitial": "Localize faces em uma imagem com caixas delimitadoras e pontuações (pipeline Verifik).",
   "minScoreLabel": "Pontuação mín. {score}",
   "searchModeLabel": "Modo de busca",
   "chooseOneDescription": "Use a câmera ou envie uma foto. Qualquer opção serve para esta demo.",

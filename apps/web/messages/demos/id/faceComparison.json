@@ -24,7 +24,7 @@
   "uploadSecondary": "JPEG atau PNG dari galeri Anda",
   "compareMinScoreLabel": "Skor minimum perbandingan",
   "apiRefSummary": "Referensi API: Perbandingan wajah",
-  "apiRefBody": "Halaman publik Verifik dapat mendeskripsikan bidang ekstra untuk lingkungan lain. Demo HumanAuthn ini memanggil rute OpenCV yang menerima gallery, probe, dan compare_min_score opsional saja.",
+  "apiRefBody": "Halaman publik Verifik dapat mendeskripsikan bidang ekstra untuk lingkungan lain. Demo HumanAuthn ini memanggil rute Verifik yang menerima gallery, probe, dan compare_min_score opsional saja.",
   "apiRefEndpoint": "POST /v2/face-recognition/compare",
   "apiRefEndpointDesc": "Membandingkan gambar probe ke gambar gallery dan mengembalikan skor kemiripan. Backend menetapkan passed saat skor memenuhi compare_min_score Anda (atau default server jika dihilangkan).",
   "paramGalleryDesc": "Wajah referensi, base64 (tanpa awalan data URL)",

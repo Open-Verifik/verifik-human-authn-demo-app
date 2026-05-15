@@ -96,8 +96,8 @@
     "metaDescription": "以真人在场为锚的身份认证。在浏览器中运行 Verifik 的实时生物识别演示：人脸匹配、活体与 HumanID。",
     "heroEyebrow": "生物识别 · 实时演示",
     "heroTitle": "HumanAuthn · 企业级生物识别",
-    "heroBody": "在浏览器中运行人脸匹配、活体、HumanID 与实时检测。传统生物识别涵盖服务端 OpenCV 图库管理与检索。去中心化 HumanAuthn 演示展示 HumanID 如何将身份数据与实时人脸绑定，而无需中心化人脸库。",
-    "traditionalEyebrow": "OpenCV · 服务端图库",
+    "heroBody": "在浏览器中运行人脸匹配、活体、HumanID 与实时检测。传统生物识别涵盖服务端 Verifik 图库管理与检索。去中心化 HumanAuthn 演示展示 HumanID 如何将身份数据与实时人脸绑定，而无需中心化人脸库。",
+    "traditionalEyebrow": "Verifik · 服务端图库",
     "traditionalTitle": "传统生物识别",
     "decentralizedEyebrow": "HumanAuthn · HumanID",
     "decentralizedTitle": "去中心化生物识别 · HumanAuthn",
@@ -127,7 +127,7 @@
       "create-person": {
         "badge": "注册",
         "title": "创建人员",
-        "description": "通过上传人脸图像与元数据注册新人员。存储在 OpenCV 人脸库中。"
+        "description": "通过上传人脸图像与元数据注册新人员。存储在 Verifik 人脸库中。"
       },
       "create-person-with-liveness": {
         "badge": "注册",

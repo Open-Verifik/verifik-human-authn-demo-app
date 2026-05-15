@@ -10,7 +10,7 @@
   "personEnrolled": "Person registriert",
   "subtitleDelete": "Aktuellster Datensatz von DELETE /persons/:id (z. B. nach Entfernen aus einer Sammlung).",
   "subtitleUpdate": "Aktuellster Datensatz von PUT /persons/:id.",
-  "subtitleCreate": "In Ihren OpenCV-Sammlungen gespeichert.",
+  "subtitleCreate": "In Ihren Verifik-Sammlungen gespeichert.",
   "personId": "Personen-ID",
   "profile": "Profil",
   "gender": "Geschlecht",

@@ -10,7 +10,7 @@
   "personEnrolled": "在籍者",
   "subtitleDelete": "DELETE /persons/:id から返された最新のレコード (例: 1 つのコレクションから削除した後)。",
   "subtitleUpdate": "PUT /persons/:id から返された最新のレコード。",
-  "subtitleCreate": "OpenCV コレクションに保存されます。",
+  "subtitleCreate": "Verifik コレクションに保存されます。",
   "personId": "個人ID",
   "profile": "プロフィール",
   "gender": "性別",

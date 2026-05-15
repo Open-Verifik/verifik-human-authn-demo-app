@@ -3,7 +3,7 @@
   "heroTitleComplete": "Phát hiện hoàn tất",
   "heroTitleInitial": "Phát hiện khuôn mặt",
   "heroSubtitleComplete": "Kết quả được hiển thị dưới đây.Đặt lại để chạy phát hiện khác.",
-  "heroSubtitleInitial": "Xác định vị trí các khuôn mặt trong hình ảnh bằng các hộp giới hạn và điểm số (đường dẫn phát hiện OpenCV).",
+  "heroSubtitleInitial": "Xác định vị trí các khuôn mặt trong hình ảnh bằng các hộp giới hạn và điểm số (đường dẫn phát hiện Verifik).",
   "minScoreLabel": "Điểm tối thiểu {score}",
   "searchModeLabel": "Chế độ tìm kiếm",
   "chooseOneDescription": "Quét bằng máy ảnh của bạn hoặc tải ảnh lên.Một trong hai tùy chọn đều hoạt động cho bản demo này.",

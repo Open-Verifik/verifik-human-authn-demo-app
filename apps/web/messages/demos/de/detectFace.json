@@ -3,7 +3,7 @@
   "heroTitleComplete": "Erkennung abgeschlossen",
   "heroTitleInitial": "Gesicht erkennen",
   "heroSubtitleComplete": "Ergebnisse siehe unten. Zurücksetzen für eine neue Erkennung.",
-  "heroSubtitleInitial": "Gesichter in einem Bild mit Begrenzungsrahmen und Werten lokalisieren (OpenCV-Erkennungs-Pipeline).",
+  "heroSubtitleInitial": "Gesichter in einem Bild mit Begrenzungsrahmen und Werten lokalisieren (Verifik-Erkennungs-Pipeline).",
   "minScoreLabel": "Mindestwert {score}",
   "searchModeLabel": "Suchmodus",
   "chooseOneDescription": "Mit der Kamera scannen oder ein Foto hochladen. Beides funktioniert in dieser Demo.",

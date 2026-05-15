@@ -96,8 +96,8 @@
     "metaDescription": "Kimlik doğrulama insan varlığına dayanır. Tarayıcıda Verifik’in canlı biyometrik demolarını çalıştırın: yüz eşleme, canlılık ve HumanID.",
     "heroEyebrow": "Biyometrik · Canlı demolar",
     "heroTitle": "HumanAuthn · Kurumsal biyometri",
-    "heroBody": "Tarayıcıda yüz eşleme, canlılık, HumanID ve canlı algılama çalıştırın. Geleneksel biyometri, sunucu tarafı OpenCV galeri yönetimini ve aramayı kapsar. Merkeziyetsiz HumanAuthn demoları, HumanID’nin merkezi bir yüz veritabanı olmadan kimlik verilerini canlı bir yüze nasıl bağladığını gösterir.",
-    "traditionalEyebrow": "OpenCV · Sunucu tarafı galeri",
+    "heroBody": "Tarayıcıda yüz eşleme, canlılık, HumanID ve canlı algılama çalıştırın. Geleneksel biyometri, sunucu tarafı Verifik galeri yönetimini ve aramayı kapsar. Merkeziyetsiz HumanAuthn demoları, HumanID’nin merkezi bir yüz veritabanı olmadan kimlik verilerini canlı bir yüze nasıl bağladığını gösterir.",
+    "traditionalEyebrow": "Verifik · Sunucu tarafı galeri",
     "traditionalTitle": "Geleneksel biyometri",
     "decentralizedEyebrow": "HumanAuthn · HumanID",
     "decentralizedTitle": "Merkeziyetsiz biyometri · HumanAuthn",
@@ -127,7 +127,7 @@
       "create-person": {
         "badge": "Kayıt",
         "title": "Kişi oluştur",
-        "description": "Yüz görüntüleri ve meta veriler yükleyerek yeni bir kişi kaydedin. OpenCV koleksiyonunda saklanır."
+        "description": "Yüz görüntüleri ve meta veriler yükleyerek yeni bir kişi kaydedin. Verifik koleksiyonunda saklanır."
       },
       "create-person-with-liveness": {
         "badge": "Kayıt",

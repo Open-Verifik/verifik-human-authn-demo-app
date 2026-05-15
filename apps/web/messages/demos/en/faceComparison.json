@@ -24,7 +24,7 @@
   "uploadSecondary": "JPEG or PNG from your gallery",
   "compareMinScoreLabel": "Compare minimum score",
   "apiRefSummary": "API reference: Face Comparison",
-  "apiRefBody": "Verifik's public pages may describe extra fields for other environments. This HumanAuthn demo calls the OpenCV route that accepts gallery, probe, and optional compare_min_score only.",
+  "apiRefBody": "Verifik's public pages may describe extra fields for other environments. This HumanAuthn demo calls the Verifik route that accepts gallery, probe, and optional compare_min_score only.",
   "apiRefEndpoint": "POST /v2/face-recognition/compare",
   "apiRefEndpointDesc": "Compares probe image(s) to gallery image(s) and returns a similarity score. The backend sets passed when the score meets your compare_min_score (or the server default when omitted).",
   "paramGalleryDesc": "Reference face(s), base64 (no data URL prefix)",

@@ -96,8 +96,8 @@
     "metaDescription": "실제 사용자의 존재에 기반한 인증. 브라우저에서 Verifik의 실시간 생체 데모를 실행하세요—얼굴 매칭, 라이브니스, HumanID.",
     "heroEyebrow": "생체 인식 · 실시간 데모",
     "heroTitle": "HumanAuthn · 엔터프라이즈급 생체 인식",
-    "heroBody": "브라우저에서 얼굴 매칭, 라이브니스, HumanID 및 라이브 검출을 실행합니다. 전통적 생체 인식은 서버 측 OpenCV 컬렉션 관리와 검색을 다룩니다. 탈중앙화 HumanAuthn 데모는 중앙 얼굴 DB 없이 HumanID가 신원 데이터를 실시간 얼굴에 연결하는 방법을 보여 줍니다.",
-    "traditionalEyebrow": "OpenCV · 서버 측 갤러리",
+    "heroBody": "브라우저에서 얼굴 매칭, 라이브니스, HumanID 및 라이브 검출을 실행합니다. 전통적 생체 인식은 서버 측 Verifik 컬렉션 관리와 검색을 다룩니다. 탈중앙화 HumanAuthn 데모는 중앙 얼굴 DB 없이 HumanID가 신원 데이터를 실시간 얼굴에 연결하는 방법을 보여 줍니다.",
+    "traditionalEyebrow": "Verifik · 서버 측 갤러리",
     "traditionalTitle": "전통적 생체 인식",
     "decentralizedEyebrow": "HumanAuthn · HumanID",
     "decentralizedTitle": "탈중앙화 생체 인식 · HumanAuthn",
@@ -127,7 +127,7 @@
       "create-person": {
         "badge": "등록",
         "title": "사람 등록",
-        "description": "얼굴 이미지와 메타데이터를 업로드하여 새 사람을 등록합니다. OpenCV 컬렉션에 저장됩니다."
+        "description": "얼굴 이미지와 메타데이터를 업로드하여 새 사람을 등록합니다. Verifik 컬렉션에 저장됩니다."
       },
       "create-person-with-liveness": {
         "badge": "등록",

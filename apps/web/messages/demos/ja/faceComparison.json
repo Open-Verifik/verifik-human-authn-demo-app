@@ -24,7 +24,7 @@
   "uploadSecondary": "ギャラリーからの JPEG または PNG",
   "compareMinScoreLabel": "最低スコアを比較する",
   "apiRefSummary": "API リファレンス: 顔の比較",
-  "apiRefBody": "Verifik の公開ページには、他の環境用の追加フィールドが記述されている場合があります。この HumanAuthn デモは、ギャラリー、プローブ、およびオプションの Compare_min_score のみを受け入れる OpenCV ルートを呼び出します。",
+  "apiRefBody": "Verifik の公開ページには、他の環境用の追加フィールドが記述されている場合があります。この HumanAuthn デモは、ギャラリー、プローブ、およびオプションの Compare_min_score のみを受け入れる Verifik ルートを呼び出します。",
   "apiRefEndpoint": "POST /v2/face-recognition/compare",
   "apiRefEndpointDesc": "プローブ画像とギャラリー画像を比較し、類似性スコアを返します。スコアが Compare_min_score (または省略された場合はサーバーのデフォルト) を満たす場合に渡されるバックエンド セット。",
   "paramGalleryDesc": "参照面、base64 (データ URL プレフィックスなし)",

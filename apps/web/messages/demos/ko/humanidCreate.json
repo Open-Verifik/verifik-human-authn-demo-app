@@ -39,6 +39,6 @@
   "paramOs": "데스크탑 / IOS / 안드로이드",
   "paramIdentifier": "영숫자 개인 식별자",
   "paramRequireLiveness": "복호화 시 활성 필요",
-  "paramTolerance": "일반 / 소프트 / 경화",
+  "paramTolerance": "일반 / 소프트 / HARDENED",
   "paramPassword": "선택적 암호화 비밀번호"
 }

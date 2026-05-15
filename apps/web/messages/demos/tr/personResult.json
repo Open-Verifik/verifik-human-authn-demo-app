@@ -10,7 +10,7 @@
   "personEnrolled": "Kayıtlı kişi",
   "subtitleDelete": "DELETE /persons/:id dosyasından döndürülen en son kayıt (örneğin, bir koleksiyondan kaldırıldıktan sonra).",
   "subtitleUpdate": "PUT /persons/:id'den döndürülen son kayıt.",
-  "subtitleCreate": "OpenCV koleksiyonlarınızda saklanır.",
+  "subtitleCreate": "Verifik koleksiyonlarınızda saklanır.",
   "personId": "Kişi Kimliği",
   "profile": "Profil",
   "gender": "Cinsiyet",

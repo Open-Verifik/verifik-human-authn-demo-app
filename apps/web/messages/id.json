@@ -96,8 +96,8 @@
     "metaDescription": "Autentikasi yang mengakar pada kehadiran manusia. Jalankan demo biometrik langsung Verifik untuk pencocokan wajah, keaktifan, dan HumanID di peramban.",
     "heroEyebrow": "Biometrik · Demo langsung",
     "heroTitle": "HumanAuthn · Biometrik tingkat perusahaan",
-    "heroBody": "Jalankan pencocokan wajah, keaktifan, HumanID, dan deteksi langsung di peramban. Biometrik tradisional mencakup manajemen galeri OpenCV sisi server dan pencarian. Demo HumanAuthn terdesentralisasi menunjukkan bagaimana HumanID mengikat data identitas ke wajah hidup tanpa basis data wajah terpusat.",
-    "traditionalEyebrow": "OpenCV · Galeri sisi server",
+    "heroBody": "Jalankan pencocokan wajah, keaktifan, HumanID, dan deteksi langsung di peramban. Biometrik tradisional mencakup manajemen galeri Verifik sisi server dan pencarian. Demo HumanAuthn terdesentralisasi menunjukkan bagaimana HumanID mengikat data identitas ke wajah hidup tanpa basis data wajah terpusat.",
+    "traditionalEyebrow": "Verifik · Galeri sisi server",
     "traditionalTitle": "Biometrik tradisional",
     "decentralizedEyebrow": "HumanAuthn · HumanID",
     "decentralizedTitle": "Biometrik terdesentralisasi · HumanAuthn",
@@ -127,7 +127,7 @@
       "create-person": {
         "badge": "Pendaftaran",
         "title": "Buat orang",
-        "description": "Daftarkan orang baru dengan mengunggah gambar wajah dan metadata. Disimpan dalam koleksi OpenCV."
+        "description": "Daftarkan orang baru dengan mengunggah gambar wajah dan metadata. Disimpan dalam koleksi Verifik."
       },
       "create-person-with-liveness": {
         "badge": "Pendaftaran",

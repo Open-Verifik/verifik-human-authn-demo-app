@@ -24,7 +24,7 @@
   "uploadSecondary": "JPEG أو PNG من المعرض",
   "compareMinScoreLabel": "الحد الأدنى لنتيجة المقارنة",
   "apiRefSummary": "مرجع API: مقارنة الوجوه",
-  "apiRefBody": "قد تصف صفحات Verifik العامة حقولًا إضافية لبيئات أخرى. يستدعي عرض HumanAuthn هذا مسار OpenCV الذي يقبل gallery وprobe وcompare_min_score الاختياري فقط.",
+  "apiRefBody": "قد تصف صفحات Verifik العامة حقولًا إضافية لبيئات أخرى. يستدعي عرض HumanAuthn هذا مسار Verifik الذي يقبل gallery وprobe وcompare_min_score الاختياري فقط.",
   "apiRefEndpoint": "POST /v2/face-recognition/compare",
   "apiRefEndpointDesc": "يقارن صور الاستطلاع بصور المعرض ويعيد درجة تشابه. يضبط الخادم passed عندما تلبّي الدرجة compare_min_score (أو الافتراضي عند الحذف).",
   "paramGalleryDesc": "وجه/وجوه مرجعية، base64 (بدون بادئة data URL)",

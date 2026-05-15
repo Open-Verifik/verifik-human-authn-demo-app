@@ -3,7 +3,7 @@
   "heroTitleComplete": "Detection complete",
   "heroTitleInitial": "Detect Face",
   "heroSubtitleComplete": "Results are shown below. Reset to run another detection.",
-  "heroSubtitleInitial": "Locate faces in an image with bounding boxes and scores (OpenCV detect pipeline).",
+  "heroSubtitleInitial": "Locate faces in an image with bounding boxes and scores (Verifik detect pipeline).",
   "minScoreLabel": "Min score {score}",
   "searchModeLabel": "Search mode",
   "chooseOneDescription": "Scan with your camera or upload a photo. Either option works for this demo.",

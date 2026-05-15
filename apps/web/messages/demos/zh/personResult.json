@@ -10,7 +10,7 @@
   "personEnrolled": "人员已注册",
   "subtitleDelete": "DELETE /persons/:id 返回的最新记录（例如仅从一个人脸库移除后）。",
   "subtitleUpdate": "PUT /persons/:id 返回的最新记录。",
-  "subtitleCreate": "存储在您的 OpenCV 人脸库中。",
+  "subtitleCreate": "存储在您的 Verifik 人脸库中。",
   "personId": "人员 ID",
   "profile": "档案",
   "gender": "性别",

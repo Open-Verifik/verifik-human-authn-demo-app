@@ -23,7 +23,6 @@ type Step = "form" | "processing" | "result";
 const ENCRYPT_QR_PARAM_ROWS = [
 	["publicData", true, "paramPublicData"],
 	["faceBase64", true, "paramFaceBase64"],
-	["livenessLevel", true, "paramLivenessLevel"],
 	["metadata", true, "paramMetadata"],
 	["os", true, "paramOs"],
 	["identifier", true, "paramIdentifier"],
@@ -42,9 +41,8 @@ export default function HumanIdCreateQrPage() {
 
 	const [step, setStep] = useState<Step>("form");
 	const [identifier, setIdentifier] = useState("");
-	const [livenessLevel, setLivenessLevel] = useState("1");
 	const [requireLiveness, setRequireLiveness] = useState(true);
-	const [tolerance, setTolerance] = useState<"REGULAR" | "SOFT" | "HARDENED">("REGULAR");
+	const [tolerance, setTolerance] = useState<"REGULAR" | "SOFT" | "HARDENED">("HARDENED");
 	const [facePreview, setFacePreview] = useState<string | null>(null);
 	const [faceB64, setFaceB64] = useState<string | null>(null);
 	const [publicData, setPublicData] = useState<Record<string, string>>({
@@ -58,6 +56,7 @@ export default function HumanIdCreateQrPage() {
 	const [result, setResult] = useState<Record<string, unknown> | null>(null);
 	const [qrDataUrl, setQrDataUrl] = useState<string | null>(null);
 	const [error, setError] = useState<string | null>(null);
+	const [errorCode, setErrorCode] = useState<string | null>(null);
 	const fileRef = useRef<HTMLInputElement>(null);
 	const publicDataFieldRef = useRef<HumanIdJsonKeyValueFieldHandle>(null);
 	const metadataFieldRef = useRef<HumanIdJsonKeyValueFieldHandle>(null);
@@ -76,6 +75,7 @@ export default function HumanIdCreateQrPage() {
 		const token = useAuthStore.getState().token;
 		if (!token || !faceB64) return;
 		setError(null);
+		setErrorCode(null);
 		const pub = publicDataFieldRef.current?.commitJsonIfNeeded();
 		if (pub == null) {
 			setError(t("errorPublicDataJson"));
@@ -95,7 +95,6 @@ export default function HumanIdCreateQrPage() {
 			{
 				publicData: pub,
 				faceBase64: faceB64,
-				livenessLevel,
 				metadata: meta,
 				os: "DESKTOP",
 				identifier,
@@ -106,10 +105,12 @@ export default function HumanIdCreateQrPage() {
 			token,
 		);
 		if (res.error) {
+			setErrorCode(res.code ?? null);
 			setError(res.error);
 			setStep("form");
 			return;
 		}
+		setErrorCode(null);
 		const data = res.data as Record<string, unknown>;
 		const innerData = (data?.data ?? data) as Record<string, unknown>;
 		setQrDataUrl(typeof innerData?.zelfQR === "string" ? innerData.zelfQR : null);
@@ -124,6 +125,7 @@ export default function HumanIdCreateQrPage() {
 		setResult(null);
 		setQrDataUrl(null);
 		setError(null);
+		setErrorCode(null);
 		setPublicData({ name: "Jane Doe", documentNumber: "12345678" });
 		setMetadata({ createdBy: "demo" });
 	};
@@ -221,20 +223,7 @@ export default function HumanIdCreateQrPage() {
 								</select>
 							</div>
 						</div>
-						<div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-							<div>
-								<label className="block text-sm font-semibold text-on-surface mb-1.5" htmlFor="qr-liveness">
-									{t("livenessLevelLabel")}
-								</label>
-								<input
-									id="qr-liveness"
-									type="text"
-									value={livenessLevel}
-									onChange={(e) => setLivenessLevel(e.target.value)}
-									placeholder={t("livenessPlaceholder")}
-									className="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface placeholder-on-surface-variant/50 text-sm focus:outline-none focus:border-primary/60"
-								/>
-							</div>
+						<div className="grid grid-cols-1 gap-5">
 							<div>
 								<label className="block text-sm font-semibold text-on-surface mb-1.5" htmlFor="qr-pw">
 									{t("passwordOptionalLabel")}
@@ -339,7 +328,16 @@ export default function HumanIdCreateQrPage() {
 							<input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={(e) => handleFile(e.target.files)} />
 						</div>
 						{error && (
-							<div className="px-4 py-3 bg-error-container/20 border border-error/20 rounded-lg text-sm text-error">{error}</div>
+							<div className="px-4 py-3 bg-error-container/20 border border-error/20 rounded-lg text-sm text-error space-y-1">
+								{errorCode === "ERR_LIVENESS_FAILED" ? (
+									<>
+										<p className="font-semibold text-error">{t("errorLivenessFailedTitle")}</p>
+										<p className="text-error/90">{t("errorLivenessFailedBody")}</p>
+									</>
+								) : (
+									error
+								)}
+							</div>
 						)}
 						<button
 							type="submit"

@@ -10,7 +10,7 @@
   "personEnrolled": "등록된 사람",
   "subtitleDelete": "DELETE /persons/:id에서 반환된 최신 레코드입니다(예: 하나의 컬렉션에서 제거한 후).",
   "subtitleUpdate": "PUT /persons/:id에서 반환된 최신 레코드입니다.",
-  "subtitleCreate": "OpenCV 컬렉션에 저장됩니다.",
+  "subtitleCreate": "Verifik 컬렉션에 저장됩니다.",
   "personId": "개인 ID",
   "profile": "윤곽",
   "gender": "성별",

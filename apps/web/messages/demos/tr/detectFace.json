@@ -3,7 +3,7 @@
   "heroTitleComplete": "Algılama tamamlandı",
   "heroTitleInitial": "Yüz algıla",
   "heroSubtitleComplete": "Sonuçlar aşağıda gösterilir. Başka algılama için sıfırlayın.",
-  "heroSubtitleInitial": "Sınırlayıcı kutular ve skorlarla görüntüdeki yüzleri bulun (OpenCV algılama hattı).",
+  "heroSubtitleInitial": "Sınırlayıcı kutular ve skorlarla görüntüdeki yüzleri bulun (Verifik algılama hattı).",
   "minScoreLabel": "Min skor {score}",
   "searchModeLabel": "Arama modu",
   "chooseOneDescription": "Kamerayla tarayın veya fotoğraf yükleyin. Bu demoda her iki seçenek de geçerlidir.",

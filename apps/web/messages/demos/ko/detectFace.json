@@ -3,7 +3,7 @@
   "heroTitleComplete": "감지 완료",
   "heroTitleInitial": "얼굴 감지",
   "heroSubtitleComplete": "결과는 아래와 같습니다. 다른 감지를 실행하려면 재설정하세요.",
-  "heroSubtitleInitial": "경계 상자와 점수를 사용하여 이미지에서 얼굴을 찾습니다(OpenCV 감지 파이프라인).",
+  "heroSubtitleInitial": "경계 상자와 점수를 사용하여 이미지에서 얼굴을 찾습니다(Verifik 감지 파이프라인).",
   "minScoreLabel": "최소 점수 {score}",
   "searchModeLabel": "검색 모드",
   "chooseOneDescription": "카메라로 스캔하거나 사진을 업로드하세요. 두 옵션 모두 이 데모에 적합합니다.",

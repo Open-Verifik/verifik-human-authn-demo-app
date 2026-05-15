@@ -3,7 +3,7 @@
   "heroTitleComplete": "Detección completada",
   "heroTitleInitial": "Detectar rostro",
   "heroSubtitleComplete": "Los resultados aparecen abajo. Restablece para otra detección.",
-  "heroSubtitleInitial": "Localiza rostros en una imagen con cajas y puntuaciones (pipeline OpenCV).",
+  "heroSubtitleInitial": "Localiza rostros en una imagen con cajas y puntuaciones (pipeline Verifik).",
   "minScoreLabel": "Puntuación mín. {score}",
   "searchModeLabel": "Modo de búsqueda",
   "chooseOneDescription": "Escanea con la cámara o sube una foto. Cualquiera sirve para esta demo.",

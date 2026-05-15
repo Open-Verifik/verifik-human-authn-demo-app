@@ -3,7 +3,7 @@
   "heroTitleComplete": "检测完成",
   "heroTitleInitial": "人脸检测",
   "heroSubtitleComplete": "结果见下方。重置可再次检测。",
-  "heroSubtitleInitial": "在图像中定位人脸，返回边界框与分数（OpenCV 检测流水线）。",
+  "heroSubtitleInitial": "在图像中定位人脸，返回边界框与分数（Verifik 检测流水线）。",
   "minScoreLabel": "最低分数 {score}",
   "searchModeLabel": "检索模式",
   "chooseOneDescription": "使用摄像头扫描或上传照片。两种方式均可用于本演示。",

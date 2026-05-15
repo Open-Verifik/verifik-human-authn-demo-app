@@ -55,7 +55,7 @@ export interface ValidateOTPPayload {
 	validationMethod: ValidationMethod;
 }
 
-/** Default `liveness_min_score` when omitted on POST /face-recognition/liveness (matches OpenCV module). */
+/** Default `liveness_min_score` when omitted on POST /face-recognition/liveness (matches Verifik liveness module). */
 export const DEFAULT_LIVENESS_STANDALONE_MIN_SCORE = 0.6;
 
 /** POST /v2/face-recognition/liveness — body validated by anti-spoofing middleware. */
@@ -66,7 +66,7 @@ export interface LivenessPayload {
 	collection_id?: string;
 }
 
-/** POST /v2/face-recognition/compare — matches OpenCV `compare` schema */
+/** POST /v2/face-recognition/compare — matches Verifik `compare` schema */
 
 /** Matches FaceVerification schema default; used when request omits compare_min_score */
 export const DEFAULT_FACE_COMPARE_MIN_SCORE = 0.85;
@@ -201,6 +201,10 @@ function parseErrorMessage(json: unknown): string {
 	}
 	if (apiCode === "ERROR" && normalizedCandidates.some((entry) => entry.includes("more than one") && entry.includes("face"))) {
 		return multiFaceHint;
+	}
+
+	if (apiCode === "ERR_LIVENESS_FAILED") {
+		return "This face did not pass the live-face check for HumanID. Use a real-time camera capture or a clearer live photo, then try again.";
 	}
 
 	if (dataCode === "ERR_ENTITY_NOT_FOUND") {
@@ -472,7 +476,7 @@ export async function detectLiveness(payload: LivenessPayload, accessToken: stri
 // ─── Biometrics — Face Comparison ────────────────────────────────────────────
 
 /**
- * Compare gallery vs probe face images (Verifik OpenCV).
+ * Compare gallery vs probe face images (Verifik centralized gallery).
  * POST /v2/face-recognition/compare — requires session access JWT.
  * Body: { gallery, probe, compare_min_score? }
  */
@@ -484,7 +488,7 @@ export async function compareFaces(payload: FaceComparisonPayload, accessToken: 
 }
 
 /**
- * Compare gallery vs probe with embedded liveness (OpenCV compare-live-face).
+ * Compare gallery vs probe with embedded liveness (Verifik compare-live-face).
  * POST /v2/face-recognition/compare-live — requires session access JWT.
  */
 export async function compareFacesLive(payload: FaceComparisonLivePayload, accessToken: string): Promise<ApiResponse> {
@@ -766,7 +770,7 @@ export async function imageUrlToRawBase64(url: string): Promise<string> {
 	return blobToRawBase64(blob);
 }
 
-// ─── OpenCV: Collections ──────────────────────────────────────────────────────
+// ─── Centralized Biometrics: Collections ─────────────────────────────────────
 
 export interface CreateCollectionPayload {
 	name: string;
@@ -810,7 +814,7 @@ export async function listCollections(
 	return bearerRequest<{ data: FaceCollectionListItem[] }>(url, accessToken, { method: "GET" });
 }
 
-// ─── OpenCV: Persons ──────────────────────────────────────────────────────────
+// ─── Centralized Biometrics: Persons ─────────────────────────────────────────
 
 export interface CreatePersonPayload {
 	name: string;
@@ -988,7 +992,7 @@ export async function deletePerson(personId: string, accessToken: string, option
 	return bearerRequest(url, accessToken, { method: "DELETE" });
 }
 
-// ─── OpenCV: Search ───────────────────────────────────────────────────────────
+// ─── Centralized Biometrics: Search ──────────────────────────────────────────
 
 export type SearchMode = "FAST" | "ACCURATE";
 
@@ -1090,7 +1094,7 @@ export async function searchCrops(payload: SearchCropsPayload, accessToken: stri
 	});
 }
 
-// ─── OpenCV: Compare Live ─────────────────────────────────────────────────────
+// ─── Centralized Biometrics: Compare Live ────────────────────────────────────
 
 export interface CompareLivePayload {
 	gallery: string[];
@@ -1117,7 +1121,6 @@ export interface ZelfProofPublicData {
 export interface CreateHumanIdPayload {
 	publicData: ZelfProofPublicData;
 	faceBase64: string;
-	livenessLevel: string;
 	metadata: ZelfProofPublicData;
 	os: "DESKTOP" | "IOS" | "ANDROID";
 	identifier: string;
@@ -1125,7 +1128,8 @@ export interface CreateHumanIdPayload {
 	livenessDetectionPriorCreation?: boolean;
 	password?: string;
 	referenceFaceBase64?: string;
-	tolerance?: "REGULAR" | "SOFT" | "HARDENED";
+	/** Liveness (anti-spoof) strictness when a live face is required — not face-template similarity between two photos. */
+	tolerance?: "REGULAR" | "REGULAR_HARD" | "SOFT" | "REGULAR_SOFT" | "HARDENED";
 	verifierKey?: string;
 }
 
@@ -1133,7 +1137,6 @@ export interface DecryptHumanIdPayload {
 	faceBase64: string;
 	os: "DESKTOP" | "IOS" | "ANDROID";
 	zelfProof: string;
-	livenessLevel?: string;
 	password?: string;
 	verifierKey?: string;
 }

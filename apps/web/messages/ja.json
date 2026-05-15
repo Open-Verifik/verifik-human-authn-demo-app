@@ -96,8 +96,8 @@
     "metaDescription": "人の存在に根ざした認証。ブラウザでVerifikのライブ生体デモ—顔マッチ、ライブネス、HumanIDを実行。",
     "heroEyebrow": "生体認識 · ライブデモ",
     "heroTitle": "HumanAuthn · エンタープライズ級生体認識",
-    "heroBody": "ブラウザで顔マッチ、ライブネス、HumanID、ライブ検出を実行。従来生体はサーバ側OpenCVコレクション管理と検索を扱います。分散型HumanAuthnデモは、中央の顔DBなしでHumanIDが本人データをライブ顔にどう結び付けるかを示します。",
-    "traditionalEyebrow": "OpenCV · サーバ側ギャラリー",
+    "heroBody": "ブラウザで顔マッチ、ライブネス、HumanID、ライブ検出を実行。従来生体はサーバ側Verifikコレクション管理と検索を扱います。分散型HumanAuthnデモは、中央の顔DBなしでHumanIDが本人データをライブ顔にどう結び付けるかを示します。",
+    "traditionalEyebrow": "Verifik · サーバ側ギャラリー",
     "traditionalTitle": "従来生体認識",
     "decentralizedEyebrow": "HumanAuthn · HumanID",
     "decentralizedTitle": "分散型生体認識 · HumanAuthn",
@@ -127,7 +127,7 @@
       "create-person": {
         "badge": "登録",
         "title": "人物登録",
-        "description": "顔画像とメタデータをアップロードして新しい人物を登録。OpenCVコレクションに保存されます。"
+        "description": "顔画像とメタデータをアップロードして新しい人物を登録。Verifikコレクションに保存されます。"
       },
       "create-person-with-liveness": {
         "badge": "登録",

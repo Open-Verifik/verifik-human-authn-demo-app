@@ -96,9 +96,9 @@
     "metaDescription": "Authentication anchored to human presence. Run Verifik's live biometric demos for face match, liveness, and HumanID in the browser.",
     "heroEyebrow": "Biometrics · Live demos",
     "heroTitle": "HumanAuthn · Enterprise grade biometrics",
-    "heroBody": "Run face match, liveness, HumanID, and live detection in the browser. Traditional biometrics cover server-side OpenCV collection management and search. Decentralized HumanAuthn demos show how a HumanID binds identity data to a live face without a central face database.",
-    "traditionalEyebrow": "OpenCV · Server-side gallery",
-    "traditionalTitle": "Traditional Biometrics",
+    "heroBody": "Run face match, liveness, HumanID, and live detection in the browser. Centralized biometrics cover server-side face gallery management and search. Decentralized HumanAuthn demos show how a HumanID binds identity data to a live face without a central face database.",
+    "traditionalEyebrow": "Centralized · Server-side gallery",
+    "traditionalTitle": "Centralized Biometrics",
     "decentralizedEyebrow": "HumanAuthn · HumanID",
     "decentralizedTitle": "Decentralized Biometrics · HumanAuthn",
     "enterpriseEyebrow": "Verifik Platform",
@@ -127,7 +127,7 @@
       "create-person": {
         "badge": "Enroll",
         "title": "Create Person",
-        "description": "Enroll a new person by uploading face images and metadata. Stored in an OpenCV collection."
+        "description": "Enroll a new person by uploading face images and metadata. Stored in your centralized face gallery."
       },
       "create-person-with-liveness": {
         "badge": "Enroll",

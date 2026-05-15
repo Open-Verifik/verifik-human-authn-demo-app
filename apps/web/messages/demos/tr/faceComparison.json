@@ -24,7 +24,7 @@
   "uploadSecondary": "Galerinizden JPEG veya PNG",
   "compareMinScoreLabel": "Karşılaştırma minimum skoru",
   "apiRefSummary": "API referansı: Yüz karşılaştırma",
-  "apiRefBody": "Verifik’in genel sayfaları diğer ortamlar için ek alanlar tanımlayabilir. Bu HumanAuthn demosu yalnızca gallery, probe ve isteğe bağlı compare_min_score kabul eden OpenCV rotasını çağırır.",
+  "apiRefBody": "Verifik’in genel sayfaları diğer ortamlar için ek alanlar tanımlayabilir. Bu HumanAuthn demosu yalnızca gallery, probe ve isteğe bağlı compare_min_score kabul eden Verifik rotasını çağırır.",
   "apiRefEndpoint": "POST /v2/face-recognition/compare",
   "apiRefEndpointDesc": "Probe görüntülerini gallery görüntüleriyle karşılaştırır ve bir benzerlik skoru döndürür. Skor compare_min_score’unuzu (veya atlandığında sunucu varsayılanını) karşıladığında backend passed ayarlar.",
   "paramGalleryDesc": "Referans yüz(ler), base64 (data URL öneki yok)",

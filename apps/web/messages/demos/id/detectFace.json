@@ -3,7 +3,7 @@
   "heroTitleComplete": "Deteksi selesai",
   "heroTitleInitial": "Deteksi wajah",
   "heroSubtitleComplete": "Hasil ditampilkan di bawah. Atur ulang untuk menjalankan deteksi lain.",
-  "heroSubtitleInitial": "Temukan wajah dalam gambar dengan kotak pembatas dan skor (pipa deteksi OpenCV).",
+  "heroSubtitleInitial": "Temukan wajah dalam gambar dengan kotak pembatas dan skor (pipa deteksi Verifik).",
   "minScoreLabel": "Skor min {score}",
   "searchModeLabel": "Mode pencarian",
   "chooseOneDescription": "Pindai dengan kamera atau unggah foto. Keduanya didukung di demo ini.",

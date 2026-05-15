@@ -41,6 +41,6 @@
   "paramOs": "DESKTOP / iOS / ANDROID",
   "paramIdentifier": "Mã định danh người chữ và số",
   "paramRequireLiveness": "Yêu cầu sự sống động khi giải mã",
-  "paramTolerance": "THƯỜNG XUYÊN / MỀM / CỨNG",
+  "paramTolerance": "THƯỜNG XUYÊN / MỀM / HARDENED",
   "paramPassword": "Mật khẩu mã hóa tùy chọn"
 }

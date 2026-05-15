@@ -24,7 +24,7 @@
   "uploadSecondary": "从相册选择 JPEG 或 PNG",
   "compareMinScoreLabel": "比对最低分数",
   "apiRefSummary": "API 参考：人脸比对",
-  "apiRefBody": "Verifik 公开页面可能描述其他环境的额外字段。本 HumanAuthn 演示调用接受 gallery、probe 与可选 compare_min_score 的 OpenCV 路由。",
+  "apiRefBody": "Verifik 公开页面可能描述其他环境的额外字段。本 HumanAuthn 演示调用接受 gallery、probe 与可选 compare_min_score 的 Verifik 路由。",
   "apiRefEndpoint": "POST /v2/face-recognition/compare",
   "apiRefEndpointDesc": "将探针图与图库图比对并返回相似度分数。当分数达到 compare_min_score（或省略时的服务器默认值）时，后端设置 passed。",
   "paramGalleryDesc": "参考人脸，base64（无 data URL 前缀）",

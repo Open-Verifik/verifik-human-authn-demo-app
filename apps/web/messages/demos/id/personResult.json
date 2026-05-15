@@ -10,7 +10,7 @@
   "personEnrolled": "Orang terdaftar",
   "subtitleDelete": "Rekaman terbaru dikembalikan dari DELETE /persons/:id (mis. setelah menghapus dari satu koleksi).",
   "subtitleUpdate": "Rekaman terbaru dikembalikan dari PUT /persons/:id.",
-  "subtitleCreate": "Disimpan di koleksi OpenCV Anda.",
+  "subtitleCreate": "Disimpan di koleksi Verifik Anda.",
   "personId": "ID orang",
   "profile": "Profil",
   "gender": "Jenis kelamin",

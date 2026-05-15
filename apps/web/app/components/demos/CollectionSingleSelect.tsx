@@ -19,7 +19,7 @@ function matchesSearch(item: FaceCollectionListItem, q: string) {
 
 export type CollectionSingleSelectProps = {
 	items: FaceCollectionListItem[];
-	/** OpenCV collection id (UUID); matches `person.collections` entries for DELETE ?collection=. */
+	/** Verifik collection id (UUID); matches `person.collections` entries for DELETE ?collection=. */
 	selectedCode: string | null;
 	onChange: (code: string) => void;
 	disabled?: boolean;

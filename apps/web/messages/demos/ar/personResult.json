@@ -10,7 +10,7 @@
   "personEnrolled": "تم تسجيل الشخص",
   "subtitleDelete": "آخر سجل مُرجع من DELETE /persons/:id (مثلًا بعد الإزالة من مجموعة واحدة).",
   "subtitleUpdate": "آخر سجل مُرجع من PUT /persons/:id.",
-  "subtitleCreate": "مخزّن في مجموعات OpenCV لديك.",
+  "subtitleCreate": "مخزّن في مجموعات Verifik لديك.",
   "personId": "معرّف الشخص",
   "profile": "الملف",
   "gender": "الجنس",

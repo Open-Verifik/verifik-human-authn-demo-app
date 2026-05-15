@@ -10,7 +10,7 @@
   "personEnrolled": "Người đã đăng ký",
   "subtitleDelete": "Bản ghi mới nhất được trả về từ DELETE /persons/:id (ví dụ: sau khi xóa khỏi một bộ sưu tập).",
   "subtitleUpdate": "Bản ghi mới nhất được trả về từ PUT /persons/:id.",
-  "subtitleCreate": "Được lưu trữ trong bộ sưu tập OpenCV của bạn.",
+  "subtitleCreate": "Được lưu trữ trong bộ sưu tập Verifik của bạn.",
   "personId": "ID người",
   "profile": "Hồ sơ",
   "gender": "Giới tính",

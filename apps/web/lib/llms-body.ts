@@ -33,7 +33,7 @@ export function buildLlmsTxtBody(
     '',
     'The demo app showcases two families of biometric capabilities:',
     '',
-    '### 1. Traditional Biometrics (Server-side OpenCV collections)',
+    '### 1. Centralized Biometrics (Server-side face gallery)',
     '',
     'These demos use Verifik\'s server-side face gallery. Faces are enrolled into named collections; subsequent searches, comparisons, and verifications run against that gallery. Use cases: employee access control, event check-in, repeat-visitor identification.',
     '',

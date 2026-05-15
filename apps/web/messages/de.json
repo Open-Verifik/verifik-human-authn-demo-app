@@ -96,8 +96,8 @@
     "metaDescription": "Authentifizierung, verankert an menschlicher Anwesenheit. Führen Sie die Live-Biometrie-Demos von Verifik für Gesichtsabgleich, Lebenderkennung und HumanID im Browser aus.",
     "heroEyebrow": "Biometrie · Live-Demos",
     "heroTitle": "HumanAuthn · Biometrie auf Unternehmensniveau",
-    "heroBody": "Führen Sie Gesichtsabgleich, Lebenderkennung, HumanID und Live-Erkennung im Browser aus. Klassische Biometrie umfasst die serverseitige OpenCV-Galerieverwaltung und Suche. Die dezentralen HumanAuthn-Demos zeigen, wie ein HumanID Identitätsdaten an ein lebendes Gesicht bindet – ohne zentrale Gesichtsdatenbank.",
-    "traditionalEyebrow": "OpenCV · Serverseitige Galerie",
+    "heroBody": "Führen Sie Gesichtsabgleich, Lebenderkennung, HumanID und Live-Erkennung im Browser aus. Klassische Biometrie umfasst die serverseitige Verifik-Galerieverwaltung und Suche. Die dezentralen HumanAuthn-Demos zeigen, wie ein HumanID Identitätsdaten an ein lebendes Gesicht bindet – ohne zentrale Gesichtsdatenbank.",
+    "traditionalEyebrow": "Verifik · Serverseitige Galerie",
     "traditionalTitle": "Klassische Biometrie",
     "decentralizedEyebrow": "HumanAuthn · HumanID",
     "decentralizedTitle": "Dezentrale Biometrie · HumanAuthn",
@@ -127,7 +127,7 @@
       "create-person": {
         "badge": "Registrierung",
         "title": "Person anlegen",
-        "description": "Registrieren Sie eine neue Person mit hochgeladenen Gesichtsbildern und Metadaten. Gespeichert in einer OpenCV-Sammlung."
+        "description": "Registrieren Sie eine neue Person mit hochgeladenen Gesichtsbildern und Metadaten. Gespeichert in einer Verifik-Sammlung."
       },
       "create-person-with-liveness": {
         "badge": "Registrierung",

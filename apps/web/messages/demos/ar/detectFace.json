@@ -3,7 +3,7 @@
   "heroTitleComplete": "اكتمل الكشف",
   "heroTitleInitial": "كشف الوجه",
   "heroSubtitleComplete": "النتائج معروضة أدناه. أعد التعيين لتشغيل كشف آخر.",
-  "heroSubtitleInitial": "حدّد مواقع الوجوه في صورة مع مربعات إحاطة ودرجات (مسار كشف OpenCV).",
+  "heroSubtitleInitial": "حدّد مواقع الوجوه في صورة مع مربعات إحاطة ودرجات (مسار كشف Verifik).",
   "minScoreLabel": "الحد الأدنى للنتيجة {score}",
   "searchModeLabel": "وضع البحث",
   "chooseOneDescription": "امسح بالكاميرا أو ارفع صورة. أي خيار يعمل في هذا العرض.",

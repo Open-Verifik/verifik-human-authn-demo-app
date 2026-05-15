@@ -3,7 +3,7 @@
   "heroTitleComplete": "Détection terminée",
   "heroTitleInitial": "Détecter un visage",
   "heroSubtitleComplete": "Les résultats s'affichent ci-dessous. Réinitialisez pour une nouvelle détection.",
-  "heroSubtitleInitial": "Localisez les visages dans une image avec des boîtes englobantes et des scores (pipeline OpenCV).",
+  "heroSubtitleInitial": "Localisez les visages dans une image avec des boîtes englobantes et des scores (pipeline Verifik).",
   "minScoreLabel": "Score min. {score}",
   "searchModeLabel": "Mode de recherche",
   "chooseOneDescription": "Utilisez la caméra ou téléversez une photo. L'une ou l'autre option convient pour cette démo.",

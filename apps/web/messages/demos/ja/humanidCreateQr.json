@@ -41,6 +41,6 @@
   "paramOs": "デスクトップ / IOS / アンドロイド",
   "paramIdentifier": "英数字の個人識別子",
   "paramRequireLiveness": "復号化時に活性化を要求する",
-  "paramTolerance": "レギュラー / ソフト / ハードン",
+  "paramTolerance": "レギュラー / ソフト / HARDENED",
   "paramPassword": "オプションの暗号化パスワード"
 }

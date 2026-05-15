@@ -10,7 +10,7 @@
   "personEnrolled": "Pessoa cadastrada",
   "subtitleDelete": "Último registro retornado por DELETE /persons/:id (ex.: após remover de uma coleção).",
   "subtitleUpdate": "Último registro retornado por PUT /persons/:id.",
-  "subtitleCreate": "Armazenado nas suas coleções OpenCV.",
+  "subtitleCreate": "Armazenado nas suas coleções Verifik.",
   "personId": "ID da pessoa",
   "profile": "Perfil",
   "gender": "Gênero",
