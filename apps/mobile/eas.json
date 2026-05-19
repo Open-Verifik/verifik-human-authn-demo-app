@@ -1,0 +1,50 @@
+{
+  "cli": {
+    "version": ">= 13.0.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "android": {
+        "gradleCommand": ":app:assembleDebug"
+      },
+      "env": {
+        "EXPO_PUBLIC_VERIFIK_API_URL": "https://prod.verifik.co",
+        "EXPO_PUBLIC_VERIFIK_PROJECT_ID": "6332941ccde4f719d9c00f9e",
+        "EXPO_PUBLIC_VERIFIK_PROJECT_FLOW_ID": "6332941ccde4f719d9c00f9f"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_VERIFIK_API_URL": "https://prod.verifik.co",
+        "EXPO_PUBLIC_VERIFIK_PROJECT_ID": "6332941ccde4f719d9c00f9e",
+        "EXPO_PUBLIC_VERIFIK_PROJECT_FLOW_ID": "6332941ccde4f719d9c00f9f"
+      }
+    },
+    "production": {
+      "autoIncrement": true,
+      "android": {
+        "buildType": "app-bundle"
+      },
+      "env": {
+        "EXPO_PUBLIC_VERIFIK_API_URL": "https://prod.verifik.co",
+        "EXPO_PUBLIC_VERIFIK_PROJECT_ID": "6332941ccde4f719d9c00f9e",
+        "EXPO_PUBLIC_VERIFIK_PROJECT_FLOW_ID": "6332941ccde4f719d9c00f9f"
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "android": {
+        "serviceAccountKeyPath": "./google-play-service-account.json",
+        "track": "internal"
+      }
+    }
+  }
+}
