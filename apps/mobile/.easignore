@@ -1,0 +1,7 @@
+# Let EAS prebuild apply app.json plugins (e.g. targetSdkVersion 35).
+android/
+ios/
+
+# Secrets — keep local only
+keys/
+google-play-service-account.json
