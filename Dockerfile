@@ -9,8 +9,12 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml turbo.json ./
 COPY apps/web/package.json ./apps/web/
 COPY apps/mobile/package.json ./apps/mobile/
 COPY apps/desktop/package.json ./apps/desktop/
+# Add a COPY line here when adding a new packages/* workspace
 COPY packages/api-client/package.json ./packages/api-client/
+COPY packages/demo-catalog/package.json ./packages/demo-catalog/
 COPY packages/design-tokens/package.json ./packages/design-tokens/
+COPY packages/i18n-messages/package.json ./packages/i18n-messages/
+COPY patches ./patches
 RUN pnpm install --frozen-lockfile
 
 FROM base AS builder
